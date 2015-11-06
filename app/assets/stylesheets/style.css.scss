@@ -27,7 +27,7 @@
 
 
 .navbar-default .navbar-nav > li > a{
-	color:#335F76;
+	color:#46E0F6;
 	opacity: 1;
 }
 
@@ -53,9 +53,13 @@
     .carousel-inner {
     	img{
     		width: 100%;
+
     	}
         .item {
             transition-property: opacity;
+            img{
+            	height: 580px;
+            }
         }
         
         .item,
@@ -96,14 +100,39 @@
 .footer-table{
 	
 	background-color: #333333;
-	
-	.footer{
-		margin: 0 auto;
-	}
+	padding-bottom: 15px;
+	padding-top: 10px;
 	table td a{
 		color:white;
 	}
 	table td{
 		padding: 15px 30px 15px 30px;
+	}
+	
+	.header-title{
+		td{
+			font-size: 0.8em;
+			padding-bottom: 0;
+			font-weight: bold;
+			text-transform: uppercase;
+		}
+	}
+
+	.sub-text{
+		td{
+			padding-top: 2px;
+			padding-bottom: 0px;
+			font-size: 0.7em;
+		}
+	}
+
+	.footer{
+		margin: 0 auto;
+		padding-bottom: 10px;
+	}
+
+	.sub{
+		list-style-type: none;
+		margin-top: 7px;
 	}
 }
