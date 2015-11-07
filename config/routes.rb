@@ -4,7 +4,11 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
     root 'public#index'
-
+    get 'mission' => 'public#mission'
+    get 'history' => 'public#history'
+    get 'services' => 'public#services'
+    get 'contacts' => 'public#contacts'
+    get 'conditions' => 'public#conditions'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
