@@ -3,7 +3,8 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
-#gem 'sqlite3'
+gem 'sqlite3'
+gem 'devise'
 gem 'bootstrap-sass', '~> 3.3.5'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 3.2'
@@ -28,6 +29,8 @@ gem 'slim-rails'
 
 gem 'owlcarousel-rails'
 
+gem 'underscore-rails'
+gem 'gmaps4rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

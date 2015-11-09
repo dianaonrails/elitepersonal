@@ -10,25 +10,32 @@
 	height: 65px;
 }
 .top-title a{
-	color:#84E2FB;
-	font-family: 'Noto Serif', serif;
+	color:#105264;
+	font-family: 'Josefin Sans', sans-serif;
 	font-size: 2em;
 	text-decoration: none;
 }
 
+.dropdown-menu > li > a{
+	font-family: 'Fira Sans', sans-serif;
+	font-weight: 300;
+}
+
 .navbar-nav{
 	float:right;
-	width: 64%;
+	width: 63%;
 }
 .navbar-default{
-	background-color: #2269A8;
+	background-color: #E1E4E6;
 	opacity: 0.8;
 	padding: 10px;
+	margin-bottom: 0;
+	border-bottom-color: gray;
 }
 
 
 .navbar-default .navbar-nav > li > a{
-	color:white;
+	color:#105264;
 	opacity: 1;
 }
 
@@ -43,20 +50,37 @@
 
 .nav > li > a{
 	padding: 15px 18px;
-	font-family: 'Roboto', sans-serif;
-	font-weight: 700;
+	//font-family: 'Open Sans', sans-serif;
+	//font-family: 'Raleway', sans-serif;
+	font-family: 'Fira Sans', sans-serif;
+	font-weight: 300;
 }
+
+
+
 .motto{
-	font-size: 1.2em;
+	border-top:1px solid #AAAAAA;
 	text-align: center;
-	color:white;
-	margin-left: 2px;
+	margin-top: 10px;
+	span{
+		font-size: 1.5em;
+		text-align: center;
+		color:#828485;
+		margin-left: 2px;
+		font-family: 'Fira Sans', sans-serif;
+		font-weight: 400;
+		line-height:0;
+   		padding:0.1em 1em;
+   		position: relative; 
+   		top: -0.5em;
+		background-color: #E1E4E6; 
+		margin: 0;
+	}
+
 }
 
 .carousel-container{
-	position: absolute;
-	top:0;
-	z-index: -1;
+	z-index:-1;
 	padding: 0;
 }
 
@@ -72,7 +96,7 @@
         .item {
             transition-property: opacity;
             img{
-            	height: 580px;
+            	height: 500px;
             	width: 100%;
             }
         }
@@ -104,17 +128,15 @@
 }
 
 
-
-
 .footer-container{
-	position: fixed;
-	bottom: 0;
 	padding: 0;
 }
 
+
+
 .footer-table{
-	
-	background-color: #12395B;
+	position:fixed;bottom:0;left:0;right:0;
+	background-color: #DEDEDE;
 	padding-bottom: 15px;
 	padding-top: 10px;
 	box-shadow: inset 0 20px 20px -20px rgba(0,0,0,0.8);
@@ -126,8 +148,9 @@
 		td a{
 			font-size: 0.8em;
 			padding-bottom: 0;
-			font-weight: bold;
-			color:#630A05;
+			font-family: 'Fira Sans', sans-serif;
+			font-weight: 400;
+			color:#105264;
 			text-transform: uppercase;
 		}
 	}
@@ -137,8 +160,10 @@
 			padding-top: 2px;
 			padding-bottom: 0px;
 			font-size: 0.7em;
+			font-family: 'Fira Sans', sans-serif;
+			font-weight: 300;
 			a{
-				color:white;
+				color:#105264;
 			}
 		}
 	}
@@ -159,6 +184,7 @@
 
 .mission-container{
 	//background-color: #dddbdb;
+	margin-top: 25px;
 	.image{
 		img{
 			width: 100%;
@@ -170,13 +196,19 @@
 	h1{
 		font-family: 'Noto Serif', serif;
 		color:#46BFF6;
+		font-family: 'Fira Sans', sans-serif;
+		font-weight: 400;
 	}
 	hr{
 		margin-top: 3px;
 		margin-bottom: 10px;
+		border-color: #BEC3C4;
 	}
 	p{
 		text-align: justify;
+		font-family: 'Fira Sans', sans-serif;
+		font-weight: 300;
+		color:#707273;
 	}
 }
 
@@ -184,59 +216,91 @@
 
 .history-content{
 	z-index: -1;
+	margin-top: 25px;
 	h1{
 		font-family: 'Noto Serif', serif;
 		color:#46BFF6;
+		font-family: 'Fira Sans', sans-serif;
+		font-weight: 400;
 	}
 	hr{
 		margin-top: 3px;
 		margin-bottom: 10px;
+		border-color: #BEC3C4;
 	}
 	p{
 		text-align: justify;
+		font-family: 'Fira Sans', sans-serif;
+		font-weight: 300;
+		color:#707273;
 	}
 }
 
-
+/*************************** SERVICES ******************************/
 .services-content{
 	z-index: -1;
 	padding-bottom: 170px;
+	margin-top: 25px;
 	h1{
 		font-family: 'Noto Serif', serif;
 		color:#46BFF6;
+		font-family: 'Fira Sans', sans-serif;
+		font-weight: 400;
 	}
 	h4{
 		font-family: 'Roboto', sans-serif;
 		color:#3DA2AD;
+		font-family: 'Fira Sans', sans-serif;
+		font-weight: 400;
+	}
+	hr{
+		margin-top: 0px;
+		margin-bottom: 30px;
+		border-color: #BEC3C4;
 	}
 	p{
 		text-align: justify;
+		font-family: 'Fira Sans', sans-serif;
+		font-weight: 300;
+		color:#707273;
 	}
 }
 
 
 .contacts-content{
 	z-index: -1;
-	padding-bottom: 170px;
+	margin-bottom: 20px;
 	h2{
-		font-family: 'Noto Serif', serif;
+		font-family: 'Fira Sans', sans-serif;
+		font-weight: 400;
 		color:#46BFF6;
 	}
 
 	p{
 		text-align: justify;
+		font-family: 'Fira Sans', sans-serif;
+		font-weight: 300;
 	}
 }
 
 .conditions-content{
 	z-index: -1;
 	padding-bottom: 170px;
+	margin-top: 25px;
 	h1{
-		font-family: 'Noto Serif', serif;
+		font-family: 'Fira Sans', sans-serif;
+		font-weight: 400;
 		color:#46BFF6;
 	}
-
+	hr{
+		margin-top: 3px;
+		margin-bottom: 10px;
+		border-color: #BEC3C4;
+	}
 	p{
 		text-align: justify;
+		font-family: 'Fira Sans', sans-serif;
+		font-weight: 300;
+		color:#707273;
 	}
 }
