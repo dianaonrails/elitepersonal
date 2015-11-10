@@ -20,21 +20,5 @@
 $(document).ready(function () {
 	$('.carousel').carousel();
 
-	handler = Gmaps.build('Google');
-	handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-	  markers = handler.addMarkers([
-	    {
-	      "lat": 0,
-	      "lng": 0,
-	      "picture": {
-	        "url": "/assets/pin56.png",
-	        "width":  32,
-	        "height": 32
-	      },
-	      "infowindow": "hello!"
-	    }
-	  ]);
-	  handler.bounds.extendWith(markers);
-	  handler.fitMapToBounds();
-	});
+	
 });

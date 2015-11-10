@@ -26,8 +26,7 @@
 	width: 63%;
 }
 .navbar-default{
-	background-color: #E1E4E6;
-	opacity: 0.8;
+	background-color: #F5F5F5;
 	padding: 10px;
 	margin-bottom: 0;
 	border-bottom-color: gray;
@@ -73,7 +72,7 @@
    		padding:0.1em 1em;
    		position: relative; 
    		top: -0.5em;
-		background-color: #E1E4E6; 
+		background-color: #F5F5F5; 
 		margin: 0;
 	}
 
@@ -82,6 +81,20 @@
 .carousel-container{
 	z-index:-1;
 	padding: 0;
+}
+.indent-label{
+	margin-right: 5px;
+}
+.indent-field{
+	margin-bottom: 10px;
+}
+.indent-textbox{
+	display: inline;
+	margin-right: 5px;
+}
+
+input[type='text']{
+	width: 290px;
 }
 
 .up-more{
@@ -93,6 +106,24 @@
 	bottom:20px;
 }
 
+.title{
+	font-family: 'Fira sans',sans-serif;
+	font-weight: 400;
+}
+
+.new-candidate{
+	margin-bottom: 180px;
+}
+
+label{
+	font-family: 'Fira sans', sans-serif;
+	font-weight: 300;
+}
+
+.subtitle{
+	font-family: 'Fira sans',sans-serif;
+	font-weight: 400;
+}
 
 .carousel-fade {
     .carousel-inner {

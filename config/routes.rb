@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     get 'services' => 'public#services'
     get 'contacts' => 'public#contacts'
     get 'conditions' => 'public#conditions'
+
+    resources :candidates
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
