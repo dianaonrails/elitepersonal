@@ -24,10 +24,6 @@ Rails.application.configure do
   # Apache or NGINX already handles this.
   config.serve_static_files = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
-  db.default.partitionCount=2
-
-  db.default.maxConnectionsPerPartition=5
-  db.default.minConnectionsPerPartition=5
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
