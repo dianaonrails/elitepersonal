@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     get 'services' => 'public#services'
     get 'contacts' => 'public#contacts'
     get 'conditions' => 'public#conditions'
+    get 'client' => 'public#client'
+    get 'send_client' => "public#send_client"
 
     resources :candidates
   # Example of regular route:
