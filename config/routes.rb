@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     get 'contacts' => 'public#contacts'
     get 'conditions' => 'public#conditions'
     get 'client' => 'public#client'
-    get 'send_client' => "public#send_client"
+    get 'vacancies' => "public#vacancies"
 
     resources :candidates
   # Example of regular route:
