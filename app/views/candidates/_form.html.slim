@@ -4,84 +4,121 @@
       h2 = "#{pluralize(@candidate.errors.count, "error")} prohibited this candidate from being saved:"
       ul
         - @candidate.errors.full_messages.each do |message|
-          li = message
+          li = message      
   .col-md-6
-	 
-	  .col-md-2
-		   =f.label :name
-		   br
-		   br
-		   =f.label :address
-		   br
-		   br
-		   =f.label :mobile
-		   br
-		   br
-		   =f.label :email
-		   br
-		   br
-		   =f.label :citizenship
-		   br
-	  .col-md-10	  
-		  =f.text_field :name
+	div class="panel panel-default" 
+	  .panel-heading Personal Info
+	  .panel-body
+		  .col-md-2
+		  	   =f.label :photo
+		  	   br
+		  	   br
+			   =f.label :name
+			   br
+			   br
+			   =f.label :address
+			   br
+			   br
+			   =f.label :mobile
+			   br
+			   br
+			   =f.label :email
+			   br
+			   br
+			   =f.label :citizenship
+			   br
+		  .col-md-10
+		  	  =f.file_field :photo
+		  	  
+		  	  br	  
+			  =f.text_field :name
+			  br
+			  br
+			  =f.text_field :address
+			  br
+			  br
+			  =f.text_field :mobile
+			  br
+			  br
+			  =f.text_field :email
+			  br
+			  br
+			  =f.text_field :citizenship
+			  br
+	  	
+	div class="panel panel-default"   	  
+	  .panel-heading Availability Info
+	  .panel-body			  
+		  .col-md-12
+		  	  br
+			  =f.label :availability, class:"indent-field subtitle"
+			  br
+			  .indent-textbox
+				  =label_tag 'Intern',nil,class:'indent-label'
+				  =check_box_tag('intern','intern',false)
+			  .indent-textbox	  
+				  =label_tag 'Extern',nil,class:'indent-label'
+				  =check_box_tag('extern','extern',false)
+			  .indent-textbox	  
+				  =label_tag 'Part time',nil,class:'indent-label'
+				  =check_box_tag('part_time','part_time',false)
+			  .indent-textbox	  
+				  =label_tag 'full time',nil,class:'indent-label'
+				  =check_box_tag('full_time','full_time',false)
+			  .indent-textbox	  
+				  =label_tag 'weekend',nil,class:'indent-label'
+				  =check_box_tag('weekend','weekend',false)  
+			  br
+			  =label_tag 'Eligible to work in:', nil,class:'subtitle'
+			  br
+			  .indent-textbox
+				  =label_tag 'Moscow',nil,class:'indent-label'
+				  =check_box_tag('Moscow','Moscow',false)
+			  .indent-textbox
+				  =label_tag 'London',nil,class:'indent-label'
+				  =check_box_tag('London','London',false)  
+			  .indent-textbox
+				  =label_tag 'Paris',nil,class:'indent-label'
+				  =check_box_tag('Paris','Paris',false)  
+			  br
+			  =label_tag 'If accepted can you start:', nil,class:'subtitle'
+			  br
+			  .indent-textbox
+				  =label_tag 'immediately'
+				  =radio_button_tag('start', 'immediately')
+			  .indent-textbox	  
+				  =label_tag 'not immediately'
+				  =radio_button_tag('start', 'not immediately')
+			  br
+			  =label_tag 'statement'
+			  br
+			  =f.text_area :statment, rows: 3, cols: 45
 		  br
+	div class="panel panel-default"   	  
+	  .panel-heading Education Info
+	  .panel-body 
+		  =label_tag 'Education', nil ,class:'subtitle'
 		  br
-		  =f.text_field :address
+		  =label_tag 'Highest level of education'
 		  br
+		  =text_field_tag 'Education'
 		  br
-		  =f.text_field :mobile
+		  =label_tag 'Education History'
 		  br
+		  =text_area_tag 'Education history', nil, rows: 3, cols: 45
 		  br
-		  =f.text_field :email
+		  =label_tag 'Aditional languages'
 		  br
-		  br
-		  =f.text_field :citizenship
-		  br
-	  .col-md-12
+		  =text_area_tag 'additional languages', nil, rows: 3, cols: 45
+		  br	 
+  .col-md-6	  
+  	div class="panel panel-default"   	  
+	  .panel-heading Work Info
+	  .panel-body
+	  	  =label_tag 'First select what category you are applying:'	, nil , class:'subtitle'
 	  	  br
-		  =f.label :availability, class:"indent-field subtitle"
-		  br
-		  .indent-textbox
-			  =label_tag 'Intern',nil,class:'indent-label'
-			  =check_box_tag('intern','intern',false)
-		  .indent-textbox	  
-			  =label_tag 'Extern',nil,class:'indent-label'
-			  =check_box_tag('extern','extern',false)
-		  .indent-textbox	  
-			  =label_tag 'Part time',nil,class:'indent-label'
-			  =check_box_tag('part_time','part_time',false)
-		  .indent-textbox	  
-			  =label_tag 'full time',nil,class:'indent-label'
-			  =check_box_tag('full_time','full_time',false)
-		  .indent-textbox	  
-			  =label_tag 'weekend',nil,class:'indent-label'
-			  =check_box_tag('weekend','weekend',false)  
-		  br
-		  =label_tag 'Eligible to work in:', nil,class:'subtitle'
-		  br
-		  .indent-textbox
-			  =label_tag 'Moscow',nil,class:'indent-label'
-			  =check_box_tag('Moscow','Moscow',false)
-		  .indent-textbox
-			  =label_tag 'London',nil,class:'indent-label'
-			  =check_box_tag('London','London',false)  
-		  .indent-textbox
-			  =label_tag 'Paris',nil,class:'indent-label'
-			  =check_box_tag('Paris','Paris',false)  
-		  br
-		  =label_tag 'If accepted can you start:', nil,class:'subtitle'
-		  br
-		  .indent-textbox
-			  =label_tag 'immediately'
-			  =radio_button_tag('start', 'immediately')
-		  .indent-textbox	  
-			  =label_tag 'not immediately'
-			  =radio_button_tag('start', 'not immediately')
-		  br
-		  =label_tag 'statement'
-		  br
-		  =f.text_area :statment, rows: 3, cols: 45
-		  br
+	  	  =select_tag("categories",options_for_select(["Nanny","Governess",'Housekeeper','Cooker','Driver','Assistants','Cleaning']))
+	  	  br
 		  =label_tag 'work experience', nil , class:'subtitle'
 		  br
 		  =label_tag 'Sectors / Functions you have experience in: '
@@ -92,44 +129,28 @@
 		  br
 		  =text_field_tag 'Years'
 		  br
-		 
-  .col-md-6	  
-  	  =label_tag ' Current/most recent job title'
-	  br
-	  =text_field_tag 'last jobs'
-	  br
-	  =label_tag ' Last employment/employer'
-	  br
-	  =text_field_tag 'last employer'
-	  br
-	  =label_tag 'Key skills'
-	  br
-	  =text_area_tag 'Skills', nil, rows: 3, cols: 45
-	  br
-	  =label_tag 'Education', nil ,class:'subtitle'
-	  br
-	  =label_tag 'Highest level of education'
-	  br
-	  =text_field_tag 'Education'
-	  br
-	  =label_tag 'Education History'
-	  br
-	  =text_area_tag 'Education history', nil, rows: 3, cols: 45
-	  br
-	  =label_tag 'Aditional languages'
-	  br
-	  =text_area_tag 'additional languages', nil, rows: 3, cols: 45
-	  br
-	  br
-
-	  =label_tag 'Work eligibility:',nil ,class:'subtitle'
-	  br
-	  =label_tag 'Legal to work in - Moscow', nil
-	  =radio_button_tag('work', 'Legal to work in - Moscow')
-	  =label_tag 'outside Moscow'
-	  =radio_button_tag('work', 'Outside Moscow')
-
+	  	  =label_tag ' Current/most recent job title'
+		  br
+		  =text_field_tag 'last jobs'
+		  br
+		  =label_tag ' Last employment/employer'
+		  br
+		  =text_field_tag 'last employer'
+		  br
+		  =label_tag 'Key skills'
+		  br
+		  =text_area_tag 'Skills', nil, rows: 3, cols: 45
+		  br
+		  =label_tag 'Work eligibility:',nil ,class:'subtitle'
+		  br
+		  =label_tag 'Legal to work in - Moscow', nil
+		  =radio_button_tag('work', 'Legal to work in - Moscow')
+		  =label_tag 'outside Moscow'
+		  =radio_button_tag('work', 'Outside Moscow')
+		  br
+		  =label_tag 'Upload your CV', nil, class:'subtitle'
+		  =f.file_field :cv
 
   .col-md-12
   	br
-  	.actions = f.submit
+  	.actions = f.submit 'Submit'

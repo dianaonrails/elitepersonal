@@ -106,13 +106,24 @@ input[type='text']{
 	bottom:20px;
 }
 
-.title{
+
+/*********************** CREATE CANDIDATE **************************/
+
+
+.title-candidate{
 	font-family: 'Fira sans',sans-serif;
 	font-weight: 400;
+	font-size: 1.8em;
+	color:#46BFF6;
+	margin-bottom: 2%;
+	margin-top: 3%;
 }
 
 .new-candidate{
 	margin-bottom: 180px;
+	select{
+		width: 54%;
+	}
 }
 
 label{
