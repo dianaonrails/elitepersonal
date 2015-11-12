@@ -1,3 +1,11 @@
+.title{
+	color:#46BFF6;
+	font-family: 'Fira Sans', sans-serif;
+	font-weight: 400;
+	font-size: 2em;
+}
+
+
 
 
 #owl-id .item img{
@@ -215,7 +223,6 @@ input[type='text']{
 		z-index: -1;
 	}
 	h1{
-		font-family: 'Noto Serif', serif;
 		color:#46BFF6;
 		font-family: 'Fira Sans', sans-serif;
 		font-weight: 400;
@@ -396,4 +403,18 @@ label{
 .subtitle{
 	font-family: 'Fira sans',sans-serif;
 	font-weight: 400;
+}
+
+/***************VACANCIES***************/
+.categories-list{
+	margin-top: 3%;
+	border-right: 1px solid #EBEDED;
+	ul li{
+		font-family: 'Fira sans',sans-serif;
+		font-weight: 300;
+	}
+}
+
+.vacancies-list{
+	margin-top: 3%;
 }
