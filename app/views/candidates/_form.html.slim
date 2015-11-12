@@ -8,12 +8,13 @@
   .col-md-6
 	div class="panel panel-default" 
 	  .panel-heading Personal Info
-	  .panel-body
-		  .col-md-2
-		  	   =f.label :photo
-		  	   br
-		  	   br
-			   =f.label :name
+	  .panel-body.personal-info
+		  .col-md-2 style="padding:0;"
+		  	   
+			   =label_tag 'First Name'
+			   br
+			   br
+			   =label_tag 'Last Name'
 			   br
 			   br
 			   =f.label :address
@@ -25,13 +26,23 @@
 			   =f.label :email
 			   br
 			   br
+			   =label_tag 'Date of birth'
+			   br
+			   br
+			   =label_tag 'Married'
+			   br
+			   br
 			   =f.label :citizenship
 			   br
+			   br
+			   =f.label :photo
+		  	   br
+		  	   br
 		  .col-md-10
-		  	  =f.file_field :photo
-		  	  
-		  	  br	  
-			  =f.text_field :name
+		  	  =text_field_tag 'firstname'
+		  	  br  
+		  	  br
+			  =text_field_tag 'last name'
 			  br
 			  br
 			  =f.text_field :address
@@ -43,9 +54,19 @@
 			  =f.text_field :email
 			  br
 			  br
+			  =date_select('candidate','birth_date',order: [:day, :month, :year])
+			  br
+			  br
+			  =label_tag 'Yes', nil
+			  =radio_button_tag('married', 'yes')
+			  =label_tag 'No'
+			  =radio_button_tag('married', 'no')
+			  br
+			  br
 			  =f.text_field :citizenship
 			  br
-	  	
+	  		  br
+	  		  =f.file_field :photo
 	div class="panel panel-default"   	  
 	  .panel-heading Availability Info
 	  .panel-body			  
@@ -114,7 +135,7 @@
   .col-md-6	  
   	div class="panel panel-default"   	  
 	  .panel-heading Work Info
-	  .panel-body
+	  .panel-body.work-info
 	  	  =label_tag 'First select what category you are applying:'	, nil , class:'subtitle'
 	  	  br
 	  	  =select_tag("categories",options_for_select(["Nanny","Governess",'Housekeeper','Cooker','Driver','Assistants','Cleaning']))

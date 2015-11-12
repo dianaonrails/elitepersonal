@@ -390,8 +390,16 @@ input[type='text']{
 
 .new-candidate{
 	margin-bottom: 180px;
-	select{
-		width: 54%;
+	
+	.personal-info{
+		select{
+			width: 24%;
+		}
+	}
+	.work-info{
+		select{
+			width: 54%;
+		}
 	}
 }
 
