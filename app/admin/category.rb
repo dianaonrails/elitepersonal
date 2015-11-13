@@ -1,9 +1,10 @@
-ActiveAdmin.register Vacancy do
+ActiveAdmin.register Category do
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-permit_params :title, :country,:city,:salary,:description,:requirements, :category_id
+permit_params :title
+#
 # or
 #
 # permit_params do
@@ -12,13 +13,5 @@ permit_params :title, :country,:city,:salary,:description,:requirements, :catego
 #   permitted
 # end
 
-form do |f|
-	f.input :category_id, label: 'Category Name', as: :select, collection: Category.all
-	f.inputs
-	
-	
-	
-	f.actions
-end	
 
 end

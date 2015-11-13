@@ -10,4 +10,6 @@
 
 class Category < ActiveRecord::Base
 	has_many :vacancies
+
+	accepts_nested_attributes_for :vacancies
 end
