@@ -17,6 +17,15 @@
 			   =label_tag 'Last Name'
 			   br
 			   br
+			   =label_tag 'Gender'
+			   br
+			   br
+			   =label_tag 'Height'
+			   br
+			   br
+			   =label_tag 'Weight'
+			   br
+			   br
 			   =f.label :address
 			   br
 			   br
@@ -33,6 +42,12 @@
 			   =label_tag 'Married'
 			   br
 			   br
+			   =label_tag 'Passport nº'
+			   br
+			   br
+			   =label_tag 'Foreign passport nº'
+			   br
+			   br
 			   =f.label :citizenship
 			   br
 			   br
@@ -44,6 +59,18 @@
 		  	  br  
 		  	  br
 			  =text_field_tag 'last name'
+			  
+			  br 
+			  =label_tag 'Feminine', nil
+			  =radio_button_tag('gender', 'f')
+			  =label_tag 'Masculine'
+			  =radio_button_tag('gender', 'm')
+			  br
+			  br
+			  =text_field_tag 'height'
+			  br
+			  br
+			  =text_field_tag 'weight'
 			  br
 			  br
 			  =f.text_field :address
@@ -62,6 +89,12 @@
 			  =radio_button_tag('married', 'yes')
 			  =label_tag 'No'
 			  =radio_button_tag('married', 'no')
+			  br
+			  br
+			  =text_field_tag 'passport'
+			  br
+			  br
+			  =text_field_tag 'foreign_passport'
 			  br
 			  br
 			  =f.text_field :citizenship
