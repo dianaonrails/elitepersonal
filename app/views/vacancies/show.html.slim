@@ -1,0 +1,16 @@
+p#notice = notice
+
+.container
+	.row
+		.col-md-12
+			h2 
+				=@vacancy.title
+			h4 
+				=@vacancy.country
+			h5 Description:
+			p 
+				=@vacancy.description
+			h5 Requirements:
+			p
+				=@vacancy.requirements	
+			= link_to 'Back', vacancies_path

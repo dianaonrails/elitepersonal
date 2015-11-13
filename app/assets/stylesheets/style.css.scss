@@ -1,3 +1,8 @@
+
+body{
+	font-family: 'Fira Sans', sans-serif;
+}
+
 .title{
 	color:#46BFF6;
 	font-family: 'Fira Sans', sans-serif;
@@ -44,6 +49,7 @@
 .navbar-default .navbar-nav > li > a{
 	color:#105264;
 	opacity: 1;
+	text-decoration: none;
 }
 
 .navbar-nav > li:hover{
@@ -403,6 +409,7 @@ input[type='text']{
 	}
 }
 
+
 label{
 	font-family: 'Fira sans', sans-serif;
 	font-weight: 300;
@@ -421,6 +428,24 @@ label{
 		font-family: 'Fira sans',sans-serif;
 		font-weight: 300;
 	}
+}
+
+.vacancy-title{
+	font-family: 'Fira Sans', sans-serif;
+	font-weight: 400;
+	color:#A5A7A8;
+	font-size: 1.5em;
+}
+
+.vacancy-req{
+	font-family: 'Fira Sans', sans-serif;
+	font-weight: 400;
+	
+}
+
+.req-content{
+	font-weight: 300;
+	font-family: 1em;
 }
 
 .vacancies-list{

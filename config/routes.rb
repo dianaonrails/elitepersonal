@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :users, ActiveAdmin::Devise.config
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   devise_for :candidates
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -11,9 +14,10 @@ Rails.application.routes.draw do
     get 'contacts' => 'public#contacts'
     get 'conditions' => 'public#conditions'
     get 'client' => 'public#client'
-    get 'vacancies' => "public#vacancies"
+    #get 'vacancies' => "public#vacancies"
 
     resources :candidates
+    resources :vacancies
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

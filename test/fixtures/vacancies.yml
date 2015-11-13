@@ -1,0 +1,33 @@
+# == Schema Information
+#
+# Table name: vacancies
+#
+#  id           :integer          not null, primary key
+#  title        :string
+#  country      :string
+#  city         :string
+#  salary       :string
+#  description  :text
+#  requirements :text
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  category_id  :integer
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  country: MyString
+  city: MyString
+  salary: MyString
+  description: MyText
+  requirements: MyText
+
+two:
+  title: MyString
+  country: MyString
+  city: MyString
+  salary: MyString
+  description: MyText
+  requirements: MyText

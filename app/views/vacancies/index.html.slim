@@ -1,0 +1,29 @@
+.container
+  .row
+    .col-md-3.categories-list
+      h1.title Categories
+      ul
+        li Nanny / Baby sitter
+        li Governess
+        li Housekeeper
+        li Cooker
+        li Driver
+        li Assistants
+        li Cleaning
+
+    .col-md-8.vacancies-list
+      h1.title Full List of Vacancies
+      - @vacancies.each do |vacancy|
+        h1.vacancy-title 
+          =link_to "#{vacancy.title}", vacancy_path(vacancy.id)
+        h4.vacancy-country
+          =vacancy.country
+        h5 
+          =vacancy.salary 
+        p
+          h5.vacancy-req Requirements
+          p.req-content
+            =vacancy.requirements   
+=render "layouts/footer"
+
+
