@@ -15,10 +15,11 @@
 //= require bootstrap-sprockets
 //= require underscore
 //= require gmaps/google
+//= require bootstrap-datepicker
 //= require owl.carousel
 //= require_tree .
 $(document).ready(function () {
 	$('.carousel').carousel();
-
+	$('.datepicker').datepicker();
 	
 });

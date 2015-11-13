@@ -9,146 +9,92 @@
 	div class="panel panel-default" 
 	  .panel-heading Personal Info
 	  .panel-body.personal-info
-		  .col-md-2 style="padding:0;"
-		  	   
-			   =label_tag 'First Name'
-			   br
-			   br
-			   =label_tag 'Last Name'
-			   br
-			   br
-			   =label_tag 'Gender'
-			   br
-			   br
-			   =label_tag 'Height'
-			   br
-			   br
-			   =label_tag 'Weight'
-			   br
-			   br
-			   =f.label :address
-			   br
-			   br
-			   =f.label :mobile
-			   br
-			   br
-			   =f.label :email
-			   br
-			   br
-			   br
-			   =label_tag 'Date of birth'
-			   br
-			   br
-			   =label_tag 'Married'
-			   br
-			   br
-			   =label_tag 'Passport nº'
-			   br
-			   br
-			   =label_tag 'Foreign passport nº'
-			   br
-			   br
-			   =f.label :citizenship
-			   br
-			   br
-			   =f.label :photo
-		  	   br
-		  	   br
-		  .col-md-10
-		  	  =text_field_tag 'firstname'
-		  	  br  
-		  	  br
-			  =text_field_tag 'last name'
-			  
-			  br 
-			  =label_tag 'Feminine', nil
-			  =radio_button_tag('gender', 'f')
-			  =label_tag 'Masculine'
-			  =radio_button_tag('gender', 'm')
-			  br
-			  br
-			  =text_field_tag 'height'
-			  br
-			  br
-			  =text_field_tag 'weight'
-			  br
-			  br
-			  =f.text_field :address
-			  br
-			  br
-			  =f.text_field :mobile
-			  br
-			  br
-			  =f.text_field :email
-			  br
-			  br
-			  =date_select('candidate','birth_date',order: [:day, :month, :year])
-			  br
-			  br
-			  =label_tag 'Yes', nil
-			  =radio_button_tag('married', 'yes')
-			  =label_tag 'No'
-			  =radio_button_tag('married', 'no')
-			  br
-			  br
-			  =text_field_tag 'passport'
-			  br
-			  br
-			  =text_field_tag 'foreign_passport'
-			  br
-			  br
-			  =f.text_field :citizenship
-			  br
-	  		  br
-	  		  =f.file_field :photo
-	div class="panel panel-default"   	  
-	  .panel-heading Availability Info
-	  .panel-body			  
-		  .col-md-12
-		  	  br
-			  =f.label :availability, class:"indent-field subtitle"
-			  br
-			  .indent-textbox
-				  =label_tag 'Intern',nil,class:'indent-label'
-				  =check_box_tag('intern','intern',false)
-			  .indent-textbox	  
-				  =label_tag 'Extern',nil,class:'indent-label'
-				  =check_box_tag('extern','extern',false)
-			  .indent-textbox	  
-				  =label_tag 'Part time',nil,class:'indent-label'
-				  =check_box_tag('part_time','part_time',false)
-			  .indent-textbox	  
-				  =label_tag 'full time',nil,class:'indent-label'
-				  =check_box_tag('full_time','full_time',false)
-			  .indent-textbox	  
-				  =label_tag 'weekend',nil,class:'indent-label'
-				  =check_box_tag('weekend','weekend',false)  
-			  br
-			  =label_tag 'Eligible to work in:', nil,class:'subtitle'
-			  br
-			  .indent-textbox
-				  =label_tag 'Moscow',nil,class:'indent-label'
-				  =check_box_tag('Moscow','Moscow',false)
-			  .indent-textbox
-				  =label_tag 'London',nil,class:'indent-label'
-				  =check_box_tag('London','London',false)  
-			  .indent-textbox
-				  =label_tag 'Paris',nil,class:'indent-label'
-				  =check_box_tag('Paris','Paris',false)  
-			  br
-			  =label_tag 'If accepted can you start:', nil,class:'subtitle'
-			  br
-			  .indent-textbox
-				  =label_tag 'immediately'
-				  =radio_button_tag('start', 'immediately')
-			  .indent-textbox	  
-				  =label_tag 'not immediately'
-				  =radio_button_tag('start', 'not immediately')
-			  br
-			  =label_tag 'statement'
-			  br
-			  =f.text_area :statment, rows: 3, cols: 45
-		  br
+		  	.col-md-12.align-field
+		  	   .col-md-3
+			   	=label_tag 'First Name'
+			   .col-md-9
+			   	=text_field_tag 'firstname'
+			.col-md-12.align-field
+			   .col-md-3
+			   	=label_tag 'Last Name'
+			   .col-md-9
+			   	=text_field_tag 'firstname'
+			.col-md-12.align-field   	
+			   .col-md-3
+			   	=label_tag 'Gender'
+			   .col-md-9	
+				   =label_tag 'Feminine', nil
+				   =radio_button_tag('gender', 'f')
+				   =label_tag 'Masculine'
+				   =radio_button_tag('gender', 'm')
+			.col-md-12.align-field	   
+			   .col-md-3
+			   	=label_tag 'Height',nil,class:'align-label'
+			   .col-md-9
+			   	=text_field_tag 'height',nil,class:'align-field'
+			.col-md-12.align-field   	
+			   .col-md-3
+			   	=label_tag 'Weight',nil,class:'align-label'
+			   .col-md-9
+			   	=text_field_tag 'weight',nil,class:'align-field'
+			.col-md-12.align-field   	
+			   .col-md-3
+			   	=f.label :address
+			   .col-md-9
+			   	=f.text_field :address
+			.col-md-12.align-field   	
+			   .col-md-3
+			   	=f.label :mobile
+			   .col-md-9
+			   	=f.text_field :mobile
+			.col-md-12.align-field   	
+			   .col-md-3	
+			   	=f.label :email
+			   .col-md-9
+			   	=f.text_field :email
+			.col-md-12.align-field   	
+			   .col-md-3
+			   	=label_tag 'Date of birth'
+			   .col-md-9
+			   	input type="text" data-provide='datepicker'
+			   //=date_select('candidate','birth_date',order: [:day, :month, :year])
+			.col-md-12.align-field  
+			   .col-md-3
+			   	=label_tag 'Marital status'
+			   .col-md-9
+			   	=select_tag("marital_status",options_for_select(["Single","Married",'Divorced','Separated','Widowed','In a relationship','Civil Partnership','Rather not say']))
+			.col-md-12.align-field   	
+			   .col-md-3
+			   	 =label_tag 'Passport nº'
+			   .col-md-9	
+			   	 =text_field_tag 'passport'
+			.col-md-12.align-field   	 
+			   .col-md-3
+			   	 =label_tag 'Foreign passport nº'
+			   .col-md-9
+			   	 =text_field_tag 'foreign_passport'
+			.col-md-12.align-field   	 
+			   .col-md-3	
+			   	 =label_tag 'Nationality'
+			   .col-md-9
+			   	 =f.text_field :citizenship
+			.col-md-12.align-field   	 
+			   .col-md-3	
+			   	 =label_tag 'Are you a smoker?'
+			   .col-md-9
+			   	 =select_tag("smoker",options_for_select(["yes","no"]))
+			.col-md-12.align-field   	 
+			   .col-md-3
+			   	=label_tag 'Zodiac Sign'
+			   .col-md-9
+			   	 =select_tag("smoker",options_for_select(["Aquarius", "Piscis", "Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio","Sagittarius", "Capricorn"]))	   	     	 
+			.col-md-12.align-field   	 
+			   .col-md-3	
+			   	 =f.label :photo
+		  	   .col-md-9
+		  	   	 =f.file_field :photo
+
+	
 	div class="panel panel-default"   	  
 	  .panel-heading Education Info
 	  .panel-body 
@@ -199,13 +145,68 @@
 		  =label_tag 'Work eligibility:',nil ,class:'subtitle'
 		  br
 		  =label_tag 'Legal to work in - Moscow', nil
-		  =radio_button_tag('work', 'Legal to work in - Moscow')
+		  =check_box_tag('Moscow','Moscow',false)
 		  =label_tag 'outside Moscow'
-		  =radio_button_tag('work', 'Outside Moscow')
+		  =check_box_tag('Outside Moscow', 'Outside Moscow', false)
+		  =label_tag 'London'
+		  =check_box_tag('london', 'london', false)
+		  =label_tag 'Paris'
+		  =check_box_tag('paris', 'paris', false)
+		  br
+		  =label_tag 'Wage level per month',nil
+		  br
+		  =text_field_tag 'salary'
 		  br
 		  =label_tag 'Upload your CV', nil, class:'subtitle'
 		  =f.file_field :cv
-
+ 	div class="panel panel-default"   	  
+	  .panel-heading Availability Info
+	  .panel-body			  
+		  .col-md-12
+		  	  br
+			  =f.label :availability, class:"indent-field subtitle"
+			  br
+			  .indent-textbox
+				  =label_tag 'Intern',nil,class:'indent-label'
+				  =check_box_tag('intern','intern',false)
+			  .indent-textbox	  
+				  =label_tag 'Extern',nil,class:'indent-label'
+				  =check_box_tag('extern','extern',false)
+			  .indent-textbox	  
+				  =label_tag 'Part time',nil,class:'indent-label'
+				  =check_box_tag('part_time','part_time',false)
+			  .indent-textbox	  
+				  =label_tag 'full time',nil,class:'indent-label'
+				  =check_box_tag('full_time','full_time',false)
+			  .indent-textbox	  
+				  =label_tag 'weekend',nil,class:'indent-label'
+				  =check_box_tag('weekend','weekend',false)  
+			  br
+			  =label_tag 'Eligible to work in:', nil,class:'subtitle'
+			  br
+			  .indent-textbox
+				  =label_tag 'Moscow',nil,class:'indent-label'
+				  =check_box_tag('Moscow','Moscow',false)
+			  .indent-textbox
+				  =label_tag 'London',nil,class:'indent-label'
+				  =check_box_tag('London','London',false)  
+			  .indent-textbox
+				  =label_tag 'Paris',nil,class:'indent-label'
+				  =check_box_tag('Paris','Paris',false)  
+			  br
+			  =label_tag 'If accepted can you start:', nil,class:'subtitle'
+			  br
+			  .indent-textbox
+				  =label_tag 'immediately'
+				  =radio_button_tag('start', 'immediately')
+			  .indent-textbox	  
+				  =label_tag 'not immediately'
+				  =radio_button_tag('start', 'not immediately')
+			  br
+			  =label_tag 'statement'
+			  br
+			  =f.text_area :statment, rows: 3, cols: 45
+		  br
   .col-md-12
   	br
   	.actions = f.submit 'Submit'
