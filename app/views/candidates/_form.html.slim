@@ -5,166 +5,168 @@
       ul
         - @candidate.errors.full_messages.each do |message|
           li = message      
-  .col-md-6
+  .col-md-6.no-padding
 	div class="panel panel-default" 
 	  .panel-heading Personal Info
 	  .panel-body.personal-info
 		  	.col-md-12.align-field
-		  	   .col-md-3
-			   	=label_tag 'First Name'
+		  	   .col-md-3.no-padding
+			   	=label_tag 'First Name *'
 			   .col-md-9
 			   	=text_field_tag 'firstname'
 			.col-md-12.align-field
-			   .col-md-3
-			   	=label_tag 'Last Name'
+			   .col-md-3.no-padding
+			   	=label_tag 'Last Name *'
 			   .col-md-9
 			   	=text_field_tag 'firstname'
 			.col-md-12.align-field   	
-			   .col-md-3
-			   	=label_tag 'Gender'
+			   .col-md-3.no-padding
+			   	=label_tag 'Gender *'
 			   .col-md-9	
 				   =label_tag 'Feminine', nil
 				   =radio_button_tag('gender', 'f')
 				   =label_tag 'Masculine'
 				   =radio_button_tag('gender', 'm')
 			.col-md-12.align-field	   
-			   .col-md-3
+			   .col-md-3.no-padding
 			   	=label_tag 'Height',nil,class:'align-label'
 			   .col-md-9
 			   	=text_field_tag 'height',nil,class:'align-field'
 			.col-md-12.align-field   	
-			   .col-md-3
+			   .col-md-3.no-padding
 			   	=label_tag 'Weight',nil,class:'align-label'
 			   .col-md-9
 			   	=text_field_tag 'weight',nil,class:'align-field'
 			.col-md-12.align-field   	
-			   .col-md-3
-			   	=f.label :address
+			   .col-md-3.no-padding
+			   	=f.label 'Address *'
 			   .col-md-9
 			   	=f.text_field :address
 			.col-md-12.align-field   	
-			   .col-md-3
-			   	=f.label :mobile
+			   .col-md-3.no-padding
+			   	=f.label 'Mobile phone *'
 			   .col-md-9
 			   	=f.text_field :mobile
 			.col-md-12.align-field   	
-			   .col-md-3	
-			   	=f.label :email
+			   .col-md-3.no-padding	
+			   	=f.label 'Email *'
 			   .col-md-9
 			   	=f.text_field :email
 			.col-md-12.align-field   	
-			   .col-md-3
-			   	=label_tag 'Date of birth'
+			   .col-md-3.no-padding
+			   	=label_tag 'Date of birth *'
 			   .col-md-9
 			   	input type="text" data-provide='datepicker'
 			   //=date_select('candidate','birth_date',order: [:day, :month, :year])
 			.col-md-12.align-field  
-			   .col-md-3
+			   .col-md-3.no-padding
 			   	=label_tag 'Marital status'
 			   .col-md-9
 			   	=select_tag("marital_status",options_for_select(["Single","Married",'Divorced','Separated','Widowed','In a relationship','Civil Partnership','Rather not say']))
 			.col-md-12.align-field   	
-			   .col-md-3
+			   .col-md-3.no-padding
 			   	 =label_tag 'Passport nº'
 			   .col-md-9	
 			   	 =text_field_tag 'passport'
 			.col-md-12.align-field   	 
-			   .col-md-3
+			   .col-md-3.no-padding
 			   	 =label_tag 'Foreign passport nº'
 			   .col-md-9
 			   	 =text_field_tag 'foreign_passport'
 			.col-md-12.align-field   	 
-			   .col-md-3	
-			   	 =label_tag 'Nationality'
+			   .col-md-3.no-padding	
+			   	 =label_tag 'Nationality *'
+			   .col-md-9
+			   	 =text_field_tag 'nationality'
+			.col-md-12.align-field
+			   .col-md-3.no-padding
+			   	 =label_tag 'Citizenship *'   	 
 			   .col-md-9
 			   	 =f.text_field :citizenship
 			.col-md-12.align-field   	 
-			   .col-md-3	
+			   .col-md-3.no-padding	
 			   	 =label_tag 'Are you a smoker?'
 			   .col-md-9
 			   	 =select_tag("smoker",options_for_select(["yes","no"]))
 			.col-md-12.align-field   	 
-			   .col-md-3
+			   .col-md-3.no-padding
 			   	=label_tag 'Zodiac Sign'
 			   .col-md-9
-			   	 =select_tag("smoker",options_for_select(["Aquarius", "Piscis", "Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio","Sagittarius", "Capricorn"]))	   	     	 
+			   	 =select_tag("Zodiac",options_for_select(["Aquarius", "Piscis", "Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio","Sagittarius", "Capricorn"]))
+			.col-md-12.align-field
+				.col-md-3.no-padding
+					=label_tag 'number of own children *'
+				.col-md-9
+					=select_tag('child',options_for_select(["no children","1","2","3","4","5","6","7","8","9","10"]))		   	 	   	     	 
 			.col-md-12.align-field   	 
 			   .col-md-3	
-			   	 =f.label :photo
+			   	 =f.label 'Photo *'
 		  	   .col-md-9
 		  	   	 =f.file_field :photo
 
 	
 	div class="panel panel-default"   	  
 	  .panel-heading Education Info
-	  .panel-body 
-		  =label_tag 'Education', nil ,class:'subtitle'
-		  br
-		  =label_tag 'Highest level of education'
+	  .panel-body
+	  	.col-md-12.align-field 
+		  
+		  =label_tag 'Highest level of education *'
 		  br
 		  =text_field_tag 'Education'
+		.col-md-12.align-field
+		  =label_tag 'Education History *'
 		  br
-		  =label_tag 'Education History'
-		  br
-		  =text_area_tag 'Education history', nil, rows: 3, cols: 45
-		  br
+		  =text_area_tag 'Education history', nil, rows: 3, cols: 58
+		.col-md-12.align-field
 		  =label_tag 'Aditional languages'
 		  br
-		  =text_area_tag 'additional languages', nil, rows: 3, cols: 45
+		  =text_area_tag 'additional languages', nil, rows: 2, cols: 58
 		  br	 
   .col-md-6	  
   	div class="panel panel-default"   	  
 	  .panel-heading Work Info
 	  .panel-body.work-info
+	  	.col-md-12.align-field 
 	  	  =label_tag 'First select what category you are applying:'	, nil , class:'subtitle'
 	  	  br
 	  	  =select_tag("categories",options_for_select(["Nanny","Governess",'Housekeeper','Cooker','Driver','Assistants','Cleaning']))
+	  	
 	  	  br
-		  =label_tag 'work experience', nil , class:'subtitle'
-		  br
+		.col-md-12.align-field  
 		  =label_tag 'Sectors / Functions you have experience in: '
-		  br
+		
 		  =text_area_tag 'Functions', nil, rows: 3, cols: 45
-		  br
+		.col-md-12.align-field  
 		  =label_tag 'Years of experience'
 		  br
 		  =text_field_tag 'Years'
-		  br
+		.col-md-12.align-field  
 	  	  =label_tag ' Current/most recent job title'
 		  br
 		  =text_field_tag 'last jobs'
-		  br
+		.col-md-12.align-field  
 		  =label_tag ' Last employment/employer'
 		  br
 		  =text_field_tag 'last employer'
-		  br
+		.col-md-12.align-field  
 		  =label_tag 'Key skills'
 		  br
 		  =text_area_tag 'Skills', nil, rows: 3, cols: 45
 		  br
-		  =label_tag 'Work eligibility:',nil ,class:'subtitle'
-		  br
-		  =label_tag 'Legal to work in - Moscow', nil
-		  =check_box_tag('Moscow','Moscow',false)
-		  =label_tag 'outside Moscow'
-		  =check_box_tag('Outside Moscow', 'Outside Moscow', false)
-		  =label_tag 'London'
-		  =check_box_tag('london', 'london', false)
-		  =label_tag 'Paris'
-		  =check_box_tag('paris', 'paris', false)
-		  br
+		.col-md-12.align-field  
+		  
 		  =label_tag 'Wage level per month',nil
 		  br
 		  =text_field_tag 'salary'
-		  br
+		.col-md-12.align-field
 		  =label_tag 'Upload your CV', nil, class:'subtitle'
 		  =f.file_field :cv
  	div class="panel panel-default"   	  
-	  .panel-heading Availability Info
+	  .panel-heading Availability & Work eligibility Info
 	  .panel-body			  
 		  .col-md-12
 		  	  br
-			  =f.label :availability, class:"indent-field subtitle"
+			  =f.label 'Availability *', class:"indent-field subtitle"
 			  br
 			  .indent-textbox
 				  =label_tag 'Intern',nil,class:'indent-label'
@@ -182,17 +184,25 @@
 				  =label_tag 'weekend',nil,class:'indent-label'
 				  =check_box_tag('weekend','weekend',false)  
 			  br
-			  =label_tag 'Eligible to work in:', nil,class:'subtitle'
+			  =label_tag 'Available to work: *', nil,class:'subtitle'
 			  br
 			  .indent-textbox
 				  =label_tag 'Moscow',nil,class:'indent-label'
 				  =check_box_tag('Moscow','Moscow',false)
 			  .indent-textbox
-				  =label_tag 'London',nil,class:'indent-label'
+				  =label_tag 'Abroad',nil,class:'indent-label'
 				  =check_box_tag('London','London',false)  
+			  
+			  br
+			  =label_tag 'Legal to work: *', nil,class:'subtitle'
+			  br
 			  .indent-textbox
-				  =label_tag 'Paris',nil,class:'indent-label'
-				  =check_box_tag('Paris','Paris',false)  
+				  =label_tag 'Moscow',nil,class:'indent-label'
+				  =check_box_tag('Moscow','Moscow',false)
+			  .indent-textbox
+				  =label_tag 'Abroad',nil,class:'indent-label'
+				  =check_box_tag('London','London',false)  
+			  
 			  br
 			  =label_tag 'If accepted can you start:', nil,class:'subtitle'
 			  br

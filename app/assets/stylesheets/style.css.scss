@@ -10,8 +10,11 @@ body{
 	font-size: 2em;
 }
 
+.no-padding{
+	padding:0;
+}
 
-
+/*************************************/
 
 #owl-id .item img{
     display: block;
@@ -399,7 +402,7 @@ input[type='text']{
 	
 	.personal-info{
 		select{
-			width: 24%;
+			width: 44%;
 		}
 	}
 	.work-info{
@@ -412,7 +415,8 @@ input[type='text']{
 		margin-bottom: 3px;
 	}
 	.align-field{
-		margin: 3px;
+		margin-bottom: 15px;
+		padding: 0;
 	}
 }
 
