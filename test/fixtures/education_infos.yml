@@ -1,0 +1,26 @@
+# == Schema Information
+#
+# Table name: education_infos
+#
+#  id           :integer          not null, primary key
+#  candidate_id :integer
+#  level        :string
+#  history      :text
+#  languages    :text
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  candidate_id: 1
+  level: MyString
+  history: MyText
+  languages: MyText
+
+two:
+  candidate_id: 1
+  level: MyString
+  history: MyText
+  languages: MyText

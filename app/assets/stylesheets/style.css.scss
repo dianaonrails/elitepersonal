@@ -401,8 +401,11 @@ input[type='text']{
 	margin-bottom: 180px;
 	
 	.personal-info{
-		select{
+		.width_select{
 			width: 44%;
+		}
+		.birth_select{
+			width:20%;
 		}
 	}
 	.work-info{

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151112233040) do
+ActiveRecord::Schema.define(version: 20151116010621) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -64,17 +64,38 @@ ActiveRecord::Schema.define(version: 20151112233040) do
     t.boolean  "work_in"
     t.boolean  "start"
     t.text     "statment"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
     t.string   "photo"
     t.string   "cv"
     t.date     "birth_date"
+    t.string   "gender"
+    t.string   "height"
+    t.string   "weight"
+    t.string   "passport"
+    t.string   "foreign_passport"
+    t.string   "marital_status"
+    t.integer  "children"
+    t.string   "sign"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "nationality"
+    t.boolean  "smoker"
   end
 
   create_table "categories", force: :cascade do |t|
     t.string   "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "education_infos", force: :cascade do |t|
+    t.integer  "candidate_id"
+    t.string   "level"
+    t.text     "history"
+    t.text     "languages"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -106,6 +127,19 @@ ActiveRecord::Schema.define(version: 20151112233040) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "category_id"
+  end
+
+  create_table "work_infos", force: :cascade do |t|
+    t.integer  "category_id"
+    t.text     "sectors_experience"
+    t.string   "years_experience"
+    t.string   "current_job"
+    t.string   "last_employer"
+    t.text     "key_skills"
+    t.string   "salary"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.integer  "candidate_id"
   end
 
 end

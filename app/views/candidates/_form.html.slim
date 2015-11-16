@@ -11,32 +11,32 @@
 	  .panel-body.personal-info
 		  	.col-md-12.align-field
 		  	   .col-md-3.no-padding
-			   	=label_tag 'First Name *'
+			   	=f.label 'First Name *'
 			   .col-md-9
-			   	=text_field_tag 'firstname'
+			   	=f.text_field :first_name
 			.col-md-12.align-field
 			   .col-md-3.no-padding
-			   	=label_tag 'Last Name *'
+			   	=f.label 'Last Name *'
 			   .col-md-9
-			   	=text_field_tag 'firstname'
+			   	=f.text_field :first_name
 			.col-md-12.align-field   	
 			   .col-md-3.no-padding
 			   	=label_tag 'Gender *'
 			   .col-md-9	
 				   =label_tag 'Feminine', nil
-				   =radio_button_tag('gender', 'f')
+				   =f.radio_button(:gender, 'f')
 				   =label_tag 'Masculine'
-				   =radio_button_tag('gender', 'm')
+				   =f.radio_button(:gender, 'm')
 			.col-md-12.align-field	   
 			   .col-md-3.no-padding
-			   	=label_tag 'Height',nil,class:'align-label'
+			   	=f.label 'Height'
 			   .col-md-9
-			   	=text_field_tag 'height',nil,class:'align-field'
+			   	=f.text_field :height
 			.col-md-12.align-field   	
 			   .col-md-3.no-padding
-			   	=label_tag 'Weight',nil,class:'align-label'
+			   	=label_tag 'Weight'
 			   .col-md-9
-			   	=text_field_tag 'weight',nil,class:'align-field'
+			   	=f.text_field :weight
 			.col-md-12.align-field   	
 			   .col-md-3.no-padding
 			   	=f.label 'Address *'
@@ -56,28 +56,28 @@
 			   .col-md-3.no-padding
 			   	=label_tag 'Date of birth *'
 			   .col-md-9
-			   	input type="text" data-provide='datepicker'
-			   //=date_select('candidate','birth_date',order: [:day, :month, :year])
+			   	//input type="text" data-provide='datepicker'
+			    =date_select(:candidate,:birth_date,order: [:day, :month, :year])
 			.col-md-12.align-field  
 			   .col-md-3.no-padding
 			   	=label_tag 'Marital status'
 			   .col-md-9
-			   	=select_tag("marital_status",options_for_select(["Single","Married",'Divorced','Separated','Widowed','In a relationship','Civil Partnership','Rather not say']))
+			   	=f.select(:marital_status,options_for_select(["Single","Married",'Divorced','Separated','Widowed','In a relationship','Civil Partnership','Rather not say']))
 			.col-md-12.align-field   	
 			   .col-md-3.no-padding
 			   	 =label_tag 'Passport nº'
 			   .col-md-9	
-			   	 =text_field_tag 'passport'
+			   	 =f.text_field :passport
 			.col-md-12.align-field   	 
 			   .col-md-3.no-padding
 			   	 =label_tag 'Foreign passport nº'
 			   .col-md-9
-			   	 =text_field_tag 'foreign_passport'
+			   	 =f.text_field :foreign_passport
 			.col-md-12.align-field   	 
 			   .col-md-3.no-padding	
 			   	 =label_tag 'Nationality *'
 			   .col-md-9
-			   	 =text_field_tag 'nationality'
+			   	 =f.text_field :nationality
 			.col-md-12.align-field
 			   .col-md-3.no-padding
 			   	 =label_tag 'Citizenship *'   	 
@@ -87,17 +87,17 @@
 			   .col-md-3.no-padding	
 			   	 =label_tag 'Are you a smoker?'
 			   .col-md-9
-			   	 =select_tag("smoker",options_for_select(["yes","no"]))
+			   	 =f.select(:smoker,options_for_select(["yes","no"]))
 			.col-md-12.align-field   	 
 			   .col-md-3.no-padding
 			   	=label_tag 'Zodiac Sign'
 			   .col-md-9
-			   	 =select_tag("Zodiac",options_for_select(["Aquarius", "Piscis", "Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio","Sagittarius", "Capricorn"]))
+			   	 =f.select(:sign,options_for_select(["Aquarius", "Piscis", "Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio","Sagittarius", "Capricorn"]))
 			.col-md-12.align-field
 				.col-md-3.no-padding
 					=label_tag 'number of own children *'
 				.col-md-9
-					=select_tag('child',options_for_select(["no children","1","2","3","4","5","6","7","8","9","10"]))		   	 	   	     	 
+					=f.select(:children,options_for_select(["no children","1","2","3","4","5","6","7","8","9","10+"]), class:'width_select')		   	 	   	     	 
 			.col-md-12.align-field   	 
 			   .col-md-3	
 			   	 =f.label 'Photo *'
