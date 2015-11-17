@@ -75,7 +75,7 @@ class CandidatesController < ApplicationController
     def candidate_params
       params.require(:candidate).permit(:photo,:first_name,:last_name,:address,:mobile,:email,:citizenship,:birth_date,
         :gender,:height,:weight,:passport,:foreign_passport,:marital_status,:children,:sign,:nationality,
-        :smoker, :car,:driving_licence,:availability_ids,education_info_attributes:[:level,:history,:languages],work_info_attributes:[:sectors_experience,:years_experience,
-          :current_job,:last_employer,:key_skills,:salary])
+        :smoker, :car,:driving_licence,education_info_attributes:[:level,:history,:languages],work_info_attributes:[:sectors_experience,:years_experience,
+          :current_job,:last_employer,:key_skills,:salary],:availability_ids => [],:available_work_ids =>[],:legal_work_ids =>[])
     end
 end

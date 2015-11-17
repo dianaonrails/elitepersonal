@@ -8,7 +8,6 @@
 #  mobile           :string
 #  email            :string
 #  citizenship      :string
-#  availability     :boolean
 #  work_in          :boolean
 #  start            :boolean
 #  statment         :text
@@ -47,6 +46,8 @@ class Candidate < ActiveRecord::Base
   has_one :work_info
 
   has_many :availabilities
+  has_many :available_works
+  has_many :legal_works
 
   accepts_nested_attributes_for :education_info, allow_destroy: true
   accepts_nested_attributes_for :work_info, allow_destroy: true

@@ -439,11 +439,18 @@ label{
 
 /****************** SHOW CANDIDATE ******************/
 
-.img-resize{
-	img{
-		width: 90%;
+.show-candidate{
+	margin-bottom: 10%;
+	.img-resize{
+		img{
+			width: 90%;
+		}
+	}
+	.availability-description{
+		margin-right: 2%;
 	}
 }
+
 
 /***************VACANCIES***************/
 .categories-list{

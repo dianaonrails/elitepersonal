@@ -8,7 +8,6 @@
 #  mobile           :string
 #  email            :string
 #  citizenship      :string
-#  availability     :boolean
 #  work_in          :boolean
 #  start            :boolean
 #  statment         :text

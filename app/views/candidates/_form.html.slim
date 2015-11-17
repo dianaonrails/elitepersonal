@@ -179,37 +179,29 @@
 		  	  br
 			  =f.label 'Availability *', class:"indent-field subtitle"
 			  br
-			  =collection_check_boxes(:candidate,:availability_ids,Availability.all,:id,:description) 
+			  =f.collection_check_boxes(:availability_ids,Availability.all,:id,:description) 
 			  
 			  br
 			  =label_tag 'Available to work: *', nil,class:'subtitle'
 			  br
-			  .indent-textbox
-				  =label_tag 'Moscow',nil,class:'indent-label'
-				  =check_box_tag('Moscow','Moscow',false)
-			  .indent-textbox
-				  =label_tag 'Abroad',nil,class:'indent-label'
-				  =check_box_tag('Abroad','Abroad',false)  
+			  =f.collection_check_boxes(:available_work_ids,AvailableWork.all,:id,:description)
 			  
 			  br
 			  =label_tag 'Legal to work: *', nil,class:'subtitle'
 			  br
 			  .indent-textbox
-				  =label_tag 'Moscow',nil,class:'indent-label'
-				  =check_box_tag('Moscow','Moscow',false)
-			  .indent-textbox
-				  =label_tag 'Abroad',nil,class:'indent-label'
-				  =check_box_tag('Abroad','Abroad',false)  
+			  	=f.collection_check_boxes(:legal_work_ids,LegalWork.all,:id,:description)
+				
 			  
 			  br
 			  =label_tag 'If accepted can you start:', nil,class:'subtitle'
 			  br
 			  .indent-textbox
 				  =label_tag 'immediately'
-				  =f.radio_button(:start, 'immediately')
+				  =f.radio_button(:start, true)
 			  .indent-textbox	  
 				  =label_tag 'not immediately'
-				  =f.radio_button(:start, 'not immediately')
+				  =f.radio_button(:start, false)
 			  br
 			  =label_tag 'statement'
 			  br
@@ -218,3 +210,5 @@
   .col-md-12
   	br
   	.actions = f.submit 'Submit'
+
+=render "layouts/footer"

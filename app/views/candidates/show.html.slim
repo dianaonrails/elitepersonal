@@ -1,5 +1,5 @@
 .row
-	.container
+	.container.show-candidate
 		.col-md-12
 			p#notice = notice
 			.col-md-6
@@ -101,7 +101,8 @@
 				  .panel-body.personal-info
 				  	.col-md-12.align-field
 				  		.col-md-4.no-padding
-				  			=label_tag 'Highest level of education'   				
+				  			=label_tag 'Highest level of education'
+				  			br   				
 				  		.col-md-8
 				  			=@candidate.education_info.level
 				  	.col-md-12.align-field
@@ -146,8 +147,40 @@
 				div class="panel panel-default" 
 				  .panel-heading Availability Info
 				  .panel-body.personal-info
-				  	.col-md-12.align-field
-				  		=@candidate.availability		  							  									
+				  	.col-md-6
+					  	.col-md-12.align-field
+					  		=label_tag 'Availability:'
+					  		br
+					  		-@candidate.availabilities.each do |a|
+					  			span.availability-description
+					  				=a.description
+					  	.col-md-12.align-field
+					  		=label_tag 'Available to work:'
+					  		br
+					  		-@candidate.available_works.each do |aw|
+					  			span.availability-description
+					  				=aw.description
+					  	.col-md-12.align-field
+					  		=label_tag 'Legal to work:'
+					  		br
+					  		-@candidate.legal_works.each do |aw|
+					  			span.availability-description
+					  				=aw.description
+					.col-md-6  				
+					  	.col-md-12.align-field
+					  		=label_tag 'Start:'
+					  		br
+					  		-if @candidate.start
+					  			span Immediately
+					  		-else
+					  			span Not immediately
+					  		
+					  	.col-md-12.align-field
+					  		=label_tag 'statement'
+					  		=@candidate.statment					
+
 			= link_to 'Edit', edit_candidate_path(@candidate)
 			'|
 			= link_to 'Back', candidates_path
+
+=render "layouts/footer"
