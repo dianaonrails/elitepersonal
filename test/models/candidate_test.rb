@@ -29,6 +29,8 @@
 #  last_name        :string
 #  nationality      :string
 #  smoker           :boolean
+#  driving_licence  :boolean
+#  car              :boolean
 #
 
 require 'test_helper'

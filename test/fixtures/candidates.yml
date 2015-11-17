@@ -29,6 +29,8 @@
 #  last_name        :string
 #  nationality      :string
 #  smoker           :boolean
+#  driving_licence  :boolean
+#  car              :boolean
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

@@ -57,7 +57,7 @@
 			   	=label_tag 'Date of birth *'
 			   .col-md-9
 			   	//input type="text" data-provide='datepicker'
-			    =date_select(:candidate,:birth_date,order: [:day, :month, :year])
+			    =date_select(:candidate,:birth_date,order: [:day, :month, :year],start_year:1950)
 			.col-md-12.align-field  
 			   .col-md-3.no-padding
 			   	=label_tag 'Marital status'
@@ -99,6 +99,16 @@
 				.col-md-9
 					=f.select(:children,options_for_select(["no children","1","2","3","4","5","6","7","8","9","10+"]), class:'width_select')		   	 	   	     	 
 			.col-md-12.align-field   	 
+			   .col-md-3.no-padding
+			   	=label_tag 'Do you have driving licence?'
+			   .col-md-9
+			   	=f.select(:driving_licence,options_for_select(["yes","no"]))
+			.col-md-12.align-field   	 
+			   	.col-md-3.no-padding
+			   		=label_tag 'Do you have a car?'
+			   	.col-md-9
+			   		=f.select(:car,options_for_select(["yes","no"]))
+			.col-md-12.align-field   	 
 			   .col-md-3	
 			   	 =f.label 'Photo *'
 		  	   .col-md-9
@@ -108,59 +118,60 @@
 	div class="panel panel-default"   	  
 	  .panel-heading Education Info
 	  .panel-body
-	  	.col-md-12.align-field 
-		  
-		  =label_tag 'Highest level of education *'
-		  br
-		  =text_field_tag 'Education'
-		.col-md-12.align-field
-		  =label_tag 'Education History *'
-		  br
-		  =text_area_tag 'Education history', nil, rows: 3, cols: 58
-		.col-md-12.align-field
-		  =label_tag 'Aditional languages'
-		  br
-		  =text_area_tag 'additional languages', nil, rows: 2, cols: 58
-		  br	 
+	  	=f.fields_for :education_info, @candidate.education_info do |education_fields|
+		  	.col-md-12.align-field  
+			  =label_tag 'Highest level of education *'
+			  br
+			  =education_fields.text_field :level
+			.col-md-12.align-field
+			  =label_tag 'Education History *'
+			  br
+			  =education_fields.text_area :history, rows: 3, cols: 58
+			.col-md-12.align-field
+			  =label_tag 'Aditional languages'
+			  br
+			  =education_fields.text_area :languages, rows: 2, cols: 58
+			  br	 
   .col-md-6	  
   	div class="panel panel-default"   	  
 	  .panel-heading Work Info
 	  .panel-body.work-info
-	  	.col-md-12.align-field 
-	  	  =label_tag 'First select what category you are applying:'	, nil , class:'subtitle'
-	  	  br
-	  	  =select_tag("categories",options_for_select(["Nanny","Governess",'Housekeeper','Cooker','Driver','Assistants','Cleaning']))
-	  	
-	  	  br
-		.col-md-12.align-field  
-		  =label_tag 'Sectors / Functions you have experience in: '
-		
-		  =text_area_tag 'Functions', nil, rows: 3, cols: 45
-		.col-md-12.align-field  
-		  =label_tag 'Years of experience'
-		  br
-		  =text_field_tag 'Years'
-		.col-md-12.align-field  
-	  	  =label_tag ' Current/most recent job title'
-		  br
-		  =text_field_tag 'last jobs'
-		.col-md-12.align-field  
-		  =label_tag ' Last employment/employer'
-		  br
-		  =text_field_tag 'last employer'
-		.col-md-12.align-field  
-		  =label_tag 'Key skills'
-		  br
-		  =text_area_tag 'Skills', nil, rows: 3, cols: 45
-		  br
-		.col-md-12.align-field  
-		  
-		  =label_tag 'Wage level per month',nil
-		  br
-		  =text_field_tag 'salary'
-		.col-md-12.align-field
-		  =label_tag 'Upload your CV', nil, class:'subtitle'
-		  =f.file_field :cv
+	  	=f.fields_for :work_info, @candidate.work_info do |work_fields|
+		  	.col-md-12.align-field 
+		  	  =label_tag 'First select what category you are applying:'	, nil , class:'subtitle'
+		  	  br
+		  	  =select_tag("categories",options_for_select(["Nanny","Governess",'Housekeeper','Cooker','Driver','Assistants','Cleaning']))
+		  	
+		  	  br
+			.col-md-12.align-field  
+			  =label_tag 'Sectors / Functions you have experience in: '
+			
+			  =work_fields.text_area :sectors_experience, rows: 3, cols: 45
+			.col-md-12.align-field  
+			  =label_tag 'Years of experience'
+			  br
+			  =work_fields.text_field :years_experience
+			.col-md-12.align-field  
+		  	  =label_tag ' Current/most recent job title'
+			  br
+			  =work_fields.text_field :current_job
+			.col-md-12.align-field  
+			  =label_tag ' Last employment/employer'
+			  br
+			  =work_fields.text_field :last_employer
+			.col-md-12.align-field  
+			  =label_tag 'Key skills'
+			  br
+			  =work_fields.text_area :key_skills, rows: 3, cols: 45
+			  br
+			.col-md-12.align-field  
+			  
+			  =label_tag 'Wage level per month',nil
+			  br
+			  =work_fields.text_field :salary
+			.col-md-12.align-field
+			  =label_tag 'Upload your CV', nil, class:'subtitle'
+			  =f.file_field :cv
  	div class="panel panel-default"   	  
 	  .panel-heading Availability & Work eligibility Info
 	  .panel-body			  
@@ -168,21 +179,8 @@
 		  	  br
 			  =f.label 'Availability *', class:"indent-field subtitle"
 			  br
-			  .indent-textbox
-				  =label_tag 'Intern',nil,class:'indent-label'
-				  =check_box_tag('intern','intern',false)
-			  .indent-textbox	  
-				  =label_tag 'Extern',nil,class:'indent-label'
-				  =check_box_tag('extern','extern',false)
-			  .indent-textbox	  
-				  =label_tag 'Part time',nil,class:'indent-label'
-				  =check_box_tag('part_time','part_time',false)
-			  .indent-textbox	  
-				  =label_tag 'full time',nil,class:'indent-label'
-				  =check_box_tag('full_time','full_time',false)
-			  .indent-textbox	  
-				  =label_tag 'weekend',nil,class:'indent-label'
-				  =check_box_tag('weekend','weekend',false)  
+			  =collection_check_boxes(:candidate,:availability_ids,Availability.all,:id,:description) 
+			  
 			  br
 			  =label_tag 'Available to work: *', nil,class:'subtitle'
 			  br
@@ -191,7 +189,7 @@
 				  =check_box_tag('Moscow','Moscow',false)
 			  .indent-textbox
 				  =label_tag 'Abroad',nil,class:'indent-label'
-				  =check_box_tag('London','London',false)  
+				  =check_box_tag('Abroad','Abroad',false)  
 			  
 			  br
 			  =label_tag 'Legal to work: *', nil,class:'subtitle'
@@ -201,17 +199,17 @@
 				  =check_box_tag('Moscow','Moscow',false)
 			  .indent-textbox
 				  =label_tag 'Abroad',nil,class:'indent-label'
-				  =check_box_tag('London','London',false)  
+				  =check_box_tag('Abroad','Abroad',false)  
 			  
 			  br
 			  =label_tag 'If accepted can you start:', nil,class:'subtitle'
 			  br
 			  .indent-textbox
 				  =label_tag 'immediately'
-				  =radio_button_tag('start', 'immediately')
+				  =f.radio_button(:start, 'immediately')
 			  .indent-textbox	  
 				  =label_tag 'not immediately'
-				  =radio_button_tag('start', 'not immediately')
+				  =f.radio_button(:start, 'not immediately')
 			  br
 			  =label_tag 'statement'
 			  br

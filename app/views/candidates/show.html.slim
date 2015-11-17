@@ -1,6 +1,153 @@
-p#notice = notice
+.row
+	.container
+		.col-md-12
+			p#notice = notice
+			.col-md-6
+				div class="panel panel-default" 
+				  .panel-heading Personal Info
+				  .panel-body.personal-info
+				  		.col-md-4.align-field
+				  			.img-resize
+				  				=image_tag @candidate.photo
 
-
-= link_to 'Edit', edit_candidate_path(@candidate)
-'|
-= link_to 'Back', candidates_path
+					  	.col-md-8.align-field
+					  	    .col-md-3.no-padding
+					  	   		=label_tag 'First Name'
+					  	   	.col-md-9	
+								=@candidate.first_name
+						.col-md-8.align-field
+				   			.col-md-3.no-padding
+				   				=label_tag 'Last Name'
+				   			.col-md-9
+				   				=@candidate.last_name
+				   		.col-md-8.align-field   	
+				   			.col-md-3.no-padding
+				   				=label_tag 'Gender'
+				   			.col-md-9
+				   				=@candidate.gender
+				   		.col-md-8.align-field   	
+				   			.col-md-3.no-padding
+				   				=label_tag 'Height'
+				   			.col-md-9
+				   				=@candidate.height
+				   		.col-md-8.align-field   	
+				   			.col-md-3.no-padding
+				   				=label_tag 'Weight'
+				   			.col-md-9
+				   				=@candidate.weight	
+				   		.col-md-12.align-field
+				   			.col-md-3.no-padding
+				   				=label_tag 'Address'
+				   			.col-md-9
+				   				=@candidate.address
+				   		.col-md-12.align-field
+				   			.col-md-3.no-padding
+				   				=label_tag 'Mobile phone'
+				   			.col-md-9
+				   				=@candidate.mobile	
+				   		.col-md-12.align-field
+				   			.col-md-3.no-padding
+				   				=label_tag 'Email'
+				   			.col-md-9
+				   				=@candidate.email	
+				   		.col-md-12.align-field
+				   			.col-md-3.no-padding
+				   				=label_tag 'Date of birth'
+				   			.col-md-9
+				   				=@candidate.birth_date	
+				   		.col-md-12.align-field
+				   			.col-md-3.no-padding
+				   				=label_tag 'Marital status'
+				   			.col-md-9
+				   				=@candidate.marital_status		
+				   		.col-md-12.align-field
+				   			.col-md-3.no-padding
+				   				=label_tag 'Passport nº'
+				   			.col-md-9
+				   				=@candidate.passport	
+				   		.col-md-12.align-field
+				   			.col-md-3.no-padding
+				   				=label_tag 'Foreign passport nº'
+				   			.col-md-9
+				   				=@candidate.foreign_passport	
+				   		.col-md-12.align-field
+				   			.col-md-3.no-padding
+				   				=label_tag 'Nationality'
+				   			.col-md-9
+				   				=@candidate.nationality		
+				   		.col-md-12.align-field
+				   			.col-md-3.no-padding
+				   				=label_tag 'Citizenship'
+				   			.col-md-9
+				   				=@candidate.citizenship	
+				   		.col-md-12.align-field
+				   			.col-md-3.no-padding
+				   				=label_tag 'Smoker?'
+				   			.col-md-9
+				   				=@candidate.smoker	
+				   		.col-md-12.align-field
+				   			.col-md-3.no-padding
+				   				=label_tag 'Zodiac Sign'
+				   			.col-md-9
+				   				=@candidate.sign
+				   		.col-md-12.align-field
+				   			.col-md-3.no-padding
+				   				=label_tag 'Number of children'
+				   			.col-md-9
+				   				=@candidate.children
+			.col-md-6.no-padding
+				div class="panel panel-default" 
+				  .panel-heading Education Info
+				  .panel-body.personal-info
+				  	.col-md-12.align-field
+				  		.col-md-4.no-padding
+				  			=label_tag 'Highest level of education'   				
+				  		.col-md-8
+				  			=@candidate.education_info.level
+				  	.col-md-12.align-field
+				  		
+				  		=label_tag 'Education History'
+				  		br
+				  		=@candidate.education_info.history
+				  	.col-md-12.align-field
+				  		.col-md-4.no-padding
+				  			=label_tag 'Aditional languages'
+				  		.col-md-8
+				  			=@candidate.education_info.languages
+			.col-md-6.no-padding
+				div class="panel panel-default" 
+				  .panel-heading Work Info
+				  .panel-body.personal-info
+				  	.col-md-12.align-field
+				  		=label_tag 'Sectors / Functions you have experience in: '
+				  		br
+				  		=@candidate.work_info.sectors_experience
+				  	.col-md-12.align-field
+				  		=label_tag 'Years of experience'
+				  		br
+				  		=@candidate.work_info.years_experience
+				  	.col-md-12.align-field
+				  		=label_tag 'Current/most recent job title'
+				  		br
+				  		=@candidate.work_info.current_job
+				  	.col-md-12.align-field  
+					  =label_tag ' Last employment/employer'
+					  br
+					  =@candidate.work_info.last_employer
+				  	.col-md-12.align-field
+				  		=label_tag 'Key skills'	
+				  		br
+				  		=@candidate.work_info.key_skills
+				  	.col-md-12.align-field
+				  		=label_tag 'Wage level per month'
+				  		br
+				  		=@candidate.work_info.salary
+			.col-md-6.no-padding
+				div class="panel panel-default" 
+				  .panel-heading Availability Info
+				  .panel-body.personal-info
+				  	.col-md-12.align-field
+				  		=@candidate.availability		  							  									
+			= link_to 'Edit', edit_candidate_path(@candidate)
+			'|
+			= link_to 'Back', candidates_path
