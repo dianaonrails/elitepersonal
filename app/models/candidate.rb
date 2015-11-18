@@ -47,6 +47,8 @@ class Candidate < ActiveRecord::Base
   
   mount_uploader :photo, PhotoUploader
   mount_uploader :cv, CvUploader
+
+  
   
   validates :photo,:first_name,:last_name,:gender,:address,:mobile,:email,:birth_date,:nationality,:citizenship, presence:true
   validates :email, uniqueness: true

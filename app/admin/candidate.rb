@@ -24,6 +24,8 @@ permit_params :first_name,:last_name,:mobile,:address,:gender,:email,:height,:we
 	form do |f|
 
 		inputs 'Candidate' do
+			f.input :photo,:as => :file, :hint => image_tag(f.object.photo.url(:thumb))
+			f.input :cv,:as => :file
 			input :first_name
 			input :last_name
 			input :mobile
@@ -79,6 +81,12 @@ permit_params :first_name,:last_name,:mobile,:address,:gender,:email,:height,:we
 	show do
 		panel 'Personal Info' do
 			attributes_table_for candidate do
+				row :photo do
+					image_tag(candidate.photo.url(:thumb))
+				end	
+				row :cv do
+					link_to('Download File', candidate.cv.url)
+				end	
 				row :first_name
 				row :last_name
 				row :gender
@@ -121,14 +129,20 @@ permit_params :first_name,:last_name,:mobile,:address,:gender,:email,:height,:we
 
 		panel 'Availability' do
 			attributes_table_for candidate.availabilities do 
-			  row :description
+			  row 'Availabilities' do |n|
+			  	n.description
+			  end
 			   
 			end 
 			attributes_table_for candidate.available_works do
-				row :description, title: 'Available to work:'
+				row 'Available to work:' do |i|
+					i.description
+				end	
 			end
 			attributes_table_for candidate.legal_works do
-				row :description, label: 'Legal to work:'
+				row 'Legal to work:' do |i|
+					i.description
+				end
 			end	
 		end		
 	end	
