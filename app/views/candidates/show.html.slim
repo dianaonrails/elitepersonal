@@ -2,6 +2,12 @@
 	.container.show-candidate
 		.col-md-12
 			p#notice = notice
+			.col-md-12
+				= link_to 'Edit', edit_candidate_registration_path(@candidate)
+				'|
+				
+				-if current_candidate
+					= link_to 'Logout >', destroy_candidate_session_path, method: :delete
 			.col-md-6
 				div class="panel panel-default" 
 				  .panel-heading Personal Info
@@ -179,8 +185,6 @@
 					  		=label_tag 'statement'
 					  		=@candidate.statment					
 
-			= link_to 'Edit', edit_candidate_path(@candidate)
-			'|
-			= link_to 'Back', candidates_path
+			
 
 =render "layouts/footer"

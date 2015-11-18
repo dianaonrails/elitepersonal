@@ -49,8 +49,13 @@ html
 						li
 							=link_to 'Client','/client'
 						li
-							=link_to 'Recruitment',new_candidate_path
+							-if current_candidate
+								=link_to 'Personal Area', candidate_path(current_candidate)
+							-else
+								=link_to 'Recruitment',candidate_session_path
+								/=link_to 'Recruitment',new_candidate_path
 						li
 							=link_to 'Contacts','/contacts'
+						
 		= yield
 

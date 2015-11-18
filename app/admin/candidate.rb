@@ -30,6 +30,8 @@ permit_params :first_name,:last_name,:mobile,:address,:gender,:email,:height,:we
 			input :address
 			input :gender
 			input :email
+			input :password
+			#input :confirmation_password
 			input :height
 			input :weight
 			input :birth_date
@@ -83,6 +85,7 @@ permit_params :first_name,:last_name,:mobile,:address,:gender,:email,:height,:we
 				row :mobile
 				row :address
 				row :email
+				row :password
 				row :height
 				row :weight
 				row :birth_date
@@ -117,9 +120,10 @@ permit_params :first_name,:last_name,:mobile,:address,:gender,:email,:height,:we
 		end
 
 		panel 'Availability' do
-			attributes_table_for candidate.availabilities do
-				row :description, title:'Availability'
-			end
+			attributes_table_for candidate.availabilities do 
+			  row :description
+			   
+			end 
 			attributes_table_for candidate.available_works do
 				row :description, title: 'Available to work:'
 			end

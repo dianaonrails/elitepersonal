@@ -483,3 +483,31 @@ label{
 .vacancies-list{
 	margin-top: 3%;
 }
+
+/************SIGN-IN**********************/
+.sign-in{
+	margin-top: 5%;
+	.column-right{
+		border-left: 1px solid gray;
+		.panel-heading{
+			text-align: center;
+			font-size: 1.5em;
+		}
+		.panel-body{
+			margin: 0 auto;
+			form{
+				input{
+					width: 90%;
+					margin: 2%;
+				}
+				input[type="checkbox"]{
+					width: 3%;
+				}
+			}
+		}
+	}
+	.header-title{
+		font-family: 'Fira Sans',sans-serif;
+		font-weight: 700;
+	}
+}

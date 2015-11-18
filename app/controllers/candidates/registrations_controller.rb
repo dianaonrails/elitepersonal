@@ -1,24 +1,13 @@
-class CandidatesController < ApplicationController
-  #before_action :authenticate_candidate!,:set_candidate, only: [:show, :edit, :update, :destroy]
-  # GET /candidates
-  # GET /candidates.json
-  def index
-    @candidates = Candidate.all
-  end
-
-  # GET /candidates/1
-  # GET /candidates/1.json
-  def show
-    @candidate = Candidate.find(params[:id])
-  end
-
-  # GET /candidates/new
-  def new
+class Candidates::RegistrationsController < Devise::RegistrationsController
+	def new
     @candidate = Candidate.new
     @candidate.build_education_info
     @candidate.build_work_info
   end
 
+  def show
+    @candidate = Candidate.find(params[:id])
+  end
   # GET /candidates/1/edit
   def edit
   end
@@ -73,7 +62,7 @@ class CandidatesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def candidate_params
       params.require(:candidate).permit(:photo,:first_name,:last_name,:address,:mobile,:email,:citizenship,:birth_date,
-        :gender,:height,:weight,:passport,:foreign_passport,:marital_status,:children,:sign,:nationality,
+        :gender,:height,:weight,:password, :password_confirmation,:foreign_passport,:marital_status,:children,:sign,:nationality,
         :smoker, :car,:driving_licence,education_info_attributes:[:level,:history,:languages],work_info_attributes:[:sectors_experience,:years_experience,
           :current_job,:last_employer,:key_skills,:salary],:availability_ids => [],:available_work_ids =>[],:legal_work_ids =>[])
     end

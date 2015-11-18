@@ -2,39 +2,49 @@
 #
 # Table name: candidates
 #
-#  id               :integer          not null, primary key
-#  name             :string
-#  address          :string
-#  mobile           :string
-#  email            :string
-#  citizenship      :string
-#  work_in          :boolean
-#  start            :boolean
-#  statment         :text
-#  created_at       :datetime         not null
-#  updated_at       :datetime         not null
-#  photo            :string
-#  cv               :string
-#  birth_date       :date
-#  gender           :string
-#  height           :string
-#  weight           :string
-#  passport         :string
-#  foreign_passport :string
-#  marital_status   :string
-#  children         :integer
-#  sign             :string
-#  first_name       :string
-#  last_name        :string
-#  nationality      :string
-#  smoker           :boolean
-#  driving_licence  :boolean
-#  car              :boolean
+#  id                     :integer          not null, primary key
+#  address                :string
+#  mobile                 :string
+#  email                  :string
+#  citizenship            :string
+#  start                  :boolean
+#  statment               :text
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
+#  photo                  :string
+#  cv                     :string
+#  birth_date             :date
+#  gender                 :string
+#  height                 :string
+#  weight                 :string
+#  passport               :string
+#  foreign_passport       :string
+#  marital_status         :string
+#  children               :integer
+#  sign                   :string
+#  first_name             :string
+#  last_name              :string
+#  nationality            :string
+#  smoker                 :boolean
+#  driving_licence        :boolean
+#  car                    :boolean
+#  encrypted_password     :string           default(""), not null
+#  reset_password_token   :string
+#  reset_password_sent_at :datetime
+#  remember_created_at    :datetime
+#  sign_in_count          :integer          default(0), not null
+#  current_sign_in_at     :datetime
+#  last_sign_in_at        :datetime
+#  current_sign_in_ip     :string
+#  last_sign_in_ip        :string
 #
 
 class Candidate < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable,:timeoutable, :timeout_in => 15.minutes
+  
   mount_uploader :photo, PhotoUploader
   mount_uploader :cv, CvUploader
   

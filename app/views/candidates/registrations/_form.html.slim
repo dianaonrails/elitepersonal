@@ -1,4 +1,4 @@
-= form_for @candidate do |f|
+= nested_form_for(@candidate,:html => {:multipart => true},  as: resource_name,url: registration_path(@candidate)) do |f|
   - if @candidate.errors.any?
     #error_explanation
       h2 = "#{pluralize(@candidate.errors.count, "error")} prohibited this candidate from being saved:"
@@ -52,6 +52,11 @@
 			   	=f.label 'Email *'
 			   .col-md-9
 			   	=f.text_field :email
+			.col-md-12.align-field
+				.col-md-3.no-padding
+					=f.label 'Password *'
+				.col-md-9	
+					= f.password_field :password , autocomplete: "off"  	
 			.col-md-12.align-field   	
 			   .col-md-3.no-padding
 			   	=label_tag 'Date of birth *'
@@ -211,4 +216,3 @@
   	br
   	.actions = f.submit 'Submit'
 
-=render "layouts/footer"
