@@ -14,9 +14,7 @@ body{
 	padding:0;
 }
 
-body.home a.home{
-	color:black;
-}
+
 
 
 /*************************************/
@@ -77,7 +75,11 @@ body.home a.home{
 	font-weight: 300;
 }
 
+.navbar-default .navbar-nav > .active > a{
+	background-color: transparent;
+	color:black;
 
+}
 
 .motto{
 	border-top:1px solid #AAAAAA;

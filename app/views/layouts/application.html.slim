@@ -13,7 +13,7 @@ html
 	  = stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Fira+Sans:300,400,400italic,500,700'
 	  = csrf_meta_tags
 
-	body
+	body id="home"
 		
 		nav class="navbar navbar-default"
 			div class="container"
@@ -27,35 +27,77 @@ html
 					
 				div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"
 					ul class="nav navbar-nav"
-						li
-							=link_to 'Home','/', class:'home'
-						li class="dropdown"
-							a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" 
-								'About us
-								span class="caret"
-							 	ul class="dropdown-menu"
-							 		li =link_to 'Elite mission','/mission'
-							 		li =link_to 'Elite history','/history'
-						li class="dropdown"
-							a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"
-								'Services
-								span class="caret"
-								ul class="dropdown-menu"
-									li =link_to 'Elite services','/services'
-									li =link_to 'Conditions','/conditions'
-						li 
-							=link_to 'Vacancies',vacancies_path
-								
-						li
-							=link_to 'Client','/client'
-						li
-							-if current_candidate
-								=link_to 'Personal Area', candidate_path(current_candidate)
-							-else
-								=link_to 'Recruitment',candidate_session_path
-								/=link_to 'Recruitment',new_candidate_path
-						li
-							=link_to 'Contacts','/contacts'
+						-if controller?("public") && action?("index")
+							li class="active"
+								=link_to 'Home','/'
+						-else
+							li
+								=link_to 'Home','/'
+		
+						-if controller?("public") && action?("mission") || action?("history")
+							li class="dropdown active"
+								a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id='aboutnav'
+									'About us
+									span class="caret"
+								 	ul class="dropdown-menu"
+								 		li =link_to 'Elite mission','/mission'
+								 		li =link_to 'Elite history','/history'
+						-else
+							li class="dropdown"
+								a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id='aboutnav'
+									'About us
+									span class="caret"
+								 	ul class="dropdown-menu"
+								 		li =link_to 'Elite mission','/mission'
+								 		li =link_to 'Elite history','/history'	 		
+						-if controller?("public") && action?('services') || action?('conditions')
+							li class="dropdown active"
+								a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"
+									'Services
+									span class="caret"
+									ul class="dropdown-menu"
+										li =link_to 'Elite services','/services'
+										li =link_to 'Conditions','/conditions'
+						-else
+							li class="dropdown"
+								a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"
+									'Services
+									span class="caret"
+									ul class="dropdown-menu"
+										li =link_to 'Elite services','/services'
+										li =link_to 'Conditions','/conditions'				
+						-if controller?('vacancies') && action?('index')
+							li class="active" 
+								=link_to 'Vacancies',vacancies_path
+						-else
+							li
+								=link_to 'Vacancies',vacancies_path		
+						-if controller?('public') && action?('client')	
+							li class="active"
+								=link_to 'Client','/client'
+						-else
+							li
+								=link_to 'Client','/client'			
+						-if controller?('candidates')
+							li class="active"
+								-if current_candidate
+									=link_to 'Personal Area', candidate_path(current_candidate)
+								-else
+									=link_to 'Recruitment',candidate_session_path
+									/=link_to 'Recruitment',new_candidate_path
+						-else
+							li
+								-if current_candidate
+									=link_to 'Personal Area', candidate_path(current_candidate)
+								-else
+									=link_to 'Recruitment',candidate_session_path			
+						
+						-if controller?('public') && action?('contacts')
+							li class="active"
+								=link_to 'Contacts','/contacts'
+						-else
+							li
+								=link_to 'Contacts','/contacts'		
 						
 		= yield
 
