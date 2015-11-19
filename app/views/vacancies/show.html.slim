@@ -2,9 +2,13 @@ p#notice = notice
 
 .container
 	.row
-		.col-md-12
+		.col-md-8
 			h2 
 				=@vacancy.title
+		.col-md-4
+			-if current_candidate
+				= button_to 'Apply for job', applications_path(candidate_id: current_candidate,vacancy_id:@vacancy.id,state:'request', :method => :post), class:'btn btn-primary btn-lg'	
+		.col-md-12		
 			h4 
 				=@vacancy.country
 			h5 Description:
@@ -14,3 +18,4 @@ p#notice = notice
 			p
 				=@vacancy.requirements	
 			= link_to 'Back', vacancies_path
+		

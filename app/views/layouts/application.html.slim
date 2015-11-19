@@ -74,10 +74,10 @@ html
 								=link_to 'Vacancies',vacancies_path		
 						-if controller?('public') && action?('client')	
 							li class="active"
-								=link_to 'Client','/client'
+								=link_to 'Client',new_client_request_path
 						-else
 							li
-								=link_to 'Client','/client'			
+								=link_to 'Client',new_client_request_path	
 						-if controller?('candidates')
 							li class="active"
 								-if current_candidate
@@ -98,6 +98,8 @@ html
 						-else
 							li
 								=link_to 'Contacts','/contacts'		
-						
+					.flags				
+						=image_tag('RU.png')
+						=image_tag('EN.png')		
 		= yield
 

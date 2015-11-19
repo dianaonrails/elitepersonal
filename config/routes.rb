@@ -24,6 +24,8 @@ Rails.application.routes.draw do
 
     resources :candidates
     resources :vacancies
+    resources :client_requests
+    resources :applications
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

@@ -16,5 +16,5 @@
 
 class Vacancy < ActiveRecord::Base
 
-	
+	has_many :applications
 end
