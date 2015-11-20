@@ -56,6 +56,7 @@ class Candidate < ActiveRecord::Base
 
   has_one :education_info
   has_one :work_info
+  has_one :category
 
   has_many :availabilities
   has_many :available_works

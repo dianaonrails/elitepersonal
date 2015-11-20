@@ -5,11 +5,11 @@ class ApplicationsController < ApplicationController
 	end	
 
 	def create
-		@application = Application.new(application_params)
+		@application = Application.new(applications_params)
 		@application.state = "Request"
 	    respond_to do |format|
 	      if @application.save
-	        format.html { redirect_to new_application_path, notice: '' }
+	        format.html { redirect_to vacancies_path, notice: '' }
 	        format.json { render :show, status: :created, location: @application }
 	      else
 	        format.html { render :new }
@@ -19,7 +19,7 @@ class ApplicationsController < ApplicationController
 	end	
 
 	private
-	def application_params
-		params.require(:application).permit(:candidate_id,:application_id,:state)
+	def applications_params
+		params.permit(:candidate_id,:application_id,:state)
 	end
 end

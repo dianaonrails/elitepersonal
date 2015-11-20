@@ -4,7 +4,7 @@ ActiveAdmin.register Candidate do
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
 permit_params :first_name,:last_name,:mobile,:address,:gender,:email,:height,:weight,:birth_date,
-:citizenship,:nationality,:passport,:foreign_passport,:marital_status
+:citizenship,:nationality,:passport,:foreign_passport,:marital_status, :category_id
 # or
 #
 # permit_params do
@@ -26,6 +26,7 @@ permit_params :first_name,:last_name,:mobile,:address,:gender,:email,:height,:we
 		inputs 'Candidate' do
 			f.input :photo,:as => :file, :hint => image_tag(f.object.photo.url(:thumb))
 			f.input :cv,:as => :file
+			input :category_id, as: :select, collection: Category.all.map{|u| ["#{u.title}", u.id]}
 			input :first_name
 			input :last_name
 			input :mobile
@@ -87,6 +88,9 @@ permit_params :first_name,:last_name,:mobile,:address,:gender,:email,:height,:we
 				row :cv do
 					link_to('Download File', candidate.cv.url)
 				end	
+				row 'Category' do
+					Category.find(candidate.category_id).title
+				end	
 				row :first_name
 				row :last_name
 				row :gender
@@ -107,6 +111,7 @@ permit_params :first_name,:last_name,:mobile,:address,:gender,:email,:height,:we
 				row :children
 				row :driving_licence
 				row :car
+
 			end
 		end
 		panel 'Work Info' do
