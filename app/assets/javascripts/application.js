@@ -32,7 +32,7 @@ $(document).ready(function () {
 	I18n.locale = "<%= I18n.locale %>";
 
 	$('#nanny').click(function(){
-		alert('nanny');
+		
 	});
 
 });
