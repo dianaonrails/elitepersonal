@@ -22,9 +22,17 @@
 //= require react
 //= require react_ujs
 //= require components
+//= require i18n
+//= require i18n/translations
 //= require_tree .
 $(document).ready(function () {
 	$('.carousel').carousel();
-	$('.datepicker').datepicker();
-	
+	$('.datepicker').datepicker({dateFormat: "yy-mm-dd"});
+	I18n.defaultLocale = "<%= I18n.default_locale %>";
+	I18n.locale = "<%= I18n.locale %>";
+
+	$('#nanny').click(function(){
+		alert('nanny');
+	});
+
 });

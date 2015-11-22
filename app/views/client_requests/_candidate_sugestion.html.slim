@@ -1,0 +1,11 @@
+
+table class="table"
+	-@candidates = Candidate.where(category_id: client_request.category_id)
+	
+	=form_tag do
+		= hidden_field_tag('client_request' , client_request)
+		-@candidates.each do |candidate|
+			tr
+				td =check_box_tag candidate.interview
+				td =candidate.first_name
+		=submit_tag 'Send email'

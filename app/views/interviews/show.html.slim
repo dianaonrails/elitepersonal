@@ -1,0 +1,31 @@
+.row
+	.container
+		=flash[:notice]
+		.col-md-12
+			div class="panel panel-default" 
+			  .panel-heading 
+			  	'Interview Planned with
+			  	'&nbsp;
+			  	=Candidate.find(@interview.candidate_id).first_name
+			  .panel-body.personal-info	
+			  	.col-md-6
+					.col-md-4
+						span Address
+					.col-md-8	
+						=@interview.address
+					.col-md-4
+						span Contact Number
+					.col-md-8
+						=@interview.contact
+					.col-md-4
+						span Date
+					.col-md-8
+						=@interview.interview_date
+				.col-md-6		
+					.col-md-4
+						span Comments
+					.col-md-8
+						-if @interview.comments
+							=@interview.comments
+						-else
+							span No comments		

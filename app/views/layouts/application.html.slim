@@ -6,6 +6,8 @@ html
 	  = javascript_include_tag 'application'
 	  = javascript_include_tag '//maps.google.com/maps/api/js?v=3.18&sensor=false&client=&key=&libraries=geometry&language=&hl=&region='
 	  = javascript_include_tag '//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js'
+	  = javascript_include_tag "i18n"
+	  = javascript_include_tag "translations"
 	  = stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Roboto:400,700,500'
 	  = stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Noto+Serif:700'
 	  = stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Playfair+Display'
@@ -29,7 +31,7 @@ html
 					ul class="nav navbar-nav"
 						-if controller?("public") && action?("index")
 							li class="active"
-								=link_to 'Home','/'
+								=link_to t(:home),'/'
 						-else
 							li
 								=link_to 'Home','/'

@@ -4,7 +4,7 @@ ActiveAdmin.register Candidate do
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
 permit_params :first_name,:last_name,:mobile,:address,:gender,:email,:height,:weight,:birth_date,
-:citizenship,:nationality,:passport,:foreign_passport,:marital_status, :category_id
+:citizenship,:nationality,:passport,:foreign_passport,:marital_status, :category_id,:smoker,:sign,:children
 # or
 #
 # permit_params do
@@ -13,6 +13,7 @@ permit_params :first_name,:last_name,:mobile,:address,:gender,:email,:height,:we
 #   permitted
 # end
 	index do
+		selectable_column
 		column :first_name
 		column :last_name
 		column :mobile
@@ -20,6 +21,20 @@ permit_params :first_name,:last_name,:mobile,:address,:gender,:email,:height,:we
 		column :nationality
 		actions
 	end
+
+	filter :first_name
+	filter :last_name
+	filter :mobile
+	filter :email
+	filter :nationality
+	filter :citizenship
+	filter :address
+	filter :birth_date
+	filter :marital_status, as: :select, collection: ['Single','Married','Divorced','Separated','Widowed','In a relationship','Civil Partnership','Rather not say']
+	filter :smoker
+	
+
+
 
 	form do |f|
 

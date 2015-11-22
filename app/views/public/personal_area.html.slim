@@ -1,0 +1,5 @@
+.container
+	= tabs_tag :open_tabs => { :id => "tabs", :class => "nav nav-tabs" } do |tab|
+		=tab.candidate 'Personal Info', candidate_path(current_candidate)
+		=tab.applications 'Applications', application_candidate_applications_path
+		=tab.interviews 'Interviews', interview_candidate_interviews_path

@@ -1,4 +1,13 @@
 class ApplicationsController < ApplicationController
+	set_tab :applications
+
+	def application_candidate
+		@applications = Application.where(candidate_id: current_candidate.id)
+	end	
+
+	def index
+		@applications = Application.all
+	end	
 
 	def new
 		@application = Application.new
@@ -20,6 +29,6 @@ class ApplicationsController < ApplicationController
 
 	private
 	def applications_params
-		params.permit(:candidate_id,:application_id,:state)
+		params.permit(:candidate_id,:vacancy_id,:state)
 	end
 end

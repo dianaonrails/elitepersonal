@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   devise_for :users, ActiveAdmin::Devise.config
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
+
+  get 'candidates_suggestions' => 'active_admin/client_requests#candidates_suggestions'
+  
   #devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -15,6 +18,10 @@ Rails.application.routes.draw do
     get 'conditions' => 'public#conditions'
     get 'client' => 'public#client'
     get 'login' =>'candidates#login'
+
+    get 'personal_area' =>'public#personal_area'
+
+    match 'send_mail', to: 'admin/client_requests#send_mail', via: 'post'
     #get 'vacancies' => "public#vacancies"
     devise_for :candidates, :controllers => { :registrations => "candidates/registrations", :sessions => "candidates/sessions" }
     devise_scope :candidate do
@@ -25,7 +32,16 @@ Rails.application.routes.draw do
     resources :candidates
     resources :vacancies
     resources :client_requests
-    resources :applications
+    resources :applications do
+      collection do
+        get :application_candidate
+      end 
+    end
+    resources :interviews do
+      collection do
+        get :interviews_candidate
+      end
+    end   
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

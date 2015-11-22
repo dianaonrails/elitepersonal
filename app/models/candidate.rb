@@ -37,6 +37,8 @@
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :string
 #  last_sign_in_ip        :string
+#  category_id            :integer
+#  interview              :boolean
 #
 
 class Candidate < ActiveRecord::Base
@@ -48,9 +50,13 @@ class Candidate < ActiveRecord::Base
   mount_uploader :photo, PhotoUploader
   mount_uploader :cv, CvUploader
 
+  scope :gender_feminine, -> {where(gender: 'f')}
+  scope :gender_masculine, -> {where(gender: 'm')}
+
   
+
   
-  validates :photo,:first_name,:last_name,:gender,:address,:mobile,:email,:birth_date,:nationality,:citizenship, presence:true
+  validates :first_name,:last_name,:gender,:address,:mobile,:email,:birth_date,:nationality,:citizenship, presence:true
   validates :email, uniqueness: true
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
 

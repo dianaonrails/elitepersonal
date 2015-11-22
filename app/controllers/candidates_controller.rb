@@ -2,8 +2,10 @@ class CandidatesController < ApplicationController
   #before_action :authenticate_candidate!,:set_candidate, only: [:show, :edit, :update, :destroy]
   # GET /candidates
   # GET /candidates.json
+  set_tab :candidate
   def index
     @candidates = Candidate.all
+    
   end
 
   # GET /candidates/1
@@ -11,6 +13,10 @@ class CandidatesController < ApplicationController
   def show
     @candidate = Candidate.find(params[:id])
   end
+
+  def personal_area
+    @candidate = current_candidate
+  end  
 
   # GET /candidates/new
   def new

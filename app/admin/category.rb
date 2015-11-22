@@ -13,5 +13,12 @@ permit_params :title
 #   permitted
 # end
 
+show do
+	attributes_table_for category do
+		row :title
+		row :created_at
+	end	
+end	
+
 
 end

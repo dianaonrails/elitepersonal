@@ -16,6 +16,9 @@ gem 'sprockets-rails', :require => 'sprockets/railtie'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails',
+                              :git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'
+
 # upload images
 gem 'carrierwave'
 
@@ -38,12 +41,19 @@ gem 'gmaps4rails'
 gem 'activeadmin', github: 'activeadmin'
 
 gem 'country_select'
-
-
+gem 'mail_form'
+gem 'mechanize'
 gem "nested_form"
+gem "sms_gateway"
+gem 'twilio-ruby'
 
-gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails',
-                              :git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'
+gem "tabs_on_rails"
+
+gem 'kaminari'
+
+gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'master'
+gem "i18n-js", ">= 3.0.0.rc11"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

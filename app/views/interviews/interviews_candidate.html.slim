@@ -1,0 +1,23 @@
+.container
+	= tabs_tag :open_tabs => { :id => "tabs", :class => "nav nav-tabs" } do |tab|
+		=tab.candidate 'Personal Info', candidate_path(current_candidate)
+		=tab.applications 'Applications', application_candidate_applications_path
+		=tab.interviews 'Interviews', interviews_candidate_interviews_path
+	.col-md-12.table-interviews
+		table class="table table-striped"
+			thead
+				tr
+					td Employer
+					td Contact number
+					td Address
+					td Date
+					td Comments
+			tbody
+				-@interviews.each do |interview|
+					tr
+						td =ClientRequest.find(interview.client_request_id).full_name
+						td =interview.contact
+						td =interview.address 
+						td =interview.interview_date
+						td =interview.comments
+

@@ -11,4 +11,5 @@
 #
 
 class Application < ActiveRecord::Base
+	validates :candidate_id,:state,:vacancy_id, presence: :true
 end

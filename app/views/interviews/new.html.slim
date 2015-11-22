@@ -1,0 +1,37 @@
+.container
+	h1 Schedule Interview
+	h5 
+		'For
+		-if @candidate 
+			=@candidate.first_name
+			'&nbsp;
+			=@candidate.last_name
+	=form_for @interview do |f|
+		div class="alert alert-warning" role="alert"
+	      ul
+	        - @interview.errors.full_messages.each do |message|
+	          li = message 
+	    =f.hidden_field :candidate_id, value: params[:candidate].to_i
+	    =f.hidden_field :client_request_id, value: params[:client_request].to_i
+		.col-md-12.align-field
+			.col-md-2
+				=f.label 'Address *'
+			.col-md-10
+				=f.text_field :address
+		.col-md-12.align-field
+			.col-md-2
+				=f.label 'Contact Number *'
+			.col-md-10		
+				=f.text_field :contact
+		.col-md-12.align-field
+			.col-md-2
+				=f.label 'Date *'
+			.col-md-10	
+				=f.text_field  :interview_date, class:'datepicker'
+		.col-md-12.align-field
+			.col-md-2
+				=f.label :comments
+			.col-md-10
+				=f.text_area :comments, cols:"50",rows:"4"
+		=f.submit 'submit'	
+		

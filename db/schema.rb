@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151120005307) do
+ActiveRecord::Schema.define(version: 20151121003944) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -104,6 +104,7 @@ ActiveRecord::Schema.define(version: 20151120005307) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.integer  "category_id"
+    t.boolean  "interview"
   end
 
   add_index "candidates", ["email"], name: "index_candidates_on_email", unique: true
@@ -133,6 +134,17 @@ ActiveRecord::Schema.define(version: 20151120005307) do
     t.text     "languages"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "interviews", force: :cascade do |t|
+    t.integer  "client_request_id"
+    t.integer  "candidate_id"
+    t.date     "interview_date"
+    t.string   "address"
+    t.string   "contact"
+    t.text     "comments"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "legal_works", force: :cascade do |t|
