@@ -56,7 +56,7 @@ class Candidate < ActiveRecord::Base
   
 
   
-  validates :first_name,:last_name,:gender,:address,:mobile,:email,:birth_date,:nationality,:citizenship, presence:true
+  validates :first_name,:last_name,:gender,:address,:mobile,:email,:birth_date,:nationality,:citizenship,:category_id, presence:true
   validates :email, uniqueness: true
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
 

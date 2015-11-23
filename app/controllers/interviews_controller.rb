@@ -17,7 +17,7 @@ class InterviewsController < ApplicationController
 	end
 
 	def send_text_message(candidate,date,address)
-	    number_to_send_to = '+351912247759'
+	    number_to_send_to = candidate.mobile
 
 	    account_sid = "AC2c2f241bd727f0fefde2d3126cb37fa5"
 	    auth_token = "f500d6adb578f447644ab8cee6561ae4"
@@ -56,7 +56,7 @@ class InterviewsController < ApplicationController
 			#'message'=>'ola'}
 			#x = Net::HTTP.post_form(URI.parse('http://smsgateway.me/api/v3/messages/send/'), params)
 	        #puts x.body
-	        page = agent.post("http://smsgateway.me/api/v3/messages/send",{'email'=>'d.r.carvalho89@gmail.com','password'=>'3j1B12Nw5d','device'=>'15024','number' => '+351912974512',
+	        page = agent.post("http://smsgateway.me/api/v3/messages/send",{'email'=>'d.r.carvalho89@gmail.com','password'=>'3j1B12Nw5d','device'=>'15024','number' =>candidate.mobile,
 			'message'=>'You have a interview in address:'+ address +' at date:' + date})
 	        format.html { redirect_to @interview, notice: 'The interview was schedule we will confirm with you.' }
 	        format.json { render :show, status: :created, location: @interview }

@@ -30,7 +30,13 @@ Rails.application.routes.draw do
     end
 
     resources :candidates
-    resources :vacancies
+    
+    
+    resources :vacancies do
+      collection do
+        get 'update_category'
+      end  
+    end  
     resources :client_requests
     resources :applications do
       collection do

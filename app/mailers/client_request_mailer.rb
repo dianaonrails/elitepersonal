@@ -4,6 +4,6 @@ class ClientRequestMailer < ActionMailer::Base
 		@candidates = candidates
 		@client_request = client_request
 
-		mail(from: 'elitepersonalworld@gmail.com',to: 'd.r.carvalho89@gmail.com', subject: 'Contact Request')
+		mail(from: 'elitepersonalworld@gmail.com',to: @client_request.email, subject: 'Contact Request')
 	end	
 end

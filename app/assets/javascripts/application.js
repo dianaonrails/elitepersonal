@@ -31,8 +31,19 @@ $(document).ready(function () {
 	I18n.defaultLocale = "<%= I18n.default_locale %>";
 	I18n.locale = "<%= I18n.locale %>";
 
-	$('#nanny').click(function(){
-		
+	$('#Housekeeper').click(function(){
+		var category = $(this).attr('id');
+		alert(category)
+		$.ajax({
+          type: "GET",
+          dataType: 'json',
+	      url:'/vacancies/update_category',
+          data: {'category': category},
+          success: function(data) {
+          	
+		    $('#vacancies-list').append()
+		  }
+        });
 	});
 
 });

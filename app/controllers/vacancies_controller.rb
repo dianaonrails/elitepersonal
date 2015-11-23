@@ -7,6 +7,16 @@ class VacanciesController < ApplicationController
     @vacancies = Vacancy.all
   end
 
+  def update_category
+    puts params[:category]
+    @category = Category.where(title: params[:category]).first
+    
+    @vacancies = Vacancy.where(category_id: @category.id)    
+    respond_to do |format|
+      format.js { render json: @vacancies } 
+    end
+  end
+
 
   # GET /vacancies/1
   # GET /vacancies/1.json
