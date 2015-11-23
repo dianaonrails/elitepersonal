@@ -7,13 +7,11 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { :host => 'elitepersonalworld.herokuapp.com' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address:              'smtp.gmail.com',
-    port:                 587,
-    domain:               "gmail.com",
-    user_name:            'd.r.carvalho89@gmail.com',
-    password:             '3j1B12Nw5fbla',
-    authentication:       'plain',
-    enable_starttls_auto: true  
+      :address        => 'smtp.gmail.com',
+      :port           => 587,
+      :user_name      => 'd.r.carvalho89@gmail.com',
+      :password       => '3j1B12Nw5bla',
+      :authentication => :plain
   }
 
   # Eager load code on boot. This eager loads most of Rails and
