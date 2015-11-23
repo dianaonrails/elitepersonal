@@ -33,8 +33,9 @@ $(document).ready(function () {
 
 	$('ul>li a').on('click', function(e){
 		e.preventDefault();
+		$('#vacancies-container').html("");
 		var category = $(this).attr('id');
-		alert(category)
+		
 		$.ajax({
           type: "GET",
           dataType: 'html',
