@@ -31,7 +31,7 @@ $(document).ready(function () {
 	I18n.defaultLocale = "<%= I18n.default_locale %>";
 	I18n.locale = "<%= I18n.locale %>";
 
-	$('ul>li a').on('click', function(e){
+	$('.categories-list ul>li a').on('click', function(e){
 		e.preventDefault();
 		$('#vacancies-container').html("");
 		var category = $(this).attr('id');
