@@ -10,9 +10,13 @@ class VacanciesController < ApplicationController
   end
 
   def update_category
-    @category = Category.where(title: params[:category]).first
-    
-    @vacancies = Vacancy.where(category_id: @category.id)    
+    if params[:category] == 'All'
+      @vacancies = Vacancy.all
+    else
+      @category = Category.where(title: params[:category]).first
+      
+      @vacancies = Vacancy.where(category_id: @category.id)  
+    end  
     render partial: 'update_category' 
   end  
 

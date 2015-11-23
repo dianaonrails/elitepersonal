@@ -3,6 +3,8 @@
     .col-md-3.categories-list
       h1.title Categories
       ul
+        li
+          =link_to 'All','',id:'All',:remote => true
         li 
           =link_to 'Nanny / Baby sitter','', id:'Babysitter',:remote => true
         li 
@@ -19,7 +21,7 @@
           =link_to 'Cleaning','', id:'Cleaning',:remote => true
 
     .col-md-8 id="vacancies-container"
-      
+      =render 'update_category'
 =render "layouts/footer"
 
 
