@@ -31,6 +31,7 @@ Rails.application.routes.draw do
 
     resources :candidates
     
+    get 'update_category' => 'vacancies#update_category'
     
     resources :vacancies do
       collection do

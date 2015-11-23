@@ -4,38 +4,22 @@
       h1.title Categories
       ul
         li 
-          =link_to 'Nanny / Baby sitter','', id:'Babysitter'
+          =link_to 'Nanny / Baby sitter','', id:'Babysitter',:remote => true
         li 
-          =link_to 'Governess', '', id:'governess'
+          =link_to 'Governess', '', id:'Governess',:remote => true
         li 
-          =link_to 'Housekeeper','', id:'Housekeeper'
+          =link_to 'Housekeeper','', id:'Housekeeper',:remote => true
         li 
-          =link_to 'Cooker',''
+          =link_to 'Cooker','', id:'Cooker',:remote => true
         li 
-          =link_to 'Driver',''
+          =link_to 'Driver','', id:'Driver',:remote => true
         li 
-          =link_to 'Assistants',''
+          =link_to 'Assistants','', id:'Assistants',:remote => true
         li 
-          =link_to 'Cleaning',''
+          =link_to 'Cleaning','', id:'Cleaning',:remote => true
 
-    .col-md-8.vacancies-list
-      div id="vacancies-list"
-        
-      //h1.title Full List of Vacancies
-      //- @vacancies.each do |vacancy|
-       // h1.vacancy-title 
-       //   =link_to "#{vacancy.title}", vacancy_path(vacancy.id)
-       // h4.vacancy-country
-       //   =vacancy.country
-       // h5 
-       //   -if !vacancy.category_id.nil?
-       //     =Category.find(vacancy.category_id).title
-       // h5 
-       //   =vacancy.salary 
-       // p
-       //   h5.vacancy-req Requirements
-       //   p.req-content
-       //     =vacancy.requirements   
+    .col-md-8 id="vacancies-container"
+      
 =render "layouts/footer"
 
 

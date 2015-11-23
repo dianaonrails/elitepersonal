@@ -31,17 +31,19 @@ $(document).ready(function () {
 	I18n.defaultLocale = "<%= I18n.default_locale %>";
 	I18n.locale = "<%= I18n.locale %>";
 
-	$('#Housekeeper').click(function(){
+	$('ul>li a').on('click', function(e){
+		e.preventDefault();
 		var category = $(this).attr('id');
 		alert(category)
 		$.ajax({
           type: "GET",
-          dataType: 'json',
+          dataType: 'html',
 	      url:'/vacancies/update_category',
           data: {'category': category},
           success: function(data) {
           	
-		    $('#vacancies-list').append()
+		    $('#vacancies-container').append(data);
+		    
 		  }
         });
 	});
