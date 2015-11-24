@@ -17,6 +17,6 @@
   .col-md-4
     -if current_candidate && current_candidate.category_id == vacancy.category_id && !current_candidate.applications.exists?(vacancy_id: vacancy.id)
       = button_to 'Apply for job', applications_path(candidate_id: current_candidate,vacancy_id:vacancy.id,state:'request', :method => :post), class:'btn btn-primary btn-lg'
-    -elsif current_candidate.applications.exists?(vacancy_id: vacancy.id)
+    -elsif current_candidate && current_candidate.applications.exists?(vacancy_id: vacancy.id)
       span Already applied
         
