@@ -79,12 +79,18 @@
 				   			.col-md-3.no-padding
 				   				=label_tag 'Passport nº'
 				   			.col-md-9
-				   				=@candidate.passport	
+				   				-if @candidate.passport.blank?
+				   					span no record
+				   				-else
+				   					=@candidate.passport	
 				   		.col-md-12.align-field
 				   			.col-md-3.no-padding
 				   				=label_tag 'Foreign passport nº'
 				   			.col-md-9
-				   				=@candidate.foreign_passport	
+				   				-if @candidate.foreign_passport.blank?
+				   					span no record
+				   				-else
+				   					=@candidate.foreign_passport	
 				   		.col-md-12.align-field
 				   			.col-md-3.no-padding
 				   				=label_tag 'Nationality'
@@ -134,30 +140,52 @@
 				div class="panel panel-default" 
 				  .panel-heading Work Info
 				  .panel-body.personal-info
+				  	.col-md-12.align-field 
+				  	  =label_tag 'Category you are applying:'	, nil , class:'subtitle'
+				  	  br
+				  	  =Category.find(@candidate.category_id).title
 				  	.col-md-12.align-field
 				  		=label_tag 'Sectors / Functions you have experience in: '
 				  		br
-				  		=@candidate.work_info.sectors_experience
+				  		-if @candidate.work_info.sectors_experience.blank?
+				  			span no record
+				  		-else
+				  			=@candidate.work_info.sectors_experience
 				  	.col-md-12.align-field
 				  		=label_tag 'Years of experience'
 				  		br
-				  		=@candidate.work_info.years_experience
+				  		-if @candidate.work_info.years_experience.blank?
+				  			span no record
+				  		-else
+				  			=@candidate.work_info.years_experience
 				  	.col-md-12.align-field
 				  		=label_tag 'Current/most recent job title'
 				  		br
-				  		=@candidate.work_info.current_job
+				  		-if @candidate.work_info.current_job.blank?
+				  			span no record
+				  		-else
+				  			=@candidate.work_info.current_job
 				  	.col-md-12.align-field  
 					  =label_tag ' Last employment/employer'
 					  br
-					  =@candidate.work_info.last_employer
+					  -if @candidate.work_info.last_employer.blank?
+					  	span no record
+					  -else
+					  	=@candidate.work_info.last_employer
 				  	.col-md-12.align-field
 				  		=label_tag 'Key skills'	
 				  		br
-				  		=@candidate.work_info.key_skills
+				  		-if @candidate.work_info.key_skills.blank?
+				  			span no record
+				  		-else
+				  			=@candidate.work_info.key_skills
 				  	.col-md-12.align-field
 				  		=label_tag 'Wage level per month'
 				  		br
-				  		=@candidate.work_info.salary
+				  		-if @candidate.work_info.salary.blank?
+				  			span no record
+				  		-else
+				  			=@candidate.work_info.salary
 			.col-md-6.no-padding
 				div class="panel panel-default" 
 				  .panel-heading Availability Info

@@ -6,7 +6,7 @@ p#notice = notice
 			h2 
 				=@vacancy.title
 		.col-md-4
-			-if current_candidate
+			-if current_candidate && current_candidate.category_id == @vacancy.category_id && !current_candidate.applications.exists?(vacancy_id: @vacancy.id)
 				= button_to 'Apply for job', applications_path(candidate_id: current_candidate,vacancy_id:@vacancy.id,state:'request', :method => :post), class:'btn btn-primary btn-lg'	
 		.col-md-12		
 			h4 

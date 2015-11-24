@@ -1,15 +1,22 @@
 
 - @vacancies.each do |vacancy|
-  h1.vacancy-title 
-    =link_to "#{vacancy.title}", vacancy_path(vacancy.id)
-  h4.vacancy-country
-    =vacancy.country
-  h5 
-    -if !vacancy.category_id.nil?
-      =Category.find(vacancy.category_id).title
-  h5 
-    =vacancy.salary 
-  p
-    h5.vacancy-req Requirements
-    p.req-content
-      =vacancy.requirements
+  .col-md-8
+    h1.vacancy-title 
+      =link_to "#{vacancy.title}", vacancy_path(vacancy.id)
+    h4.vacancy-country
+      =vacancy.country
+    h5 
+      -if !vacancy.category_id.nil?
+        =Category.find(vacancy.category_id).title
+    h5 
+      =vacancy.salary 
+    p
+      h5.vacancy-req Requirements
+      p.req-content
+        =vacancy.requirements
+  .col-md-4
+    -if current_candidate && current_candidate.category_id == vacancy.category_id && !current_candidate.applications.exists?(vacancy_id: vacancy.id)
+      = button_to 'Apply for job', applications_path(candidate_id: current_candidate,vacancy_id:vacancy.id,state:'request', :method => :post), class:'btn btn-primary btn-lg'
+    -elsif current_candidate.applications.exists?(vacancy_id: vacancy.id)
+      span Already applied
+        
