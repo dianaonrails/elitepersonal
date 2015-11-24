@@ -25,8 +25,14 @@ filter :country
 filter :city
 
 form do |f|
-	f.input :category_id, label: 'Category Name', as: :select, collection: Category.all
-	f.inputs
+	inputs 'Vacancy' do
+		f.input :category_id, label: 'Category Name', as: :select, collection: Category.all
+		f.input :title
+		f.input :country
+		f.input :salary
+		f.input :description,as: :html_editor
+		f.input :requirements,as: :html_editor
+	end	
 	f.actions
 end	
 

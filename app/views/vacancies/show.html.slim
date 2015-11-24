@@ -13,9 +13,9 @@ p#notice = notice
 				=@vacancy.country
 			h5 Description:
 			p 
-				=@vacancy.description
+				=@vacancy.description.html_safe
 			h5 Requirements:
 			p
-				=@vacancy.requirements	
+				=@vacancy.requirements.html_safe
 			= link_to 'Back', vacancies_path
 		
