@@ -20,11 +20,18 @@ $light-grey:#a8a094;
 	.navbar-header {
         float: none;
     }
+
+    .nav.navbar-nav{
+    	width: 100%;
+    }
+
     .navbar-left,.navbar-right {
         float: none !important;
     }
     .navbar-toggle {
         display: block;
+        width: 8%;
+		height: 52%;
     }
     .navbar-collapse {
         border-top: 1px solid transparent;
@@ -45,6 +52,10 @@ $light-grey:#a8a094;
         float: none;
         margin: 0;
         
+    }
+    .navbar-default .navbar-nav > li > a{
+    	font-size: 1.8em;
+    	text-align: center;
     }
    
     
