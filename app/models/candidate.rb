@@ -54,7 +54,7 @@ class Candidate < ActiveRecord::Base
   scope :gender_masculine, -> {where(gender: 'm')}
 
   
-
+  
   
   validates :first_name,:last_name,:gender,:address,:mobile,:email,:birth_date,:nationality,:citizenship,:category_id, presence:true
   validates :email, uniqueness: true

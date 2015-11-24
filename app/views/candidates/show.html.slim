@@ -1,9 +1,14 @@
 .row
 	.container.show-candidate
 		= tabs_tag :open_tabs => { :id => "tabs", :class => "nav nav-tabs" } do |tab|
-			=tab.candidate 'Personal Info', candidate_path(current_candidate), class:"active"
-			=tab.applications 'Applications', application_candidate_applications_path
-			=tab.interviews 'Interviews', interviews_candidate_interviews_path
+			-if current_candidate
+				=tab.candidate 'Personal Info', candidate_path(current_candidate), class:"active"
+			-elsif params[:id]
+				=tab.candidate 'Personal Info', candidate_path(params[:id]), class:"active"
+			-if current_candidate	
+				=tab.applications 'Applications', application_candidate_applications_path
+			-if current_candidate
+				=tab.interviews 'Interviews', interviews_candidate_interviews_path
 		.col-md-12
 			p#notice = notice
 			.col-md-12

@@ -2,7 +2,14 @@ class ApplicationsController < ApplicationController
 	set_tab :applications
 
 	def application_candidate
-		@applications = Application.where(candidate_id: current_candidate.id)
+		if current_candidate
+			@applications = Application.where(candidate_id: current_candidate.id)
+		elsif params[:id]
+			
+			@applications = Application.where(candidate_id: params[:id])
+		else
+			return
+		end	
 	end	
 
 	def index
