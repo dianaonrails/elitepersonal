@@ -45,11 +45,11 @@ $(document).ready(function () {
           			$('#vacancies-container').append(data);
           		}
           		else{
-          			$('#vacancies-container').append('<h1>No records </h1>');
+          			$('#vacancies-container').append('<h3>No records </h3>');
           		}
           },
           error: function(data){
-		    	$('#vacancies-container').append('<h1>No records </h1>');
+		    	$('#vacancies-container').append('<h3>No records </h3>');
           }
 		    
 		  

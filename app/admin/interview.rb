@@ -13,6 +13,15 @@ permit_params :client_request_id,:candidate_id,:interview_date,:address,:contact
 #   permitted
 # end
 
+	index do
+		if Interview.not_expired
+			column :address
+			column :interview_date
+			column :contact
+			actions
+		end	
+	end
+		
 	show do
 		attributes_table_for interview do
 			row 'Client request' do
