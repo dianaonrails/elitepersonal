@@ -42,8 +42,12 @@ $(document).ready(function () {
 	      url:'/vacancies/update_category',
           data: {'category': category},
           success: function(data) {
-          	
-          		$('#vacancies-container').append(data);
+          		if(data){
+          			$('#vacancies-container').append(data);
+          		}
+          		else{
+          			$('#vacancies-container').append('<h1>No records </h1>');
+          		}
           },
           error: function(data){
 		    	$('#vacancies-container').append('<h1>No records </h1>');
