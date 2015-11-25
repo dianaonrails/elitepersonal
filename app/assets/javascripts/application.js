@@ -43,9 +43,13 @@ $(document).ready(function () {
           data: {'category': category},
           success: function(data) {
           	
-		    $('#vacancies-container').append(data);
+          		$('#vacancies-container').append(data);
+          },
+          error: function(data){
+		    	$('#vacancies-container').append('<h1>No records </h1>');
+          }
 		    
-		  }
+		  
         });
 	});
 

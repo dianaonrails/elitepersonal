@@ -14,8 +14,12 @@ class VacanciesController < ApplicationController
       @vacancies = Vacancy.all
     else
       @category = Category.where(title: params[:category]).first
-      
-      @vacancies = Vacancy.where(category_id: @category.id)  
+      if @category.blank?
+        @vacancies = 0
+          
+      else
+        @vacancies = Vacancy.where(category_id: @category.id)
+      end  
     end  
     render partial: 'update_category' 
   end  

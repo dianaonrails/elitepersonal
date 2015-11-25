@@ -14,9 +14,11 @@
 				div class="alert alert-success" role="alert"
 					= flash[:notice]
 			= form_for @client_request do |f|
-				- @client_request.errors.full_messages.each do |message|
+				- if @client_request.errors.any?
 					div class="alert alert-warning" role="alert"
-	          			li = message 
+	      				ul
+	      					- @client_request.errors.full_messages.each do |message|
+	          					li = message 
 				h4 Fill all the inputs above.
 				.col-md-12.no-padding.align-field
 					.col-md-2.no-padding

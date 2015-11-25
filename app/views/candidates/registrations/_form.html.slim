@@ -146,7 +146,7 @@
 		  	.col-md-12.align-field 
 		  	  =label_tag 'First select what category you are applying:'	, nil , class:'subtitle'
 		  	  br
-		  	  =f.select(:category_id,options_for_select(["Nanny","Governess",'Housekeeper','Cooker','Driver','Assistants','Cleaning']))
+		  	  =f.collection_select(:category_id,Category.all,:id,:title, prompt: true)
 		  	
 		  	  br
 			.col-md-12.align-field  

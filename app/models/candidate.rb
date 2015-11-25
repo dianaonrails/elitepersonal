@@ -53,7 +53,7 @@ class Candidate < ActiveRecord::Base
   scope :gender_feminine, -> {where(gender: 'f')}
   scope :gender_masculine, -> {where(gender: 'm')}
   
-  validates :first_name,:last_name,:gender,:address,:mobile,:email,:birth_date,:nationality,:citizenship,:category_id, presence:true
+  validates :first_name,:last_name,:gender,:address,:mobile,:birth_date,:nationality,:citizenship,:category_id, presence:true
   validates :email, uniqueness: true
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
 
