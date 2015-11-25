@@ -3,8 +3,10 @@ ActiveAdmin.register Candidate do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-permit_params :first_name,:last_name,:mobile,:address,:gender,:email,:height,:weight,:birth_date,
-:citizenship,:nationality,:passport,:foreign_passport,:marital_status, :category_id,:smoker,:sign,:children
+permit_params :photo,:category_id,:first_name,:last_name,:address,:mobile,:email,:citizenship,:birth_date,
+        :gender,:height,:weight,:passport,:foreign_passport,:marital_status,:children,:sign,:nationality,
+        :smoker, :car,:driving_licence,education_info_attributes:[:level,:history,:languages],work_info_attributes:[:sectors_experience,:years_experience,
+          :current_job,:last_employer,:key_skills,:salary],:availability_ids => [],:available_work_ids =>[],:legal_work_ids =>[]
 # or
 #
 # permit_params do
