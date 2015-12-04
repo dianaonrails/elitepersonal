@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151121003944) do
+ActiveRecord::Schema.define(version: 20151204021843) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -52,6 +52,24 @@ ActiveRecord::Schema.define(version: 20151121003944) do
     t.integer  "vacancy_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "assistance_questions", force: :cascade do |t|
+    t.integer  "candidate_id"
+    t.boolean  "dry_wet"
+    t.boolean  "washing_ironing"
+    t.boolean  "vip"
+    t.boolean  "cooking"
+    t.boolean  "systems"
+    t.boolean  "driving"
+    t.boolean  "pool"
+    t.boolean  "small_repairs"
+    t.boolean  "cares"
+    t.boolean  "garden"
+    t.boolean  "plants"
+    t.boolean  "pet_grooming"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "availabilities", force: :cascade do |t|
@@ -105,6 +123,7 @@ ActiveRecord::Schema.define(version: 20151121003944) do
     t.string   "last_sign_in_ip"
     t.integer  "category_id"
     t.boolean  "interview"
+    t.text     "description"
   end
 
   add_index "candidates", ["email"], name: "index_candidates_on_email", unique: true
@@ -117,6 +136,27 @@ ActiveRecord::Schema.define(version: 20151121003944) do
     t.integer  "candidate_id"
   end
 
+  create_table "category_questions", force: :cascade do |t|
+    t.integer  "category_id"
+    t.string   "question"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.boolean  "cooking"
+    t.boolean  "regime"
+    t.boolean  "cleaning"
+    t.boolean  "education"
+    t.boolean  "trips"
+    t.boolean  "work_several"
+    t.boolean  "household_help"
+    t.integer  "candidate_id"
+    t.text     "educational_techniques"
+    t.boolean  "birth_to_one"
+    t.boolean  "one_to_three"
+    t.boolean  "three_to_six"
+    t.boolean  "five_to_seven"
+    t.boolean  "seven_to_ten"
+  end
+
   create_table "client_requests", force: :cascade do |t|
     t.string   "full_name"
     t.string   "email"
@@ -127,6 +167,37 @@ ActiveRecord::Schema.define(version: 20151121003944) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "cooker_questions", force: :cascade do |t|
+    t.integer  "candidate_id"
+    t.boolean  "family"
+    t.boolean  "restaurants"
+    t.boolean  "purchase"
+    t.boolean  "menu"
+    t.boolean  "banquets"
+    t.boolean  "during_banquet"
+    t.boolean  "kids"
+    t.boolean  "diets"
+    t.text     "knowledge_kitchen"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  create_table "driver_questions", force: :cascade do |t|
+    t.integer  "candidate_id"
+    t.boolean  "personal_driver"
+    t.boolean  "family_driver"
+    t.boolean  "children"
+    t.boolean  "knowledge_road"
+    t.boolean  "confident"
+    t.boolean  "washing"
+    t.boolean  "luxury_car"
+    t.boolean  "weapons_bodyguard"
+    t.boolean  "trips"
+    t.boolean  "care_house"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
   create_table "education_infos", force: :cascade do |t|
     t.integer  "candidate_id"
     t.string   "level"
@@ -134,6 +205,33 @@ ActiveRecord::Schema.define(version: 20151121003944) do
     t.text     "languages"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "governess_questions", force: :cascade do |t|
+    t.integer  "candidate_id"
+    t.boolean  "five_to_seven"
+    t.boolean  "seven_to_ten"
+    t.boolean  "cooking"
+    t.boolean  "school"
+    t.boolean  "assistant"
+    t.boolean  "foreign_languages"
+    t.boolean  "several_children"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  create_table "housekeeper_questions", force: :cascade do |t|
+    t.integer  "candidate_id"
+    t.boolean  "dry_wet"
+    t.boolean  "washing"
+    t.boolean  "vip"
+    t.boolean  "furniture"
+    t.boolean  "cooking"
+    t.boolean  "plants_animals"
+    t.boolean  "appliances"
+    t.boolean  "large_areas"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "interviews", force: :cascade do |t|
@@ -152,6 +250,33 @@ ActiveRecord::Schema.define(version: 20151121003944) do
     t.string   "description"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "nanny_questions", force: :cascade do |t|
+    t.boolean  "cooking"
+    t.boolean  "walking"
+    t.boolean  "cleaning"
+    t.boolean  "education"
+    t.boolean  "trips"
+    t.boolean  "several"
+    t.boolean  "household_help"
+    t.text     "education_techniques"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  create_table "nurse_questions", force: :cascade do |t|
+    t.integer  "candidate_id"
+    t.boolean  "older_people"
+    t.boolean  "ambulant_patients"
+    t.boolean  "immobile_patients"
+    t.boolean  "measurements"
+    t.boolean  "intramuscular_injection"
+    t.boolean  "intravenous_injection"
+    t.boolean  "procedures"
+    t.boolean  "cleaning_cooking"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "users", force: :cascade do |t|

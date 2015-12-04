@@ -1,0 +1,31 @@
+h3 Do you have experience with:
+=fields_for :governess_question, event.governess_question do |questions|
+	=label_tag 'children from:'
+	
+	=questions.check_box :five_to_seven, {}, true, false
+	'&nbsp;
+	=label_tag '5 y.o. to 7 y.o.'
+	
+	=questions.check_box :seven_to_ten, {}, true, false
+	'&nbsp;
+	=label_tag '7 y.o. to 10 y.o'
+	br
+	=questions.check_box :cooking, {}, true, false
+	'&nbsp;
+	=label_tag 'cooking for children'
+	br
+	=questions.check_box :school, {}, true, false
+	'&nbsp;
+	=label_tag 'prepare children for school'
+	br
+	=questions.check_box :assistant, {}, true, false
+	'&nbsp;
+	=label_tag 'assistance in the preparation of lessons in all subjects'
+	br
+	=questions.check_box :foreign_languages, {}, true, false
+	'&nbsp;
+	=label_tag 'extra classes in foreign languages'
+	br
+	=questions.check_box :several_children, {}, true, false
+	'&nbsp;
+	=label_tag 'Work simultaneously with several children'

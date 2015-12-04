@@ -47,7 +47,7 @@
 			   .col-md-3.no-padding
 			   	=f.label 'Mobile phone *'
 			   .col-md-9
-			   	=f.text_field :mobile
+			   	=f.text_field :mobile, type:"tel"
 			.col-md-12.align-field   	
 			   .col-md-3.no-padding	
 			   	=f.label 'Email *'
@@ -149,6 +149,25 @@
 		  	  =f.collection_select(:category_id,Category.all,:id,:title, prompt: true)
 		  	
 		  	  br
+		  	.col-md-12.align-field id="category-questions"
+		  		#nanny style="display:none;"
+		  			=render partial: 'nanny_questions',  :locals => {:event => @candidate}
+		  		#governess style="display:none;"
+		  			=render partial: 'governess_questions', :locals => {:event => @candidate}
+		  		#cooker style="display:none;"
+		  			=render partial: 'cooker_questions', :locals => {:event => @candidate}
+		  		#driver style="display:none;"
+		  			=render partial: 'driver_questions', :locals => {:event => @candidate}
+		  		#housekeeper style="display:none;"
+		  			=render partial: 'housekeeper_questions', :locals => {:event => @candidate}
+		  		#assistance style="display:none;"
+		  			=render partial: 'assistance_questions', :locals => {:event => @candidate}
+		  		#nurse style="display:none;"
+		  			=render partial: 'nurse_questions', :locals => {:event => @candidate}		
+		  	.col-md-12.align-field
+		  		=label_tag 'describe youself, your good qualities and disadvantages:'
+		  		br
+		  		=f.text_area :description, cols:'60',rows:'5'					
 			.col-md-12.align-field  
 			  =label_tag 'Sectors / Functions you have experience in: '
 			

@@ -1,0 +1,47 @@
+# == Schema Information
+#
+# Table name: driver_questions
+#
+#  id                :integer          not null, primary key
+#  candidate_id      :integer
+#  personal_driver   :boolean
+#  family_driver     :boolean
+#  children          :boolean
+#  knowledge_road    :boolean
+#  confident         :boolean
+#  washing           :boolean
+#  luxury_car        :boolean
+#  weapons_bodyguard :boolean
+#  trips             :boolean
+#  care_house        :boolean
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  candidate_id: 1
+  personal_driver: false
+  family_driver: false
+  children: false
+  knowledge_road: false
+  confident: false
+  washing: false
+  luxury_car: false
+  weapons_bodyguard: false
+  trips: false
+  care_house: false
+
+two:
+  candidate_id: 1
+  personal_driver: false
+  family_driver: false
+  children: false
+  knowledge_road: false
+  confident: false
+  washing: false
+  luxury_car: false
+  weapons_bodyguard: false
+  trips: false
+  care_house: false

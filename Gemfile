@@ -56,6 +56,8 @@ gem "tabs_on_rails"
 
 gem 'kaminari'
 
+gem 'intl-tel-input-rails'
+
 gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'master'
 gem "i18n-js", ">= 3.0.0.rc11"
 

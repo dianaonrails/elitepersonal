@@ -1,0 +1,41 @@
+# == Schema Information
+#
+# Table name: housekeeper_questions
+#
+#  id             :integer          not null, primary key
+#  candidate_id   :integer
+#  dry_wet        :boolean
+#  washing        :boolean
+#  vip            :boolean
+#  furniture      :boolean
+#  cooking        :boolean
+#  plants_animals :boolean
+#  appliances     :boolean
+#  large_areas    :boolean
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  candidate_id: 1
+  dry_wet: false
+  washing: false
+  vip: false
+  furniture: false
+  cooking: false
+  plants_animals: false
+  appliances: false
+  large_areas: false
+
+two:
+  candidate_id: 1
+  dry_wet: false
+  washing: false
+  vip: false
+  furniture: false
+  cooking: false
+  plants_animals: false
+  appliances: false
+  large_areas: false

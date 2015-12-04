@@ -1,0 +1,41 @@
+# == Schema Information
+#
+# Table name: nurse_questions
+#
+#  id                      :integer          not null, primary key
+#  candidate_id            :integer
+#  older_people            :boolean
+#  ambulant_patients       :boolean
+#  immobile_patients       :boolean
+#  measurements            :boolean
+#  intramuscular_injection :boolean
+#  intravenous_injection   :boolean
+#  procedures              :boolean
+#  cleaning_cooking        :boolean
+#  created_at              :datetime         not null
+#  updated_at              :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  candidate_id: 1
+  older_people: false
+  ambulant_patients: false
+  immobile_patients: false
+  measurements: false
+  intramuscular_injection: false
+  intravenous_injection: false
+  procedures: false
+  cleaning_cooking: false
+
+two:
+  candidate_id: 1
+  older_people: false
+  ambulant_patients: false
+  immobile_patients: false
+  measurements: false
+  intramuscular_injection: false
+  intravenous_injection: false
+  procedures: false
+  cleaning_cooking: false

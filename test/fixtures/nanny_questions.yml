@@ -1,0 +1,38 @@
+# == Schema Information
+#
+# Table name: nanny_questions
+#
+#  id                   :integer          not null, primary key
+#  cooking              :boolean
+#  walking              :boolean
+#  cleaning             :boolean
+#  education            :boolean
+#  trips                :boolean
+#  several              :boolean
+#  household_help       :boolean
+#  education_techniques :text
+#  created_at           :datetime         not null
+#  updated_at           :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cooking: false
+  walking: false
+  cleaning: false
+  education: false
+  trips: false
+  several: false
+  household_help: false
+  education_techniques: MyText
+
+two:
+  cooking: false
+  walking: false
+  cleaning: false
+  education: false
+  trips: false
+  several: false
+  household_help: false
+  education_techniques: MyText

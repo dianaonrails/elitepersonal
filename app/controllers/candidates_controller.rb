@@ -23,6 +23,13 @@ class CandidatesController < ApplicationController
     @candidate = Candidate.new
     @candidate.build_education_info
     @candidate.build_work_info
+    @candidate.category_questions.build
+    @candidate.build_governess_question
+    @candidate.build_cooker_question
+    @candidate.build_driver_question
+    @candidate.build_housekeeper_question
+    @candidate.build_assistance_question
+    @candidate.build_nurse_question
   end
 
   # GET /candidates/1/edit
@@ -33,7 +40,10 @@ class CandidatesController < ApplicationController
   # POST /candidates.json
   def create
     @candidate = Candidate.new(candidate_params)
-
+    if @candidate.category_id == '1'
+      @candidate.category_questions_attributes = [:id,:candidate_id,:cooking,:regime,:cleaning,:education,:trips,:work_several,
+        :household_help,:educational_techniques,:birth_to_one,:one_to_three,:three_to_six]
+    end  
     respond_to do |format|
       if @candidate.save
         format.html { redirect_to @candidate, notice: 'Your profile was successfully created.' }

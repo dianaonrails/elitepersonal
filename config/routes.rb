@@ -29,6 +29,8 @@ Rails.application.routes.draw do
       #patch 'members/confirmation' => 'confirmations#update', :via => :patch, :as => :update_member_confirmation
     end
 
+    get 'nanny_questions' => 'registrations#nanny_questions'
+
     resources :candidates
     
     get 'update_category' => 'vacancies#update_category'
@@ -48,7 +50,16 @@ Rails.application.routes.draw do
       collection do
         get :interviews_candidate
       end
-    end   
+    end  
+
+    get 'update_questions' => 'category_questions#update_questions'
+
+    resources :category_questions do
+      collection do
+        get :update_questions
+      end  
+    end  
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

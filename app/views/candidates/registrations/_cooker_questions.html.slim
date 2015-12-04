@@ -1,0 +1,38 @@
+h3 Do you have experience with:
+=fields_for :cooker_question, event.cooker_question do |questions|
+	=questions.check_box :family, {}, true, false
+	'&nbsp;
+	=label_tag 'Work experience in the family'
+	br
+	=questions.check_box :restaurants, {}, true, false
+	'&nbsp;
+	=label_tag 'Experience working in restaurants'
+	br
+	=questions.check_box :purchase, {}, true, false
+	'&nbsp;
+	=label_tag ' Purchase of food products; quality control of products'
+	br
+	=questions.check_box :menu, {}, true, false
+	'&nbsp;
+	=label_tag 'Drawing up the menu'
+	br
+	=questions.check_box :banquets, {}, true, false
+	'&nbsp;
+	=label_tag 'Organization of banquets and receptions'
+	br
+	=questions.check_box :during_banquet, {}, true, false
+	'&nbsp;
+	=label_tag 'Service during the banquet, workplace cleaning'
+	br
+	=questions.check_box :kids, {}, true, false
+	'&nbsp;
+	=label_tag 'Cooking for kids'
+	br
+	=questions.check_box :diets, {}, true, false
+	'&nbsp;
+	=label_tag 'Cooking for diets, calorie calculation'
+	br
+	
+	=label_tag 'Knowledge of the kitchen (please specify: Russian, European, Mediterranean, Italian, French, Oriental etc)'
+	br
+	=questions.text_area :knowledge_kitchen, cols:'60',rows:'5'

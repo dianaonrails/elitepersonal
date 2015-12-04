@@ -21,12 +21,16 @@
 //= require react_ujs
 //= require react
 //= require react_ujs
+//= require intlTelInput
 //= require i18n
 //= require i18n/translations
 //= require_tree .
 $(document).ready(function () {
 	$('.carousel').carousel();
 	$('.datepicker').datepicker({dateFormat: "yy-mm-dd"});
+
+	$("#candidate_mobile").intlTelInput();
+
 	I18n.defaultLocale = "<%= I18n.default_locale %>";
 	I18n.locale = "<%= I18n.locale %>";
 
@@ -54,6 +58,41 @@ $(document).ready(function () {
 		    
 		  
         });
+	});
+
+	$('#candidate_category_id').on('change',function(e){
+		e.preventDefault();
+		$('#nanny').css("display", "none");
+		$('#governess').css("display", "none");
+		$('#cooker').css("display", "none");
+		$('#driver').css("display", "none");
+		$('#housekeeper').css("display", "none");
+		$('#assistance').css("display", "none");
+		$('#nurse').css("display", "none");
+		var category = $(this).find(':selected').val();
+		if(category == '1') {
+			$('#nanny').css("display", "block");
+		}
+		if(category == '2'){
+			$('#housekeeper').css("display", "block");
+		}
+		if(category == '3'){
+			$('#driver').css("display", "block");
+		}
+		if(category == '4'){
+			$('#governess').css("display", "block");
+		}
+		if(category == '5'){
+			$('#cooker').css("display", "block");
+		}
+		
+		if(category == '6'){
+			$('#assistance').css("display", "block");
+		}
+		if(category == '7'){
+			$('#nurse').css("display", "block");
+		}
+
 	});
 
 });
