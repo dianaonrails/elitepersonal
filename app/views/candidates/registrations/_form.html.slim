@@ -14,12 +14,12 @@
 		  	   .col-md-3.no-padding
 			   	=f.label 'First Name *'
 			   .col-md-9
-			   	=f.text_field :first_name
+			   	=f.text_field :first_name, class:'length-input'
 			.col-md-12.align-field
 			   .col-md-3.no-padding
 			   	=f.label 'Last Name *'
 			   .col-md-9
-			   	=f.text_field :last_name
+			   	=f.text_field :last_name,class:'length-input'
 			.col-md-12.align-field   	
 			   .col-md-3.no-padding
 			   	=label_tag 'Gender *'
@@ -32,32 +32,32 @@
 			   .col-md-3.no-padding
 			   	=f.label 'Height'
 			   .col-md-9
-			   	=f.text_field :height
+			   	=f.text_field :height, class:'length-input'
 			.col-md-12.align-field   	
 			   .col-md-3.no-padding
 			   	=label_tag 'Weight'
 			   .col-md-9
-			   	=f.text_field :weight
+			   	=f.text_field :weight,class:'length-input'
 			.col-md-12.align-field   	
 			   .col-md-3.no-padding
 			   	=f.label 'Address *'
 			   .col-md-9
-			   	=f.text_field :address
+			   	=f.text_field :address,class:'length-input'
 			.col-md-12.align-field   	
 			   .col-md-3.no-padding
 			   	=f.label 'Mobile phone *'
 			   .col-md-9
-			   	=f.text_field :mobile, type:"tel"
+			   	=f.text_field :mobile, type:"tel",class:'length-input'
 			.col-md-12.align-field   	
 			   .col-md-3.no-padding	
 			   	=f.label 'Email *'
 			   .col-md-9
-			   	=f.text_field :email
+			   	=f.text_field :email,class:'length-input'
 			.col-md-12.align-field
 				.col-md-3.no-padding
 					=f.label 'Password(minimum of 5 characters) *'
 				.col-md-9	
-					= f.password_field :password , autocomplete: "off"  	
+					= f.password_field :password , autocomplete: "off",class:'length-input'  	
 			.col-md-12.align-field   	
 			   .col-md-3.no-padding
 			   	=label_tag 'Date of birth *'
@@ -73,22 +73,22 @@
 			   .col-md-3.no-padding
 			   	 =label_tag 'Passport nº'
 			   .col-md-9	
-			   	 =f.text_field :passport
+			   	 =f.text_field :passport,class:'length-input'
 			.col-md-12.align-field   	 
 			   .col-md-3.no-padding
 			   	 =label_tag 'Foreign passport nº'
 			   .col-md-9
-			   	 =f.text_field :foreign_passport
+			   	 =f.text_field :foreign_passport,class:'length-input'
 			.col-md-12.align-field   	 
 			   .col-md-3.no-padding	
 			   	 =label_tag 'Nationality *'
 			   .col-md-9
-			   	 =f.text_field :nationality
+			   	 =f.text_field :nationality,class:'length-input'
 			.col-md-12.align-field
 			   .col-md-3.no-padding
 			   	 =label_tag 'Citizenship *'   	 
 			   .col-md-9
-			   	 =f.text_field :citizenship
+			   	 =f.text_field :citizenship,class:'length-input'
 			.col-md-12.align-field   	 
 			   .col-md-3.no-padding	
 			   	 =label_tag 'Are you a smoker?'
@@ -128,7 +128,7 @@
 		  	.col-md-12.align-field  
 			  =label_tag 'Highest level of education *'
 			  br
-			  =education_fields.text_field :level
+			  =education_fields.text_field :level,class:'length-input'
 			.col-md-12.align-field
 			  =label_tag 'Education History *'
 			  br
@@ -174,21 +174,62 @@
 			  =work_fields.text_area :sectors_experience, rows: 3, cols: 45
 			.col-md-12.align-field  
 			  =label_tag 'Years of experience'
-			  br
-			  =work_fields.text_field :years_experience
-			.col-md-12.align-field  
-		  	  =label_tag ' Current/most recent job title'
-			  br
-			  =work_fields.text_field :current_job
-			.col-md-12.align-field  
-			  =label_tag ' Last employment/employer'
-			  br
-			  =work_fields.text_field :last_employer
-			.col-md-12.align-field  
-			  =label_tag 'Key skills'
-			  br
-			  =work_fields.text_area :key_skills, rows: 3, cols: 45
-			  br
+			  '&nbsp;
+			  =work_fields.select(:years_experience, options_for_select(["-1","1","2","+3"]))
+			.col-md-12.align-field
+				=label_tag 'Please fill the information over the last two jobs(from the more recent to older): ', nil,class:"style-bold"
+				.col-md-12.no-padding.margin-job
+					
+					.col-md-6.no-padding.align-item
+						=label_tag 'Date of start'
+						'&nbsp;
+						input type="text" data-provide='datepicker' size="15"	
+
+					.col-md-6.align-item
+						=label_tag 'Date of end'
+						'&nbsp;
+						input type="text" data-provide='datepicker' size="15"
+					.col-md-12.no-padding.align-item
+						=label_tag 'Employer'
+						'&nbsp;
+						=text_field_tag :employer1,nil,size:'55%'
+					.col-md-12.no-padding
+						=label_tag 'Description'
+						br
+						=text_area_tag :description, nil,cols:'50',rows:'4'
+									
+				.col-md-12.no-padding
+
+					.col-md-6.no-padding.align-item
+						=label_tag 'Date of start'
+						'&nbsp;
+						input type="text" data-provide='datepicker' size="15"		
+					.col-md-6.align-item
+						=label_tag 'Date of end'
+						'&nbsp;
+						input type="text" data-provide='datepicker' size="15"
+					.col-md-12.no-padding.align-item
+						=label_tag 'Employer'
+						'&nbsp;
+						=text_field_tag :employer2,nil,size:'55%'		
+					.col-md-12.no-padding
+						=label_tag 'Description'
+						br
+						=text_area_tag :description, nil,cols:'50',rows:'4'	
+				hr				
+			//.col-md-12.align-field  
+		  	//  =label_tag ' Current/most recent job title'
+			//  br
+			//  =work_fields.text_field :current_job
+			//.col-md-12.align-field  
+			//  =label_tag ' Last employment/employer'
+			//  br
+			//  =work_fields.text_field :last_employer
+			//.col-md-12.align-field  
+			//  =label_tag 'Key skills'
+			//  br
+			//  =work_fields.text_area :key_skills, rows: 3, cols: 45
+			//  br
 			.col-md-12.align-field  
 			  
 			  =label_tag 'Wage level per month',nil

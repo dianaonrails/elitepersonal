@@ -104,6 +104,10 @@ body{
 	padding:0;
 }
 
+.style-bold{
+	font-weight:bold;
+}
+
 .align-field{
 	margin-bottom: 3%;
 }
@@ -188,6 +192,11 @@ body{
 
 }
 
+.navbar-default .navbar-nav > .style-bold > a{
+	font-weight:bold;
+
+}
+
 .motto{
 	border-top:1px solid #AAAAAA;
 	text-align: center;
@@ -224,9 +233,7 @@ body{
 	margin-right: 5px;
 }
 
-input[type='text']{
-	width: 290px;
-}
+
 
 .up-more{
 	bottom: 40px;
@@ -540,6 +547,13 @@ input[type='text']{
 		margin-bottom: 15px;
 		padding: 0;
 	}
+	.align-item{
+		margin-top: 2%;
+		margin-bottom: 2%;
+	}
+	.length-input{
+		width: 100%;
+	}
 }
 
 
@@ -551,6 +565,10 @@ label{
 .subtitle{
 	font-family: 'Fira sans',sans-serif;
 	font-weight: 400;
+}
+
+.margin-job{
+	margin-bottom:6%;
 }
 
 

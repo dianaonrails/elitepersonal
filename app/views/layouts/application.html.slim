@@ -75,25 +75,24 @@ html
 							li
 								=link_to 'Vacancies',vacancies_path		
 						-if controller?('public') && action?('client')	
-							li class="active"
-								=link_to 'Client',new_client_request_path
+							li class="active style-bold"
+								=link_to 'CLIENT',new_client_request_path,class:'style-bold'
 						-else
-							li
-								=link_to 'Client',new_client_request_path	
+							li class="style-bold"
+								=link_to 'CLIENT',new_client_request_path,class:'style-bold'	
 						-if controller?('candidates')
-							li class="active"
+							li class="active style-bold"
 								-if current_candidate
 									=link_to 'Personal Area', candidate_path(current_candidate)
 								-else
-									=link_to 'Recruitment',candidate_session_path
+									=link_to 'RECRUITMENT',candidate_session_path
 									/=link_to 'Recruitment',new_candidate_path
 						-else
-							li
+							li class="style-bold"
 								-if current_candidate
 									=link_to 'Personal Area', candidate_path(current_candidate)
 								-else
-									=link_to 'Recruitment',candidate_session_path			
-						
+									=link_to 'RECRUITMENT',candidate_session_path
 						-if controller?('public') && action?('contacts')
 							li class="active"
 								=link_to 'Contacts','/contacts'
