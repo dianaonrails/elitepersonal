@@ -24,10 +24,14 @@
 			   .col-md-3.no-padding
 			   	=label_tag 'Gender *'
 			   .col-md-9	
-				   =label_tag 'Feminine', nil
-				   =f.radio_button(:gender, 'f')
-				   =label_tag 'Masculine'
-				   =f.radio_button(:gender, 'm')
+			   	    .col-md-6
+					   =label_tag 'Feminine', nil
+					   '&nbsp;
+					   =f.radio_button(:gender, 'f',class:"space")
+ 					.col-md-6.no-padding
+					   =label_tag 'Masculine'
+					   '&nbsp;
+					   =f.radio_button(:gender, 'm')
 			.col-md-12.align-field	   
 			   .col-md-3.no-padding
 			   	=f.label 'Height'
@@ -241,7 +245,7 @@
  	div class="panel panel-default"   	  
 	  .panel-heading Availability & Work eligibility Info
 	  .panel-body			  
-		  .col-md-12
+		  .col-md-12.section-availability
 		  	  br
 			  =f.label 'Availability *', class:"indent-field subtitle"
 			  br

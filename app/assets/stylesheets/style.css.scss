@@ -93,6 +93,11 @@ body{
 	margin-top: 5%;
 }
 
+.space{
+	padding:10px;
+
+}
+
 .title{
 	color:#46BFF6;
 	font-family: 'Fira Sans', sans-serif;
@@ -553,6 +558,14 @@ body{
 	}
 	.length-input{
 		width: 100%;
+	}
+	.section-availability{
+		input[type="checkbox"] {
+    		margin: 4px 4px 0px;
+    	}
+    	input[type="radio"] {
+    		margin: 4px 4px 0px;
+    	}
 	}
 }
 
