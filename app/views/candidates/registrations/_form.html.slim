@@ -179,7 +179,7 @@
 			.col-md-12.align-field  
 			  =label_tag 'Years of experience'
 			  '&nbsp;
-			  =work_fields.select(:years_experience, options_for_select(["-1","1","2","+3"]))
+			  =work_fields.select(:years_experience, options_for_select(["0","1","2","+3"]))
 			.col-md-12.align-field
 				=label_tag 'Please fill the information over the last two jobs(from the more recent to older): ', nil,class:"style-bold"
 				.col-md-12.no-padding.margin-job

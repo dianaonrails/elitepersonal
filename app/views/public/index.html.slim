@@ -1,4 +1,38 @@
-.col-md-12.carousel-container
+.col-md-2.side-bar
+	ul
+		li 
+			=image_tag("babysitter-grey.png")
+			.list-title
+				=link_to 'Babysitter','/services'
+			
+		li
+			=image_tag("maid.png")
+			.list-title 
+				=link_to 'Governess','/services'
+		li
+			=image_tag("skirt7.png")
+			.list-title 
+				=link_to 'Housekeeper','/services'
+		li
+			=image_tag("chef20.png")
+			.list-title 
+				=link_to 'Cook','/services'
+		li
+			=image_tag("driver.png")
+			.list-title 
+				=link_to 'Driver','/services'	
+		li
+			=image_tag("worker37.png")
+			.list-title 
+				=link_to 'Assistants','/services'
+		li
+			=image_tag("wiping16.png")
+			.list-title 
+				=link_to 'Cleaning','/services'	
+		li
+			.link-jobs
+				=link_to 'See the job offers',vacancies_path						
+.col-md-10.carousel-container
 	div class="carousel slide carousel-fade" id="myCarousel" data-ride="carousel"
 		div class="carousel-inner"
 			div class="item active"
