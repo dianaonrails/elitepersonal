@@ -61,6 +61,8 @@ gem 'intl-tel-input-rails'
 gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'master'
 gem "i18n-js", ">= 3.0.0.rc11"
 
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
