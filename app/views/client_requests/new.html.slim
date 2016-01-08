@@ -24,28 +24,28 @@
 					.col-md-2.no-padding
 						=label_tag 'Full Name *'
 					.col-md-8
-						=f.text_field :full_name
+						=f.text_field :full_name, size:"50%", required:true
 				.col-md-12.no-padding.align-field
 					.col-md-2.no-padding		
 						=label_tag 'Email *'
 					.col-md-8
-						=f.text_field :email
+						=f.text_field :email, size:"50%", required:true
 				.col-md-12.no-padding.align-field
 					.col-md-2.no-padding		
 						=label_tag 'Contact Number'
 					.col-md-8
-						=f.text_field :phone	
+						=f.text_field :phone, size:"50%"	
 				.col-md-12.no-padding.align-field
 					.col-md-2.no-padding	
-						=label_tag 'Job Category'
+						=label_tag 'Job Category *'
 					.col-md-8
-						=collection_select(:client_request,:category_id,Category.all,:id,:title)	
+						=collection_select(:client_request,:category_id,Category.all,:id,:title,required:true)	
 				
 				.col-md-12.align-field.no-padding
 					.col-md-4.no-padding
 						=label_tag 'Your Message *:'
 					.col-md-12.no-padding
-						=f.text_area :message, size: "55x5"
+						=f.text_area :message, size: "70x5"
 
 				= f.submit "Send", class:"btn btn-primary"
 

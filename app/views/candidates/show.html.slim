@@ -12,10 +12,11 @@
 		.col-md-12
 			p#notice = notice
 			.col-md-12
-				= link_to 'Edit', edit_candidate_registration_path(@candidate)
-				'|
-				
 				-if current_candidate
+					= link_to 'Edit', edit_candidate_registration_path(@candidate)
+					'|
+					
+					
 					= link_to 'Logout >', destroy_candidate_session_path, method: :delete
 			.col-md-6
 				div class="panel panel-default" 
@@ -50,21 +51,22 @@
 				   				=label_tag 'Weight'
 				   			.col-md-9
 				   				=@candidate.weight	
-				   		.col-md-12.align-field
-				   			.col-md-3.no-padding
-				   				=label_tag 'Address'
-				   			.col-md-9
-				   				=@candidate.address
-				   		.col-md-12.align-field
-				   			.col-md-3.no-padding
-				   				=label_tag 'Mobile phone'
-				   			.col-md-9
-				   				=@candidate.mobile	
-				   		.col-md-12.align-field
-				   			.col-md-3.no-padding
-				   				=label_tag 'Email'
-				   			.col-md-9
-				   				=@candidate.email	
+				   		-if current_candidate	
+					   		.col-md-12.align-field
+					   			.col-md-3.no-padding
+					   				=label_tag 'Address'
+					   			.col-md-9
+					   				=@candidate.address
+					   		.col-md-12.align-field
+					   			.col-md-3.no-padding
+					   				=label_tag 'Mobile phone'
+					   			.col-md-9
+					   				=@candidate.mobile	
+					   		.col-md-12.align-field
+					   			.col-md-3.no-padding
+					   				=label_tag 'Email'
+					   			.col-md-9
+					   				=@candidate.email	
 				   		.col-md-12.align-field
 				   			.col-md-3.no-padding
 				   				=label_tag 'Date of birth'

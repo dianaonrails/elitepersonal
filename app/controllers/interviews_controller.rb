@@ -28,7 +28,7 @@ class InterviewsController < ApplicationController
 	    @twilio_client.account.sms.messages.create(
 	      :from => '+447481342039',
 	      :to => number_to_send_to,
-	      :body => "You have and interview date:#{date} and address:#{address}"
+	      :body => "You have and interview date:#{date}, answer with yes / no / busy"
 	    )
   	end
 
@@ -57,7 +57,7 @@ class InterviewsController < ApplicationController
 			#x = Net::HTTP.post_form(URI.parse('http://smsgateway.me/api/v3/messages/send/'), params)
 	        #puts x.body
 	        page = agent.post("http://smsgateway.me/api/v3/messages/send",{'email'=>'d.r.carvalho89@gmail.com','password'=>'3j1B12Nw5d','device'=>'15024','number' =>candidate.mobile,
-			'message'=>'You have a interview in address:'+ address +' at date:' + date})
+			'message'=>'You have a interview in at date:' + date + 'answer with yes / no / busy'})
 	        format.html { redirect_to @interview, notice: 'The interview was schedule we will confirm with you.' }
 	        format.json { render :show, status: :created, location: @interview }
 	      else

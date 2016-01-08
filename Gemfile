@@ -56,7 +56,17 @@ gem "tabs_on_rails"
 
 gem 'kaminari'
 
+gem 'pdfkit'
+gem 'wicked_pdf'
+
+gem 'prawn-rails'
+gem 'nokogiri'
+gem 'premailer-rails'
+gem 'roadie', '~> 3.1.1'
+
 gem 'intl-tel-input-rails'
+
+gem 'cancancan', '~> 1.10'
 
 gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'master'
 gem "i18n-js", ">= 3.0.0.rc11"

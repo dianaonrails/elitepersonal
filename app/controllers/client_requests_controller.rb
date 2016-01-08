@@ -1,6 +1,5 @@
 class ClientRequestsController < ApplicationController
-
-		
+	
 
 	def new
 		@client_request = ClientRequest.new
@@ -12,6 +11,10 @@ class ClientRequestsController < ApplicationController
 
 	    respond_to do |format|
 	      if @client_request.save
+	      	#send email to yana with the suggestions
+	      	@candidates = Candidate.where(category_id: @client_request.category_id)
+	      	ClientRequestMailer.owner_mail(@client_request,@candidates).deliver
+
 	        format.html { redirect_to new_client_request_path, notice: 'Your request was sent. We will answer as soon as possible.' }
 	        format.json { render :new, status: :created, location: @client_request }
 	      else

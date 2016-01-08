@@ -3,7 +3,7 @@ ActiveAdmin.register Candidate do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-permit_params :photo,:category_id,:first_name,:last_name,:address,:mobile,:email,:citizenship,:birth_date,
+permit_params :photo,:category_id,:password,:first_name,:last_name,:address,:mobile,:email,:citizenship,:birth_date,
         :gender,:height,:weight,:passport,:foreign_passport,:marital_status,:children,:sign,:nationality,
         :smoker, :car,:driving_licence,education_info_attributes:[:level,:history,:languages],work_info_attributes:[:sectors_experience,:years_experience,
           :current_job,:last_employer,:key_skills,:salary],:availability_ids => [],:available_work_ids =>[],:legal_work_ids =>[]
@@ -14,7 +14,20 @@ permit_params :photo,:category_id,:first_name,:last_name,:address,:mobile,:email
 #   permitted << :other if resource.something?
 #   permitted
 # end
+	controller do
+	    def index
+	      index! do |format|
+	        format.html
+	        format.pdf {
+	         pdf = ProjectPdf.new(@candidates)
+	         send_data pdf.render, filename: "Project_status.pdf",
+	                               disposition: "inline"
+	        }
+	      end
+	    end
+    end
 	index do
+
 		selectable_column
 		column :first_name
 		column :last_name
@@ -32,8 +45,9 @@ permit_params :photo,:category_id,:first_name,:last_name,:address,:mobile,:email
 	filter :citizenship
 	filter :address
 	filter :birth_date
-	filter :marital_status, as: :select, collection: ['Single','Married','Divorced','Separated','Widowed','In a relationship','Civil Partnership','Rather not say']
-	filter :smoker
+
+	#filter :marital_status, as: :select, collection: ['Single','Married','Divorced','Separated','Widowed','In a relationship','Civil Partnership','Rather not say']
+	#filter :smoker
 	
 
 
@@ -99,6 +113,9 @@ permit_params :photo,:category_id,:first_name,:last_name,:address,:mobile,:email
 	show do
 		panel 'Personal Info' do
 			attributes_table_for candidate do
+				row "print" do
+					link_to "Download Invoice (PDF)", candidate_path(candidate, :format => "pdf")
+				end	
 				row :photo do
 					image_tag(candidate.photo.url(:thumb))
 				end	
