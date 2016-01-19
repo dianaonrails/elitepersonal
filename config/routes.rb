@@ -29,7 +29,7 @@ Rails.application.routes.draw do
 
     match 'send_mail', to: 'admin/client_requests#send_mail', via: 'post'
     #get 'vacancies' => "public#vacancies"
-    resources :candidates
+    
     devise_for :candidates, :controllers => { :registrations => "candidates/registrations", :sessions => "candidates/sessions" }
     devise_scope :candidate do
       get 'candidates/sessions', to: 'sessions#sign_in', as:'sign_in'
@@ -38,6 +38,7 @@ Rails.application.routes.draw do
 
     get 'nanny_questions' => 'registrations#nanny_questions'
 
+    resources :candidates
     
     
     get 'update_category' => 'vacancies#update_category'
