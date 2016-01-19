@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151204021843) do
+ActiveRecord::Schema.define(version: 20160118173829) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -68,20 +68,37 @@ ActiveRecord::Schema.define(version: 20151204021843) do
     t.boolean  "garden"
     t.boolean  "plants"
     t.boolean  "pet_grooming"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.integer  "client_request_id"
   end
 
   create_table "availabilities", force: :cascade do |t|
     t.integer  "candidate_id"
     t.string   "description"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.integer  "client_request_id"
   end
 
   create_table "available_works", force: :cascade do |t|
     t.integer  "candidate_id"
     t.string   "description"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.integer  "client_request_id"
+  end
+
+  create_table "babysitter_questions", force: :cascade do |t|
+    t.string   "question"
+    t.boolean  "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "candidate_languages", force: :cascade do |t|
+    t.integer  "candidate_id"
+    t.integer  "language_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
@@ -124,6 +141,7 @@ ActiveRecord::Schema.define(version: 20151204021843) do
     t.integer  "category_id"
     t.boolean  "interview"
     t.text     "description"
+    t.integer  "level_education_id"
   end
 
   add_index "candidates", ["email"], name: "index_candidates_on_email", unique: true
@@ -155,6 +173,16 @@ ActiveRecord::Schema.define(version: 20151204021843) do
     t.boolean  "three_to_six"
     t.boolean  "five_to_seven"
     t.boolean  "seven_to_ten"
+    t.integer  "client_request_id"
+    t.integer  "nanny_question_id"
+    t.integer  "driver_question_id"
+  end
+
+  create_table "client_languages", force: :cascade do |t|
+    t.integer  "client_id"
+    t.integer  "language_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "client_requests", force: :cascade do |t|
@@ -163,8 +191,47 @@ ActiveRecord::Schema.define(version: 20151204021843) do
     t.string   "phone"
     t.integer  "category_id"
     t.text     "message"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.integer  "client_id"
+    t.string   "gender"
+    t.string   "height"
+    t.string   "weight"
+    t.integer  "age_minimum"
+    t.integer  "age_max"
+    t.string   "marital_status"
+    t.string   "nationality"
+    t.string   "citizenship"
+    t.boolean  "smoker"
+    t.string   "zodiac_sign"
+    t.boolean  "driving_license"
+    t.boolean  "car"
+    t.integer  "level_education_id"
+    t.string   "years_experience"
+    t.integer  "salary"
+  end
+
+  create_table "client_resquest_languages", force: :cascade do |t|
+    t.integer  "client_request_id"
+    t.integer  "language_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  create_table "clients", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "phone"
+    t.text     "message"
+    t.integer  "category_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "controllers", force: :cascade do |t|
+    t.string   "Client"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "cooker_questions", force: :cascade do |t|
@@ -180,6 +247,7 @@ ActiveRecord::Schema.define(version: 20151204021843) do
     t.text     "knowledge_kitchen"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.integer  "client_request_id"
   end
 
   create_table "driver_questions", force: :cascade do |t|
@@ -196,6 +264,7 @@ ActiveRecord::Schema.define(version: 20151204021843) do
     t.boolean  "care_house"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.integer  "client_request_id"
   end
 
   create_table "education_infos", force: :cascade do |t|
@@ -218,6 +287,7 @@ ActiveRecord::Schema.define(version: 20151204021843) do
     t.boolean  "several_children"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.integer  "client_request_id"
   end
 
   create_table "housekeeper_questions", force: :cascade do |t|
@@ -230,8 +300,9 @@ ActiveRecord::Schema.define(version: 20151204021843) do
     t.boolean  "plants_animals"
     t.boolean  "appliances"
     t.boolean  "large_areas"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.integer  "client_request_id"
   end
 
   create_table "interviews", force: :cascade do |t|
@@ -243,6 +314,13 @@ ActiveRecord::Schema.define(version: 20151204021843) do
     t.text     "comments"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.string   "hour"
+  end
+
+  create_table "languages", force: :cascade do |t|
+    t.string   "language"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "legal_works", force: :cascade do |t|
@@ -250,6 +328,12 @@ ActiveRecord::Schema.define(version: 20151204021843) do
     t.string   "description"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "level_educations", force: :cascade do |t|
+    t.string   "level"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "nanny_questions", force: :cascade do |t|
@@ -263,6 +347,15 @@ ActiveRecord::Schema.define(version: 20151204021843) do
     t.text     "education_techniques"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+    t.string   "birth_to_one"
+    t.boolean  "one_to_three"
+    t.boolean  "three_to_six"
+    t.boolean  "regime"
+    t.boolean  "work_several"
+    t.integer  "client_request_id"
+    t.integer  "client_id"
+    t.integer  "candidate_id"
+    t.integer  "category_id"
   end
 
   create_table "nurse_questions", force: :cascade do |t|
@@ -277,6 +370,7 @@ ActiveRecord::Schema.define(version: 20151204021843) do
     t.boolean  "cleaning_cooking"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+    t.integer  "client_request_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -21,6 +21,9 @@
 #  three_to_six           :boolean
 #  five_to_seven          :boolean
 #  seven_to_ten           :boolean
+#  client_request_id      :integer
+#  nanny_question_id      :integer
+#  driver_question_id     :integer
 #
 
 require 'test_helper'

@@ -1,0 +1,113 @@
+= nested_form_for @client_request do |f|
+	- if @client_request.errors.any?
+		div class="alert alert-warning" role="alert"
+				ul
+					- @client_request.errors.full_messages.each do |message|
+  					li = message
+  				
+	.col-md-6.border-right.top-space.bottom-space
+		=f.hidden_field :client_id, value: @client
+		h4.blue Questions about the candidate that you are looking for: 
+		.field
+			label.label-bold Gender:
+			.
+			=label_tag 'Feminine', nil
+		    '&nbsp;
+		    =f.radio_button(:gender, 'f')
+
+		    =label_tag 'Masculine',nil
+		    '&nbsp;
+		    =f.radio_button(:gender, 'm')
+		.field
+			label.label-bold Height:
+			=f.text_field :height, size:"10%"
+			span meters
+		.field
+			label.label-bold Weight:
+			=f.text_field :weight, size:"10%"
+			span Kg
+		.field
+			label.label-bold Age Minimum:
+			=f.text_field :age_minimum, size:"10%"
+			'&nbsp;
+			label.label-bold Age Max:
+			=f.text_field :age_max, size:"10%"
+		.field
+			label.label-bold Marital status?
+			
+		   	=f.select(:marital_status,options_for_select(["Single","Married",'Divorced','Separated','Widowed','In a relationship','Civil Partnership','Rather not say']))
+		.field
+			label.label-bold Nationality:
+			=f.text_field :nationality
+		.field
+			label.label-bold Citizenship:
+			=f.text_field :citizenship
+		.field
+			label.label-bold Can or not be a smoker?
+			=f.select(:smoker,options_for_select([["yes", true],["no",false]]))
+		.field
+			label.label-bold Zodiac sign?
+			=f.select(:zodiac_sign,options_for_select(["Aquarius", "Piscis", "Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio","Sagittarius", "Capricorn"]))
+		.field
+			label.label-bold Driving license?
+			=f.select(:driving_license,options_for_select([["yes", true],["no",false]]))
+		.field
+			label.label-bold It must have a Car?
+			=f.select(:car,options_for_select([["yes", true],["no",false]]))	
+	.col-md-6.top-space.bottom-space
+		h4.blue Questions about education and experience of the candidate:
+		.field
+			label.label-bold Category
+			=f.collection_select(:category_id,Category.all,:id,:title, {prompt: true},{onchange: "ShowQuestions(this);"})
+		.col-md-12.align-field id="category-questions"
+	  		#nanny style="display:none;"
+	  			= f.fields_for :nanny_questions do |builder|
+	  				= render "layouts/nanny_questions", :f => builder
+	  		#driver style="display:none;"
+	  			= f.fields_for :driver_questions do |builder|
+	  				= render "layouts/driver_questions", :f => builder
+	  		#housekeeper style="display:none;"
+	  			= f.fields_for :housekeeper_questions do |builder|
+	  				= render "layouts/housekeeper_questions", :f => builder
+	  		#cooker style="display:none;"
+	  			= f.fields_for :cooker_questions do |builder|
+	  				= render "layouts/cooker_questions", :f => builder
+	  		#governess style="display:none;"
+	  			= f.fields_for :governess_questions do |builder|
+	  				= render "layouts/governess_questions", :f => builder
+	  		#nurse style="display:none;"
+	  			= f.fields_for :nurse_questions do |builder|
+	  				= render "layouts/nurse_questions", :f => builder
+	  		#assistance style="display:none;"
+	  			= f.fields_for :assistance_questions do |builder|
+	  				= render "layouts/assistance_questions", :f => builder														
+	  			//=render partial: "nanny_questions",:locals => {:event => @client_request}
+	  			
+		.field
+			label.label-bold Highest level of education?
+			=f.collection_select(:level_education_id, LevelEducation.all,:id,:level,prompt: true)
+		.field
+			//label.label-bold Education?
+		.field
+			label.label-bold Languages?	
+			=f.fields_for :client_resquest_languages do |language|
+
+				= language.collection_select(:language_id, Language.all, :id, :language, {include_blank: true, :include_hidden => false, :selected => @client_request.languages.map(&:id)})
+			p = f.link_to_add "Add a language", :client_resquest_languages							 
+		.field
+			label.label-bold Years of experience?
+			=f.select(:years_experience, options_for_select(["0","1","2","+3"]))
+		.field
+			label.label-bold Wage level per month?
+			=f.text_field :salary
+		.field
+			label.label-bold Work schedule?
+			.check-boxes-padding	
+				=f.collection_check_boxes(:availability_ids,Availability.all,:id,:description,)
+		.field
+			label.label-bold Available to work?
+			.check-boxes-padding
+				=f.collection_check_boxes(:available_work_ids,AvailableWork.all,:id,:description)
+	.col-md-12.center		
+		=f.submit 'See the candidates', class:"btn btn-primary btt-big"	
+		

@@ -127,7 +127,8 @@
 				  			=label_tag 'Highest level of education'
 				  			br   				
 				  		.col-md-8
-				  			=@candidate.education_info.level
+				  			-if !@candidate.level_education_id.blank?
+				  				=LevelEducation.find(@candidate.level_education_id).level
 				  	.col-md-12.align-field
 				  		
 				  		=label_tag 'Education History'
@@ -135,9 +136,13 @@
 				  		=@candidate.education_info.history
 				  	.col-md-12.align-field
 				  		.col-md-4.no-padding
-				  			=label_tag 'Aditional languages'
+				  			=label_tag 'Aditional languages:'
 				  		.col-md-8
-				  			=@candidate.education_info.languages
+				  			-if !@candidate.languages.blank?
+				  				-@candidate.languages.each do |language|
+				  					span 
+				  						=language.language
+				  					'&nbsp;	
 			.col-md-6.no-padding
 				div class="panel panel-default" 
 				  .panel-heading Work Info
@@ -146,6 +151,10 @@
 				  	  =label_tag 'Category you are applying:'	, nil , class:'subtitle'
 				  	  br
 				  	  =Category.find(@candidate.category_id).title
+				  	.col-md-12
+				  		//-if Category.find(@candidate.category_id).title == "Babysitter"
+				  			
+				  		//	= render "layouts/nanny_questions", :f => @candidate.nanny_question
 				  	.col-md-12.align-field
 				  		=label_tag 'Sectors / Functions you have experience in: '
 				  		br

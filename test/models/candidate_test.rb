@@ -39,6 +39,8 @@
 #  last_sign_in_ip        :string
 #  category_id            :integer
 #  interview              :boolean
+#  description            :text
+#  level_education_id     :integer
 #
 
 require 'test_helper'

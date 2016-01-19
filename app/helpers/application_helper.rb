@@ -1,6 +1,6 @@
 module ApplicationHelper
 	
-	def age
+	def age(birthday)
 	  now = Time.now.utc.to_date
 	  now.year - birthday.year - (birthday.to_date.change(:year => now.year) > now ? 1 : 0)
 	end
@@ -16,4 +16,6 @@ module ApplicationHelper
 	def action?(*action)
 	    action.include?(params[:action])
 	end
+
+	
 end

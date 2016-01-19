@@ -13,8 +13,10 @@
 #  several_children  :boolean
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
+#  client_request_id :integer
 #
 
 class GovernessQuestion < ActiveRecord::Base
 	belongs_to :candidate
+	belongs_to :client_request
 end

@@ -1,5 +1,7 @@
 $light-grey:#a8a094;
 $black:#272727;
+$blue:#3DA2AD;
+$lightblue:#46BFF6;
 
 
 @media all and (max-width : 992px) { 
@@ -84,6 +86,18 @@ body{
 	font-family: 'Fira Sans', sans-serif;
 }
 
+.blue{
+	color:$blue;
+}
+
+.light-blue{
+	color:$lightblue;
+}
+
+.border-right{
+	border-right: 1px solid black;
+}
+
 .side-bar{
 	background-color:#f7f9fe;
 	padding:2%;
@@ -118,6 +132,13 @@ body{
 
 }
 
+.check-boxes-padding{
+	label{
+		margin-left: 5px;
+		margin-right: 10px;
+	}
+}
+
 .nodisplay{
 	display: none;
 }
@@ -129,10 +150,37 @@ body{
 .align-content{
 	margin-top: 5%;
 }
+.field{
+	float:left;
+	width:100%;
+	padding:10px;
+}
+
+.label-bold{
+	font-weight:500;
+	margin-right:5px;
+}
+
+.center{
+	text-align:center;
+}
+
+.top-space{
+	margin-top:3%;
+}
+
+.bottom-space{
+	margin-bottom:5%;
+}
 
 .space{
 	padding:10px;
 
+}
+
+.btt-big{
+	width:30%;
+	padding:10px;
 }
 
 .title{
@@ -147,7 +195,7 @@ body{
 }
 
 .style-bold{
-	font-weight:bold;
+	font-weight:700;
 }
 
 .align-field{
@@ -192,7 +240,7 @@ body{
 	float: right;
 }
 .navbar-default{
-	background-color: #F5F5F5;
+	background-color: rgba(245,245,245,0.5);
 	padding: 10px;
 	margin-bottom: 0;
 	//border-bottom-color: gray;
@@ -331,9 +379,9 @@ body{
 
 .footer-container{
 	padding: 0;
-	position: fixed;
+	position: relative;
 	bottom:0;
-	margin-top: 10%;
+	margin-top: 5%;
 	width: 100%;
 }
 

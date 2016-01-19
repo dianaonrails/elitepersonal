@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'clients/new'
+
+  get 'clients/create'
+
+  
+  resources :categories
   devise_for :users, ActiveAdmin::Devise.config
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -58,7 +64,9 @@ Rails.application.routes.draw do
       collection do
         get :update_questions
       end  
-    end  
+    end
+
+    resources :clients  
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -7,6 +7,19 @@ class ApplicationController < ActionController::Base
 
  
   protected
+  def compare_candidates(client_request)
+    #filter params
+    @client_request = ClientRequest.find(client_request)
+    
+    @candidates = Candidate.gender(@client_request.gender).marital_status(@client_request.marital_status)
+    .driving_licence(@client_request.driving_license).car(@client_request.car).nationality(@client_request.nationality)
+    .citizenship(@client_request.citizenship).age(@client_request.age_minimum,@client_request.age_max).category(@client_request.category_id)
+    #params.each do |key, value|
+      #  @candidates = @candidates.public_send(key, value) if value.present?
+      #end
+      return @candidates
+  end
+  
   def authenticate_admin_user!
     redirect_to new_user_session_path unless current_user.try(:is_admin?)
   end

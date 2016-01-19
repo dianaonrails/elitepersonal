@@ -74,12 +74,12 @@ html
 						-else
 							li
 								=link_to 'Vacancies',vacancies_path		
-						-if controller?('public') && action?('client')	
+						-if controller?('client') && action?('new')	
 							li class="active style-bold"
-								=link_to 'CLIENT',new_client_request_path,class:'style-bold'
+								=link_to 'CLIENT',new_client_path,class:'style-bold'
 						-else
 							li class="style-bold"
-								=link_to 'CLIENT',new_client_request_path,class:'style-bold'	
+								=link_to 'CLIENT',new_client_path,class:'style-bold'	
 						-if controller?('candidates')
 							li class="active style-bold"
 								-if current_candidate

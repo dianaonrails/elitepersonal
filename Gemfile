@@ -25,12 +25,14 @@ gem 'carrierwave'
 
 gem 'active_admin_editor', github: 'ejholmes/active_admin_editor'
 
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.14.30'
 
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+#gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
@@ -71,6 +73,7 @@ gem 'cancancan', '~> 1.10'
 gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'master'
 gem "i18n-js", ">= 3.0.0.rc11"
 
+gem 'countries_and_languages', :require => 'countries_and_languages/rails'
 
 
 # Use ActiveModel has_secure_password

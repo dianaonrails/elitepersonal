@@ -1,33 +1,32 @@
-h3 Do you have experience with:
-=fields_for :housekeeper_question, event.housekeeper_question do |questions|
-	=questions.check_box :dry_wet, {}, true, false
+	
+	=f.check_box :dry_wet, {}, true, false
 	'&nbsp;
 	=label_tag 'daily dry and wet cleaning of all rooms, bathrooms, WC'
 	br
-	=questions.check_box :washing, {}, true, false
+	=f.check_box :washing, {}, true, false
 	'&nbsp;
 	=label_tag 'washing and ironing of bed linen, kitchen and bar accessories'
 	br
-	=questions.check_box :vip, {}, true, false
+	=f.check_box :vip, {}, true, false
 	'&nbsp;
 	=label_tag 'Care "VIP wardrobe", expensive shoes'
 	br
-	=questions.check_box :furniture, {}, true, false
+	=f.check_box :furniture, {}, true, false
 	'&nbsp;
 	=label_tag 'Carpet cleaning, care furniture'
 	br
-	=questions.check_box :cooking, {}, true, false
+	=f.check_box :cooking, {}, true, false
 	'&nbsp;
 	=label_tag 'Cooking'
 	br
-	=questions.check_box :plants_animals, {}, true, false
+	=f.check_box :plants_animals, {}, true, false
 	'&nbsp;
 	=label_tag 'Caring for plants and animals'
 	br
-	=questions.check_box :appliances, {}, true, false
+	=f.check_box :appliances, {}, true, false
 	'&nbsp;
 	=label_tag 'Knowledge and ability to use modern appliances,washing, ironing, etc'
 	br
-	=questions.check_box :large_areas, {}, true, false
+	=f.check_box :large_areas, {}, true, false
 	'&nbsp;
 	=label_tag 'experience in country houses, large areas'

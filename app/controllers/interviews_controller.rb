@@ -3,7 +3,7 @@ require "net/http"
 require 'mechanize'
 class InterviewsController < ApplicationController
 	set_tab :interviews
-
+	skip_before_filter :verify_authenticity_token
 	def interviews_candidate
 		@interviews = Interview.where(candidate_id: current_candidate)
 	end	
@@ -57,7 +57,7 @@ class InterviewsController < ApplicationController
 			#x = Net::HTTP.post_form(URI.parse('http://smsgateway.me/api/v3/messages/send/'), params)
 	        #puts x.body
 	        page = agent.post("http://smsgateway.me/api/v3/messages/send",{'email'=>'d.r.carvalho89@gmail.com','password'=>'3j1B12Nw5d','device'=>'15024','number' =>candidate.mobile,
-			'message'=>'You have a interview in at date:' + date + 'answer with yes / no / busy'})
+			'message'=>'You have an interview, date:' + @interview.interview_date.strftime("%d/%m/%Y") + ' at ' + @interview.hour + '. Answer with yes / no / if busy when?'})
 	        format.html { redirect_to @interview, notice: 'The interview was schedule we will confirm with you.' }
 	        format.json { render :show, status: :created, location: @interview }
 	      else
@@ -68,6 +68,6 @@ class InterviewsController < ApplicationController
     end
 
     def interview_params
-    	params.require(:interview).permit(:address,:contact,:interview_date,:comments,:client_request_id,:candidate_id)
+    	params.require(:interview).permit(:address,:contact,:interview_date,:hour,:comments,:client_request_id,:candidate_id)
     end	
 end	

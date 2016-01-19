@@ -15,8 +15,10 @@
 #  knowledge_kitchen :text
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
+#  client_request_id :integer
 #
 
 class CookerQuestion < ActiveRecord::Base
 	belongs_to :candidate
+	belongs_to :client_request
 end

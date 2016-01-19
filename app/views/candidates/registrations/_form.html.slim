@@ -1,4 +1,4 @@
-= nested_form_for(@candidate,:html => {:multipart => true},  as: resource_name,url: registration_path(@candidate)) do |f|
+= nested_form_for @candidate do |f|
   - if @candidate.errors.any?
     #error_explanation
       h2 = "#{pluralize(@candidate.errors.count, "error")} prohibited this candidate from being saved:"
@@ -27,7 +27,7 @@
 			   	    .col-md-6
 					   =label_tag 'Feminine', nil
 					   '&nbsp;
-					   =f.radio_button(:gender, 'f',class:"space")
+					   =f.radio_button(:gender, 'f')
  					.col-md-6.no-padding
 					   =label_tag 'Masculine'
 					   '&nbsp;
@@ -97,7 +97,7 @@
 			   .col-md-3.no-padding	
 			   	 =label_tag 'Are you a smoker?'
 			   .col-md-9
-			   	 =f.select(:smoker,options_for_select(["yes","no"]))
+			   	 =f.select(:smoker,options_for_select([["yes", true],["no",false]]))
 			.col-md-12.align-field   	 
 			   .col-md-3.no-padding
 			   	=label_tag 'Zodiac Sign'
@@ -112,12 +112,12 @@
 			   .col-md-3.no-padding
 			   	=label_tag 'Do you have driving licence?'
 			   .col-md-9
-			   	=f.select(:driving_licence,options_for_select(["yes","no"]))
+			   	=f.select(:driving_licence,options_for_select([["yes", true],["no",false]]))
 			.col-md-12.align-field   	 
 			   	.col-md-3.no-padding
 			   		=label_tag 'Do you have a car?'
 			   	.col-md-9
-			   		=f.select(:car,options_for_select(["yes","no"]))
+			   		=f.select(:car,options_for_select([["yes", true],["no",false]]))
 			.col-md-12.align-field   	 
 			   .col-md-3	
 			   	 =f.label 'Photo *'
@@ -128,117 +128,129 @@
 	div class="panel panel-default"   	  
 	  .panel-heading Education Info
 	  .panel-body
-	  	=f.fields_for :education_info, @candidate.education_info do |education_fields|
-		  	.col-md-12.align-field  
-			  =label_tag 'Highest level of education *'
-			  br
-			  =education_fields.text_field :level,class:'length-input'
+	  	.col-md-12.align-field  
+		  	=label_tag "Languages*:"
+		  	br
+		  	=f.fields_for :candidate_languages do |language|
+				= language.collection_select(:language_id, Language.all, :id, :language, {include_blank: true, :include_hidden => false, :selected => @candidate.languages.map(&:id)})
+			p = f.link_to_add "Add a language", :candidate_languages
+	  	.col-md-12.align-field  
+		  =label_tag 'Highest level of education *'
+		  br
+		  =f.collection_select(:level_education_id, LevelEducation.all,:id,:level,prompt: true)
+		=f.fields_for :education_info, @candidate.education_info do |education_fields|	
 			.col-md-12.align-field
 			  =label_tag 'Education History *'
 			  br
 			  =education_fields.text_area :history, rows: 3, cols: 58
-			.col-md-12.align-field
-			  =label_tag 'Aditional languages'
-			  br
-			  =education_fields.text_area :languages, rows: 2, cols: 58
-			  br	 
+		
+
   .col-md-6	  
   	div class="panel panel-default"   	  
 	  .panel-heading Work Info
 	  .panel-body.work-info
-	  	=f.fields_for :work_info, @candidate.work_info do |work_fields|
-		  	.col-md-12.align-field 
-		  	  =label_tag 'First select what category you are applying:'	, nil , class:'subtitle'
-		  	  br
-		  	  =f.collection_select(:category_id,Category.all,:id,:title, prompt: true)
-		  	
-		  	  br
-		  	.col-md-12.align-field id="category-questions"
-		  		#nanny style="display:none;"
-		  			=render partial: 'nanny_questions',  :locals => {:event => @candidate}
-		  		#governess style="display:none;"
-		  			=render partial: 'governess_questions', :locals => {:event => @candidate}
-		  		#cooker style="display:none;"
-		  			=render partial: 'cooker_questions', :locals => {:event => @candidate}
-		  		#driver style="display:none;"
-		  			=render partial: 'driver_questions', :locals => {:event => @candidate}
-		  		#housekeeper style="display:none;"
-		  			=render partial: 'housekeeper_questions', :locals => {:event => @candidate}
-		  		#assistance style="display:none;"
-		  			=render partial: 'assistance_questions', :locals => {:event => @candidate}
-		  		#nurse style="display:none;"
-		  			=render partial: 'nurse_questions', :locals => {:event => @candidate}		
+	  	
+	  	.col-md-12.align-field 
+	  	  =label_tag 'First select what category you are applying:'	, nil , class:'subtitle'
+	  	  br
+	  	  =f.collection_select(:category_id,Category.all,:id,:title, {prompt: true},{onchange: "ShowQuestions(this);"})
+	  	
+	  	  br
+	  	.col-md-12.align-field id="category-questions"
+	  		#nanny style="display:none;"
+	  			= f.fields_for :nanny_question do |builder|
+	  				//=builder.hidden_field :category_id, value: 
+	  				= render "layouts/nanny_questions", :f => builder
+	  		#driver style="display:none;"
+	  			= f.fields_for :driver_questions do |builder|
+	  				= render "layouts/driver_questions", :f => builder
+	  		#housekeeper style="display:none;"
+	  			= f.fields_for :housekeeper_questions do |builder|
+	  				= render "layouts/housekeeper_questions", :f => builder
+	  		#cooker style="display:none;"
+	  			= f.fields_for :cooker_questions do |builder|
+	  				= render "layouts/cooker_questions", :f => builder
+	  		#governess style="display:none;"
+	  			= f.fields_for :governess_questions do |builder|
+	  				= render "layouts/governess_questions", :f => builder
+	  		#nurse style="display:none;"
+	  			= f.fields_for :nurse_questions do |builder|
+	  				= render "layouts/nurse_questions", :f => builder
+	  		#assistance style="display:none;"
+	  			= f.fields_for :assistance_questions do |builder|
+	  				= render "layouts/assistance_questions", :f => builder	
 		  	.col-md-12.align-field
 		  		=label_tag 'describe youself, your good qualities and disadvantages:'
 		  		br
-		  		=f.text_area :description, cols:'60',rows:'5'					
-			.col-md-12.align-field  
-			  =label_tag 'Sectors / Functions you have experience in: '
-			
-			  =work_fields.text_area :sectors_experience, rows: 3, cols: 45
-			.col-md-12.align-field  
-			  =label_tag 'Years of experience'
-			  '&nbsp;
-			  =work_fields.select(:years_experience, options_for_select(["0","1","2","+3"]))
-			.col-md-12.align-field
-				=label_tag 'Please fill the information over the last two jobs(from the more recent to older): ', nil,class:"style-bold"
-				.col-md-12.no-padding.margin-job
-					
-					.col-md-6.no-padding.align-item
-						=label_tag 'Date of start'
-						'&nbsp;
-						input type="text" data-provide='datepicker' size="15"	
+		  		=f.text_area :description, cols:'60',rows:'5'
+		  	=f.fields_for :work_info, @candidate.work_info do |work_fields|						
+				.col-md-12.align-field  
+				  =label_tag 'Sectors / Functions you have experience in: '
+				
+				  =work_fields.text_area :sectors_experience, rows: 3, cols: 45
+				.col-md-12.align-field  
+				  =label_tag 'Years of experience'
+				  '&nbsp;
+				  =work_fields.select(:years_experience, options_for_select(["0","1","2","+3"]))
+				.col-md-12.align-field
+					=label_tag 'Please fill the information over the last two jobs(from the more recent to older): ', nil,class:"style-bold"
+					.col-md-12.no-padding.margin-job
+						
+						.col-md-6.no-padding.align-item
+							=label_tag 'Date of start'
+							'&nbsp;
+							input type="text" data-provide='datepicker' size="15"	
 
-					.col-md-6.align-item
-						=label_tag 'Date of end'
-						'&nbsp;
-						input type="text" data-provide='datepicker' size="15"
-					.col-md-12.no-padding.align-item
-						=label_tag 'Employer'
-						'&nbsp;
-						=text_field_tag :employer1,nil,size:'55%'
+						.col-md-6.align-item
+							=label_tag 'Date of end'
+							'&nbsp;
+							input type="text" data-provide='datepicker' size="15"
+						.col-md-12.no-padding.align-item
+							=label_tag 'Employer'
+							'&nbsp;
+							=text_field_tag :employer1,nil,size:'55%'
+						.col-md-12.no-padding
+							=label_tag 'Description'
+							br
+							=text_area_tag :description, nil,cols:'50',rows:'4'
+										
 					.col-md-12.no-padding
-						=label_tag 'Description'
-						br
-						=text_area_tag :description, nil,cols:'50',rows:'4'
-									
-				.col-md-12.no-padding
 
-					.col-md-6.no-padding.align-item
-						=label_tag 'Date of start'
-						'&nbsp;
-						input type="text" data-provide='datepicker' size="15"		
-					.col-md-6.align-item
-						=label_tag 'Date of end'
-						'&nbsp;
-						input type="text" data-provide='datepicker' size="15"
-					.col-md-12.no-padding.align-item
-						=label_tag 'Employer'
-						'&nbsp;
-						=text_field_tag :employer2,nil,size:'55%'		
-					.col-md-12.no-padding
-						=label_tag 'Description'
-						br
-						=text_area_tag :description, nil,cols:'50',rows:'4'	
-				hr				
-			//.col-md-12.align-field  
-		  	//  =label_tag ' Current/most recent job title'
-			//  br
-			//  =work_fields.text_field :current_job
-			//.col-md-12.align-field  
-			//  =label_tag ' Last employment/employer'
-			//  br
-			//  =work_fields.text_field :last_employer
-			//.col-md-12.align-field  
-			//  =label_tag 'Key skills'
-			//  br
-			//  =work_fields.text_area :key_skills, rows: 3, cols: 45
-			//  br
-			.col-md-12.align-field  
-			  
-			  =label_tag 'Wage level per month',nil
-			  br
-			  =work_fields.text_field :salary
+						.col-md-6.no-padding.align-item
+							=label_tag 'Date of start'
+							'&nbsp;
+							input type="text" data-provide='datepicker' size="15"		
+						.col-md-6.align-item
+							=label_tag 'Date of end'
+							'&nbsp;
+							input type="text" data-provide='datepicker' size="15"
+						.col-md-12.no-padding.align-item
+							=label_tag 'Employer'
+							'&nbsp;
+							=text_field_tag :employer2,nil,size:'55%'		
+						.col-md-12.no-padding
+							=label_tag 'Description'
+							br
+							=text_area_tag :description, nil,cols:'50',rows:'4'	
+					hr				
+				//.col-md-12.align-field  
+			  	//  =label_tag ' Current/most recent job title'
+				//  br
+				//  =work_fields.text_field :current_job
+				//.col-md-12.align-field  
+				//  =label_tag ' Last employment/employer'
+				//  br
+				//  =work_fields.text_field :last_employer
+				//.col-md-12.align-field  
+				//  =label_tag 'Key skills'
+				//  br
+				//  =work_fields.text_area :key_skills, rows: 3, cols: 45
+				//  br
+				.col-md-12.align-field  
+				  
+				  =label_tag 'Wage level per month',nil
+				  br
+				  =work_fields.text_field :salary
 			.col-md-12.align-field
 			  =label_tag 'Upload your CV', nil, class:'subtitle'
 			  =f.file_field :cv

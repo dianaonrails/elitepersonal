@@ -16,8 +16,10 @@
 #  care_house        :boolean
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
+#  client_request_id :integer
 #
 
 class DriverQuestion < ActiveRecord::Base
+	belongs_to :client_request
 	belongs_to :candidate
 end

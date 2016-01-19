@@ -2,18 +2,19 @@
 #
 # Table name: housekeeper_questions
 #
-#  id             :integer          not null, primary key
-#  candidate_id   :integer
-#  dry_wet        :boolean
-#  washing        :boolean
-#  vip            :boolean
-#  furniture      :boolean
-#  cooking        :boolean
-#  plants_animals :boolean
-#  appliances     :boolean
-#  large_areas    :boolean
-#  created_at     :datetime         not null
-#  updated_at     :datetime         not null
+#  id                :integer          not null, primary key
+#  candidate_id      :integer
+#  dry_wet           :boolean
+#  washing           :boolean
+#  vip               :boolean
+#  furniture         :boolean
+#  cooking           :boolean
+#  plants_animals    :boolean
+#  appliances        :boolean
+#  large_areas       :boolean
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#  client_request_id :integer
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

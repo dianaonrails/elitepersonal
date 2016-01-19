@@ -11,6 +11,7 @@
 #  comments          :text
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
+#  hour              :string
 #
 
 require 'test_helper'

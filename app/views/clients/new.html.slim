@@ -1,0 +1,52 @@
+.container
+	.row.client-content
+		.col-md-6.align-content
+			h1 Why Us?
+			p We're no better than anyone, but at what we do there is no one better than us!
+			p Tried and tested.  Elite Personal World specialises in recruitment of the highest calibre private domestic staff. We cover a vast range of positions which include Nanny/Babbysitter, Governess, Housekeepers, Cookers, Domestic Couples, Drivers and Cleaning.
+			p All our candidates have been personaly interviewed  and every care has been taken. We're  not just recruitment as in companies, this is recruitment inside your home and personal space, which, we recognise is totally different.
+			p We listen to your needs and will only put forward candidates who match your criteria.
+			p 
+			  'Please fill out the form opposite. 
+			  span style="font-weight: bold;" Under no circumstances will your confidentiality be compromised and we will not forward your information on to anyone else.
+		.col-md-6.form-content
+			-if flash[:notice]
+				div class="alert alert-success" role="alert"
+					= flash[:notice]
+			= form_for @client do |f|
+				- if @client.errors.any?
+					div class="alert alert-warning" role="alert"
+	      				ul
+	      					- @client.errors.full_messages.each do |message|
+	          					li = message 
+				h4 Fill all the inputs above.
+				.col-md-12.no-padding.align-field
+					.col-md-2.no-padding
+						=label_tag 'Full Name *'
+					.col-md-8
+						=f.text_field :name, size:"50%", required:true
+				.col-md-12.no-padding.align-field
+					.col-md-2.no-padding		
+						=label_tag 'Email *'
+					.col-md-8
+						=f.text_field :email, size:"50%", required:true
+				.col-md-12.no-padding.align-field
+					.col-md-2.no-padding		
+						=label_tag 'Contact Number'
+					.col-md-8
+						=f.text_field :phone, size:"50%"	
+				.col-md-12.no-padding.align-field
+					.col-md-2.no-padding	
+						=label_tag 'Job Category *'
+					.col-md-8
+						=collection_select(:client_request,:category_id,Category.all,:id,:title,required:true)	
+				
+				.col-md-12.align-field.no-padding
+					.col-md-4.no-padding
+						=label_tag 'Your Message *:'
+					.col-md-12.no-padding
+						=f.text_area :message, size: "70x5"
+
+				= f.submit "Send", class:"btn btn-primary"
+
+=render "layouts/footer"

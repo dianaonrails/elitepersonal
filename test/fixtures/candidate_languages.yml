@@ -1,0 +1,20 @@
+# == Schema Information
+#
+# Table name: candidate_languages
+#
+#  id           :integer          not null, primary key
+#  candidate_id :integer
+#  language_id  :integer
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  candidate_id: 1
+  language_id: 1
+
+two:
+  candidate_id: 1
+  language_id: 1

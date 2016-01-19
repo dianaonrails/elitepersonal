@@ -27,7 +27,12 @@
 			.col-md-2
 				=f.label 'Date *'
 			.col-md-10	
-				=f.text_field  :interview_date, class:'datepicker'
+				=f.date_field  :interview_date
+		.col-md-12.align-field		
+			.col-md-2
+				=f.label 'Hour *'
+			.col-md-10	
+				=f.text_field  :hour			
 		.col-md-12.align-field
 			.col-md-2
 				=f.label :comments

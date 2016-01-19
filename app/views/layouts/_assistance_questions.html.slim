@@ -1,49 +1,48 @@
-h3 Do you have experience with:
-=fields_for :assistance_question, event.assistance_question do |questions|
-	=questions.check_box :dry_wet, {}, true, false
+	
+	=f.check_box :dry_wet, {}, true, false
 	'&nbsp;
 	=label_tag 'daily dry and wet cleaning of all rooms, bathrooms, WC'
 	br
-	=questions.check_box :washing_ironing, {}, true, false
+	=f.check_box :washing_ironing, {}, true, false
 	'&nbsp;
 	=label_tag 'washing and ironing of bed linen, kitchen and bar accessories'
 	br
-	=questions.check_box :vip, {}, true, false
+	=f.check_box :vip, {}, true, false
 	'&nbsp;
 	=label_tag 'Care "VIP wardrobe'
 	br
-	=questions.check_box :cooking, {}, true, false
+	=f.check_box :cooking, {}, true, false
 	'&nbsp;
 	=label_tag 'Cooking for family'
 	br
-	=questions.check_box :systems, {}, true, false
+	=f.check_box :systems, {}, true, false
 	'&nbsp;
 	=label_tag 'Care communication systems in the house: electrical systems, plumbing system etc'
 	br
-	=questions.check_box :driving, {}, true, false
+	=f.check_box :driving, {}, true, false
 	'&nbsp;
 	=label_tag 'Driving license, experience in driving'
 	br
-	=questions.check_box :pool, {}, true, false
+	=f.check_box :pool, {}, true, false
 	'&nbsp;
 	=label_tag 'Care pool, sauna complex'
 	br
-	=questions.check_box :small_repairs, {}, true, false
+	=f.check_box :small_repairs, {}, true, false
 	'&nbsp;
 	=label_tag 'Small repairs in the house'
 	br
-	=questions.check_box :cares, {}, true, false
+	=f.check_box :cares, {}, true, false
 	'&nbsp;
 	=label_tag 'Care of the site, clearing it of snow, leaves, mowing the lawn'
 	br
-	=questions.check_box :garden, {}, true, false
+	=f.check_box :garden, {}, true, false
 	'&nbsp;
 	=label_tag 'Knowledge and ability to use the garden equipment and supplies'
 	br
-	=questions.check_box :plants, {}, true, false
+	=f.check_box :plants, {}, true, false
 	'&nbsp;
 	=label_tag 'Care of plants and flowers in the area'
 	br
-	=questions.check_box :pet_grooming, {}, true, false
+	=f.check_box :pet_grooming, {}, true, false
 	'&nbsp;
 	=label_tag ' Pet Grooming'

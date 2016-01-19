@@ -39,6 +39,8 @@
 #  last_sign_in_ip        :string
 #  category_id            :integer
 #  interview              :boolean
+#  description            :text
+#  level_education_id     :integer
 #
 
 class Candidate < ActiveRecord::Base
@@ -50,8 +52,26 @@ class Candidate < ActiveRecord::Base
   mount_uploader :photo, PhotoUploader
   mount_uploader :cv, CvUploader
 
+  def birthday(age_min,age_max)
+    
+  end
+
   scope :gender_feminine, -> {where(gender: 'f')}
   scope :gender_masculine, -> {where(gender: 'm')}
+  scope :gender, -> (gender) {where(gender: gender)}
+  scope :height, -> (height) {where(height: height)}
+  scope :weight, -> (weight) {where(weight: weight)}
+  scope :marital_status, -> (marital_status) {where(marital_status: marital_status)}
+  scope :sign, -> (sign) {where(sign: sign)}
+  scope :driving_licence, -> (driving_licence) {where driving_licence: driving_licence}
+  scope :car, -> (car) {where car: car}
+  scope :citizenship, -> (citizenship) {where citizenship: citizenship}
+  scope :nationality, -> (nationality) {where nationality: nationality}
+  scope :age, -> (age_min, age_max) {where("strftime('%Y',birth_date) + 0 BETWEEN ? AND ?", (Time.now.year -  age_max),(Time.now.year - age_min))}
+  scope :category, -> (category_id) {where category_id: category_id}
+
+
+  
   
   validates :first_name,:last_name,:gender,:address,:mobile,:birth_date,:nationality,:citizenship,:category_id, presence:true
   validates :email, uniqueness: true
@@ -61,9 +81,12 @@ class Candidate < ActiveRecord::Base
   validates :available_works, presence: true
   validates :legal_works, presence: true
 
+  #has_one :level_education
+  has_one :nanny_question
   has_one :education_info
   has_one :work_info
   has_one :category
+ 
   has_one :governess_question
   has_one :cooker_question
   has_one :driver_question
@@ -76,13 +99,17 @@ class Candidate < ActiveRecord::Base
   has_many :legal_works
   has_many :applications
 
-  has_many :category_questions
+  #has_many :category_questions
+
+  has_many :candidate_languages
+  has_many :languages, through: :candidate_languages
 
 
-  accepts_nested_attributes_for :category_questions,allow_destroy: true
-
+  accepts_nested_attributes_for :candidate_languages,allow_destroy: true
+  #accepts_nested_attributes_for :category_questions,allow_destroy: true
   accepts_nested_attributes_for :education_info, allow_destroy: true
   accepts_nested_attributes_for :work_info, allow_destroy: true
+  accepts_nested_attributes_for :nanny_question
   accepts_nested_attributes_for :governess_question, allow_destroy: true
   accepts_nested_attributes_for :cooker_question,allow_destroy: true
   accepts_nested_attributes_for :driver_question,allow_destroy: true

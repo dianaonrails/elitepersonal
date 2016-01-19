@@ -3,9 +3,16 @@ class CandidatesController < ApplicationController
   # GET /candidates
   # GET /candidates.json
   set_tab :candidate
+  helper :all
+
+
   def index
-    @candidates = Candidate.all
-    
+    if params[:client_request]
+      @candidates = compare_candidates(params[:client_request])
+      puts "*********** candidates ***************"
+    else  
+      @candidates = Candidate.all
+    end    
   end
 
   # GET /candidates/1
@@ -21,15 +28,19 @@ class CandidatesController < ApplicationController
   # GET /candidates/new
   def new
     @candidate = Candidate.new
+    @candidate.build_nanny_question
+
     @candidate.build_education_info
     @candidate.build_work_info
-    @candidate.category_questions.build
+    #@candidate.category_questions.build
+    
     @candidate.build_governess_question
     @candidate.build_cooker_question
     @candidate.build_driver_question
     @candidate.build_housekeeper_question
     @candidate.build_assistance_question
     @candidate.build_nurse_question
+    @candidate.candidate_languages.build
   end
 
   # GET /candidates/1/edit
@@ -40,10 +51,7 @@ class CandidatesController < ApplicationController
   # POST /candidates.json
   def create
     @candidate = Candidate.new(candidate_params)
-    if @candidate.category_id == '1'
-      @candidate.category_questions_attributes = [:id,:candidate_id,:cooking,:regime,:cleaning,:education,:trips,:work_several,
-        :household_help,:educational_techniques,:birth_to_one,:one_to_three,:three_to_six]
-    end  
+    
     respond_to do |format|
       if @candidate.save
         format.html { redirect_to @candidate, notice: 'Your profile was successfully created.' }
@@ -90,7 +98,17 @@ class CandidatesController < ApplicationController
     def candidate_params
       params.require(:candidate).permit(:photo,:category_id,:first_name,:last_name,:address,:mobile,:email,:citizenship,:birth_date,
         :gender,:height,:weight,:passport,:foreign_passport,:marital_status,:children,:sign,:nationality,
-        :smoker, :car,:driving_licence,education_info_attributes:[:level,:history,:languages],work_info_attributes:[:sectors_experience,:years_experience,
-          :current_job,:last_employer,:key_skills,:salary],:availability_ids => [],:available_work_ids =>[],:legal_work_ids =>[])
+        :smoker, :car,:driving_licence,:level_education_id,candidate_languages_attributes: [:id,:candidate_id,:language_id],
+        education_info_attributes:[:history],work_info_attributes:[:sectors_experience,:years_experience,
+          :current_job,:last_employer,:key_skills,:salary],:availability_ids => [],:available_work_ids =>[],:legal_work_ids =>[],
+        nanny_question_attributes:[:cooking,:walking,:cleaning,:birth_to_one,:one_to_three,:three_to_six,:regime,
+          :education,:trips,:work_several,:household_help],
+        driver_question_attributes:[:id,:personal_driver,:family_driver,:children,:washing,:luxury_car,:weapons_bodyguard,:trips,:care_house],
+        housekeeper_question_attributes:[:id,:dry_wet,:washing,:vip,:furniture,:cooking,:plants_animals,:appliances,:large_areas],
+        governess_question_attributes:[:five_to_seven,:seven_to_ten,:cooking,:school,:assistant,:foreign_languages,:several_children],
+        nurse_question_attributes:[:older_people,:ambulant_patients,:immobile_patients,:measurements,:intramuscular_injection,:intravenous_injection,
+          :procedures,:cleaning_cooking],
+        cooker_question_attributes:[:family,:restaurants,:purchase,:menu,:banquets,:during_banquet,:kids,:diets,:knowledge_kitchen],
+        assistance_question_attributes:[:dry_wet,:washing_ironing,:vip,:cooking,:systems,:driving,:pool,:small_repairs,:cares,:garden,:plants,:pet_grooming])
     end
 end

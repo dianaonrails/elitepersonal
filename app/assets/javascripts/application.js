@@ -13,9 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
+//= require jquery_nested_form
 //= require underscore
 //= require gmaps/google
-//= require bootstrap-datepicker
 //= require owl.carousel
 //= require react
 //= require react_ujs
@@ -24,10 +24,52 @@
 //= require intlTelInput
 //= require i18n
 //= require i18n/translations
+//= require bootstrap-datepicker
+//= require moment
+//= require bootstrap-datetimepicker
 //= require_tree .
+
+
+function ShowQuestions(sel){
+	//e.preventDefault();
+	$('#nanny').css("display", "none");
+	$('#governess').css("display", "none");
+	$('#cooker').css("display", "none");
+	$('#driver').css("display", "none");
+	$('#housekeeper').css("display", "none");
+	$('#assistance').css("display", "none");
+	$('#nurse').css("display", "none");
+	var category = sel.value;
+	var name = sel.options[sel.selectedIndex].text;
+	if(name == "Driver"){
+		$('#driver').css("display", "block");
+	}
+	if(name == 'Babysitter') {
+		$('#nanny').css("display", "block");
+	}
+	if(name == 'Housekeeper'){
+		$('#housekeeper').css("display", "block");
+	}
+	if(name == 'Governess'){
+		$('#governess').css("display", "block");
+	}
+	if(name == 'Cooker'){
+		$('#cooker').css("display", "block");
+	}
+	if(name == 'Assistance'){
+		$('#assistance').css("display", "block");
+	}
+	if(name == 'Nurse'){
+		$('#nurse').css("display", "block");
+	}
+
+};
+
+
 $(document).ready(function () {
 	$('.carousel').carousel();
-	$('.datepicker').datepicker({dateFormat: "yy-mm-dd"});
+	$('.datepicker').datepicker();
+	$('#interview_interview_date').datepicker();
 
 	$("#candidate_mobile").intlTelInput();
 
@@ -60,39 +102,6 @@ $(document).ready(function () {
         });
 	});
 
-	$('#candidate_category_id').on('change',function(e){
-		e.preventDefault();
-		$('#nanny').css("display", "none");
-		$('#governess').css("display", "none");
-		$('#cooker').css("display", "none");
-		$('#driver').css("display", "none");
-		$('#housekeeper').css("display", "none");
-		$('#assistance').css("display", "none");
-		$('#nurse').css("display", "none");
-		var category = $(this).find(':selected').val();
-		if(category == '1') {
-			$('#nanny').css("display", "block");
-		}
-		if(category == '2'){
-			$('#housekeeper').css("display", "block");
-		}
-		if(category == '3'){
-			$('#driver').css("display", "block");
-		}
-		if(category == '4'){
-			$('#governess').css("display", "block");
-		}
-		if(category == '5'){
-			$('#cooker').css("display", "block");
-		}
-		
-		if(category == '6'){
-			$('#assistance').css("display", "block");
-		}
-		if(category == '7'){
-			$('#nurse').css("display", "block");
-		}
-
-	});
+	
 
 });

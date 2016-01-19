@@ -1,19 +1,35 @@
-h1 Listing candidates
+.container
+  .row
+    h1.blue Listing candidates
+    .col-md-12
+      table.table.table-striped
+        thead
+          tr
+            th Name
+            th Age
+            th Marital status
+            th Nationality
+            th Citizenship
+            th 
 
-table
-  thead
-    tr
-      th
-      th
-      th
+        tbody
+          - @candidates.each do |candidate|
+            tr
+              td 
+                = candidate.first_name 
+                = candidate.last_name
+              td 
+                = age(candidate.birth_date) 
+              td
+                = candidate.marital_status
+              td
+                = candidate.nationality   
+              td
+                = candidate.citizenship   
+              td = link_to 'see more >', candidate
+              //td = link_to 'Edit', edit_candidate_path(candidate)
+              //td = link_to 'Destroy', candidate, data: {:confirm => 'Are you sure?'}, :method => :delete
+      =link_to 'Send email to client',''
+      br
 
-  tbody
-    - @candidates.each do |candidate|
-      tr
-        td = link_to 'Show', candidate
-        td = link_to 'Edit', edit_candidate_path(candidate)
-        td = link_to 'Destroy', candidate, data: {:confirm => 'Are you sure?'}, :method => :delete
-
-br
-
-= link_to 'New Candidate', new_candidate_path
+      
