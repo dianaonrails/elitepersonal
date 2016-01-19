@@ -15,7 +15,7 @@
 #
 
 class Interview < ActiveRecord::Base
-	validates :client_request_id,:candidate_id,:address,:interview_date, presence: true
+	validates :client_request_id,:candidate_id,:address,:interview_date,:hour, presence: true
 
 	scope :expired, -> { where('interview_date < ?', Date.today) }
 	scope :not_expired, -> { where('interview_date > ?', DateTime.now) }

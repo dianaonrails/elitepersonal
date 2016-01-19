@@ -13,10 +13,8 @@
 			p#notice = notice
 			.col-md-12
 				-if current_candidate
-					= link_to 'Edit', edit_candidate_registration_path(@candidate)
+					= link_to 'Edit', edit_candidate_path(current_candidate)
 					'|
-					
-					
 					= link_to 'Logout >', destroy_candidate_session_path, method: :delete
 			.col-md-6
 				div class="panel panel-default" 

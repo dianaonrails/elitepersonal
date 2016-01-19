@@ -41,6 +41,8 @@
 #  interview              :boolean
 #  description            :text
 #  level_education_id     :integer
+#  years_experience       :string
+#  salary                 :string
 #
 
 require 'test_helper'

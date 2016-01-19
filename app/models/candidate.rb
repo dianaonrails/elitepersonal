@@ -41,6 +41,8 @@
 #  interview              :boolean
 #  description            :text
 #  level_education_id     :integer
+#  years_experience       :string
+#  salary                 :string
 #
 
 class Candidate < ActiveRecord::Base
@@ -69,7 +71,11 @@ class Candidate < ActiveRecord::Base
   scope :nationality, -> (nationality) {where nationality: nationality}
   scope :age, -> (age_min, age_max) {where("strftime('%Y',birth_date) + 0 BETWEEN ? AND ?", (Time.now.year -  age_max),(Time.now.year - age_min))}
   scope :category, -> (category_id) {where category_id: category_id}
-
+  scope :level_education, -> (level_education_id) {where level_education_id: level_education_id}
+  scope :languages, -> (languages) { where("languages.id IN (?)",languages).joins(:languages)}
+  scope :years_experience, -> (years_experience) {where years_experience: years_experience}
+  scope :availability, -> (availabilities) {where("availabilities.id IN (?)",availabilities).joins(:availabilities)}
+  scope :available_work, -> (work_ids) {where("available_works.id IN (?)",work_ids).joins(:available_works)}
 
   
   

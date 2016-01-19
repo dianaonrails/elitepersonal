@@ -41,6 +41,8 @@
 #  interview              :boolean
 #  description            :text
 #  level_education_id     :integer
+#  years_experience       :string
+#  salary                 :string
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

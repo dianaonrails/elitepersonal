@@ -45,6 +45,7 @@ class CandidatesController < ApplicationController
 
   # GET /candidates/1/edit
   def edit
+    @candidate = Candidate.find(params[:id])
   end
 
   # POST /candidates
@@ -67,6 +68,7 @@ class CandidatesController < ApplicationController
   # PATCH/PUT /candidates/1
   # PATCH/PUT /candidates/1.json
   def update
+    @candidate = Candidate.find(params[:id])
     respond_to do |format|
       if @candidate.update(candidate_params)
         format.html { redirect_to @candidate, notice: 'Candidate was successfully updated.' }
@@ -96,12 +98,12 @@ class CandidatesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def candidate_params
-      params.require(:candidate).permit(:photo,:category_id,:first_name,:last_name,:address,:mobile,:email,:citizenship,:birth_date,
-        :gender,:height,:weight,:passport,:foreign_passport,:marital_status,:children,:sign,:nationality,
-        :smoker, :car,:driving_licence,:level_education_id,candidate_languages_attributes: [:id,:candidate_id,:language_id],
-        education_info_attributes:[:history],work_info_attributes:[:sectors_experience,:years_experience,
-          :current_job,:last_employer,:key_skills,:salary],:availability_ids => [],:available_work_ids =>[],:legal_work_ids =>[],
-        nanny_question_attributes:[:cooking,:walking,:cleaning,:birth_to_one,:one_to_three,:three_to_six,:regime,
+      params.require(:candidate).permit(:id,:photo,:category_id,:first_name,:last_name,:password,:address,:mobile,:email,:citizenship,:birth_date,
+        :gender,:height,:weight,:passport,:foreign_passport,:marital_status,:children,:sign,:nationality, :years_experience, :salary,
+        :smoker, :car,:driving_licence,:level_education_id,candidate_languages_attributes: [:id,:candidate_id,:language_id],education_info_attributes: [:id,:history],
+        :work_info_attributes => [:sectors_experience,:current_job,:last_employer,:key_skills],
+        :availability_ids => [],:available_work_ids =>[],:legal_work_ids =>[],
+        nanny_question_attributes:[:id,:cooking,:walking,:cleaning,:birth_to_one,:one_to_three,:three_to_six,:regime,
           :education,:trips,:work_several,:household_help],
         driver_question_attributes:[:id,:personal_driver,:family_driver,:children,:washing,:luxury_car,:weapons_bodyguard,:trips,:care_house],
         housekeeper_question_attributes:[:id,:dry_wet,:washing,:vip,:furniture,:cooking,:plants_animals,:appliances,:large_areas],

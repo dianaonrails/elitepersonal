@@ -69,7 +69,7 @@ function ShowQuestions(sel){
 $(document).ready(function () {
 	$('.carousel').carousel();
 	$('.datepicker').datepicker();
-	$('#interview_interview_date').datepicker();
+	//$('#interview_interview_date').datepicker();
 
 	$("#candidate_mobile").intlTelInput();
 
