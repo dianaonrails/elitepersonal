@@ -11,7 +11,7 @@ class ClientRequestsController < ApplicationController
 		if params[:client].present?
 			@client = params[:client]
 		else
-			@client = 0
+			@client = Client.new(nil)
 		end		
 		@client_request.nanny_questions.build
 		@client_request.driver_questions.build
