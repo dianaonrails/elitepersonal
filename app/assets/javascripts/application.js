@@ -41,25 +41,25 @@ function ShowQuestions(sel){
 	$('#nurse').css("display", "none");
 	var category = sel.value;
 	var name = sel.options[sel.selectedIndex].text;
-	if(name == "Driver"){
+	if(name == "Chauffeur / Driver"){
 		$('#driver').css("display", "block");
 	}
-	if(name == 'Babysitter') {
+	if(name == 'Babysitter / Nanny') {
 		$('#nanny').css("display", "block");
 	}
-	if(name == 'Housekeeper'){
+	if(name == 'Housekeeper / Cleaning'){
 		$('#housekeeper').css("display", "block");
 	}
-	if(name == 'Governess'){
+	if(name == 'Tutors or Governesses'){
 		$('#governess').css("display", "block");
 	}
-	if(name == 'Cooker'){
+	if(name == 'Chef / Cook'){
 		$('#cooker').css("display", "block");
 	}
-	if(name == 'Assistance'){
+	if(name == 'Domestic Couple / Gardner'){
 		$('#assistance').css("display", "block");
 	}
-	if(name == 'Nurse'){
+	if(name == 'Nurse (Granny Care )'){
 		$('#nurse').css("display", "block");
 	}
 
