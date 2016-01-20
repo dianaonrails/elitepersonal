@@ -31,11 +31,11 @@
 					<%= candidate.last_name %>
 				</td>
 				<td>
-					<%= url_for(:controller => "candidates", :action => "show",:only_path => false, :id => candidate.id, :host => "localhost:3000")  %>
+					<%= url_for(:controller => "candidates", :action => "show",:only_path => false, :id => candidate.id, :host => "http://elitepersonalworld.herokuapp.com/")  %>
 				</td>
 				<td>
 					
-					<%= url_for(:controller => "interviews", :action => "new", candidate: candidate.id,client_request: @client_request, :escape => false, :host => "localhost:3000") %>
+					<%= url_for(:controller => "interviews", :action => "new", candidate: candidate.id,client_request: @client_request, :escape => false, :host => "http://elitepersonalworld.herokuapp.com/") %>
 				</td>
 			</tr>
 
