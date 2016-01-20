@@ -5,7 +5,7 @@ class ClientMailer < ApplicationMailer
 	def client_mail(client)
 		@client = client
 
-		@email = 'd.r.carvalho89@gmail.com'
+		@email = 'info@elitepersonal.ru'
 		mail(from: "elitepersonalinfo@gmail.com",to: @email, subject: 'Client Contact')
 	end	
 end
