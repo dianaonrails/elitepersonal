@@ -118,7 +118,7 @@ body{
 		.list-title{
 			margin-left:8%;
 			display: inline;
-			font-size: 1em;
+			font-size: 1.3em;
 			a{
 				color:#5cb8b5;
 			}
@@ -194,6 +194,14 @@ body{
 	padding:0;
 }
 
+.padding{
+	padding:18px;
+}
+
+.text-center{
+	text-align:center;
+}
+
 .style-bold{
 	font-weight:700;
 }
@@ -240,7 +248,7 @@ body{
 	float: right;
 }
 .navbar-default{
-	background-color: rgba(245,245,245,0.5);
+	background-color:#F5F5F5;
 	padding: 10px;
 	margin-bottom: 0;
 	//border-bottom-color: gray;
