@@ -10,11 +10,11 @@ Our suggestions to your request:
 				<%= candidate.last_name %>
 			</td>
 			<td>
-				<%= url_for(:controller => "candidates", :action => "show",:only_path => false, :id => candidate.id, :host => "http://elitepersonalworld.herokuapp.com/")  %>
+				<%= url_for(:controller => "candidates", :action => "show",:only_path => false, :id => candidate.id, :host => "http://elitepersonalworld.herokuapp.com")  %>
 			</td>
 			<td>
 				Schedule Interview
-				<%= url_for(:controller => "interviews", :action => "new", candidate: candidate.id,client_request: @client_request, :escape => false, :host => "http://elitepersonalworld.herokuapp.com/") %>
+				<%= url_for(:controller => "interviews", :action => "new", candidate: candidate.id,client: @client, :escape => false, :host => "http://elitepersonalworld.herokuapp.com") %>
 			</td>
 		</tr>
 

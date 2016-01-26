@@ -73,7 +73,7 @@ class Candidate < ActiveRecord::Base
   scope :category, -> (category_id) {where category_id: category_id}
   scope :level_education, -> (level_education_id) {where level_education_id: level_education_id}
   scope :languages, -> (languages) { where("languages.id IN (?)",languages).joins(:languages)}
-  scope :years_experience, -> (years_experience) {where years_experience: years_experience}
+  scope :years_experience, -> (years_experience) {where("years_experience >= ?", years_experience)}
   scope :availability, -> (availabilities) {where("availabilities.id IN (?)",availabilities).joins(:availabilities)}
   scope :available_work, -> (work_ids) {where("available_works.id IN (?)",work_ids).joins(:available_works)}
 

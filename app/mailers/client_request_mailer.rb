@@ -10,13 +10,6 @@ class ClientRequestMailer < ActionMailer::Base
 		mail(from: "elitepersonalinfo@gmail.com",to: @email, subject: 'Client Request')
 	end		
 
-	def owner_mail(client,candidates)
-		@candidates = candidates
-		@client = client
-
-		@email = 'd.r.carvalho89@gmail.com'
-		mail(from: "elitepersonalinfo@gmail.com",to: @email, subject: 'Client Request')
-	end	
 
 	def client_mail(candidates,client_request)
 		@candidates = candidates

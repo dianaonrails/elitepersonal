@@ -12,7 +12,7 @@
 	        - @interview.errors.full_messages.each do |message|
 	          li = message 
 	    =f.hidden_field :candidate_id, value: params[:candidate].to_i
-	    =f.hidden_field :client_request_id, value: params[:client_request].to_i
+	    =f.hidden_field :client_request_id, value: params[:client].to_i
 		.col-md-12.align-field
 			.col-md-2
 				=f.label 'Address *'
@@ -38,5 +38,6 @@
 				=f.label :comments
 			.col-md-10
 				=f.text_area :comments, cols:"50",rows:"4"
-		=f.submit 'submit'	
+		=f.submit 'submit',class:"btn btn-primary btt-medium"
+=render "layouts/footer"		
 		

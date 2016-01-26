@@ -16,13 +16,15 @@
 					td Contact number
 					td Address
 					td Date
+					td Hour
 					td Comments
 			tbody
 				-@interviews.each do |interview|
 					tr
-						td =ClientRequest.find(interview.client_request_id).full_name
+						td =Client.find(interview.client_request_id).name if Client.exists?(interview.client_request_id)
 						td =interview.contact
 						td =interview.address 
 						td =interview.interview_date
+						td =interview.hour
 						td =interview.comments
 
