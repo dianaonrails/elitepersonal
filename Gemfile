@@ -23,7 +23,7 @@ gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails',
 # upload images
 gem 'carrierwave'
 
-gem 'active_admin_editor', github: 'ejholmes/active_admin_editor'
+#gem 'active_admin_editor', github: 'ejholmes/active_admin_editor'
 
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.14.30'
