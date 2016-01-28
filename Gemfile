@@ -75,6 +75,7 @@ gem "i18n-js", ">= 3.0.0.rc11"
 
 gem 'countries_and_languages', :require => 'countries_and_languages/rails'
 
+gem 'passenger'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
