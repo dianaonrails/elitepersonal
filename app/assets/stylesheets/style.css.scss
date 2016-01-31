@@ -84,7 +84,7 @@ $lightblue:#46BFF6;
 
 body{
 	font-family: 'Fira Sans', sans-serif;
-	background-color:#F0F2F2;
+	
 }
 
 .blue{
@@ -108,6 +108,38 @@ body{
 	width:50%;
 	height:50px;
 	font-size:1.3em;
+}
+
+.btt{
+	width:20%;
+	margin-top:5%;
+	padding: 8px 10px;
+    border: 2px solid white;
+    border-radius: 5px;
+    text-align: center;
+    a{
+    	text-align: center;
+    	color:white;
+    }
+}
+
+.btt:hover{
+	border:none;
+	background-color:white;
+	a{
+		color:#5cb8b5;
+	}
+}
+
+.background-middle{
+	float:left;
+	width:100%;
+	background-image:url("crossword.png");
+	background-repeat:x-repeat;
+}
+
+.hr-gray{
+	border-top:1px solid #CAC7C7;
 }
 
 .side-bar{
@@ -398,6 +430,9 @@ body{
 
 
 .footer-container{
+	background-image:url('low_contrast_linen.png');
+	background-repeat:repeat-x;
+	background-color:#49717B;
 	padding: 0;
 	position: relative;
 	bottom:0;
@@ -408,39 +443,44 @@ body{
 .flyer{
 	background-color:#329AB2;
 	padding:20px;
-	margin-top:20%;
+	margin-top:10%;
 	margin-bottom:25%;
 	position:relative;
 	color:white;
 	
 }
 
-.btt-nanny{
+.btt-category{
 	position: absolute;
 	top:5%;
-	width:20%;
+	width:18%;
 	
 	right:5%;
 	margin:0 auto;
 	text-align:center;
 	padding:10px;
-	color: #fff;
-    background-color: #337ab7;
-    border-color: #2e6da4;
-	border:none;
+	color: #105264;
+	background-color:rgba(255,255,255,0.4);
+   	border:2px solid #105264;
 	font-family:'Fira Sans', sans-serif;
 	font-weight:400;
 	font-size:1.5em;
-	border-radius:10px;
+	border-radius:5px;
 	font-style:italic;
+}
+
+.btt-category:hover{
+	border:none;
+	background-color:#105264;
+	color:white;
 }
 
 .footer-table{
 	bottom:0;left:0;right:0;
-	background-color: #ecf1f2;
-	padding-bottom: 15px;
-	padding-top: 10px;
-	border-top:1px solid $black;
+	//background-color: #ecf1f2;
+	padding-bottom: 3%;
+	padding-top: 2%;
+	//border-top:1px solid $black;
 	table td{
 		padding: 15px 30px 0px 30px;
 	}
@@ -451,7 +491,7 @@ body{
 			padding-bottom: 0;
 			font-family: 'Fira Sans', sans-serif;
 			font-weight: 400;
-			color:#105264;
+			color:white;
 			text-transform: uppercase;
 		}
 	}
@@ -464,7 +504,7 @@ body{
 			font-family: 'Fira Sans', sans-serif;
 			font-weight: 300;
 			a{
-				color:#105264;
+				color:white;
 			}
 		}
 	}

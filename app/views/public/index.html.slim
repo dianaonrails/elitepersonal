@@ -38,30 +38,34 @@
 		div class="carousel-inner"
 			div class="item active"
 				=image_tag("template-babysitter.png")
-				button type="button" class="btt-nanny" find a nanny
+				button type="button" class="btt-category" find a nanny
 			div class="item"
 				=image_tag("template-cooker.png")	
-				button type="button" class="btt-nanny" find a cooker
+				button type="button" class="btt-category" find a cooker
 			div class="item"
 				=image_tag("template-driver.png")
-				button type="button" class="btt-nanny" find a driver
+				button type="button" class="btt-category" find a driver
 			div class="item"
 				=image_tag("template-housekeeper.png")
-				button type="button" class="btt-nanny" find a housekeeper
+				button type="button" class="btt-category" find a housekeeper
 			div class="item"
 				=image_tag("template-nurse.png")
-				button type="button" class="btt-nanny" find a assistant
-.col-md-10.col-md-offset-1.flyers
-	h1 Let's get started.
-	.col-md-6
-		.flyer
-			h3 Candidates, join for FREE!
-			p Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt.
-			span =link_to 'sign out >',new_candidate_path
-	.col-md-6
-		.flyer
-			h3 Clients, make a request.
-			p Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt.
-			span =link_to 'start now >',new_client_path	
+				button type="button" class="btt-category" find a assistant
+.background-middle				
+	.col-md-10.col-md-offset-1.flyers.no-padding
+		h1.title.center.space-top Let's get started!
+		hr.hr-gray
+		.col-md-6
+			.flyer
+				h3 Candidates, join for FREE!
+				p Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt.
+				.btt 
+					=link_to 'sign up',new_candidate_registration_path
+		.col-md-6
+			.flyer
+				h3 Clients, make a request.
+				p Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt.
+				.btt
+					=link_to 'start now',new_client_path	
 
 =render "layouts/footer"
