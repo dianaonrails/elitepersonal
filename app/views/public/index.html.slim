@@ -28,21 +28,40 @@
 		li
 			=image_tag("wiping16.png")
 			.list-title 
-				=link_to 'Cleaning','/services#cleaning'	
+				=link_to 'Cleaning','/services#cleaning'
+
 		li
 			.link-jobs
-				=link_to 'See the job offers',vacancies_path						
+				=link_to 'See all job offers',vacancies_path						
 .col-md-12.carousel-container
 	div class="carousel slide carousel-fade" id="myCarousel" data-ride="carousel"
 		div class="carousel-inner"
 			div class="item active"
-				=image_tag("elitep-img1.jpg")
-			div class="item up-more"
-				=image_tag("cooker.jpg")	
-			div class="item up"
-				=image_tag("nanny.jpg")
+				=image_tag("template-babysitter.png")
+				button type="button" class="btt-nanny" find a nanny
 			div class="item"
-				=image_tag("driver.jpg")
-			div class="item up-more"
-				=image_tag("housekeeper.jpg")
+				=image_tag("template-cooker.png")	
+				button type="button" class="btt-nanny" find a cooker
+			div class="item"
+				=image_tag("template-driver.png")
+				button type="button" class="btt-nanny" find a driver
+			div class="item"
+				=image_tag("template-housekeeper.png")
+				button type="button" class="btt-nanny" find a housekeeper
+			div class="item"
+				=image_tag("template-nurse.png")
+				button type="button" class="btt-nanny" find a assistant
+.col-md-10.col-md-offset-1.flyers
+	h1 Let's get started.
+	.col-md-6
+		.flyer
+			h3 Candidates, join for FREE!
+			p Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt.
+			span =link_to 'sign out >',new_candidate_path
+	.col-md-6
+		.flyer
+			h3 Clients, make a request.
+			p Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt.
+			span =link_to 'start now >',new_client_path	
+
 =render "layouts/footer"

@@ -84,6 +84,7 @@ $lightblue:#46BFF6;
 
 body{
 	font-family: 'Fira Sans', sans-serif;
+	background-color:#F0F2F2;
 }
 
 .blue{
@@ -112,7 +113,7 @@ body{
 .side-bar{
 	background-color:#f7f9fe;
 	padding:2%;
-	margin-top:1%;
+	margin-top:7%;
 	margin-bottom:1%;
 	border:1px solid $light-grey;
 	position: absolute;
@@ -129,7 +130,7 @@ body{
 		.list-title{
 			margin-left:8%;
 			display: inline;
-			font-size: 1.3em;
+			font-size: 1.2em;
 			a{
 				color:#5cb8b5;
 			}
@@ -259,7 +260,7 @@ body{
 	float: right;
 }
 .navbar-default{
-	background-color:#F5F5F5;
+	background-color:white;
 	padding: 10px;
 	margin-bottom: 0;
 	//border-bottom-color: gray;
@@ -311,7 +312,7 @@ body{
 	text-align: center;
 	margin-top: 10px;
 	span{
-		font-size: 1.5em;
+		font-size: 1em;
 		text-align: center;
 		color:#828485;
 		margin-left: 2px;
@@ -321,7 +322,7 @@ body{
    		padding:0.1em 1em;
    		position: relative; 
    		top: -0.5em;
-		background-color: #F5F5F5; 
+		background-color: white; 
 		margin: 0;
 	}
 
@@ -364,7 +365,7 @@ body{
         .item {
             transition-property: opacity;
             img{
-            	height: 500px;
+            	
             	width: 100%;
             }
         }
@@ -400,11 +401,39 @@ body{
 	padding: 0;
 	position: relative;
 	bottom:0;
-	margin-top: 5%;
+	
 	width: 100%;
 }
 
+.flyer{
+	background-color:#329AB2;
+	padding:20px;
+	margin-top:20%;
+	margin-bottom:25%;
+	position:relative;
+	color:white;
+	
+}
 
+.btt-nanny{
+	position: absolute;
+	top:5%;
+	width:20%;
+	
+	right:5%;
+	margin:0 auto;
+	text-align:center;
+	padding:10px;
+	color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+	border:none;
+	font-family:'Fira Sans', sans-serif;
+	font-weight:400;
+	font-size:1.5em;
+	border-radius:10px;
+	font-style:italic;
+}
 
 .footer-table{
 	bottom:0;left:0;right:0;
