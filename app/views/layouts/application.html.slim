@@ -16,7 +16,9 @@ html
 	  = csrf_meta_tags
 
 	body id="home"
-		
+		.flags				
+			=image_tag('RU.png')
+			=image_tag('EN.png')
 		nav class="navbar navbar-default"
 			div class="container"
 				div class="navbar-header"
@@ -99,8 +101,6 @@ html
 						-else
 							li
 								=link_to 'Contacts','/contacts'		
-				.flags				
-					=image_tag('RU.png')
-					=image_tag('EN.png')		
+						
 		= yield
 

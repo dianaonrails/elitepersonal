@@ -22,13 +22,13 @@
 			.list-title 
 				=link_to 'Driver','/services#driver'	
 		li
-			=image_tag("worker37.png")
+			=image_tag("couple53.png")
 			.list-title 
-				=link_to 'Assistants','/services#assistant'
+				=link_to 'Couple','/services#couple'
 		li
-			=image_tag("wiping16.png")
+			=image_tag("nurse7.png")
 			.list-title 
-				=link_to 'Cleaning','/services#cleaning'
+				=link_to 'Nurse','/services#nurse'
 
 		li
 			.link-jobs
@@ -38,22 +38,27 @@
 		div class="carousel-inner"
 			div class="item active"
 				=image_tag("template-babysitter.png")
-				button type="button" class="btt-category" find a nanny
+				button type="button" class="btt-category" 
+					=link_to 'find a nanny','/services#babysitter'
 			div class="item"
 				=image_tag("template-cooker.png")	
-				button type="button" class="btt-category" find a cooker
+				button type="button" class="btt-category" 
+					=link_to 'find a cooker','/services#cooker'
 			div class="item"
 				=image_tag("template-driver.png")
-				button type="button" class="btt-category" find a driver
+				button type="button" class="btt-category" 
+					=link_to 'find a driver','/services#driver'
 			div class="item"
 				=image_tag("template-housekeeper.png")
-				button type="button" class="btt-category" find a housekeeper
+				button type="button" class="btt-category" 
+					=link_to 'find a housekeeper','/services#housekeeper'
 			div class="item"
 				=image_tag("template-nurse.png")
-				button type="button" class="btt-category" find a assistant
+				button type="button" class="btt-category" 
+					=link_to 'find a nurse','/services#nurse'
 .background-middle
 	.container.background-white			
-		.col-md-10.col-md-offset-1.flyers.no-padding
+		.col-md-12.flyers.no-padding
 			h1.title.center.space-top Let's get started!
 			hr.hr-gray
 			.col-md-6

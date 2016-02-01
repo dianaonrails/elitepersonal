@@ -289,14 +289,14 @@ body{
 }
 
 .navbar-nav{
-	width: 68%;
+	width: 57%;
 	float: right;
 }
 .navbar-default{
 	background-color: #F9F9F9;
 	padding: 5px;
 	margin-bottom: 0;
-	
+	margin-top:2%;
 	//border-bottom-color: gray;
 }
 
@@ -365,6 +365,8 @@ body{
 .background-white{
 	background-color:white;
 	padding:2%;
+	width:1078px;
+	margin:0 auto;
 }
 
 .carousel-container{
@@ -466,7 +468,7 @@ body{
 	margin:0 auto;
 	text-align:center;
 	padding:10px;
-	color: #105264;
+	
 	background-color:rgba(255,255,255,0.4);
    	border:2px solid #105264;
 	font-family:'Fira Sans', sans-serif;
@@ -474,12 +476,19 @@ body{
 	font-size:1.5em;
 	border-radius:5px;
 	font-style:italic;
+	a{
+		color: #105264;
+
+	}
 }
 
 .btt-category:hover{
 	border:none;
 	background-color:#105264;
-	color:white;
+	a{
+		color:white;
+		text-decoration: none;
+	}
 }
 
 .footer-table{
