@@ -51,21 +51,22 @@
 			div class="item"
 				=image_tag("template-nurse.png")
 				button type="button" class="btt-category" find a assistant
-.background-middle				
-	.col-md-10.col-md-offset-1.flyers.no-padding
-		h1.title.center.space-top Let's get started!
-		hr.hr-gray
-		.col-md-6
-			.flyer
-				h3 Candidates, join for FREE!
-				p Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt.
-				.btt 
-					=link_to 'sign up',new_candidate_registration_path
-		.col-md-6
-			.flyer
-				h3 Clients, make a request.
-				p Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt.
-				.btt
-					=link_to 'start now',new_client_path	
+.background-middle
+	.container.background-white			
+		.col-md-10.col-md-offset-1.flyers.no-padding
+			h1.title.center.space-top Let's get started!
+			hr.hr-gray
+			.col-md-6
+				.flyer
+					h3 Candidates, join for FREE!
+					p Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt.
+					.btt 
+						=link_to 'sign up',new_candidate_registration_path
+			.col-md-6
+				.flyer
+					h3 Clients, make a request.
+					p Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt.
+					.btt
+						=link_to 'start now',new_client_path	
 
 =render "layouts/footer"

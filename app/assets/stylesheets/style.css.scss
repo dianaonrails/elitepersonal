@@ -84,7 +84,8 @@ $lightblue:#46BFF6;
 
 body{
 	font-family: 'Fira Sans', sans-serif;
-	
+	background-image:url("fabric_of_squares_gray.png");
+	background-repeat:yes;
 }
 
 .blue{
@@ -111,7 +112,7 @@ body{
 }
 
 .btt{
-	width:20%;
+	width:25%;
 	margin-top:5%;
 	padding: 8px 10px;
     border: 2px solid white;
@@ -134,8 +135,8 @@ body{
 .background-middle{
 	float:left;
 	width:100%;
-	background-image:url("crossword.png");
-	background-repeat:x-repeat;
+	background-image:url("fabric_of_squares_gray.png");
+	background-repeat:yes;
 }
 
 .hr-gray{
@@ -292,9 +293,10 @@ body{
 	float: right;
 }
 .navbar-default{
-	background-color:white;
-	padding: 10px;
+	background-color: #F9F9F9;
+	padding: 5px;
 	margin-bottom: 0;
+	
 	//border-bottom-color: gray;
 }
 
@@ -342,7 +344,7 @@ body{
 .motto{
 	border-top:1px solid #AAAAAA;
 	text-align: center;
-	margin-top: 10px;
+	margin-top: 2px;
 	span{
 		font-size: 1em;
 		text-align: center;
@@ -354,10 +356,15 @@ body{
    		padding:0.1em 1em;
    		position: relative; 
    		top: -0.5em;
-		background-color: white; 
+		background-color: #F9F9F9; 
 		margin: 0;
 	}
 
+}
+
+.background-white{
+	background-color:white;
+	padding:2%;
 }
 
 .carousel-container{
@@ -612,7 +619,7 @@ body{
 
 
 .contacts-content{
-	z-index: -1;
+	
 	margin-bottom: 20px;
 	h2{
 		font-family: 'Fira Sans', sans-serif;
@@ -628,7 +635,7 @@ body{
 }
 
 .conditions-content{
-	z-index: -1;
+	
 	padding-bottom: 170px;
 	margin-top: 25px;
 	h1{
