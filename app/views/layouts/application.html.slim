@@ -16,10 +16,14 @@ html
 	  = csrf_meta_tags
 
 	body id="home"
-		.flags				
-			=image_tag('RU.png')
-			=image_tag('EN.png')
+		
 		nav class="navbar navbar-default"
+			
+			.flags				
+				=image_tag('RU.png')
+				=image_tag('EN.png')
+			.login
+				=link_to 'Login',''	
 			div class="container"
 				div class="navbar-header"
 					button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false" Menu
@@ -101,6 +105,6 @@ html
 						-else
 							li
 								=link_to 'Contacts','/contacts'		
-						
+
 		= yield
 
