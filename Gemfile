@@ -102,7 +102,8 @@ group :development, :test do
 end
 group :production do
 	gem 'rails_12factor'
-	gem 'pg'
+	#gem 'pg'
+  gem 'mysql2'
 end	
 
 
