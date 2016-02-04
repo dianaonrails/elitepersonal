@@ -199,6 +199,7 @@ GEM
       railties (>= 3.1)
     multi_json (1.11.2)
     multi_xml (0.5.5)
+    mysql2 (0.3.19)
     nested_form (0.3.2)
     net-http-digest_auth (1.4)
     net-http-persistent (2.9.4)
@@ -213,7 +214,6 @@ GEM
       rake (>= 0.8.1)
     pdf-core (0.6.0)
     pdfkit (0.8.2)
-    pg (0.18.2)
     polyamorous (1.2.0)
       activerecord (>= 3.0)
     prawn (2.0.2)
@@ -370,12 +370,12 @@ DEPENDENCIES
   mechanize
   mini_magick
   momentjs-rails (>= 2.9.0)
+  mysql2
   nested_form
   nokogiri
   owlcarousel-rails
   passenger
   pdfkit
-  pg
   prawn-rails
   premailer-rails
   rails (= 4.2.0)
