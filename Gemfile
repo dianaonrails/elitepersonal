@@ -86,7 +86,7 @@ gem 'passenger'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'react-rails', '~> 1.4.0'
-
+gem 'mysql2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -103,7 +103,7 @@ end
 group :production do
 	gem 'rails_12factor'
 	#gem 'pg'
-  gem 'mysql2'
+  
 end	
 
 
