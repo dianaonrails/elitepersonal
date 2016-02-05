@@ -50,7 +50,7 @@ function ShowQuestions(sel){
 	if(name == 'Housekeeper / Cleaning'){
 		$('#housekeeper').css("display", "block");
 	}
-	if(name == 'Tutors or Governesses'){
+	if(name == 'Tutors / Governesses'){
 		$('#governess').css("display", "block");
 	}
 	if(name == 'Chef / Cook'){
@@ -59,7 +59,7 @@ function ShowQuestions(sel){
 	if(name == 'Domestic Couple / Gardner'){
 		$('#assistance').css("display", "block");
 	}
-	if(name == 'Nurse (Granny Care )'){
+	if(name == 'Nurse'){
 		$('#nurse').css("display", "block");
 	}
 
