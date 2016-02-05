@@ -1,11 +1,11 @@
 class ClientMailer < ApplicationMailer
 
-	default from: "elitepersonalinfo@gmail.com"
+	default from: "info@elitepersonalworld.com"
 
 	def client_mail(client)
 		@client = client
 
-		@email = 'd.r.carvalho89@gmail.com'
-		mail(from: "elitepersonalinfo@gmail.com",to: @email, subject: 'Client Contact')
+		@email = 'yana@elitepersonalworld.com'
+		mail(from: "info@elitepersonalworld.com",to: @email, subject: 'Client Contact')
 	end	
 end
