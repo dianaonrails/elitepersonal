@@ -24,7 +24,7 @@ production:
   adapter: mysql2
   database: elitepersonalworld_production
   username: admin
-  host: elitepersonalworldapp.c088kradxrzu.us-west-2.rds.amazonaws.com
+  host: elitepersonalapp.c088kradxrzu.us-west-2.rds.amazonaws.com
   password: 12345678
   port: 3306
   pool: 5
