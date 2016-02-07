@@ -2,7 +2,7 @@ $light-grey:#a8a094;
 $black:#272727;
 $blue:#3DA2AD;
 $lightblue:#46BFF6;
-
+$darkblue:#1c434c;
 
 @media all and (max-width : 992px) { 
 	.navbar.navbar-default{
@@ -141,6 +141,11 @@ body{
 
 .hr-gray{
 	border-top:1px solid #CAC7C7;
+}
+
+.hr-blue{
+	border-top:3px solid #1c434c;
+	margin-top:0;
 }
 
 .side-bar{
@@ -457,16 +462,89 @@ body{
 	
 	width: 100%;
 }
-
-.flyer{
-	background-color:#329AB2;
-	padding:20px;
-	margin-top:10%;
-	margin-bottom:25%;
-	position:relative;
-	color:white;
-	
+.top-title{
+	color:#5cb8b5;
+	font-weight:400;
 }
+.flyers{
+	position: relative;
+    bottom: 106px;
+	margin:0 auto;
+	.flyer-links:after {
+        display:block;
+        clear:both;
+        content:'';
+    }
+	ul.flyer-links{
+		list-style: none;
+		width: 82%;
+    	margin: 0 auto;
+		display: block; 
+		text-align:center;
+		padding-left:0;
+		li{
+			width: 30%;
+			
+			display: inline-block;
+			font-size: 1.3em;
+			
+	
+			
+			text-align:center;
+			position:relative;
+			
+			border:1px solid $darkblue;
+			a{
+				width: 100%;
+				float: left;
+				text-align: center;
+				background-color:white;
+				padding:10px;
+				color:$darkblue;
+			}
+			a:hover{
+				color:white;
+				background-color:$darkblue;
+			}
+		}
+		.active{
+			display: inline-block;
+		}
+		li.active a, li.active a:hover {
+	        color:white;
+			background-color:$darkblue;
+	    }
+	}
+	.flyer-content{
+		padding:15px;
+		margin-top: 5%;
+		margin-bottom: 5%;
+		.tab{
+	        display:none;
+	 	}
+	 	.tab-img{
+	 		float:left;
+	 		img{
+	 			width: 80%;
+	 		}
+	 	}
+	 	.tab-title{
+	 		float:left;
+	 		display: inline;
+	 		margin-top: 0;
+	 		font-family: 'Fira Sans', sans-serif;
+	 		font-size: 1.5em;
+	 		font-weight: 300;
+	 	}
+
+	    .tab.active {
+	        display:block;
+	    }
+	}
+}
+
+
+
 
 .btt-category{
 	position: absolute;

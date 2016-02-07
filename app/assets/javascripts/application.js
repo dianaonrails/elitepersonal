@@ -27,6 +27,7 @@
 //= require bootstrap-datepicker
 //= require moment
 //= require bootstrap-datetimepicker
+//= require jspdf
 //= require_tree .
 
 
@@ -66,6 +67,14 @@ function ShowQuestions(sel){
 };
 
 
+function exportPDF(){
+	var doc = new jsPDF();
+    doc.fromHTML($('#panels').html(), 15, 15, {
+        'width': 170,'elementHandlers': specialElementHandlers
+    });
+    doc.save('candidate-file.pdf');
+};
+
 $(document).ready(function () {
 	$('.carousel').carousel();
 	$('.datepicker').datepicker();
@@ -75,6 +84,36 @@ $(document).ready(function () {
 
 	I18n.defaultLocale = "<%= I18n.default_locale %>";
 	I18n.locale = "<%= I18n.locale %>";
+
+	$(function () {
+
+	    var specialElementHandlers = {
+	        '#editor': function (element,renderer) {
+	            return true;
+	        }
+	    };
+	 $('#info').click(function () {
+	        var doc = new jsPDF();
+	        doc.fromHTML($('#panels').html(), 15, 15, {
+	            'width': 170,'elementHandlers': specialElementHandlers
+	        });
+	        doc.save('candidate-file.pdf');
+	    });  
+	});
+
+
+	jQuery('.flyers .flyer-links a').on('click', function(e)  {
+        var currentAttrValue = jQuery(this).attr('href');
+ 
+        // Show/Hide Tabs
+        jQuery('.flyers ' + currentAttrValue).show().siblings().hide();
+ 
+        // Change/remove current tab to active
+        jQuery(this).parent('li').addClass('active').siblings().removeClass('active');
+ 
+        e.preventDefault();
+    });
+
 
 	$('.categories-list ul>li a').on('click', function(e){
 		e.preventDefault();

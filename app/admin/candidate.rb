@@ -14,20 +14,22 @@ permit_params :photo,:category_id,:password,:first_name,:last_name,:address,:mob
 #   permitted << :other if resource.something?
 #   permitted
 # end
-	controller do
-	    def index
-	      index! do |format|
-	        format.html
-	        format.pdf {
-	         pdf = ProjectPdf.new(@candidates)
-	         send_data pdf.render, filename: "Project_status.pdf",
-	                               disposition: "inline"
-	        }
-	      end
-	    end
-    end
-	index do
+	action_item only: [:show] do
+	  link_to('Download File', download_admin_candidate_path(resource))
+	end
 
+	member_action :download do
+	   candidate = Candidate.find(params[:id])
+	   respond_to do |format|
+	    format.html
+	    format.pdf do
+	    	render pdf: "candidate"
+	    end	
+	   end 	
+       redirect_to :back	
+	end
+	index do
+		#download_links: [:pdf]
 		selectable_column
 		column :first_name
 		column :last_name
@@ -113,8 +115,10 @@ permit_params :photo,:category_id,:password,:first_name,:last_name,:address,:mob
 	show do
 		panel 'Personal Info' do
 			attributes_table_for candidate do
+				
 				row "print" do
-					link_to "Download Invoice (PDF)", candidate_path(candidate, :format => "pdf")
+					#link_to 'Export PDF',controller: candidate, action: show_pdf, candidate_id: candidate.id
+					#button_to_function "Export to PDF",exportPDF() ,id:"info", class:"btn btn-info" 
 				end	
 				row :photo do
 					image_tag(candidate.photo.url(:thumb))

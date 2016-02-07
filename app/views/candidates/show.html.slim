@@ -12,224 +12,226 @@
 		.col-md-12
 			p#notice = notice
 			.col-md-12
+				button id="info" class="btn btn-info" Export to PDF
 				-if current_candidate
 					= link_to 'Edit', edit_candidate_path(current_candidate)
 					'|
 					= link_to 'Logout >', destroy_candidate_session_path, method: :delete
-			.col-md-6
-				div class="panel panel-default" 
-				  .panel-heading Personal Info
-				  .panel-body.personal-info
-				  		.col-md-4.align-field
-				  			.img-resize
-				  				=image_tag @candidate.photo
+			.col-md-12 id="panels"		
+				.col-md-6 id="info-panel"
+					div class="panel panel-default" 
+					  .panel-heading Personal Info
+					  .panel-body.personal-info
+					  		.col-md-4.align-field
+					  			.img-resize
+					  				=image_tag @candidate.photo
 
-					  	.col-md-8.align-field
-					  	    .col-md-3.no-padding
-					  	   		=label_tag 'First Name'
-					  	   	.col-md-9	
-								=@candidate.first_name
-						.col-md-8.align-field
-				   			.col-md-3.no-padding
-				   				=label_tag 'Last Name'
-				   			.col-md-9
-				   				=@candidate.last_name
-				   		.col-md-8.align-field   	
-				   			.col-md-3.no-padding
-				   				=label_tag 'Gender'
-				   			.col-md-9
-				   				=@candidate.gender
-				   		.col-md-8.align-field   	
-				   			.col-md-3.no-padding
-				   				=label_tag 'Height'
-				   			.col-md-9
-				   				=@candidate.height
-				   		.col-md-8.align-field   	
-				   			.col-md-3.no-padding
-				   				=label_tag 'Weight'
-				   			.col-md-9
-				   				=@candidate.weight	
-				   		-if current_candidate	
+						  	.col-md-8.align-field
+						  	    .col-md-3.no-padding
+						  	   		=label_tag 'First Name'
+						  	   	.col-md-9	
+									=@candidate.first_name
+							.col-md-8.align-field
+					   			.col-md-3.no-padding
+					   				=label_tag 'Last Name'
+					   			.col-md-9
+					   				=@candidate.last_name
+					   		.col-md-8.align-field   	
+					   			.col-md-3.no-padding
+					   				=label_tag 'Gender'
+					   			.col-md-9
+					   				=@candidate.gender
+					   		.col-md-8.align-field   	
+					   			.col-md-3.no-padding
+					   				=label_tag 'Height'
+					   			.col-md-9
+					   				=@candidate.height
+					   		.col-md-8.align-field   	
+					   			.col-md-3.no-padding
+					   				=label_tag 'Weight'
+					   			.col-md-9
+					   				=@candidate.weight	
+					   		-if current_candidate	
+						   		.col-md-12.align-field
+						   			.col-md-3.no-padding
+						   				=label_tag 'Address'
+						   			.col-md-9
+						   				=@candidate.address
+						   		.col-md-12.align-field
+						   			.col-md-3.no-padding
+						   				=label_tag 'Mobile phone'
+						   			.col-md-9
+						   				=@candidate.mobile	
+						   		.col-md-12.align-field
+						   			.col-md-3.no-padding
+						   				=label_tag 'Email'
+						   			.col-md-9
+						   				=@candidate.email	
 					   		.col-md-12.align-field
 					   			.col-md-3.no-padding
-					   				=label_tag 'Address'
+					   				=label_tag 'Date of birth'
 					   			.col-md-9
-					   				=@candidate.address
+					   				=@candidate.birth_date	
 					   		.col-md-12.align-field
 					   			.col-md-3.no-padding
-					   				=label_tag 'Mobile phone'
+					   				=label_tag 'Marital status'
 					   			.col-md-9
-					   				=@candidate.mobile	
+					   				=@candidate.marital_status		
 					   		.col-md-12.align-field
 					   			.col-md-3.no-padding
-					   				=label_tag 'Email'
+					   				=label_tag 'Passport nº'
 					   			.col-md-9
-					   				=@candidate.email	
-				   		.col-md-12.align-field
-				   			.col-md-3.no-padding
-				   				=label_tag 'Date of birth'
-				   			.col-md-9
-				   				=@candidate.birth_date	
-				   		.col-md-12.align-field
-				   			.col-md-3.no-padding
-				   				=label_tag 'Marital status'
-				   			.col-md-9
-				   				=@candidate.marital_status		
-				   		.col-md-12.align-field
-				   			.col-md-3.no-padding
-				   				=label_tag 'Passport nº'
-				   			.col-md-9
-				   				-if @candidate.passport.blank?
-				   					span no record
-				   				-else
-				   					=@candidate.passport	
-				   		.col-md-12.align-field
-				   			.col-md-3.no-padding
-				   				=label_tag 'Foreign passport nº'
-				   			.col-md-9
-				   				-if @candidate.foreign_passport.blank?
-				   					span no record
-				   				-else
-				   					=@candidate.foreign_passport	
-				   		.col-md-12.align-field
-				   			.col-md-3.no-padding
-				   				=label_tag 'Nationality'
-				   			.col-md-9
-				   				=@candidate.nationality		
-				   		.col-md-12.align-field
-				   			.col-md-3.no-padding
-				   				=label_tag 'Citizenship'
-				   			.col-md-9
-				   				=@candidate.citizenship	
-				   		.col-md-12.align-field
-				   			.col-md-3.no-padding
-				   				=label_tag 'Smoker?'
-				   			.col-md-9
-				   				=@candidate.smoker	
-				   		.col-md-12.align-field
-				   			.col-md-3.no-padding
-				   				=label_tag 'Zodiac Sign'
-				   			.col-md-9
-				   				=@candidate.sign
-				   		.col-md-12.align-field
-				   			.col-md-3.no-padding
-				   				=label_tag 'Number of children'
-				   			.col-md-9
-				   				=@candidate.children
-			.col-md-6.no-padding
-				div class="panel panel-default" 
-				  .panel-heading Education Info
-				  .panel-body.personal-info
-				  	.col-md-12.align-field
-				  		.col-md-4.no-padding
-				  			=label_tag 'Highest level of education'
-				  			br   				
-				  		.col-md-8
-				  			-if !@candidate.level_education_id.blank?
-				  				=LevelEducation.find(@candidate.level_education_id).level
-				  	.col-md-12.align-field
-				  		
-				  		=label_tag 'Education History'
-				  		br
-				  		=@candidate.education_info.history
-				  	.col-md-12.align-field
-				  		.col-md-4.no-padding
-				  			=label_tag 'Aditional languages:'
-				  		.col-md-8
-				  			-if !@candidate.languages.blank?
-				  				-@candidate.languages.each do |language|
-				  					span 
-				  						=language.language
-				  					'&nbsp;	
-			.col-md-6.no-padding
-				div class="panel panel-default" 
-				  .panel-heading Work Info
-				  .panel-body.personal-info
-				  	.col-md-12.align-field 
-				  	  =label_tag 'Category you are applying:'	, nil , class:'subtitle'
-				  	  br
-				  	  =Category.find(@candidate.category_id).title
-				  	.col-md-12
-				  		//-if Category.find(@candidate.category_id).title == "Babysitter"
-				  			
-				  		//	= render "layouts/nanny_questions", :f => @candidate.nanny_question
-				  	.col-md-12.align-field
-				  		=label_tag 'Sectors / Functions you have experience in: '
-				  		br
-				  		-if @candidate.work_info.sectors_experience.blank?
-				  			span no record
-				  		-else
-				  			=@candidate.work_info.sectors_experience
-				  	.col-md-12.align-field
-				  		=label_tag 'Years of experience'
-				  		br
-				  		-if @candidate.work_info.years_experience.blank?
-				  			span no record
-				  		-else
-				  			=@candidate.work_info.years_experience
-				  	.col-md-12.align-field
-				  		=label_tag 'Current/most recent job title'
-				  		br
-				  		-if @candidate.work_info.current_job.blank?
-				  			span no record
-				  		-else
-				  			=@candidate.work_info.current_job
-				  	.col-md-12.align-field  
-					  =label_tag ' Last employment/employer'
-					  br
-					  -if @candidate.work_info.last_employer.blank?
-					  	span no record
-					  -else
-					  	=@candidate.work_info.last_employer
-				  	.col-md-12.align-field
-				  		=label_tag 'Key skills'	
-				  		br
-				  		-if @candidate.work_info.key_skills.blank?
-				  			span no record
-				  		-else
-				  			=@candidate.work_info.key_skills
-				  	.col-md-12.align-field
-				  		=label_tag 'Wage level per month'
-				  		br
-				  		-if @candidate.work_info.salary.blank?
-				  			span no record
-				  		-else
-				  			=@candidate.work_info.salary
-			.col-md-6.no-padding
-				div class="panel panel-default" 
-				  .panel-heading Availability Info
-				  .panel-body.personal-info
-				  	.col-md-6
+					   				-if @candidate.passport.blank?
+					   					span no record
+					   				-else
+					   					=@candidate.passport	
+					   		.col-md-12.align-field
+					   			.col-md-3.no-padding
+					   				=label_tag 'Foreign passport nº'
+					   			.col-md-9
+					   				-if @candidate.foreign_passport.blank?
+					   					span no record
+					   				-else
+					   					=@candidate.foreign_passport	
+					   		.col-md-12.align-field
+					   			.col-md-3.no-padding
+					   				=label_tag 'Nationality'
+					   			.col-md-9
+					   				=@candidate.nationality		
+					   		.col-md-12.align-field
+					   			.col-md-3.no-padding
+					   				=label_tag 'Citizenship'
+					   			.col-md-9
+					   				=@candidate.citizenship	
+					   		.col-md-12.align-field
+					   			.col-md-3.no-padding
+					   				=label_tag 'Smoker?'
+					   			.col-md-9
+					   				=@candidate.smoker	
+					   		.col-md-12.align-field
+					   			.col-md-3.no-padding
+					   				=label_tag 'Zodiac Sign'
+					   			.col-md-9
+					   				=@candidate.sign
+					   		.col-md-12.align-field
+					   			.col-md-3.no-padding
+					   				=label_tag 'Number of children'
+					   			.col-md-9
+					   				=@candidate.children
+				.col-md-6.no-padding
+					div class="panel panel-default" 
+					  .panel-heading Education Info
+					  .panel-body.personal-info
 					  	.col-md-12.align-field
-					  		=label_tag 'Availability:'
-					  		br
-					  		-@candidate.availabilities.each do |a|
-					  			span.availability-description
-					  				=a.description
+					  		.col-md-4.no-padding
+					  			=label_tag 'Highest level of education'
+					  			br   				
+					  		.col-md-8
+					  			-if !@candidate.level_education_id.blank?
+					  				=LevelEducation.find(@candidate.level_education_id).level
 					  	.col-md-12.align-field
-					  		=label_tag 'Available to work:'
-					  		br
-					  		-@candidate.available_works.each do |aw|
-					  			span.availability-description
-					  				=aw.description
-					  	.col-md-12.align-field
-					  		=label_tag 'Legal to work:'
-					  		br
-					  		-@candidate.legal_works.each do |aw|
-					  			span.availability-description
-					  				=aw.description
-					.col-md-6  				
-					  	.col-md-12.align-field
-					  		=label_tag 'Start:'
-					  		br
-					  		-if @candidate.start
-					  			span Immediately
-					  		-else
-					  			span Not immediately
 					  		
+					  		=label_tag 'Education History'
+					  		br
+					  		=@candidate.education_info.history
 					  	.col-md-12.align-field
-					  		=label_tag 'statement'
-					  		=@candidate.statment					
+					  		.col-md-4.no-padding
+					  			=label_tag 'Aditional languages:'
+					  		.col-md-8
+					  			-if !@candidate.languages.blank?
+					  				-@candidate.languages.each do |language|
+					  					span 
+					  						=language.language
+					  					'&nbsp;	
+				.col-md-6.no-padding
+					div class="panel panel-default" 
+					  .panel-heading Work Info
+					  .panel-body.personal-info
+					  	.col-md-12.align-field 
+					  	  =label_tag 'Category you are applying:'	, nil , class:'subtitle'
+					  	  br
+					  	  =Category.find(@candidate.category_id).title
+					  	.col-md-12
+					  		//-if Category.find(@candidate.category_id).title == "Babysitter"
+					  			
+					  		//	= render "layouts/nanny_questions", :f => @candidate.nanny_question
+					  	.col-md-12.align-field
+					  		=label_tag 'Sectors / Functions you have experience in: '
+					  		br
+					  		-if @candidate.work_info.sectors_experience.blank?
+					  			span no record
+					  		-else
+					  			=@candidate.work_info.sectors_experience
+					  	.col-md-12.align-field
+					  		=label_tag 'Years of experience'
+					  		br
+					  		-if @candidate.work_info.years_experience.blank?
+					  			span no record
+					  		-else
+					  			=@candidate.work_info.years_experience
+					  	.col-md-12.align-field
+					  		=label_tag 'Current/most recent job title'
+					  		br
+					  		-if @candidate.work_info.current_job.blank?
+					  			span no record
+					  		-else
+					  			=@candidate.work_info.current_job
+					  	.col-md-12.align-field  
+						  =label_tag ' Last employment/employer'
+						  br
+						  -if @candidate.work_info.last_employer.blank?
+						  	span no record
+						  -else
+						  	=@candidate.work_info.last_employer
+					  	.col-md-12.align-field
+					  		=label_tag 'Key skills'	
+					  		br
+					  		-if @candidate.work_info.key_skills.blank?
+					  			span no record
+					  		-else
+					  			=@candidate.work_info.key_skills
+					  	.col-md-12.align-field
+					  		=label_tag 'Wage level per month'
+					  		br
+					  		-if @candidate.work_info.salary.blank?
+					  			span no record
+					  		-else
+					  			=@candidate.work_info.salary
+				.col-md-6.no-padding
+					div class="panel panel-default" 
+					  .panel-heading Availability Info
+					  .panel-body.personal-info
+					  	.col-md-6
+						  	.col-md-12.align-field
+						  		=label_tag 'Availability:'
+						  		br
+						  		-@candidate.availabilities.each do |a|
+						  			span.availability-description
+						  				=a.description
+						  	.col-md-12.align-field
+						  		=label_tag 'Available to work:'
+						  		br
+						  		-@candidate.available_works.each do |aw|
+						  			span.availability-description
+						  				=aw.description
+						  	.col-md-12.align-field
+						  		=label_tag 'Legal to work:'
+						  		br
+						  		-@candidate.legal_works.each do |aw|
+						  			span.availability-description
+						  				=aw.description
+						.col-md-6  				
+						  	.col-md-12.align-field
+						  		=label_tag 'Start:'
+						  		br
+						  		-if @candidate.start
+						  			span Immediately
+						  		-else
+						  			span Not immediately
+						  		
+						  	.col-md-12.align-field
+						  		=label_tag 'statement'
+						  		=@candidate.statment					
 
 			
 

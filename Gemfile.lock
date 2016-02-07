@@ -171,6 +171,9 @@ GEM
     jquery-ui-rails (5.0.5)
       railties (>= 3.2.16)
     json (1.8.3)
+    jspdf-rails (1.0.3)
+      jquery-rails
+      rails (>= 3.1.0)
     jwt (1.5.2)
     kaminari (0.16.3)
       actionpack (>= 3.0.0)
@@ -199,7 +202,6 @@ GEM
       railties (>= 3.1)
     multi_json (1.11.2)
     multi_xml (0.5.5)
-    mysql2 (0.3.19)
     nested_form (0.3.2)
     net-http-digest_auth (1.4)
     net-http-persistent (2.9.4)
@@ -343,6 +345,7 @@ GEM
       sprockets-rails (>= 2.0, < 4.0)
     webrobots (0.1.1)
     wicked_pdf (1.0.3)
+    wkhtmltopdf-binary (0.9.9.3)
 
 PLATFORMS
   ruby
@@ -365,12 +368,12 @@ DEPENDENCIES
   intl-tel-input-rails
   jbuilder (~> 2.0)
   jquery-rails
+  jspdf-rails
   kaminari
   mail_form
   mechanize
   mini_magick
   momentjs-rails (>= 2.9.0)
-  mysql2
   nested_form
   nokogiri
   owlcarousel-rails
@@ -396,6 +399,7 @@ DEPENDENCIES
   underscore-rails
   web-console (~> 2.0)
   wicked_pdf
+  wkhtmltopdf-binary
 
 BUNDLED WITH
    1.10.6

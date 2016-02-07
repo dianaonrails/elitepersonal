@@ -3,8 +3,17 @@ class CandidatesController < ApplicationController
   # GET /candidates
   # GET /candidates.json
   set_tab :candidate
-  helper :all
+  helper :all,:show_pdf
 
+  def show_pdf
+    @candidate = Candidate.find(params[:candidate_id])
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "file_name"   # Excluding ".pdf" extension.
+      end
+    end
+  end  
 
   def index
     if params[:client_request]

@@ -56,22 +56,60 @@
 				=image_tag("template-nurse.png")
 				button type="button" class="btt-category" 
 					=link_to 'find a nurse','/services#nurse'
-.background-middle
-	.container.background-white			
-		.col-md-12.flyers.no-padding
-			h1.title.center.space-top Let's get started!
-			hr.hr-gray
-			.col-md-6
-				.flyer
-					h3 Candidates, join for FREE!
-					p Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt.
-					.btt 
-						=link_to 'sign up',new_candidate_registration_path
-			.col-md-6
-				.flyer
-					h3 Clients, make a request.
-					p Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt.
-					.btt
-						=link_to 'start now',new_client_path	
+	hr.hr-blue
+	.col-md-12.flyers.no-padding
+		h1.top-title.center.space-top Let's get started!
+		ul.flyer-links
+			li.active 
+				a href="#tab1" Client
+
+			li
+				a href="#tab2" Candidate
+		div.flyer-content
+			div id="tab1" class="tab active"
+				.col-md-10.col-md-offset-1.bottom-space
+					.col-md-6
+						.tab-img
+							=image_tag("applicattion.png")
+						h3.tab-title Make your request 
+					.col-md-6
+						.tab-img
+							=image_tag("telephone34.png")
+						h3.tab-title Get contacted
+				.col-md-10.col-md-offset-1.bottom-space		
+					.col-md-6
+						.tab-img
+							=image_tag("candidates.png")
+						h3.tab-title Review our personalize suggestions
+					.col-md-6
+						.tab-img
+							=image_tag("interrogation.png")
+						h3.tab-title Schedule interviews and get the best
+			div id="tab2" class="tab"
+				.col-md-10.col-md-offset-1	
+
+					.col-md-12.bottom-space
+						.col-md-6
+							.tab-img
+								=image_tag("curriculum3.png")
+							h3.tab-title Register 
+						.col-md-6
+							.tab-img
+								=image_tag("telephone34.png")
+							h3.tab-title Receive proposals
+					.col-md-12.bottom-space		
+						.col-md-6
+							.tab-img
+								=image_tag("interrogation.png")
+							
+							h3.tab-title Interviews
+						.col-md-6
+							.tab-img
+								=image_tag("time51.png")
+							h3.tab-title Find work
+							
+//.background-middle
+	//.container.background-white			
+
 
 =render "layouts/footer"

@@ -2,13 +2,13 @@ Rails.application.routes.draw do
   get 'clients/new'
 
   get 'clients/create'
-
+  
   
   resources :categories
   devise_for :users, ActiveAdmin::Devise.config
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-
+  get 'candidates/show_pdf'
   get 'candidates_suggestions' => 'active_admin/client_requests#candidates_suggestions'
   
   #devise_for :users
