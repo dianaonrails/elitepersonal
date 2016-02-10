@@ -12,12 +12,12 @@
 		.col-md-12
 			p#notice = notice
 			.col-md-12
-				button id="info" class="btn btn-info" Export to PDF
+				button id="exportPDF" class="btn btn-info" Export to PDF
 				-if current_candidate
 					= link_to 'Edit', edit_candidate_path(current_candidate)
 					'|
 					= link_to 'Logout >', destroy_candidate_session_path, method: :delete
-			.col-md-12 id="panels"		
+			.col-md-12 id="main_content"		
 				.col-md-6 id="info-panel"
 					div class="panel panel-default" 
 					  .panel-heading Personal Info

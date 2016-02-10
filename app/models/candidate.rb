@@ -60,22 +60,22 @@ class Candidate < ActiveRecord::Base
 
   scope :gender_feminine, -> {where(gender: 'f')}
   scope :gender_masculine, -> {where(gender: 'm')}
-  scope :gender, -> (gender) {where(gender: gender)}
-  scope :height, -> (height) {where(height: height)}
-  scope :weight, -> (weight) {where(weight: weight)}
-  scope :marital_status, -> (marital_status) {where(marital_status: marital_status)}
-  scope :sign, -> (sign) {where(sign: sign)}
-  scope :driving_licence, -> (driving_licence) {where driving_licence: driving_licence}
-  scope :car, -> (car) {where car: car}
-  scope :citizenship, -> (citizenship) {where citizenship: citizenship}
-  scope :nationality, -> (nationality) {where nationality: nationality}
-  scope :age, -> (age_min, age_max) {where("extract(year from birth_date) BETWEEN ? AND ?", (Time.now.year -  age_max),(Time.now.year - age_min))}
-  scope :category, -> (category_id) {where category_id: category_id}
-  scope :level_education, -> (level_education_id) {where level_education_id: level_education_id}
-  scope :languages, -> (languages) { where("languages.id IN (?)",languages).joins(:languages)}
-  scope :years_experience, -> (years_experience) {where("years_experience >= ?", years_experience)}
-  scope :availability, -> (availabilities) {where("availabilities.id IN (?)",availabilities).joins(:availabilities)}
-  scope :available_work, -> (work_ids) {where("available_works.id IN (?)",work_ids).joins(:available_works)}
+  scope :gender, -> (gender) {where(gender: gender) if gender.present?}
+  scope :height, -> (height) {where(height: height) if height.present?}
+  scope :weight, -> (weight) {where(weight: weight) if weight.present?}
+  scope :marital_status, -> (marital_status) {where(marital_status: marital_status) if marital_status.present?}
+  scope :sign, -> (sign) {where(sign: sign) if sign.present?}
+  scope :driving_licence, -> (driving_licence) {where(driving_licence: driving_licence) if driving_licence.present?}
+  scope :car, -> (car) {where(car: car) if car.present?}
+  scope :citizenship, -> (citizenship) {where(citizenship: citizenship) if citizenship.present?}
+  scope :nationality, -> (nationality) {where(nationality: nationality) if nationality.present?}
+  #scope :age, -> (age_min, age_max) {where("extract(year from birth_date) BETWEEN ? AND ?", (Time.now.year -  age_max),(Time.now.year - age_min))}
+  scope :category, -> (category_id) {where(category_id: category_id) if category_id.present?}
+  scope :level_education, -> (level_education_id) {where(level_education_id: level_education_id) if level_education_id.present?}
+  scope :languages, -> (languages) { where("languages.id IN (?)",languages).joins(:languages) if languages.present?}
+  scope :years_experience, -> (years_experience) {where("years_experience >= ?", years_experience) if years_experience.present?}
+  scope :availability, -> (availabilities) {where("availabilities.id IN (?)",availabilities).joins(:availabilities) if availabilities.present?}
+  scope :available_work, -> (work_ids) {where("available_works.id IN (?)",work_ids).joins(:available_works) if work_ids.present?}
 
   
   

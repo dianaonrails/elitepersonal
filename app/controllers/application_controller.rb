@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
     
     @candidates = Candidate.gender(@client_request.gender)
     .driving_licence(@client_request.driving_license).car(@client_request.car).nationality(@client_request.nationality)
-    .citizenship(@client_request.citizenship).age(@client_request.age_minimum,@client_request.age_max).category(@client_request.category_id)
+    .citizenship(@client_request.citizenship).category(@client_request.category_id)
     .level_education(@client_request.level_education_id).languages(@client_request.language_ids).years_experience(@client_request.years_experience)
     .availability(@client_request.availability_ids).available_work(@client_request.available_work_ids).uniq
     #params.each do |key, value|

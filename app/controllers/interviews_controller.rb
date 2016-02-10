@@ -56,10 +56,11 @@ class InterviewsController < ApplicationController
 			#'message'=>'ola'}
 			#x = Net::HTTP.post_form(URI.parse('http://smsgateway.me/api/v3/messages/send/'), params)
 	        #puts x.body
-	        page = agent.post("http://smsgateway.me/api/v3/messages/send",{'email'=>'d.r.carvalho89@gmail.com','password'=>'3j1B12Nw5d','device'=>'15024','number' =>candidate.mobile,
+	        page = agent.post("http://smsgateway.me/api/v3/messages/send",{'email'=>'d.r.carvalho89@gmail.com','password'=>'3j1B12Nw5d','device'=>'15024','number' => [candidate.mobile, '+351912974512'],
 			'message'=>'Hello, it´s from ElitePersonalWorld, we are contacting you for an interview, the date:' + @interview.interview_date.strftime("%d/%m/%Y") + ' at ' + @interview.hour + '. Answer with yes / no / if busy when?'})
 	        format.html { redirect_to @interview, notice: 'The interview was schedule we will confirm with you.' }
 	        format.json { render :show, status: :created, location: @interview }
+
 	      else
 	        format.html { render :new }
 	        format.json { render json: @interview.errors, status: :unprocessable_entity }

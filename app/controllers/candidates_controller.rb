@@ -3,7 +3,7 @@ class CandidatesController < ApplicationController
   # GET /candidates
   # GET /candidates.json
   set_tab :candidate
-  helper :all,:show_pdf
+  helper :all
 
   def show_pdf
     @candidate = Candidate.find(params[:candidate_id])

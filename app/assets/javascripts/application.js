@@ -27,6 +27,7 @@
 //= require bootstrap-datepicker
 //= require moment
 //= require bootstrap-datetimepicker
+//= require jspdf
 //= require_tree .
 
 
@@ -84,7 +85,19 @@ $(document).ready(function () {
 	I18n.defaultLocale = "<%= I18n.default_locale %>";
 	I18n.locale = "<%= I18n.locale %>";
 
-
+	var specialElementHandlers = {
+        '#editor': function (element,renderer) {
+            return true;
+        }
+    };
+ 	$('#exportPDF').click(function () {
+        var doc = new jsPDF();
+        doc.fromHTML($('#main_content').html(), 15, 15, {
+            'width': 170,'elementHandlers': specialElementHandlers
+        });
+        doc.save('sample-file.pdf');
+    });
+    
 	jQuery('.flyers .flyer-links a').on('click', function(e)  {
         var currentAttrValue = jQuery(this).attr('href');
  

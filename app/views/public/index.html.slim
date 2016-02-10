@@ -58,7 +58,8 @@
 					=link_to 'find a nurse','/services#nurse'
 	hr.hr-blue
 	.col-md-12.flyers.no-padding
-		h1.start-title.center.space-top Let's get started!
+		.col-md-12.start-container
+			h1.start-title.center.space-top Let's get started!
 		ul.flyer-links
 			li.active 
 				a href="#tab1" Client
@@ -70,7 +71,9 @@
 					.col-md-6
 						.tab-img
 							=image_tag("applicattion.png")
-						h3.tab-title Make your request 
+						h3.tab-title Make your request
+
+						p =link_to 'start now >',new_client_path
 					.col-md-6
 						.tab-img
 							=image_tag("telephone34.png")
@@ -92,6 +95,7 @@
 							.tab-img
 								=image_tag("curriculum3.png")
 							h3.tab-title Register 
+							p =link_to 'start now >',new_candidate_registration_path
 						.col-md-6
 							.tab-img
 								=image_tag("telephone34.png")

@@ -415,7 +415,6 @@ body{
     .carousel-inner {
     	img{
     		width: 100%;
-
     	}
         .item {
             transition-property: opacity;
@@ -462,10 +461,22 @@ body{
 	
 	width: 100%;
 }
+.start-container{
+	background-color: rgba(247,249,254,0.7);
+	position: relative;
+    bottom: 23px;
+    padding: 1%;
+    padding-top: 2%;
+}
+
 .start-title{
-	color:#5cb8b5;
-	font-weight:400;
-	text-shadow: 2px 2px #131111;
+	color:#379A97;
+    //text-shadow: 1px 1px #131111;
+    font-family: helvetica;
+    font-weight: 800;
+    position:relative;
+    bottom:16px;
+
 }
 .flyers{
 	position: relative;
@@ -483,6 +494,8 @@ body{
 		display: block; 
 		text-align:center;
 		padding-left:0;
+		position: relative;
+    	bottom: 37px;
 		li{
 			width: 30%;
 			
@@ -530,12 +543,12 @@ body{
 	 		}
 	 	}
 	 	.tab-title{
-	 		float:left;
-	 		display: inline;
+	 		display: block;
 	 		margin-top: 0;
 	 		font-family: 'Fira Sans', sans-serif;
 	 		font-size: 1.5em;
 	 		font-weight: 300;
+	 		margin-bottom: 2%;
 	 	}
 
 	    .tab.active {
