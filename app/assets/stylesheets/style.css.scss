@@ -24,6 +24,7 @@ $darkblue:#1c434c;
 
 	.navbar-header {
         float: none;
+
     }
 
     .nav.navbar-nav{
@@ -283,9 +284,12 @@ body{
     width: 100%;
     height: auto;
 }
-
+.container > .navbar-header, .container > .navbar-collapse, .container-fluid > .navbar-header, .container-fluid > .navbar-collapse{
+	margin-left: 3%;
+}
 .navbar-header{
 	height: 65px;
+	
 }
 .top-title a{
 	color:#105264;
@@ -300,7 +304,7 @@ body{
 }
 
 .navbar-nav{
-	width: 63%;
+	width: 65%;
 	float: right;
 	margin-top: 1%;
 }

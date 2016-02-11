@@ -33,6 +33,7 @@
 
 function ShowQuestions(sel){
 	//e.preventDefault();
+	alert("teste");
 	$('#nanny').css("display", "none");
 	$('#governess').css("display", "none");
 	$('#cooker').css("display", "none");

@@ -70,7 +70,13 @@ permit_params :photo,:cv,:category_id,:first_name,:last_name,:address,:password,
 		inputs 'Candidate' do
 			f.input :photo,:as => :file, :hint => image_tag(f.object.photo.url(:thumb))
 			f.input :cv,:as => :file
-			input :category_id, as: :select, collection: Category.all.map{|u| ["#{u.title}", u.id]}
+			input :category_id, as: :select, collection: Category.all.map{|u| ["#{u.title}", u.id]},:input_html => {:onclick => "ShowQuestions(this);"}
+			
+			panel "Nanny Questions", id:"nanny" ,style:"display:none" do
+				f.has_many :nanny_question do |builder|
+		  			render "layouts/nanny_questions", :f => builder
+		  		end	
+		  	end	
 			input :first_name
 			input :last_name
 			input :mobile
