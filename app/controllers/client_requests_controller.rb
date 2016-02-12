@@ -14,7 +14,7 @@ class ClientRequestsController < ApplicationController
 			@client = Client.new(nil)
 		end		
 		@client_request.nanny_questions.build
-		@client_request.driver_questions.build
+		#@client_request.driver_questions.build
 		@client_request.housekeeper_questions.build
 		@client_request.cooker_questions.build
 		@client_request.nurse_questions.build
