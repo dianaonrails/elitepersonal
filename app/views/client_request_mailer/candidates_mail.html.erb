@@ -40,7 +40,7 @@
 		   			<%= candidate.nationality %>
 		   		</td>
 		   		<td>
-		   			<%= (Time.now.year - candidate.birth_date)%>
+		   			<%= (Time.now.year - candidate.birth_date.year)%>
 		   		</td>
 				<td>
 					<%= url_for(:controller => "candidates", :action => "show",:only_path => false, :id => candidate.id, :host => "http://elitepersonalworld.com")  %>
