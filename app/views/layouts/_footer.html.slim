@@ -4,14 +4,14 @@
 		table.footer
 			tbody
 				tr.header-title					
-					td =link_to 'Home','/'
+					td =link_to t(:home),'/'
 					td 
-						=link_to 'About us','/about'
-					td =link_to 'Services','/services'
-					td =link_to 'Vacancies',''
-					td =link_to 'Client',new_client_path
-					td =link_to 'Recruitment',new_candidate_path
-					td =link_to 'Contacts','/contacts'
+						=link_to t(:about),'/about'
+					td =link_to t(:services),'/services'
+					td =link_to t(:vacancies),''
+					td =link_to t(:client),new_client_path
+					td =link_to t(:recruitment),new_candidate_path
+					td =link_to t(:contacts),'/contacts'
 				tr.sub-text
 					td
 					td =link_to 'Elite Mission','/mission'

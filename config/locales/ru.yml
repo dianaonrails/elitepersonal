@@ -1,6 +1,35 @@
 ---
 ru:
   home: 'домой'
+  about: 'о нас'
+  services: 'услуги'
+  vacancies: 'вакансии'
+  client: 'клиент'
+  recruitment: 'набор персонала'
+  candidate: 'кандидат'
+  contacts: 'контакты'
+  personal_area: 'личный кабинет'
+  nanny: 'няня'
+  driver: 'Водитель'
+  governess: 'гувернантка'
+  housekeeper: 'экономка'
+  cooker: 'плита'
+  couple: 'пара'
+  nurse: 'медсестра'
+  find_a: 'найти '
+  lets_start: "Давайте начнем!"
+  job_offers: "Предложения о работе"
+  first_name: "имя"
+  last_name: "Фамилия"
+  gender: "Пол"
+  height: "высота"
+  weight: "вес"
+  address: "адрес"
+  mobile_phone: "мобильный телефон"
+  step1_client: "Сделайте свой запрос"
+  step2_client: "Получить связаться"
+  step3_client: "Рассмотрите наши предложения персонализировать"
+  step4_client: "График интервью и получить лучшие"
   date:
     abbr_day_names:
     - Вс

@@ -4,6 +4,24 @@ class ApplicationController < ActionController::Base
   include CanCan::ControllerAdditions
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_locale
+ 
+  def change_locale
+    l = params[:locale].to_s.strip.to_sym
+    l = I18n.default_locale unless I18n.available_locales.include?(l)
+    cookies.permanent[:educator_locale] = l
+    redirect_to request.referer || root_url
+  end
+
+  def set_locale
+    if cookies[:educator_locale] && I18n.available_locales.include?(cookies[:educator_locale].to_sym)
+      l = cookies[:educator_locale].to_sym
+    else
+      l = I18n.default_locale
+      cookies.permanent[:educator_locale] = l
+    end
+    I18n.locale = l
+  end
 
  
   protected
@@ -22,6 +40,8 @@ class ApplicationController < ActionController::Base
       return @candidates
   end
   
+
+
   def authenticate_admin_user!
     redirect_to new_user_session_path unless current_user.try(:is_admin?)
   end

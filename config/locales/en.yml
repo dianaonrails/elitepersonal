@@ -22,3 +22,16 @@
 en:
   hello: "Hello world"
   home: "Home"
+  about: 'About us'
+  services: 'Services'
+  vacancies: 'Vacancies'
+  client: 'Client'
+  recruitment: 'Recruitment'
+  contacts: 'Contacts'
+  personal_area: 'Personal area'
+  lets_start: "Let's get started!"
+  job_offers: "See all job offers"
+  step1_client: "Make your request"
+  step2_client: "Get contacted"
+  step3_client: "Review our personalize suggestions"
+  step4_client: "Schedule interviews and get the best"

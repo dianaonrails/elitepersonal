@@ -1,92 +1,100 @@
+
 .side-bar
 	ul
 		li 
 			=image_tag("babysitter-grey.png")
 			.list-title
-				=link_to 'Babysitter','/services#babysitter'
+				=link_to t(:nanny),'/services#babysitter'
 			
 		li
 			=image_tag("maid.png")
 			.list-title 
-				=link_to 'Governess','/services#governess'
+				=link_to t(:governess),'/services#governess'
 		li
 			=image_tag("skirt7.png")
 			.list-title 
-				=link_to 'Housekeeper','/services#housekeeper'
+				=link_to t(:housekeeper),'/services#housekeeper'
 		li
 			=image_tag("chef20.png")
 			.list-title 
-				=link_to 'Cook','/services#cooker'
+				=link_to t(:cooker),'/services#cooker'
 		li
 			=image_tag("driver.png")
 			.list-title 
-				=link_to 'Driver','/services#driver'	
+				=link_to t(:driver),'/services#driver'	
 		li
 			=image_tag("couple53.png")
 			.list-title 
-				=link_to 'Couple','/services#couple'
+				=link_to t(:couple),'/services#couple'
 		li
 			=image_tag("nurse7.png")
 			.list-title 
-				=link_to 'Nurse','/services#nurse'
+				=link_to t(:nurse),'/services#nurse'
 
 		li
 			.link-jobs
-				=link_to 'See all job offers',vacancies_path						
+				=link_to t(:job_offers),vacancies_path						
 .col-md-12.carousel-container
 	div class="carousel slide carousel-fade" id="myCarousel" data-ride="carousel"
 		div class="carousel-inner"
 			div class="item active"
 				=image_tag("template-babysitter.png")
 				button type="button" class="btt-category" 
-					=link_to 'find a nanny','/services#babysitter'
+					=link_to t(:find_a) + t(:nanny),'/services#babysitter'
 			div class="item"
 				=image_tag("template-cooker.png")	
 				button type="button" class="btt-category" 
-					=link_to 'find a cooker','/services#cooker'
+					=link_to t(:find_a) + t(:cooker),'/services#cooker'
 			div class="item"
 				=image_tag("template-driver.png")
 				button type="button" class="btt-category" 
-					=link_to 'find a driver','/services#driver'
+					=link_to t(:find_a) + t(:driver),'/services#driver'
 			div class="item"
 				=image_tag("template-housekeeper.png")
 				button type="button" class="btt-category" 
-					=link_to 'find a housekeeper','/services#housekeeper'
+					=link_to t(:find_a) + t(:housekeeper),'/services#housekeeper'
 			div class="item"
 				=image_tag("template-nurse.png")
 				button type="button" class="btt-category" 
-					=link_to 'find a nurse','/services#nurse'
+					=link_to t(:find_a) + t(:nurse),'/services#nurse'
 	hr.hr-blue
 	.col-md-12.flyers.no-padding
 		.col-md-12.start-container
-			h1.start-title.center.space-top Let's get started!
+			h1.start-title.center.space-top 
+				=t(:lets_start)
 		ul.flyer-links
 			li.active 
-				a href="#tab1" Client
+				a href="#tab1" 
+					=t(:client)
 			li
-				a href="#tab2" Candidate
+				a href="#tab2" 
+					=t(:candidate)
 		div.flyer-content
 			div id="tab1" class="tab active"
 				.col-md-10.col-md-offset-1.bottom-space
 					.col-md-6
 						.tab-img
 							=image_tag("applicattion.png")
-						h3.tab-title Make your request
+						h3.tab-title 
+							=t(:step1_client)
 
 						p =link_to 'start now >',new_client_path
 					.col-md-6
 						.tab-img
 							=image_tag("telephone34.png")
-						h3.tab-title Get contacted
+						h3.tab-title 
+							=t(:step2_client)
 				.col-md-10.col-md-offset-1.bottom-space		
 					.col-md-6
 						.tab-img
 							=image_tag("candidates.png")
-						h3.tab-title Review our personalize suggestions
+						h3.tab-title 
+							=t(:step3_client)
 					.col-md-6
 						.tab-img
 							=image_tag("interrogation.png")
-						h3.tab-title Schedule interviews and get the best
+						h3.tab-title 
+							=t(:step4_client)
 			div id="tab2" class="tab"
 				.col-md-10.col-md-offset-1	
 

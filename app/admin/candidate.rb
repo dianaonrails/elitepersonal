@@ -73,10 +73,41 @@ permit_params :photo,:cv,:category_id,:first_name,:last_name,:address,:password,
 			input :category_id, as: :select, collection: Category.all.map{|u| ["#{u.title}", u.id]},:input_html => {:onclick => "ShowQuestions(this);"}
 			
 			panel "Nanny Questions", id:"nanny" ,style:"display:none" do
-				f.has_many :nanny_question do |builder|
+				f.inputs for: [:nanny_question, f.object.nanny_question || NannyQuestion.new] do |builder|
 		  			render "layouts/nanny_questions", :f => builder
 		  		end	
 		  	end	
+		  	panel "Driver Questions", id:"driver" , style:"display:none" do
+				f.inputs for: [:driver_question, f.object.driver_question || DriverQuestion.new] do |builder|
+		  			render "layouts/driver_questions", :f => builder
+		  		end	
+		  	end
+		  	panel "Housekeeper Questions", id:"housekeeper" ,style:"display:none" do
+				f.inputs for: [:housekeeper_question, f.object.housekeeper_question || HousekeeperQuestion.new] do |builder|
+		  			render "layouts/housekeeper_questions", :f => builder
+		  		end	
+		  	end	
+		  	panel "Cooker Questions", id:"cooker" ,style:"display:none" do
+				f.inputs for: [:cooker_question, f.object.cooker_question || CookerQuestion.new] do |builder|
+		  			render "layouts/cooker_questions", :f => builder
+		  		end	
+		  	end	
+		  	panel "governess Questions", id:"governess" ,style:"display:none" do
+				f.inputs for: [:governess_question, f.object.governess_question || GovernessQuestion.new] do |builder|
+		  			render "layouts/governess_questions", :f => builder
+		  		end	
+		  	end	
+		  	panel "Nurse Questions", id:"nurse" ,style:"display:none" do
+				f.inputs for: [:nurse_question, f.object.nurse_question || NurseQuestion.new] do |builder|
+		  			render "layouts/nurse_questions", :f => builder
+		  		end	
+		  	end	
+		  	panel "Couple Questions", id:"assistance" ,style:"display:none" do
+				f.inputs for: [:assistance_question, f.object.assistance_question || AssistanceQuestion.new] do |builder|
+		  			render "layouts/assistance_questions", :f => builder
+		  		end	
+		  	end	
+
 			input :first_name
 			input :last_name
 			input :mobile
@@ -87,7 +118,7 @@ permit_params :photo,:cv,:category_id,:first_name,:last_name,:address,:password,
 			#input :confirmation_password
 			input :height
 			input :weight
-			input :birth_date
+			input :birth_date ,order: [:day, :month, :year],start_year:1950
 			input :citizenship
 			input :nationality
 			input :passport
@@ -116,7 +147,7 @@ permit_params :photo,:cv,:category_id,:first_name,:last_name,:address,:password,
 				end	
 			end
 			f.inputs 'Work Info' do
-				input :category_id,as: :select, collection: Category.all.map{|c| ["#{c.title}",c.id]}
+				
 				input :description, as: :text,cols:'60',rows:'5'
 				input :years_experience, as: :select, collection: ["0","1","2","+3"]
 				f.semantic_fields_for :work_info_attributes do |w|

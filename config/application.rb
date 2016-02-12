@@ -25,5 +25,6 @@ module Elitepersonal
     config.action_mailer.default_url_options = { :host => "localhost:3000"}
     I18n.available_locales = [:en, :ru]
     config.middleware.use "PDFKit::Middleware", :print_media_type => true
+    
   end
 end

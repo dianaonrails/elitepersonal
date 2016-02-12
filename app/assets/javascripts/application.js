@@ -28,12 +28,13 @@
 //= require moment
 //= require bootstrap-datetimepicker
 //= require jspdf
-//= require_tree .
+//= require fullcalendar
+
 
 
 function ShowQuestions(sel){
 	//e.preventDefault();
-	alert("teste");
+	alert(sel.options[sel.selectedIndex].text);
 	$('#nanny').css("display", "none");
 	$('#governess').css("display", "none");
 	$('#cooker').css("display", "none");
@@ -86,8 +87,11 @@ $(document).ready(function () {
 	I18n.defaultLocale = "<%= I18n.default_locale %>";
 	I18n.locale = "<%= I18n.locale %>";
 
+
+
+
 	var specialElementHandlers = {
-        '#editor': function (element,renderer) {
+        'body': function (element,renderer) {
             return true;
         }
     };
@@ -137,6 +141,20 @@ $(document).ready(function () {
 		  
         });
 	});
+
+	$("#calendar").fullCalendar({
+	    header: {
+	      left: 'prev,next today',
+	      center: 'title',
+	      right: 'month,agendaWeek,agendaDay'
+	    },
+	     
+	     defaultView: "month",
+	     slotMinutes: 15,
+	     events: "/dashboard/get_events",
+	     timeFormat: "h:mm t{ - h:mm t} ",
+	     dragOpacity: "0.5"
+  	});
 
 	
 

@@ -2,14 +2,17 @@ Rails.application.routes.draw do
   get 'clients/new'
 
   get 'clients/create'
-  
+  get '/change_locale/:locale', to: 'application#change_locale', as: :change_locale
+  resources :dashboard do
+    get :get_events, on: :collection
+  end
   
   resources :categories
   devise_for :users, ActiveAdmin::Devise.config
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   get 'candidates/show_pdf'
-  get 'candidates_suggestions' => 'active_admin/client_requests#candidates_suggestions'
+  get 'calendar' => 'active_admin/dashboard#calendar'
   
   #devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.

@@ -6,11 +6,14 @@ Rails.application.configure do
   # since you don't have to restart the web server when you make code changes.
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-      :address        => 'smtp.gmail.com',
-      :port           => 587,
-      :user_name      => 'd.r.carvalho89@gmail.com',
-      :password       => '3j1B12Nw5bla',
-      :authentication => :plain
+      :address              => "smtp.zoho.com", 
+      :port                 => 465,                 
+      :user_name            => 'info@elitepersonalworld.com',
+      :password             => '12345678',         
+      :authentication       => :login,
+      :ssl                  => true,
+      :tls                  => true,
+      :enable_starttls_auto => true
   }
   config.cache_classes = false
 
