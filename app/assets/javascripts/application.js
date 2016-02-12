@@ -29,6 +29,7 @@
 //= require bootstrap-datetimepicker
 //= require jspdf
 //= require fullcalendar
+//= require_directory .
 
 
 
