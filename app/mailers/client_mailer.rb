@@ -4,8 +4,7 @@ class ClientMailer < ApplicationMailer
 
 	def client_mail(client)
 		@client = client
-
 		@email = 'yana@elitepersonalworld.com'
-		mail(from: "info@elitepersonalworld.com",to: @email, subject: 'Client Contact')
+		mail(to: @email, subject: 'Client Contact')
 	end	
 end

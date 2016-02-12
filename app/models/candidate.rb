@@ -69,7 +69,7 @@ class Candidate < ActiveRecord::Base
   scope :car, -> (car) {where(car: car) if car.present?}
   scope :citizenship, -> (citizenship) {where(citizenship: citizenship) if citizenship.present?}
   scope :nationality, -> (nationality) {where(nationality: nationality) if nationality.present?}
-  #scope :age, -> (age_min, age_max) {where("extract(year from birth_date) BETWEEN ? AND ?", (Time.now.year -  age_max),(Time.now.year - age_min))}
+  scope :age, -> (age_min, age_max) {where("extract(year from birth_date) BETWEEN ? AND ?", (Time.now.year -  age_max),(Time.now.year - age_min))}
   scope :category, -> (category_id) {where(category_id: category_id) if category_id.present?}
   scope :level_education, -> (level_education_id) {where(level_education_id: level_education_id) if level_education_id.present?}
   scope :languages, -> (languages) { where("languages.id IN (?)",languages).joins(:languages) if languages.present?}

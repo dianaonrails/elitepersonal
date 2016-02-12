@@ -22,5 +22,5 @@
 	<h4>Phone: <%= @client.phone %></h4>
 
 	<p><%= @client.message %></p>	
-	<h5>To see the candidates for this request go to <%= url_for(:controller => "client_requests", :action => "new",client: @client.id ,:only_path => false, :host => "localhost:3000") %></h5>
+	<h5>To see the candidates for this request go to <%= url_for(:controller => "client_requests", :action => "new",client: @client.id ,:only_path => false, :host => "http://elitepersonalworld.com") %></h5>
 </body>	

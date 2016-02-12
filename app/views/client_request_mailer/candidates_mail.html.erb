@@ -20,22 +20,34 @@
 	<% @candidates.each do |candidate| %>
 	   <table>
 	   		<tr>
+	   			<th>Photo</th>
 	   			<th>Full Name</th>
+	   			<th>Nationality</th>
+	   			<th>Age</th>
 	   			<th>See more about candidate</th>
 	   			<th>Schedule Interview</th>
 	   		</tr>	
 		   	<tr>
+		   		<td>
+		   			<%= image_tag(candidate.photo.url(:thumb)) %>
+		   		</td>
 		   		<td>
 					<%= candidate.first_name %>	
 					
 					<%= candidate.last_name %>
 				</td>
 				<td>
-					<%= url_for(:controller => "candidates", :action => "show",:only_path => false, :id => candidate.id, :host => "localhost:3000")  %>
+		   			<%= candidate.nationality %>
+		   		</td>
+		   		<td>
+		   			<%= (Time.now.year - candidate.birth_date)%>
+		   		</td>
+				<td>
+					<%= url_for(:controller => "candidates", :action => "show",:only_path => false, :id => candidate.id, :host => "http://elitepersonalworld.com")  %>
 				</td>
 				<td>
 					
-					<%= url_for(:controller => "interviews", :action => "new", candidate: candidate.id,client: @client, :escape => false, :host => "http://elitepersonalworld.com/") %>
+					<%= url_for(:controller => "interviews", :action => "new", candidate: candidate.id,client: @client, :escape => false, :host => "http://elitepersonalworld.com") %>
 				</td>
 			</tr>
 

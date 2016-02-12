@@ -1,13 +1,12 @@
 class ClientRequestMailer < ActionMailer::Base
 	
-	default from: "elitepersonalinfo@gmail.com"
+	default from: "info@elitepersonalworld.com"
 
 	def candidates_mail(client,candidates)
 		@candidates = candidates
 		@client = Client.find(client)
-
-		@email = 'd.r.carvalho89@gmail.com'
-		mail(from: "elitepersonalinfo@gmail.com",to: @email, subject: 'Client Request')
+		@email = 'yana@elitepersonalworld.com'
+		mail(to: @email, subject: 'Client Request')
 	end		
 
 
