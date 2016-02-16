@@ -72,6 +72,9 @@ gem 'cancancan', '~> 1.10'
 
 gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'master'
 gem "i18n-js", ">= 3.0.0.rc11"
+gem 'russian'
+
+gem "polish", ">= 0.1.0"
 
 gem 'countries_and_languages', :require => 'countries_and_languages/rails'
 

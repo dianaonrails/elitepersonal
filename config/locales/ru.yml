@@ -1,5 +1,30 @@
 ---
 ru:
+  activerecord:
+    models:
+      candidate:
+        few: "кандидаты"
+        many: "кандидаты"
+        one: кандидат
+        other: "кандидаты"
+      client:
+        few: "клиенты"
+        many: "клиенты"
+        one: клиент 
+        other: клиенты
+      application:
+        few: "Приложения"
+        many: "Приложения"
+        one: заявление
+        other: Приложения
+      category:
+        few: "категории"
+        many: "категории"
+        one: категория
+        other: категории
+    attributes:
+      candidate:
+        title: "title"    
   home: 'домой'
   about: 'о нас'
   services: 'услуги'
@@ -22,14 +47,213 @@ ru:
   first_name: "имя"
   last_name: "Фамилия"
   gender: "Пол"
+  feminine: "женский"
+  masculine: "мужской"
   height: "высота"
   weight: "вес"
   address: "адрес"
   mobile_phone: "мобильный телефон"
+  birth_date: "Дата рождения"
+  marital_status: "Семейное положение"
+  nationality: "Национальность"
+  citizenship: "гражданство"
+  smoker: "Вы курите ?"
+  zodiac_sign: "Знак зодиака"
+  own_children: "Количество собственных детей"
+  driving_licence: "Есть ли у Вас водительские права?"
+  car: "У Вас есть машина?"
+  photo: "Фото"
+  select_category: "Сначала выберите какой категории вы подаете :"
+  personal_info: "личная информация"
+  work_info: "Работа информация"
+  education_info: "Информация образование"
+  languages: "языки"
+  add_language: "добавить язык"
+  level_education: "Высший уровень образования"
+  education_history: "История образования"
+  describe_yourself: "описывают себя, ваш хороших качеств и недостатков:"
+  sectors: "Секторы / функции у вас есть опыт в :"
+  years_exp: "Годы опыта"
+  jobs_exp: "Пожалуйста, заполните информацию за последние два рабочих мест ( от более поздних к более старым ) :"
+  date_start: "Дата начала"
+  date_end: "Дата окончания"
+  employer: "работодатель"
+  description: "описание"
+  salary: "Уровень заработной платы в месяц"
+  upload_cv: "Загрузить свое резюме"
+  availability_info: "Наличие & Право на работу информация"
+  availability: "доступность"
+  weekend: "выходные"
+  extern: "внешний"
+  part_time: "неполная занятость"
+  full_time: "на постоянной основе"
+  intern: "интерн"
+  available_work: "Может работать"
+  aboard: "на борту"
+  legal_work: "Юридическое работать:"
+  start: "Если он будет принят вы можете начать :"
+  immediately: "Немедленно"
+  not_immediately: "не сразу"
+  statment: "заявление"
+
   step1_client: "Сделайте свой запрос"
   step2_client: "Получить связаться"
   step3_client: "Рассмотрите наши предложения персонализировать"
   step4_client: "График интервью и получить лучшие"
+  start_now: "начать сейчас"
+  register: "регистр"
+  step2_candidate: "Получите предложения"
+  step3_candidate: "Интервью"
+  step4_candidate: "Найти работу"
+  text1_login: "Устроиться на работу."
+  text2_login: "Присоединиться.."
+  text3_login: "Создать свой кандидат Счет"
+  sign_in: 'войти в систему'
+  sign_up: 'Зарегистрироваться'
+  login: 'авторизоваться'
+  text1_register: "Регистрация , а затем получать предложения в свой ​​личный кабинет."
+  required_fields: "Поля , отмеченные * обязательны для заполнения."
+  
+  active_admin:
+
+    dashboard: "Панель управления"
+    dashboard_welcome:
+      welcome: "Добро пожаловать в Active Admin. Это стандартная страница управления сайтом."
+      call_to_action: "Чтобы добавить сюда что-нибудь загляните в 'app/admin/dashboard.rb'"
+    view: "Открыть"
+    edit: "Изменить"
+    delete: "Удалить"
+    delete_confirmation: "Вы уверены, что хотите удалить это?"
+    new_model: "Создать %{model}"
+    edit_model: "Изменить %{model}"
+    delete_model: "Удалить %{model}"
+    details: "%{model} подробнее"
+    cancel: "Отмена"
+    empty: "Пусто"
+    previous: "Пред."
+    next: "След."
+    download: "Загрузка:"
+    has_many_new: "Добавить %{model}"
+    has_many_delete: "Удалить"
+    has_many_remove: "Убрать"
+    filters:
+      buttons:
+        filter: "Фильтровать"
+        clear: "Очистить"
+      predicates:
+        contains: "Содержит"
+        equals: "Равно"
+        starts_with: "Начинается с"
+        ends_with: "Заканчивается"
+        greater_than: "больше"
+        less_than: "меньше"
+    search_status:
+      headline: "Статус поиска:"
+      current_scope: "Область:"
+      current_filters: "Текущий фильтр:"
+      no_current_filters: "Ни один"
+    status_tag:
+      "yes": "Да"
+      "no": "Нет"
+    main_content: "Создайте %{model}#main_content для отображения содержимого."
+    logout: "Выйти"
+    powered_by: "Работает на %{active_admin} %{version}"
+    sidebars:
+      filters: "Фильтры"
+      search_status: "Статус поиска"
+    pagination:
+      empty: "%{model} не найдено"
+      one: "Результат: <b>1</b> %{model}"
+      one_page: "Результат: <b>%{n}</b> %{model}"
+      multiple: "Результат: %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> из <b>%{total}</b>"
+      multiple_without_total: "Результат: %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b>"
+      entry:
+        one: "запись"
+        few: "записи"
+        many: "записей"
+        other: "записей"
+    any: "Любой"
+    blank_slate:
+      content: "Пока нет %{resource_name}."
+      link: "Создать"
+    dropdown_actions:
+      button_label: "Oперации"
+    batch_actions:
+      button_label: "Групповые операции"
+      default_confirmation: "Вы уверены, что вы хотите это сделать?"
+      delete_confirmation: "Вы уверены, что хотите удалить %{plural_model}?"
+      succesfully_destroyed:
+        one: "Успешно удалено: 1 %{model}"
+        few: "Успешно удалено: %{count} %{plural_model}"
+        many: "Успешно удалено: %{count} %{plural_model}"
+        other: "Успешно удалено: %{count} %{plural_model}"
+      selection_toggle_explanation: "(Отметить всё / Снять выделение)"
+      link: "Создать"
+      action_label: "%{title} выбранное"
+      labels:
+        destroy: "Удалить"
+    comments:
+      resource_type: "Тип ресурса"
+      author_type: "Тип автора"
+      body: "Текст"
+      author: "Автор"
+      title: "Комментарий"
+      add: "Добавить Комментарий"
+      delete: "Удалить Комментарий"
+      delete_confirmation: "Вы уверены, что хотите удалить этот комментарий?"
+      resource: "Ресурс"
+      no_comments_yet: "Пока нет комментариев."
+      author_missing: "Аноним"
+      title_content: "Комментарии (%{count})"
+      errors:
+        empty_text: "Комментарий не сохранен, текст не должен быть пустым."
+    devise:
+      username:
+        title: "Имя пользователя"
+      email:
+        title: "Эл. почта"
+      subdomain:
+        title: "Поддомен"
+      password:
+        title: "Пароль"
+      sign_up:
+        title: "Зарегистрироваться"
+        submit: "Зарегистрироваться"
+      login:
+        title: "Войти"
+        remember_me: "Запомнить меня"
+        submit: "Войти"
+      reset_password:
+        title: "Забыли пароль?"
+        submit: "Сбросить пароль"
+      change_password:
+        title: "Изменение пароля"
+        submit: "Изменение пароля"
+      unlock:
+        title: "Повторно отправить инструкции по разблокировке"
+        submit: "Повторно отправить инструкции по разблокировке"
+      resend_confirmation_instructions:
+        title: "Выслать повторно письмо с активацией"
+        submit: "Выслать повторно письмо с активацией"
+      links:
+        sign_up: "Зарегистрироваться"
+        sign_in: "Войти"
+        forgot_your_password: "Забыли пароль?"
+        sign_in_with_omniauth_provider: "Войти с помощью %{provider}"
+        resend_unlock_instructions: "Повторная отправка инструкций разблокировки"
+        resend_confirmation_instructions: "Повторная отправка инструкций подтверждения"
+    unsupported_browser:
+      headline: "Пожалуйста, обратите внимание, что Active Admin больше не поддерживает старые версии Internet Explorer начиная с версии IE 8"
+      recommendation: "Мы рекомендуем обновить версию вашего браузера (<a href=\"http://windows.microsoft.com/ie\">Internet Explorer</a>, <a href=\"https://chrome.google.com/\">Google Chrome</a>, или <a href=\"https://mozilla.org/firefox/\">Firefox</a>)."
+      turn_off_compatibility_view: "Если вы используете IE 9 или новее, убедитесь, что <a href=\"http://windows.microsoft.com/en-US/windows7/webpages-look-incorrect-in-Internet-Explorer\">вы выключили опцию \"Просмотр в режиме совместимости\"</a>."
+    access_denied:
+      message: "Вы не авторизованы для выполнения данного действия."
+    index_list:
+      table: "Таблица"
+      block: "Список"
+      grid: "Сетка"
+      blog: "Блог"
+
   date:
     abbr_day_names:
     - Вс

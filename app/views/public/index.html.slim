@@ -38,30 +38,30 @@
 	div class="carousel slide carousel-fade" id="myCarousel" data-ride="carousel"
 		div class="carousel-inner"
 			div class="item active"
-				=image_tag("template-babysitter.png")
+				=image_tag("babysitter-photo.png")
 				button type="button" class="btt-category" 
 					=link_to t(:find_a) + t(:nanny),'/services#babysitter'
-			div class="item"
-				=image_tag("template-cooker.png")	
-				button type="button" class="btt-category" 
-					=link_to t(:find_a) + t(:cooker),'/services#cooker'
-			div class="item"
-				=image_tag("template-driver.png")
-				button type="button" class="btt-category" 
-					=link_to t(:find_a) + t(:driver),'/services#driver'
-			div class="item"
-				=image_tag("template-housekeeper.png")
-				button type="button" class="btt-category" 
-					=link_to t(:find_a) + t(:housekeeper),'/services#housekeeper'
-			div class="item"
-				=image_tag("template-nurse.png")
-				button type="button" class="btt-category" 
-					=link_to t(:find_a) + t(:nurse),'/services#nurse'
+			//div class="item"
+			//	=image_tag("template-cooker.png")	
+			//	button type="button" class="btt-category" 
+			//		=link_to t(:find_a) + t(:cooker),'/services#cooker'
+			//div class="item"
+			//	=image_tag("template-driver.png")
+			//	button type="button" class="btt-category" 
+			//		=link_to t(:find_a) + t(:driver),'/services#driver'
+			//div class="item"
+			//	=image_tag("template-housekeeper.png")
+			//	button type="button" class="btt-category" 
+			//		=link_to t(:find_a) + t(:housekeeper),'/services#housekeeper'
+			//div class="item"
+			//	=image_tag("template-nurse.png")
+			//	button type="button" class="btt-category" 
+			//		=link_to t(:find_a) + t(:nurse),'/services#nurse'
 	hr.hr-blue
 	.col-md-12.flyers.no-padding
-		.col-md-12.start-container
-			h1.start-title.center.space-top 
-				=t(:lets_start)
+		//.col-md-12.start-container
+		//	h1.start-title.center.space-top 
+		//		=t(:lets_start)
 		ul.flyer-links
 			li.active 
 				a href="#tab1" 
@@ -78,7 +78,7 @@
 						h3.tab-title 
 							=t(:step1_client)
 
-						p =link_to 'start now >',new_client_path
+						p =link_to t(:start_now) +' >',new_client_path
 					.col-md-6
 						.tab-img
 							=image_tag("telephone34.png")
@@ -102,22 +102,26 @@
 						.col-md-6
 							.tab-img
 								=image_tag("curriculum3.png")
-							h3.tab-title Register 
-							p =link_to 'start now >',new_candidate_registration_path
+							h3.tab-title
+								=t(:register) 
+							p =link_to t(:start_now) + ' >',new_candidate_registration_path
 						.col-md-6
 							.tab-img
 								=image_tag("telephone34.png")
-							h3.tab-title Receive proposals
+							h3.tab-title
+								=t(:step2_candidate)
 					.col-md-12.bottom-space		
 						.col-md-6
 							.tab-img
 								=image_tag("interrogation.png")
 							
-							h3.tab-title Interviews
+							h3.tab-title
+								=t(:step3_candidate)
 						.col-md-6
 							.tab-img
 								=image_tag("time51.png")
-							h3.tab-title Find work
+							h3.tab-title 
+								=t(:step4_candidate)
 							
 //.background-middle
 	//.container.background-white			

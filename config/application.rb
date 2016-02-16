@@ -22,8 +22,10 @@ module Elitepersonal
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
-    config.action_mailer.default_url_options = { :host => "localhost:3000"}
-    I18n.available_locales = [:en, :ru]
+    #config.action_mailer.default_url_options = { :host => "localhost:3000"}
+    config.i18n.fallbacks = true
+    config.i18n.default_locale = :ru
+    config.i18n.available_locales = [:en, :ru]
     config.middleware.use "PDFKit::Middleware", :print_media_type => true
     
   end

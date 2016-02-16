@@ -1,6 +1,8 @@
 .container.new-candidate
-	h1.title-candidate Register first and then receive offers in your personal area.
-	h5 The fields with * are required.
+	h1.title-candidate 
+		=t(:text1_register)
+	h5 
+		=t(:required_fields)
 	== render 'form'
 
 =render "layouts/footer"	

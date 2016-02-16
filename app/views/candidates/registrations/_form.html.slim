@@ -8,50 +8,51 @@
 	          li = message      
   .col-md-6.no-padding
 	div class="panel panel-default" 
-	  .panel-heading Personal Info
+	  .panel-heading 
+	  	=t(:personal_info)
 	  .panel-body.personal-info
 		  	.col-md-12.align-field
 		  	   .col-md-3.no-padding
-			   	=f.label 'First Name *'
+			   	=f.label t(:first_name)+  ' *'
 			   .col-md-9
 			   	=f.text_field :first_name, class:'length-input'
 			.col-md-12.align-field
 			   .col-md-3.no-padding
-			   	=f.label 'Last Name *'
+			   	=f.label t(:last_name) + ' *'
 			   .col-md-9
 			   	=f.text_field :last_name,class:'length-input'
 			.col-md-12.align-field   	
 			   .col-md-3.no-padding
-			   	=label_tag 'Gender *'
+			   	=label_tag t(:gender)+ ' *'
 			   .col-md-9	
 			   	    .col-md-6
-					   =label_tag 'Feminine', nil
+					   =label_tag t(:feminine), nil
 					   '&nbsp;
 					   =f.radio_button(:gender, 'f')
  					.col-md-6.no-padding
-					   =label_tag 'Masculine'
+					   =label_tag t(:masculine)
 					   '&nbsp;
 					   =f.radio_button(:gender, 'm')
 			.col-md-12.align-field	   
 			   .col-md-3.no-padding
-			   	=f.label 'Height'
+			   	=f.label t(:height)
 			   .col-md-9
 			   	=f.text_field :height, size:"10%"
 			   	span meters
 			.col-md-12.align-field   	
 			   .col-md-3.no-padding
-			   	=label_tag 'Weight'
+			   	=label_tag t(:weight)
 			   .col-md-9
 			   	=f.text_field :weight, size:"10%"
 			   	span Kg
 			.col-md-12.align-field   	
 			   .col-md-3.no-padding
-			   	=f.label 'Address *'
+			   	=f.label t(:address) + ' *'
 			   .col-md-9
 			   	=f.text_field :address,class:'length-input'
 			.col-md-12.align-field   	
 			   .col-md-3.no-padding
-			   	=f.label 'Mobile phone *'
+			   	=f.label t(:mobile_phone)+ ' *'
 			   .col-md-9
 			   	=f.text_field :mobile, type:"tel",class:'length-input'
 			.col-md-12.align-field   	
@@ -66,13 +67,13 @@
 					= f.password_field :password , autocomplete: "off",class:'length-input'  	
 			.col-md-12.align-field   	
 			   .col-md-3.no-padding
-			   	=label_tag 'Date of birth *'
+			   	=label_tag t(:birth_date) + ' *'
 			   .col-md-9
 			   	//input type="text" data-provide='datepicker'
 			    =date_select(:candidate,:birth_date,order: [:day, :month, :year],start_year:1950)
 			.col-md-12.align-field  
 			   .col-md-3.no-padding
-			   	=label_tag 'Marital status'
+			   	=label_tag t(:marital_status)
 			   .col-md-9
 			   	=f.select(:marital_status,options_for_select(["Single","Married",'Divorced','Separated','Widowed','In a relationship','Civil Partnership','Rather not say']))
 			.col-md-12.align-field   	
@@ -87,73 +88,75 @@
 			   	 =f.text_field :foreign_passport,class:'length-input'
 			.col-md-12.align-field   	 
 			   .col-md-3.no-padding	
-			   	 =label_tag 'Nationality *'
+			   	 =label_tag t(:nationality) +' *'
 			   .col-md-9
 			   	 =f.text_field :nationality,class:'length-input'
 			.col-md-12.align-field
 			   .col-md-3.no-padding
-			   	 =label_tag 'Citizenship *'   	 
+			   	 =label_tag t(:citizenship) + ' *'   	 
 			   .col-md-9
 			   	 =f.text_field :citizenship,class:'length-input'
 			.col-md-12.align-field   	 
 			   .col-md-3.no-padding	
-			   	 =label_tag 'Are you a smoker?'
+			   	 =label_tag t(:smoker)
 			   .col-md-9
 			   	 =f.select(:smoker,options_for_select([["yes", true],["no",false]]))
 			.col-md-12.align-field   	 
 			   .col-md-3.no-padding
-			   	=label_tag 'Zodiac Sign'
+			   	=label_tag t(:zodiac_sign)
 			   .col-md-9
 			   	 =f.select(:sign,options_for_select(["Aquarius", "Piscis", "Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio","Sagittarius", "Capricorn"]))
 			.col-md-12.align-field
 				.col-md-3.no-padding
-					=label_tag 'number of own children *'
+					=label_tag t(:own_children) + ' *'
 				.col-md-9
 					=f.select(:children,options_for_select(["no children","1","2","3","4","5","6","7","8","9","10+"]), class:'width_select')		   	 	   	     	 
 			.col-md-12.align-field   	 
 			   .col-md-3.no-padding
-			   	=label_tag 'Do you have driving licence?'
+			   	=label_tag t(:driving_licence)
 			   .col-md-9
 			   	=f.select(:driving_licence,options_for_select([["yes", true],["no",false]]))
 			.col-md-12.align-field   	 
 			   	.col-md-3.no-padding
-			   		=label_tag 'Do you have a car?'
+			   		=label_tag t(:car)
 			   	.col-md-9
 			   		=f.select(:car,options_for_select([["yes", true],["no",false]]))
 			.col-md-12.align-field   	 
 			   .col-md-3	
-			   	 =f.label 'Photo *'
+			   	 =f.label t(:photo) + ' *'
 		  	   .col-md-9
 		  	   	 =f.file_field :photo
 
 	
 	div class="panel panel-default"   	  
-	  .panel-heading Education Info
+	  .panel-heading
+	  	=t(:education_info)
 	  .panel-body
 	  	.col-md-12.align-field  
-		  	=label_tag "Languages*:"
+		  	=label_tag t(:languages) +"*:"
 		  	br
 		  	=f.fields_for :candidate_languages do |language|
 				= language.collection_select(:language_id, Language.all, :id, :language, {include_blank: true, :include_hidden => false, :selected => @candidate.languages.map(&:id)})
-			p = f.link_to_add "Add a language", :candidate_languages
+			p = f.link_to_add t(:add_language), :candidate_languages
 	  	.col-md-12.align-field  
-		  =label_tag 'Highest level of education *'
+		  =label_tag t(:level_education) + ' *'
 		  br
 		  =f.collection_select(:level_education_id, LevelEducation.all,:id,:level,prompt: true)
 		=f.fields_for :education_info, @candidate.education_info do |education_fields|	
 			.col-md-12.align-field
-			  =label_tag 'Education History *'
+			  =label_tag t(:education_history) + ' *'
 			  br
 			  =education_fields.text_area :history, rows: 3, cols: 58
 		
 
   .col-md-6	  
   	div class="panel panel-default"   	  
-	  .panel-heading Work Info
+	  .panel-heading
+	  	=t(:work_info)
 	  .panel-body.work-info
 	  	
 	  	.col-md-12.align-field 
-	  	  =label_tag 'First select what category you are applying:'	, nil , class:'subtitle'
+	  	  =label_tag  t(:select_category)	, nil , class:'subtitle'
 	  	  br
 	  	  =f.collection_select(:category_id,Category.all,:id,:title, {prompt: true},{onchange: "ShowQuestions(this);"})
 	  	
@@ -182,56 +185,56 @@
 	  			= f.fields_for :assistance_questions do |builder|
 	  				= render "layouts/assistance_questions", :f => builder	
 		  	.col-md-12.align-field
-		  		=label_tag 'describe youself, your good qualities and disadvantages:'
+		  		=label_tag t(:describe_yourself)
 		  		br
 		  		=f.text_area :description, cols:'60',rows:'5'
 		  	=f.fields_for :work_info, @candidate.work_info do |work_fields|						
 				.col-md-12.align-field  
-				  =label_tag 'Sectors / Functions you have experience in: '
+				  =label_tag t(:sectors)
 				
 				  =work_fields.text_area :sectors_experience, rows: 3, cols: 45
 			.col-md-12.align-field  
-				=label_tag 'Years of experience'
+				=label_tag t(:years_exp)
 				'&nbsp;
 				=f.select(:years_experience, options_for_select(["0","1","2","+3"]))
 			.col-md-12.align-field
-				=label_tag 'Please fill the information over the last two jobs(from the more recent to older): ', nil,class:"style-bold"
+				=label_tag t(:jobs_exp), nil,class:"style-bold"
 				.col-md-12.no-padding.margin-job
 					
 					.col-md-6.no-padding.align-item
-						=label_tag 'Date of start'
+						=label_tag t(:date_start)
 						'&nbsp;
 						input type="text" data-provide='datepicker' size="15"	
 
 					.col-md-6.align-item
-						=label_tag 'Date of end'
+						=label_tag t(:date_end)
 						'&nbsp;
 						input type="text" data-provide='datepicker' size="15"
 					.col-md-12.no-padding.align-item
-						=label_tag 'Employer'
+						=label_tag t(:employer)
 						'&nbsp;
 						=text_field_tag :employer1,nil,size:'55%'
 					.col-md-12.no-padding
-						=label_tag 'Description'
+						=label_tag t(:description)
 						br
 						=text_area_tag :description, nil,cols:'50',rows:'4'
 									
 				.col-md-12.no-padding
 
 					.col-md-6.no-padding.align-item
-						=label_tag 'Date of start'
+						=label_tag t(:date_start)
 						'&nbsp;
 						input type="text" data-provide='datepicker' size="15"		
 					.col-md-6.align-item
-						=label_tag 'Date of end'
+						=label_tag t(:date_end)
 						'&nbsp;
 						input type="text" data-provide='datepicker' size="15"
 					.col-md-12.no-padding.align-item
-						=label_tag 'Employer'
+						=label_tag t(:employer)
 						'&nbsp;
 						=text_field_tag :employer2,nil,size:'55%'		
 					.col-md-12.no-padding
-						=label_tag 'Description'
+						=label_tag t(:description)
 						br
 						=text_area_tag :description, nil,cols:'50',rows:'4'	
 				hr				
@@ -250,48 +253,50 @@
 				//  br
 				.col-md-12.align-field  
 				  
-				  =label_tag 'Wage level per month',nil
+				  =label_tag t(:salary),nil
 				  br
 				  =f.text_field :salary
 			.col-md-12.align-field
-			  =label_tag 'Upload your CV', nil, class:'subtitle'
+			  =label_tag t(:upload_cv), nil, class:'subtitle'
 			  =f.file_field :cv
  	div class="panel panel-default"   	  
-	  .panel-heading Availability & Work eligibility Info
+	  .panel-heading
+	  	=t(:availability_info)
 	  .panel-body			  
 		  .col-md-12.section-availability
 		  	  br
-			  =f.label 'Availability *', class:"indent-field subtitle"
+			  =f.label t(:availability) +' *', class:"indent-field subtitle"
 			  br
 			  =f.collection_check_boxes(:availability_ids,Availability.all,:id,:description) 
 			  
 			  br
-			  =label_tag 'Available to work: *', nil,class:'subtitle'
+			  =label_tag t(:available_work)+ ' *', nil,class:'subtitle'
 			  br
 			  =f.collection_check_boxes(:available_work_ids,AvailableWork.all,:id,:description)
 			  
 			  br
-			  =label_tag 'Legal to work: *', nil,class:'subtitle'
+			  =label_tag t(:legal_work) + ' *', nil,class:'subtitle'
 			  br
 			  .indent-textbox
 			  	=f.collection_check_boxes(:legal_work_ids,LegalWork.all,:id,:description)
 				
 			  
 			  br
-			  =label_tag 'If accepted can you start:', nil,class:'subtitle'
+			  =label_tag t(:start), nil,class:'subtitle'
 			  br
 			  .indent-textbox
-				  =label_tag 'immediately'
+				  =label_tag t(:immediately)
 				  =f.radio_button(:start, true)
 			  .indent-textbox	  
-				  =label_tag 'not immediately'
+				  =label_tag t(:not_immediately)
 				  =f.radio_button(:start, false)
 			  br
-			  =label_tag 'statement'
+			  =label_tag t(:statment)
 			  br
 			  =f.text_area :statment, rows: 3, cols: 45
 		  br
   .col-md-12
   	br
-  	.actions.text-center = f.submit 'Submit', class:"btn btn-primary btt-medium"
+  	.actions.text-center 
+  		= f.submit :submit, class:"btn btn-primary btt-medium"
 
