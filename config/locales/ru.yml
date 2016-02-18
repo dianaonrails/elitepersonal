@@ -2,6 +2,11 @@
 ru:
   activerecord:
     models:
+      user:
+        few: "пользователи"
+        many: "пользователи"
+        one: "пользователь"
+        other: "пользователи"
       candidate:
         few: "кандидаты"
         many: "кандидаты"
@@ -22,9 +27,86 @@ ru:
         many: "категории"
         one: категория
         other: категории
+      client_request:
+        few: "клиентские запросы"
+        many: "клиентские запросы"
+        one: "запрос клиента"
+        other: "клиентские запросы"
+      interview:
+        few: "интервью"
+        many: "интервью"
+        one: "интервью"
+        other: "интервью" 
+      vacancy:
+        few: "вакансии"
+        many: "вакансии"
+        one: "вакансия"
+        other: "вакансии"
+      comment:
+        few: "Комментарии"
+        many: "Комментарии"
+        one: "комментарий"
+        other: "Комментарии"       
     attributes:
+      interview:
+        address: "адрес"
+        interview_date: "дата интервью"
+        contact: "контакт"
+      category:
+        title: "заглавие"
       candidate:
-        title: "title"    
+          first_name: "имя"
+          last_name: "Фамилия"
+          gender: "Пол"
+          feminine: "женский"
+          masculine: "мужской"
+          height: "высота"
+          weight: "вес"
+          address: "адрес"
+          category_id: "категория"
+          mobile: "мобильный телефон"
+          birth_date: "Дата рождения"
+          marital_status: "Семейное положение"
+          nationality: "Национальность"
+          citizenship: "гражданство"
+          smoker: "Вы курите ?"
+          sign: "Знак зодиака"
+          children: "Количество собственных детей"
+          driving_licence: "Есть ли у Вас водительские права?"
+          car: "У Вас есть машина?"
+          photo: "Фото"
+          select_category: "Сначала выберите какой категории вы подаете :"
+          personal_info: "личная информация"
+          work_info: "Работа информация"
+          education_info: "Информация образование"
+          languages: "языки"
+          add_language: "добавить язык"
+          level_education_id: "Высший уровень образования"
+          education_history_id: "История образования"
+          describe_yourself: "описывают себя, ваш хороших качеств и недостатков:"
+          sectors_experience: "Секторы / функции у вас есть опыт в :"
+          years_experience: "Годы опыта"
+          jobs_exp: "Пожалуйста, заполните информацию за последние два рабочих мест ( от более поздних к более старым ) :"
+          date_start: "Дата начала"
+          date_end: "Дата окончания"
+          employer: "работодатель"
+          description: "описание"
+          salary: "Уровень заработной платы в месяц"
+          upload_cv: "Загрузить свое резюме"
+          availability_info: "Наличие & Право на работу информация"
+          availabilities: "доступность"
+          weekend: "выходные"
+          extern: "внешний"
+          part_time: "неполная занятость"
+          full_time: "на постоянной основе"
+          intern: "интерн"
+          available_works: "Может работать"
+          aboard: "на борту"
+          legal_work: "Юридическое работать:"
+          start: "Если он будет принят вы можете начать :"
+          immediately: "Немедленно"
+          not_immediately: "не сразу"
+          statment: "заявление"
   home: 'домой'
   about: 'о нас'
   services: 'услуги'
@@ -33,6 +115,9 @@ ru:
   recruitment: 'набор персонала'
   candidate: 'кандидат'
   contacts: 'контакты'
+  mission: "Elite миссия"
+  history: "Elite история"
+  conditions: "условия"
   personal_area: 'личный кабинет'
   nanny: 'няня'
   driver: 'Водитель'

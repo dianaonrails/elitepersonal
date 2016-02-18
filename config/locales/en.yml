@@ -20,6 +20,56 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  activerecord:
+    models:
+      user:
+        few: "users"
+        many: "users"
+        one: "User"
+        other: "Users"
+      candidate:
+        few: "candidates"
+        many: "candidates"
+        one: "Candidate"
+        other: "Candidates"
+      client:
+        few: "clients"
+        many: "clients"
+        one: "Client" 
+        other: "Clients"
+      application:
+        few: "applications"
+        many: "applications"
+        one: "Application"
+        other: "Applications"
+      category:
+        few: "categories"
+        many: "categories"
+        one: Category
+        other: Categories
+      client_request:
+        few: "client requests"
+        many: "client requests"
+        one: "Client Request"
+        other: "Client Requests"
+      interviews:
+        few: "interviews"
+        many: "interviews"
+        one: "Interview"
+        other: "Interviews"
+      vacancy:
+        few: "vacancies"
+        many: "vacancies"
+        one: "Vacancy"
+        other: "Vacancies"
+      comment:
+        few: "comments"
+        many: "comments"
+        one: "Comment"
+        other: "Comments"        
+    attributes:
+      candidate:
+        title: "title"
   hello: "Hello world"
   home: "Home"
   about: 'About us'
@@ -28,6 +78,9 @@ en:
   client: 'Client'
   recruitment: 'Recruitment'
   contacts: 'Contacts'
+  mission: "Elite mission"
+  history: "Elite history"
+  conditions: "Conditions"
   personal_area: 'Personal area'
   lets_start: "Let's get started!"
   job_offers: "See all job offers"
