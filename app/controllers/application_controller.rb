@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
    
     if I18n.locale = :en
 
-      if GeneralTranslation.find_by_label(label).en.nil?
+      if GeneralTranslation.find_by_label(label).nil?
         @result = ''
       else  
         @result = GeneralTranslation.find_by_label(label).en 
