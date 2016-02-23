@@ -4,32 +4,32 @@
 		li 
 			=image_tag("babysitter-grey.png")
 			.list-title
-				=link_to t(:nanny),'/services#babysitter'
+				=link_to raw(general_translation('NANNY')),'/services#babysitter'
 			
 		li
 			=image_tag("maid.png")
 			.list-title 
-				=link_to t(:governess),'/services#governess'
+				=link_to raw(general_translation('GOVERNESS')),'/services#governess'
 		li
 			=image_tag("skirt7.png")
 			.list-title 
-				=link_to t(:housekeeper),'/services#housekeeper'
+				=link_to raw(general_translation('HOUSEKEEPER')),'/services#housekeeper'
 		li
 			=image_tag("chef20.png")
 			.list-title 
-				=link_to t(:cooker),'/services#cooker'
+				=link_to raw(general_translation('COOKER')),'/services#cooker'
 		li
 			=image_tag("driver.png")
 			.list-title 
-				=link_to t(:driver),'/services#driver'	
+				=link_to raw(general_translation('DRIVER')),'/services#driver'	
 		li
 			=image_tag("couple53.png")
 			.list-title 
-				=link_to t(:couple),'/services#couple'
+				=link_to raw(general_translation('COUPLE')),'/services#couple'
 		li
 			=image_tag("nurse7.png")
 			.list-title 
-				=link_to t(:nurse),'/services#nurse'
+				=link_to raw(general_translation('NURSE')),'/services#nurse'
 
 		li
 			.link-jobs
@@ -40,19 +40,19 @@
 			div class="item active"
 				=image_tag("babysitter-photo.png")
 				button type="button" class="btt-category" 
-					=link_to t(:find_a) + t(:nanny),'/services#babysitter'
+					=link_to t(:find_a) + raw(general_translation('NANNY')),'/services#babysitter'
 			div class="item"
 				=image_tag("template-cooker.png")	
 				button type="button" class="btt-category" 
-					=link_to t(:find_a) + t(:cooker),'/services#cooker'
+					=link_to t(:find_a) + raw(general_translation('COOKER'),'/services#cooker'
 			div class="item"
 				=image_tag("template-driver.png")
 				button type="button" class="btt-category" 
-					=link_to t(:find_a) + t(:driver),'/services#driver'
+					=link_to t(:find_a) + raw(general_translation('DRIVER')),'/services#driver'
 			div class="item"
 				=image_tag("template-housekeeper.png")
 				button type="button" class="btt-category" 
-					=link_to t(:find_a) + t(:housekeeper),'/services#housekeeper'
+					=link_to t(:find_a) + raw(general_translation('HOUSEKEEPER')),'/services#housekeeper'
 			//div class="item"
 			//	=image_tag("template-nurse.png")
 			//	button type="button" class="btt-category" 
@@ -65,10 +65,10 @@
 		ul.flyer-links
 			li.active 
 				a href="#tab1" 
-					=t(:client)
+					=raw(general_translation('CLIENT'))
 			li
 				a href="#tab2" 
-					=t(:candidate)
+					=raw(general_translation('CANDIDATE'))
 		div.flyer-content
 			div id="tab1" class="tab active"
 				.col-md-10.col-md-offset-1.bottom-space

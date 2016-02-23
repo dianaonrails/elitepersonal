@@ -6,9 +6,10 @@ gem 'rails', '4.2.0'
 gem 'devise'
 gem "mini_magick"
 gem 'annotate'
-gem 'bootstrap-sass', '~> 3.3.5'
+# Use jquery as the JavaScript library
+gem 'jquery-rails'
 # Use SCSS for stylesheets
-gem 'sass-rails', '>= 3.2'
+gem 'sass-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -17,6 +18,7 @@ gem 'sprockets-rails', :require => 'sprockets/railtie'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+gem 'bootstrap-sass', '~> 3.3.5'
 gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails',
                               :git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'
 
@@ -28,9 +30,6 @@ gem 'carrierwave'
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.14.30'
 
-
-# Use jquery as the JavaScript library
-gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 #gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -47,6 +46,7 @@ gem 'gmaps4rails'
 
 gem 'activeadmin', github: 'activeadmin'
 
+
 gem 'country_select'
 gem 'mail_form'
 gem 'mechanize'
@@ -59,7 +59,6 @@ gem "tabs_on_rails"
 gem 'kaminari'
 
 gem 'pdfkit'
-gem 'wicked_pdf'
 
 gem 'prawn-rails'
 gem 'nokogiri'
@@ -70,7 +69,7 @@ gem 'intl-tel-input-rails'
 
 gem 'cancancan', '~> 1.10'
 
-gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'master'
+gem 'rails-i18n'
 gem "i18n-js", ">= 3.0.0.rc11"
 gem 'russian'
 
@@ -79,7 +78,7 @@ gem "polish", ">= 0.1.0"
 gem 'countries_and_languages', :require => 'countries_and_languages/rails'
 
 gem 'jspdf-rails'
-gem 'wicked_pdf'
+#gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 
 gem 'passenger'
@@ -95,6 +94,8 @@ gem 'fullcalendar-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'react-rails', '~> 1.4.0'
+gem 'ckeditor'
+
 #gem 'mysql2', '~> 0.3.18'
 
 group :development, :test do

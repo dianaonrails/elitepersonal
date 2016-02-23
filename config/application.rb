@@ -26,7 +26,9 @@ module Elitepersonal
     config.i18n.fallbacks = true
     config.i18n.default_locale = :ru
     config.i18n.available_locales = [:en, :ru]
-    config.middleware.use "PDFKit::Middleware", :print_media_type => true
+    config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
+    
+    #config.middleware.use "PDFKit::Middleware", :print_media_type => true
     
   end
 end

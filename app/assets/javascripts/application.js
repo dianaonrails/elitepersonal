@@ -29,6 +29,7 @@
 //= require bootstrap-datetimepicker
 //= require jspdf
 //= require fullcalendar
+//= require ckeditor/init
 //= require_directory .
 
 
@@ -81,6 +82,8 @@ function exportPDF(){
 $(document).ready(function () {
 	$('.carousel').carousel();
 	$('.datepicker').datepicker();
+	
+
 	//$('#interview_interview_date').datepicker();
 
 	$("#candidate_mobile").intlTelInput();

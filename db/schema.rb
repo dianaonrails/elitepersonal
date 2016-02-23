@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160120004914) do
+ActiveRecord::Schema.define(version: 20160223013304) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -96,6 +96,20 @@ ActiveRecord::Schema.define(version: 20160120004914) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "bootsy_image_galleries", force: :cascade do |t|
+    t.integer  "bootsy_resource_id"
+    t.string   "bootsy_resource_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "bootsy_images", force: :cascade do |t|
+    t.string   "image_file"
+    t.integer  "image_gallery_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "candidate_languages", force: :cascade do |t|
     t.integer  "candidate_id"
     t.integer  "language_id"
@@ -154,6 +168,8 @@ ActiveRecord::Schema.define(version: 20160120004914) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "candidate_id"
+    t.string   "en"
+    t.string   "ru"
   end
 
   create_table "category_questions", force: :cascade do |t|
@@ -179,6 +195,22 @@ ActiveRecord::Schema.define(version: 20160120004914) do
     t.integer  "nanny_question_id"
     t.integer  "driver_question_id"
   end
+
+  create_table "ckeditor_assets", force: :cascade do |t|
+    t.string   "data_file_name",               null: false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.integer  "assetable_id"
+    t.string   "assetable_type",    limit: 30
+    t.string   "type",              limit: 30
+    t.integer  "width"
+    t.integer  "height"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable"
+  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
 
   create_table "client_languages", force: :cascade do |t|
     t.integer  "client_id"
@@ -276,6 +308,15 @@ ActiveRecord::Schema.define(version: 20160120004914) do
     t.text     "languages"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "general_translations", force: :cascade do |t|
+    t.string   "label"
+    t.text     "en"
+    t.text     "ru"
+    t.string   "page"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "governess_questions", force: :cascade do |t|

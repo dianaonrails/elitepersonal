@@ -10,8 +10,9 @@
 #
 
 class Category < ActiveRecord::Base
+	#translates :title
 	has_many :vacancies
-	
+	validates :title, presence: true
 
 
 	accepts_nested_attributes_for :vacancies

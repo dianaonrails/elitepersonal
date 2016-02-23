@@ -5,7 +5,19 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_locale
+  helper_method :general_translation
  
+  def general_translation(label)
+   
+    if I18n.locale = :en
+      @result = GeneralTranslation.find_by_label(label).en
+    else
+      @result = GeneralTranslation.find_by_label(label).ru 
+    end
+      
+    return @result
+  end  
+
   def change_locale
     l = params[:locale].to_s.strip.to_sym
     l = I18n.default_locale unless I18n.available_locales.include?(l)
