@@ -3,15 +3,15 @@
 		.col-md-10.col-md-offset-1
 			.col-md-3.column-left
 				h2.header-title
-					=t(:text1_login)
+					=raw(general_translation("TITLE_CANDIDATES_SIGNIN"))
 				h3.header-title 
-					=t(:text2_login)
+					=raw(general_translation("SUBTITLE_CANDIDATES_SIGNIN"))
 				.col-md-10 style="margin-top:10%;"
 					=image_tag("online22.svg")
 			.col-md-8.column-right
 				div class="panel panel-default" 
 					.panel-heading
-						=t(:login)
+						=raw(general_translation("CANDIDATES_LOGIN"))
 			  		.panel-body
 						= form_for("candidate", as: resource_name, url: session_path("candidate")) do |f| 
 			            	= devise_error_messages!
@@ -20,10 +20,11 @@
 							= f.password_field :password
 							br
 							= f.check_box :remember_me
-							= f.label :remember_me
+							= raw(general_translation("REMEMBER"))
 							br
-							= f.submit t(:sign_in), class:"btn btn-primary"
+							= button_tag(type: 'submit', class: "btn btn-primary") do
+								=raw(general_translation("BTT_SIGNIN"))
 							//= link_to "Forgot your password?", new_password_path(:user)
 						h4
-							=t(:text3_login)
-						=link_to t(:sign_up),new_candidate_registration_path
+							=raw(general_translation("TXT_ACCOUNT"))
+						=link_to raw(general_translation("LINK_SIGNUP")),new_candidate_registration_path

@@ -1,24 +1,25 @@
 .container.vacancies
   .row.background-white
     .col-md-3.categories-list
-      h1.title Categories
+      h1.title 
+        =raw(general_translation("TITLE_CATEGORIES"))
       ul
         li
           =link_to 'All','',id:'All',:remote => true
         li 
-          =link_to 'Nanny / Baby sitter','', id:'Nanny / Baby sitter',:remote => true
+          =link_to category_translation('NANNY'),'', id:'Nanny / Baby sitter',:remote => true
         li 
-          =link_to 'Governess', '', id:'Tutors or Governesses',:remote => true
+          =link_to category_translation('GOVERNESS'), '', id:'Tutors or Governesses',:remote => true
         li 
-          =link_to 'Housekeeper','', id:'Housekeeper / Cleaning',:remote => true
+          =link_to category_translation('HOUSEKEEPER'),'', id:'Housekeeper / Cleaning',:remote => true
         li 
-          =link_to 'Cooker','', id:'Chef / Cook',:remote => true
+          =link_to category_translation('COOKER'),'', id:'Chef / Cook',:remote => true
         li 
-          =link_to 'Driver','', id:'Chauffeur / Driver',:remote => true
+          =link_to category_translation('DRIVER'),'', id:'Chauffeur / Driver',:remote => true
         li 
-          =link_to 'Domestic Couple / Gardner','', id:'Domestic Couple / Gardner',:remote => true
+          =link_to category_translation('COUPLE'),'', id:'Domestic Couple / Gardner',:remote => true
         li 
-          =link_to 'Nurse (Granny Care )','', id:'Nurse (Granny Care )',:remote => true
+          =link_to category_translation('NURSE'),'', id:'Nurse (Granny Care )',:remote => true
 
     .col-md-8 id="vacancies-container"
       =render 'update_category'

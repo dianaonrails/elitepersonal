@@ -1,60 +1,69 @@
 .container
 	.row.background-white
 		.col-md-12.services-content
-			h1 Our Services:
+		 
+			=raw(general_translation("TITLE_SERVICES"))
 			hr
 			.col-md-12.padding id="babysitter"
 				.col-md-2.no-padding.text-center			
 					=image_tag('services-babysitter.png', width: "70%")
 				.col-md-8
-					h4 Nanny / Baby sitter
-					p Choose nanny for a child that can carefully look after, feed, entertain him? We can offer the best candidates: babysitting for infants and experienced nurse-governess for older children. You do not have to worry about your child, our specialists are trained to have the advice and great experience.
-					=link_to 'Make now the request >',new_client_path
+					h4 
+						=category_translation('NANNY')
+					=raw(general_translation("DESCRIPTION_NANNY"))
+					=link_to raw(general_translation("LINK_CLIENT")),new_client_path
 			.col-md-12.padding id="governess"	
 				.col-md-2.no-padding.text-center
 					=image_tag('services-governess.png', width: "70%")
 				.col-md-8.no-padding
-					h4 Governess
-					p You want to give your child a good education? Your child has problems in school performance? We will find highly qualified, experienced governess. She can be trusted with the creative and physical development of the child. We have specialists with extensive experience in the family as a governess who can be trusted with children of different ages.
+					h4 
+						=category_translation("GOVERNESS")
+					=raw(general_translation("DESCRIPTION_GOVERNESS"))
 					
-					=link_to 'Make now the request >',new_client_path
+					=link_to raw(general_translation("LINK_CLIENT")),new_client_path
 			.col-md-12.padding id="housekeeper"
 				.col-md-2.no-padding.text-center
 					=image_tag('services-housekeeper.png', width: "70%")
 				.col-md-8.no-padding
-					h4 Housekeeper
-					p Are you tired of keeping order in the house? Work, children, the constant rush turn your life into a nightmare, you can not relax, be given the necessary time to your children? You need a maid! You can trust the experts of our Agency. We will help you in the shortest time to pick a maid with experience in Moscow families. The house will always be in order and comfortable! 
-					=link_to 'Make now the request >',new_client_path
+					h4 
+						=category_translation("HOUSEKEEPER")
+					=raw(general_translation("DESCRIPTION_HOUSEKEEPER"))
+					=link_to raw(general_translation("LINK_CLIENT")),new_client_path
 			.col-md-12.padding id="cooker"
 				.col-md-2.no-padding.text-center
 					=image_tag('services-cooker.png', width: "70%")
 
 				.col-md-8.no-padding
-					h4 Cooker
-					p If your family doesn't have time to prepare lunches and dinners, but you still prefer quality homemade food in a narrow family circle, you need a home cook. Your personal chef, chosen by our agency will be highly qualified, a great experience and all the necessary skills.
-					=link_to 'Make now the request >',new_client_path
+					h4 
+						=category_translation("COOKER")
+					=raw(general_translation("DESCRIPTION_COOKER"))
+					=link_to raw(general_translation("LINK_CLIENT")),new_client_path
 			.col-md-12.padding	id="driver"	
 				.col-md-2.no-padding.text-center
 					=image_tag('services-driver.png', width: "70%")
 				.col-md-8.no-padding
-					h4 Driver
-					p Personal driver will take you to work, will take the kids to school, fulfill any requests you have. You will always have support and begin to enjoy the time. Our drivers will ensure your's and your family safety.
-					=link_to 'Make now the request >',new_client_path
+					h4 
+						=category_translation("DRIVER")
+
+					=raw(general_translation("DESCRIPTION_DRIVER"))
+					=link_to raw(general_translation("LINK_CLIENT")),new_client_path
 			.col-md-12.padding id="couple"		
 				.col-md-2.no-padding.text-center
 					
 					=image_tag('couple.png', width: "70%")
 				.col-md-8.no-padding
-					h4 Couple
-					p Your house needs everyday worries you, it is important that it is clean and cozy - hire domestic helpers. You get in one gardener, home control, and if necessary, the personal driver. This is one of the most lucrative offers of our agency.
-					=link_to 'Make now the request >',new_client_path
+					h4 
+						=category_translation("COUPLE")
+					=raw(general_translation("DESCRIPTION_COUPLE"))
+					=link_to raw(general_translation("LINK_CLIENT")),new_client_path
 			.col-md-12.padding id="nurse"
 				.col-md-2.no-padding.text-center
 					=image_tag('nurse.png', width: "70%")
 				.col-md-8.no-padding
-					h4 Nurse
-					p Office and apartment shine with cleanliness, so here are our experts. All cleaning work we carry out in accordance with all requirements: take into account the schedule of the customer, provide timely and quality cleaning every room.
-					=link_to 'Make now the request >',new_client_path
+					h4 
+						=category_translation("NURSE")
+					=raw(general_translation("DESCRIPTION_NURSE"))
+					=link_to raw(general_translation("LINK_CLIENT")),new_client_path
 				
 		
 =render "layouts/footer"

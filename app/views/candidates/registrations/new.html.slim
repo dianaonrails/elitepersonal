@@ -1,8 +1,8 @@
 .container.new-candidate
 	h1.title-candidate 
-		=t(:text1_register)
+		=raw(general_translation("TITLE_REGISTER"))
 	h5 
-		=t(:required_fields)
+		=raw(general_translation("REQUIRED_FIELDS"))
 	== render 'form'
 
 =render "layouts/footer"	

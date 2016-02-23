@@ -12,6 +12,15 @@ ActiveAdmin.register GeneralTranslation do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
+	
+	index do
+		selectable_column
+		column :label
+		column (:en) { |general_translations| raw(general_translations.en) }
+		column :ru
+		column :page
+		actions
+	end		
 
 	form do |f|
 		f.inputs 'GeneralTranslations' do
@@ -22,6 +31,8 @@ ActiveAdmin.register GeneralTranslation do
 		end	
 		f.actions
 	end	
+
+
 
 
 end

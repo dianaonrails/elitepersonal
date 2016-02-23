@@ -33,7 +33,7 @@
 
 		li
 			.link-jobs
-				=link_to t(:job_offers),vacancies_path						
+				=link_to raw(general_translation("LINK_VACANCIES")),vacancies_path						
 .col-md-12.carousel-container
 	div class="carousel slide carousel-fade" id="myCarousel" data-ride="carousel"
 		div class="carousel-inner"
@@ -76,25 +76,25 @@
 						.tab-img
 							=image_tag("applicattion.png")
 						h3.tab-title 
-							=t(:step1_client)
+							=raw(general_translation("CLIENT_STEP1"))
 
-						p =link_to t(:start_now) +' >',new_client_path
+						p =link_to raw(general_translation("LINK_STARTNOW")),new_client_path
 					.col-md-6
 						.tab-img
 							=image_tag("telephone34.png")
 						h3.tab-title 
-							=t(:step2_client)
+							=raw(general_translation("CLIENT_STEP2"))
 				.col-md-10.col-md-offset-1.bottom-space		
 					.col-md-6
 						.tab-img
 							=image_tag("candidates.png")
 						h3.tab-title 
-							=t(:step3_client)
+							=raw(general_translation("CLIENT_STEP3"))
 					.col-md-6
 						.tab-img
 							=image_tag("interrogation.png")
 						h3.tab-title 
-							=t(:step4_client)
+							=raw(general_translation("CLIENT_STEP4"))
 			div id="tab2" class="tab"
 				.col-md-10.col-md-offset-1	
 
@@ -103,25 +103,25 @@
 							.tab-img
 								=image_tag("curriculum3.png")
 							h3.tab-title
-								=t(:register) 
-							p =link_to t(:start_now) + ' >',new_candidate_registration_path
+								=raw(general_translation("CANDIDATE_STEP1"))
+							p =link_to raw(general_translation("LINK_STARTNOW")),new_candidate_registration_path
 						.col-md-6
 							.tab-img
 								=image_tag("telephone34.png")
 							h3.tab-title
-								=t(:step2_candidate)
+								=raw(general_translation("CANDIDATE_STEP2"))
 					.col-md-12.bottom-space		
 						.col-md-6
 							.tab-img
 								=image_tag("interrogation.png")
 							
 							h3.tab-title
-								=t(:step3_candidate)
+								=raw(general_translation("CANDIDATE_STEP3"))
 						.col-md-6
 							.tab-img
 								=image_tag("time51.png")
 							h3.tab-title 
-								=t(:step4_candidate)
+								=raw(general_translation("CANDIDATE_STEP4"))
 //.background-middle
 	//.container.background-white			
 

@@ -4,22 +4,22 @@
 		table.footer
 			tbody
 				tr.header-title					
-					td =link_to t(:home),'/'
+					td =link_to raw(general_translation("HOME")),'/'
 					td 
-						=link_to t(:about),'/about'
-					td =link_to t(:services),'/services'
-					td =link_to t(:vacancies),''
-					td =link_to t(:client),new_client_path
-					td =link_to t(:recruitment),new_candidate_path
-					td =link_to t(:contacts),'/contacts'
+						=link_to raw(general_translation("ABOUT")),'/about'
+					td =link_to raw(general_translation("SERVICES")),'/services'
+					td =link_to raw(general_translation("VACANCIES")),''
+					td =link_to raw(general_translation("CLIENT")),new_client_path
+					td =link_to raw(general_translation("RECRUITMENT")),new_candidate_path
+					td =link_to raw(general_translation("CONTACTS")),'/contacts'
 				tr.sub-text
 					td
-					td =link_to t(:mission),'/mission'
-					td =link_to "Elite " + t(:services),'/services'
+					td =link_to raw(general_translation("MISSION")),'/mission'
+					td =link_to raw(general_translation("SERVICES")),'/services'
 				tr.sub-text
 					td
-					td =link_to t(:mission),'/history'
-					td =link_to t(:conditions),'/conditions'
+					td =link_to raw(general_translation("HISTORY")),'/history'
+					td =link_to raw(general_translation("CONDITIONS")),'/conditions'
 				tr.sub-text
 					td
 					td

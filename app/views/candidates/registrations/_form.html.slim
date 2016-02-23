@@ -13,46 +13,46 @@
 	  .panel-body.personal-info
 		  	.col-md-12.align-field
 		  	   .col-md-3.no-padding
-			   	=f.label t(:first_name)+  ' *'
+			   	=raw(general_translation("FIRST_NAME"))+  ' *'
 			   .col-md-9
 			   	=f.text_field :first_name, class:'length-input'
 			.col-md-12.align-field
 			   .col-md-3.no-padding
-			   	=f.label t(:last_name) + ' *'
+			   	=raw(general_translation("LAST_NAME")) + ' *'
 			   .col-md-9
 			   	=f.text_field :last_name,class:'length-input'
 			.col-md-12.align-field   	
 			   .col-md-3.no-padding
-			   	=label_tag t(:gender)+ ' *'
+			   	=raw(general_translation("GENDER"))+ ' *'
 			   .col-md-9	
 			   	    .col-md-6
-					   =label_tag t(:feminine), nil
+					   =raw(general_translation("FEMININE"))
 					   '&nbsp;
 					   =f.radio_button(:gender, 'f')
  					.col-md-6.no-padding
-					   =label_tag t(:masculine)
+					   =raw(general_translation("MASCULINE"))
 					   '&nbsp;
 					   =f.radio_button(:gender, 'm')
 			.col-md-12.align-field	   
 			   .col-md-3.no-padding
-			   	=f.label t(:height)
+			   	=raw(general_translation("HEIGHT"))
 			   .col-md-9
 			   	=f.text_field :height, size:"10%"
 			   	span meters
 			.col-md-12.align-field   	
 			   .col-md-3.no-padding
-			   	=label_tag t(:weight)
+			   	=raw(general_translation("WEIGHT"))
 			   .col-md-9
 			   	=f.text_field :weight, size:"10%"
 			   	span Kg
 			.col-md-12.align-field   	
 			   .col-md-3.no-padding
-			   	=f.label t(:address) + ' *'
+			   	=raw(general_translation("ADDRESS")) + ' *'
 			   .col-md-9
 			   	=f.text_field :address,class:'length-input'
 			.col-md-12.align-field   	
 			   .col-md-3.no-padding
-			   	=f.label t(:mobile_phone)+ ' *'
+			   	=raw(general_translation("MOBILE_PHONE"))+ ' *'
 			   .col-md-9
 			   	=f.text_field :mobile, type:"tel",class:'length-input'
 			.col-md-12.align-field   	
@@ -62,89 +62,89 @@
 			   	=f.text_field :email,class:'length-input'
 			.col-md-12.align-field
 				.col-md-3.no-padding
-					=f.label 'Password(minimum of 5 characters) *'
+					=raw(general_translation("PASSWORD"))
 				.col-md-9	
 					= f.password_field :password , autocomplete: "off",class:'length-input'  	
 			.col-md-12.align-field   	
 			   .col-md-3.no-padding
-			   	=label_tag t(:birth_date) + ' *'
+			   	=raw(general_translation("BIRTH_DATE")) +' *'
 			   .col-md-9
 			   	//input type="text" data-provide='datepicker'
 			    =date_select(:candidate,:birth_date,order: [:day, :month, :year],start_year:1950)
 			.col-md-12.align-field  
 			   .col-md-3.no-padding
-			   	=label_tag t(:marital_status)
+			   	=raw(general_translation("MARITAL_STATUS"))
 			   .col-md-9
 			   	=f.select(:marital_status,options_for_select(["Single","Married",'Divorced','Separated','Widowed','In a relationship','Civil Partnership','Rather not say']))
 			.col-md-12.align-field   	
 			   .col-md-3.no-padding
-			   	 =label_tag 'Passport nº'
+			   	 =raw(general_translation("PASSPORT"))
 			   .col-md-9	
 			   	 =f.text_field :passport,class:'length-input'
 			.col-md-12.align-field   	 
 			   .col-md-3.no-padding
-			   	 =label_tag 'Foreign passport nº'
+			   	 =raw(general_translation("FOREIGN_PASSPORT"))
 			   .col-md-9
 			   	 =f.text_field :foreign_passport,class:'length-input'
 			.col-md-12.align-field   	 
 			   .col-md-3.no-padding	
-			   	 =label_tag t(:nationality) +' *'
+			   	 =raw(general_translation("NATIONALITY")) +' *'
 			   .col-md-9
 			   	 =f.text_field :nationality,class:'length-input'
 			.col-md-12.align-field
 			   .col-md-3.no-padding
-			   	 =label_tag t(:citizenship) + ' *'   	 
+			   	 =raw(general_translation("CITIZENSHIP")) + ' *'   	 
 			   .col-md-9
 			   	 =f.text_field :citizenship,class:'length-input'
 			.col-md-12.align-field   	 
 			   .col-md-3.no-padding	
-			   	 =label_tag t(:smoker)
+			   	 =raw(general_translation("SMOKER"))
 			   .col-md-9
 			   	 =f.select(:smoker,options_for_select([["yes", true],["no",false]]))
 			.col-md-12.align-field   	 
 			   .col-md-3.no-padding
-			   	=label_tag t(:zodiac_sign)
+			   	=raw(general_translation("ZODIAC_SIGN"))
 			   .col-md-9
 			   	 =f.select(:sign,options_for_select(["Aquarius", "Piscis", "Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio","Sagittarius", "Capricorn"]))
 			.col-md-12.align-field
 				.col-md-3.no-padding
-					=label_tag t(:own_children) + ' *'
+					=raw(general_translation("OWN_CHILDREN")) + ' *'
 				.col-md-9
 					=f.select(:children,options_for_select(["no children","1","2","3","4","5","6","7","8","9","10+"]), class:'width_select')		   	 	   	     	 
 			.col-md-12.align-field   	 
 			   .col-md-3.no-padding
-			   	=label_tag t(:driving_licence)
+			   	=raw(general_translation("DRIVING_LICENCE"))
 			   .col-md-9
 			   	=f.select(:driving_licence,options_for_select([["yes", true],["no",false]]))
 			.col-md-12.align-field   	 
 			   	.col-md-3.no-padding
-			   		=label_tag t(:car)
+			   		=raw(general_translation("CAR"))
 			   	.col-md-9
 			   		=f.select(:car,options_for_select([["yes", true],["no",false]]))
 			.col-md-12.align-field   	 
 			   .col-md-3	
-			   	 =f.label t(:photo) + ' *'
+			   	 =raw(general_translation("PHOTO")) + ' *'
 		  	   .col-md-9
 		  	   	 =f.file_field :photo
 
 	
 	div class="panel panel-default"   	  
 	  .panel-heading
-	  	=t(:education_info)
+	  	=raw(general_translation("EDUCATION_INFO"))
 	  .panel-body
 	  	.col-md-12.align-field  
-		  	=label_tag t(:languages) +"*:"
+		  	=raw(general_translation("LANGUAGES")) +"*:"
 		  	br
 		  	=f.fields_for :candidate_languages do |language|
 				= language.collection_select(:language_id, Language.all, :id, :language, {include_blank: true, :include_hidden => false, :selected => @candidate.languages.map(&:id)})
-			p = f.link_to_add t(:add_language), :candidate_languages
+			p = f.link_to_add raw(general_translation('BTT_ADD_LANGUAGE')), :candidate_languages
 	  	.col-md-12.align-field  
-		  =label_tag t(:level_education) + ' *'
+		  =raw(general_translation("LEVEL_EDUCATION")) + ' *'
 		  br
 		  =f.collection_select(:level_education_id, LevelEducation.all,:id,:level,prompt: true)
 		=f.fields_for :education_info, @candidate.education_info do |education_fields|	
 			.col-md-12.align-field
-			  =label_tag t(:education_history) + ' *'
+			  =raw(general_translation("EDUCATION_HISTORY")) + ' *'
 			  br
 			  =education_fields.text_area :history, rows: 3, cols: 58
 		
@@ -152,13 +152,16 @@
   .col-md-6	  
   	div class="panel panel-default"   	  
 	  .panel-heading
-	  	=t(:work_info)
+	  	=raw(general_translation("WORK_INFO"))
 	  .panel-body.work-info
 	  	
 	  	.col-md-12.align-field 
-	  	  =label_tag  t(:select_category)	, nil , class:'subtitle'
+	  	  =raw(general_translation("TXT_SELECT_CATEGORY"))
 	  	  br
-	  	  =f.collection_select(:category_id,Category.all,:id,:title, {prompt: true},{onchange: "ShowQuestions(this);"})
+	  	  -if I18n.locale = :en
+	  	  	=f.collection_select(:category_id,Category.all,:id,:en, {prompt: true},{onchange: "ShowQuestions(this);"})
+	  	  -else
+	  	  	=f.collection_select(:category_id,Category.all,:id,:ru, {prompt: true},{onchange: "ShowQuestions(this);"})	
 	  	
 	  	  br
 	  	.col-md-12.align-field id="category-questions"
@@ -185,56 +188,56 @@
 	  			= f.fields_for :assistance_questions do |builder|
 	  				= render "layouts/assistance_questions", :f => builder	
 		  	.col-md-12.align-field
-		  		=label_tag t(:describe_yourself)
+		  		=raw(general_translation("DESCRIBE_YOURSELF"))
 		  		br
 		  		=f.text_area :description, cols:'60',rows:'5'
 		  	=f.fields_for :work_info, @candidate.work_info do |work_fields|						
 				.col-md-12.align-field  
-				  =label_tag t(:sectors)
+				  =raw(general_translation("SECTORS"))
 				
 				  =work_fields.text_area :sectors_experience, rows: 3, cols: 45
 			.col-md-12.align-field  
-				=label_tag t(:years_exp)
+				=raw(general_translation("YEARS_EXPERIENCE"))
 				'&nbsp;
 				=f.select(:years_experience, options_for_select(["0","1","2","+3"]))
 			.col-md-12.align-field
-				=label_tag t(:jobs_exp), nil,class:"style-bold"
+				=raw(general_translation("LAST_JOBS"))
 				.col-md-12.no-padding.margin-job
 					
 					.col-md-6.no-padding.align-item
-						=label_tag t(:date_start)
+						=raw(general_translation("DATE_START"))
 						'&nbsp;
 						input type="text" data-provide='datepicker' size="15"	
 
 					.col-md-6.align-item
-						=label_tag t(:date_end)
+						=raw(general_translation("DATE_END"))
 						'&nbsp;
 						input type="text" data-provide='datepicker' size="15"
 					.col-md-12.no-padding.align-item
-						=label_tag t(:employer)
+						=raw(general_translation("EMPLOYER"))
 						'&nbsp;
 						=text_field_tag :employer1,nil,size:'55%'
 					.col-md-12.no-padding
-						=label_tag t(:description)
+						=raw(general_translation("DESCRIPTION"))
 						br
 						=text_area_tag :description, nil,cols:'50',rows:'4'
 									
 				.col-md-12.no-padding
 
 					.col-md-6.no-padding.align-item
-						=label_tag t(:date_start)
+						=raw(general_translation("DATE_START"))
 						'&nbsp;
 						input type="text" data-provide='datepicker' size="15"		
 					.col-md-6.align-item
-						=label_tag t(:date_end)
+						=raw(general_translation("DATE_END"))
 						'&nbsp;
 						input type="text" data-provide='datepicker' size="15"
 					.col-md-12.no-padding.align-item
-						=label_tag t(:employer)
+						=raw(general_translation("EMPLOYER"))
 						'&nbsp;
 						=text_field_tag :employer2,nil,size:'55%'		
 					.col-md-12.no-padding
-						=label_tag t(:description)
+						=raw(general_translation("DESCRIPTION"))
 						br
 						=text_area_tag :description, nil,cols:'50',rows:'4'	
 				hr				
@@ -253,50 +256,51 @@
 				//  br
 				.col-md-12.align-field  
 				  
-				  =label_tag t(:salary),nil
+				  =raw(general_translation("SALARY_MONTH"))
 				  br
 				  =f.text_field :salary
 			.col-md-12.align-field
-			  =label_tag t(:upload_cv), nil, class:'subtitle'
+			  =raw(general_translation("UPLOAD_CV"))
 			  =f.file_field :cv
  	div class="panel panel-default"   	  
 	  .panel-heading
-	  	=t(:availability_info)
+	  	=raw(general_translation("AVAILABILITY_INFO"))
 	  .panel-body			  
 		  .col-md-12.section-availability
 		  	  br
-			  =f.label t(:availability) +' *', class:"indent-field subtitle"
+			  =f.label nil,raw(general_translation("AVAILABILITY")) +' *', class:"indent-field subtitle"
 			  br
 			  =f.collection_check_boxes(:availability_ids,Availability.all,:id,:description) 
 			  
 			  br
-			  =label_tag t(:available_work)+ ' *', nil,class:'subtitle'
+			  =label_tag nil,raw(general_translation("AVAILABILITY_WORK")) + ' *',class:'subtitle'
 			  br
 			  =f.collection_check_boxes(:available_work_ids,AvailableWork.all,:id,:description)
 			  
 			  br
-			  =label_tag t(:legal_work) + ' *', nil,class:'subtitle'
+			  =label_tag nil, raw(general_translation("LEGAL_WORK")) + ' *',class:'subtitle'
 			  br
 			  .indent-textbox
 			  	=f.collection_check_boxes(:legal_work_ids,LegalWork.all,:id,:description)
 				
 			  
 			  br
-			  =label_tag t(:start), nil,class:'subtitle'
+			  =label_tag raw(general_translation("START_TIME")) + ' *', nil,class:'subtitle'
 			  br
 			  .indent-textbox
-				  =label_tag t(:immediately)
+				  =raw(general_translation("IMMEDIATELY"))
 				  =f.radio_button(:start, true)
 			  .indent-textbox	  
-				  =label_tag t(:not_immediately)
+				  =raw(general_translation("NOT_IMMEDIATELY"))
 				  =f.radio_button(:start, false)
 			  br
-			  =label_tag t(:statment)
+			  =raw(general_translation("STATMENT"))
 			  br
 			  =f.text_area :statment, rows: 3, cols: 45
 		  br
   .col-md-12
   	br
   	.actions.text-center 
-  		= f.submit :submit, class:"btn btn-primary btt-medium"
+  		= button_tag(type: 'submit', class: "btn btn-primary btt-medium") do
+			=raw(general_translation("BTT_SEND"))
 

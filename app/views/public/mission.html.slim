@@ -3,9 +3,8 @@
 		.col-md-4.image
 			=image_tag("hr-direction.jpg")
 		.col-md-8.content
-			h1 Elite Mission
+			h1 
+				=raw(general_translation("TITLE_MISSION"))
 			hr
-			p Elite Personnel World is recruitment agency for domestic staff. The main objective of the Company is to provide for your needs in daily life: nanny, housekeeper, governess, personal driver, intern couple. We will make your life comfortable, help to cope with the daily chores! 
-			p Taking your worries as our own, putting ourselves in your place, only from this point of view, we are recruiting. 
-			p This approach gives us the opportunity to be leaders in the market and to ensure the maximum amount of positive feedback on our work. If you urgently need a nanny, a cook, a personal driver, a governess or housekeeper, call us - we can and will help you! 
+			= raw(general_translation("CONTENT_MISSION"))
 =render "layouts/footer"

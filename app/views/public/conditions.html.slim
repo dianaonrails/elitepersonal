@@ -1,16 +1,9 @@
 .container
 	.row.background-white
 		.col-md-8.conditions-content
-			h1 Conditions
+			h1 
+				=raw(general_translation("TITLE_CONDITIONS"))
 			hr
-			p Dear customers, our pricing, we ad here to the "golden mean", when the price and quality make the optimal balance. In our agency you can always find your mate, that will meet all your needs! Our prices on the staff today:
-			p 1. Meeting with the hourly rates of 150 rubles per hour
-			p 2. Meeting with medical or educational obrazovaniem- from 160 rubles per hour
-			p 3. The governess from 180 rubles per hour
-			p 4. Tutor various subjects from 700 rubles per hour
-			p 5. Housekeeper, chambermaid from 1300 rubles a day
-			p 6. Cook (not below the 4th level) from 1800 rubles a day
-			p 7. Personal driver from 35,000 rubles per month
-			p 8. Servants (couple + accommodation) from 40,000 rubles per month
+			=raw(general_translation("CONTENT_CONDITIONS"))
 
 =render "layouts/footer"
