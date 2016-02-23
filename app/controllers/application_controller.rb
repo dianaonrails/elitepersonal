@@ -10,7 +10,12 @@ class ApplicationController < ActionController::Base
   def general_translation(label)
    
     if I18n.locale = :en
-      @result = GeneralTranslation.find_by_label(label).en
+
+      if GeneralTranslation.find_by_label(label).en.nil?
+        @result = ''
+      else  
+        @result = GeneralTranslation.find_by_label(label).en 
+      end  
     else
       @result = GeneralTranslation.find_by_label(label).ru 
     end
