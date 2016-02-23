@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   resources :dashboard do
     get :get_events, on: :collection
   end
-  
   resources :categories
   devise_for :users, ActiveAdmin::Devise.config
   devise_for :admin_users, ActiveAdmin::Devise.config
