@@ -24,7 +24,8 @@ module Elitepersonal
     config.active_record.raise_in_transactional_callbacks = true
     #config.action_mailer.default_url_options = { :host => "localhost:3000"}
     config.i18n.fallbacks = true
-    config.i18n.default_locale = :ru
+    config.i18n.default_locale = :en
+    Rails.application.config.i18n.locale = :en
     config.i18n.available_locales = [:en, :ru]
     config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
     

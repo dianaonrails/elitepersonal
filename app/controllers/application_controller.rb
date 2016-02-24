@@ -2,41 +2,28 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   include CanCan::ControllerAdditions
+  helper :all
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_locale
-  helper_method :general_translation, :category_translation
+  before_filter :set_locale
+
+  helper_method :category_translation
  
   def category_translation(label)
-    if I18n.locale = :en
-
-      if Category.find_by_title(label).nil?
-        @result = ''
-      else  
-        @result = Category.find_by_title(label).en 
-      end  
-    else
-      @result = Category.find_by_title(label).ru 
-    end
+    if session[:locale] == :en
+        puts "english"
+        @result = Category.find_by_title(label).en if !Category.find_by_title(label).nil?
+    else 
       
-    return @result 
-  end  
+      puts "russian"
+      @result = Category.find_by_title(label).ru if !Category.find_by_title(label).nil?
+    end  
 
-  def general_translation(label)
-   
-    if I18n.locale = :en
-
-      if GeneralTranslation.find_by_label(label).nil?
-        @result = ''
-      else  
-        @result = GeneralTranslation.find_by_label(label).en 
-      end  
-    else
-      @result = GeneralTranslation.find_by_label(label).ru 
-    end
-      
     return @result
   end  
+
+  
 
   def change_locale
     l = params[:locale].to_s.strip.to_sym
@@ -46,14 +33,12 @@ class ApplicationController < ActionController::Base
   end
 
   def set_locale
-    if cookies[:educator_locale] && I18n.available_locales.include?(cookies[:educator_locale].to_sym)
-      l = cookies[:educator_locale].to_sym
-    else
-      l = I18n.default_locale
-      cookies.permanent[:educator_locale] = l
-    end
-    I18n.locale = l
+    puts "SET LOCALE"
+    I18n.locale = params[:locale] || session[:locale] || I18n.default_locale
+    session[:locale] = I18n.locale
   end
+
+   
 
  
   protected

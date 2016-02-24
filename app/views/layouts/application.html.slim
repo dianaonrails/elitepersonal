@@ -105,6 +105,7 @@ html
 						-else
 							li
 								=link_to raw(general_translation('CONTACTS')),'/contacts'		
-
+		h1 
+			=session[:locale]
 		= yield
 
