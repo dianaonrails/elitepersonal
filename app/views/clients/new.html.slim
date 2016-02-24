@@ -14,7 +14,8 @@
 	      				ul
 	      					- @client.errors.full_messages.each do |message|
 	          					li = message 
-				h4 Fill all the inputs above.
+				h4 
+					=raw(general_translation("FILL_INPUTS"))
 				.col-md-12.no-padding.align-field
 					.col-md-2.no-padding
 						=raw(general_translation("FULL_NAME"))

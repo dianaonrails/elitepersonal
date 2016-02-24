@@ -9,7 +9,7 @@
   .col-md-6.no-padding
 	div class="panel panel-default" 
 	  .panel-heading 
-	  	=t(:personal_info)
+	  	=raw(general_translation("AVAILABILITY_INFO"))
 	  .panel-body.personal-info
 		  	.col-md-12.align-field
 		  	   .col-md-3.no-padding
@@ -285,7 +285,7 @@
 				
 			  
 			  br
-			  =label_tag raw(general_translation("START_TIME")) + ' *', nil,class:'subtitle'
+			  =label_tag nil,raw(general_translation("START_TIME")) + ' *',class:'subtitle'
 			  br
 			  .indent-textbox
 				  =raw(general_translation("IMMEDIATELY"))
