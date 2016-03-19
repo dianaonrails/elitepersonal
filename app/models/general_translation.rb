@@ -14,4 +14,7 @@
 class GeneralTranslation < ActiveRecord::Base
 
 	validates :label,:en, presence: true
+
+	
+
 end

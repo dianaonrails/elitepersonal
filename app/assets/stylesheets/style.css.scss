@@ -367,7 +367,10 @@ p{
 	margin-right: 2%;
 	margin-top: 2%;
 	margin-bottom: 1%;
+
 }
+
+
 
 .nav > li > a{
 	padding: 5px 5px;
@@ -375,6 +378,9 @@ p{
 	//font-family: 'Raleway', sans-serif;
 	font-family: 'Fira Sans', sans-serif;
 	font-weight: 300;
+	p{
+		display:inline;
+	}
 }
 
 .navbar-default .navbar-nav > .active > a{

@@ -6,11 +6,11 @@
 				tr.header-title					
 					td =link_to raw(general_translation("HOME")),'/'
 					td 
-						=link_to raw(general_translation("ABOUT")),'/about'
+						=link_to raw(general_translation("ABOUT")),'#'
 					td =link_to raw(general_translation("SERVICES")),'/services'
-					td =link_to raw(general_translation("VACANCIES")),''
+					td =link_to raw(general_translation("VACANCIES")),vacancies_path
 					td =link_to raw(general_translation("CLIENT")),new_client_path
-					td =link_to raw(general_translation("RECRUITMENT")),new_candidate_path
+					td =link_to raw(general_translation("RECRUITMENT")),candidate_session_path
 					td =link_to raw(general_translation("CONTACTS")),'/contacts'
 				tr.sub-text
 					td
