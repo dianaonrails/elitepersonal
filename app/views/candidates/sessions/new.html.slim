@@ -1,11 +1,11 @@
 .container.sign-in
 	.row
 		.col-md-10.col-md-offset-1
-			.col-md-3.column-left
+			.col-md-4.column-left
 				h2.header-title
 					=raw(general_translation("TITLE_CANDIDATES_SIGNIN"))
-				h3.header-title 
-					=raw(general_translation("SUBTITLE_CANDIDATES_SIGNIN"))
+				//h3.header-title 
+				//	=raw(general_translation("SUBTITLE_CANDIDATES_SIGNIN"))
 				.col-md-10 style="margin-top:10%;"
 					=image_tag("online22.svg")
 			.col-md-8.column-right
@@ -22,7 +22,7 @@
 							= f.check_box :remember_me
 							= raw(general_translation("REMEMBER"))
 							br
-							= button_tag(type: 'submit', class: "btn btn-primary") do
+							= button_tag(type: 'submit', class: "btn btn-primary all-width") do
 								=raw(general_translation("BTT_SIGNIN"))
 							//= link_to "Forgot your password?", new_password_path(:user)
 						h4

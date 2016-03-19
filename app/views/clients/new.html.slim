@@ -35,7 +35,7 @@
 					.col-md-2.no-padding	
 						=raw(general_translation("JOB_CATEGORY"))
 					.col-md-8
-						-if I18n.locale = :en
+						-if session[:locale] == :en
 							=collection_select(:client_request,:category_id,Category.all,:id,:en,required:true)	
 						-else
 							=collection_select(:client_request,:category_id,Category.all,:id,:ru,required:true)		

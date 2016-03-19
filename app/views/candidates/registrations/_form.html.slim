@@ -158,7 +158,7 @@
 	  	.col-md-12.align-field 
 	  	  =raw(general_translation("TXT_SELECT_CATEGORY"))
 	  	  br
-	  	  -if I18n.locale = :en
+	  	  -if session[:locale] == :en
 	  	  	=f.collection_select(:category_id,Category.all,:id,:en, {prompt: true},{onchange: "ShowQuestions(this);"})
 	  	  -else
 	  	  	=f.collection_select(:category_id,Category.all,:id,:ru, {prompt: true},{onchange: "ShowQuestions(this);"})	
