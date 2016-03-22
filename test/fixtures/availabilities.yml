@@ -8,6 +8,8 @@
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
 #  client_request_id :integer
+#  en                :string
+#  ru                :string
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

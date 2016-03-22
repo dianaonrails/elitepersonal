@@ -77,6 +77,8 @@ gem "polish", ">= 0.1.0"
 
 gem 'countries_and_languages', :require => 'countries_and_languages/rails'
 
+gem 'country_select'
+
 gem 'jspdf-rails'
 #gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'

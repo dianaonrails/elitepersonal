@@ -86,7 +86,10 @@ $(document).ready(function () {
 
 	//$('#interview_interview_date').datepicker();
 
-	$("#candidate_mobile").intlTelInput();
+	$("#candidate_mobile").intlTelInput({
+		initialCountry: "ru",
+		preferredCountries: [ "ru", "en" ]
+	});
 
 	I18n.defaultLocale = "<%= I18n.default_locale %>";
 	I18n.locale = "<%= I18n.locale %>";
@@ -99,13 +102,11 @@ $(document).ready(function () {
             return true;
         }
     };
- 	$('#exportPDF').click(function () {
-        var doc = new jsPDF();
-        doc.fromHTML($('#main_content').html(), 15, 15, {
-            'width': 170,'elementHandlers': specialElementHandlers
-        });
-        doc.save('sample-file.pdf');
-    });
+
+	
+     
+
+
     
 	jQuery('.flyers .flyer-links a').on('click', function(e)  {
         var currentAttrValue = jQuery(this).attr('href');
@@ -160,6 +161,18 @@ $(document).ready(function () {
 	     dragOpacity: "0.5"
   	});
 
-	
+	$('#exportPDF').click(function () {
+ 		//$("#main_content").wordExport();
+ 		var content = document.getElementById('main_content');
+
+ 		var converted = htmlDocx.asBlob(content.innerHTML, {orientation: 'landscape', margins: {top: 100}});
+		saveAs(converted, 'candidate.docx');
+ 		//$("#main_content").wordExport();
+        //var doc = new jsPDF();
+        //doc.fromHTML($('#main_content').html(), 15, 15, {
+        //    'width': 170,'elementHandlers': specialElementHandlers
+        //});
+        //doc.save('sample-file.pdf');
+    });
 
 });

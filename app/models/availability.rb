@@ -8,6 +8,8 @@
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
 #  client_request_id :integer
+#  en                :string
+#  ru                :string
 #
 
 class Availability < ActiveRecord::Base
