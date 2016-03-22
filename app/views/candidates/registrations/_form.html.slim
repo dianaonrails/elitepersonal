@@ -47,6 +47,16 @@
 			   	span Kg
 			.col-md-12.align-field   	
 			   .col-md-3.no-padding
+			   	=raw(general_translation("COUNTRY")) + ' *'
+			   .col-md-9
+			   	=f.country_select(:country, selected: "RU")
+			.col-md-12.align-field   	
+			   .col-md-3.no-padding
+			   	=raw(general_translation("CITY")) + '*'
+			   .col-md-9
+			   	=f.text_field :city
+			.col-md-12.align-field   	
+			   .col-md-3.no-padding
 			   	=raw(general_translation("ADDRESS")) + ' *'
 			   .col-md-9
 			   	=f.text_field :address,class:'length-input'

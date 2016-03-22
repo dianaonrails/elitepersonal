@@ -3,6 +3,7 @@ class CreateCategoryQuestions < ActiveRecord::Migration
     create_table :category_questions do |t|
       t.integer :category_id
       t.string :question
+      t.boolean :value
 
       t.timestamps null: false
     end

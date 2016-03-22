@@ -43,6 +43,8 @@
 #  level_education_id     :integer
 #  years_experience       :string
 #  salary                 :string
+#  country                :string
+#  city                   :string
 #
 
 class Candidate < ActiveRecord::Base

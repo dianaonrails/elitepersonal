@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160223192324) do
+ActiveRecord::Schema.define(version: 20160322111503) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -162,6 +162,8 @@ ActiveRecord::Schema.define(version: 20160223192324) do
     t.integer  "level_education_id"
     t.string   "years_experience"
     t.string   "salary"
+    t.string   "country"
+    t.string   "city"
   end
 
   add_index "candidates", ["email"], name: "index_candidates_on_email", unique: true
@@ -179,25 +181,9 @@ ActiveRecord::Schema.define(version: 20160223192324) do
   create_table "category_questions", force: :cascade do |t|
     t.integer  "category_id"
     t.string   "question"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.boolean  "cooking"
-    t.boolean  "regime"
-    t.boolean  "cleaning"
-    t.boolean  "education"
-    t.boolean  "trips"
-    t.boolean  "work_several"
-    t.boolean  "household_help"
-    t.integer  "candidate_id"
-    t.text     "educational_techniques"
-    t.boolean  "birth_to_one"
-    t.boolean  "one_to_three"
-    t.boolean  "three_to_six"
-    t.boolean  "five_to_seven"
-    t.boolean  "seven_to_ten"
-    t.integer  "client_request_id"
-    t.integer  "nanny_question_id"
-    t.integer  "driver_question_id"
+    t.boolean  "value"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "ckeditor_assets", force: :cascade do |t|

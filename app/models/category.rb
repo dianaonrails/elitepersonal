@@ -7,6 +7,8 @@
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  candidate_id :integer
+#  en           :string
+#  ru           :string
 #
 
 class Category < ActiveRecord::Base
