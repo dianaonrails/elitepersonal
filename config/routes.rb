@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
+  
+  post 'twilio/process_sms' => 'twilio#process_sms'
+  post 'twilio/invalid_sms' => 'twilio#invalid_sms'
+
+  post "interviews/connect_sms", to: 'interviews#connect_guest_to_host_sms'
+  post "interviews/incoming", to: 'interviews#accept_or_reject', as: 'incoming'
+  post 'receive_text/sms' => 'receive_text#send_sms'
+  resource  :verifications
+
   get 'clients/new'
 
   get 'clients/create'
@@ -63,11 +72,11 @@ Rails.application.routes.draw do
       end
     end  
 
-    get 'update_questions' => 'category_questions#update_questions'
+    get 'get_questions' => 'category_questions#get_questions'
 
     resources :category_questions do
       collection do
-        get :update_questions
+        get :get_questions
       end  
     end
 

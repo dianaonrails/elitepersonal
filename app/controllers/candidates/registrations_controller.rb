@@ -77,7 +77,7 @@ class Candidates::RegistrationsController < Devise::RegistrationsController
         :gender,:height,:weight,:passport,:foreign_passport,:marital_status,:children,:sign,:nationality, :years_experience, :salary,
         :smoker, :car,:driving_licence,:level_education_id,candidate_languages_attributes: [:id,:candidate_id,:language_id],education_info_attributes: [:id,:history],
         :work_info_attributes => [:sectors_experience,:current_job,:last_employer,:key_skills],
-        :availability_ids => [],:available_work_ids =>[],:legal_work_ids =>[],
+        :availability_ids => [],:available_work_ids =>[],:legal_work_ids =>[], :category_question_ids => [],
         nanny_question_attributes:[:cooking,:walking,:cleaning,:birth_to_one,:one_to_three,:three_to_six,:regime,
           :education,:trips,:work_several,:household_help],
         driver_question_attributes:[:id,:personal_driver,:family_driver,:children,:washing,:luxury_car,:weapons_bodyguard,:trips,:care_house],

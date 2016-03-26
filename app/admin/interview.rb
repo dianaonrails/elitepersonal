@@ -18,6 +18,7 @@ permit_params :client_request_id,:candidate_id,:interview_date,:address,:contact
 			column :address
 			column :interview_date
 			column :contact
+			column :status
 			actions
 		end	
 	end

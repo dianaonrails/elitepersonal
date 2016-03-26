@@ -13,4 +13,13 @@
 #
 
 class Client < ActiveRecord::Base
+	has_many :interviews
+
+	def pending_interview
+		self.interviews.where(status: "pending").first
+	end
+
+	def pending_interviews
+		self.interviews.where(status: "pending")
+	end
 end

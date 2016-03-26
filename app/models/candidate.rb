@@ -103,6 +103,8 @@ class Candidate < ActiveRecord::Base
   has_one :assistance_question
   has_one :nurse_question
 
+
+  has_many :interviews
   has_many :availabilities
   has_many :available_works
   has_many :legal_works
@@ -112,6 +114,9 @@ class Candidate < ActiveRecord::Base
 
   has_many :candidate_languages
   has_many :languages, through: :candidate_languages
+
+  has_many :category_question_candidates
+  has_many :category_questions, through: :category_question_candidates
 
 
   accepts_nested_attributes_for :candidate_languages,allow_destroy: true

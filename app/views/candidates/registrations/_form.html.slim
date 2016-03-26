@@ -169,11 +169,12 @@
 	  	  =raw(general_translation("TXT_SELECT_CATEGORY"))
 	  	  br
 	  	  -if session[:locale] == :en
-	  	  	=f.collection_select(:category_id,Category.all,:id,:en, {prompt: true},{onchange: "ShowQuestions(this);"})
+	  	  	=f.collection_select(:category_id,Category.all,:id,:en, {prompt: true},{onchange: "CategoryQuestions(this);"})
 	  	  -else
-	  	  	=f.collection_select(:category_id,Category.all,:id,:ru, {prompt: true},{onchange: "ShowQuestions(this);"})	
+	  	  	=f.collection_select(:category_id,Category.all,:id,:ru, {prompt: true},{onchange: "CategoryQuestions(this);"})	
 	  	
 	  	  br
+	  	  div id="questions"
 	  	.col-md-12.align-field id="category-questions"
 	  		#nanny style="display:none;"
 	  			= f.fields_for :nanny_question do |builder|
