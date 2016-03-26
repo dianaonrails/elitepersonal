@@ -9,7 +9,7 @@ Rails.application.configure do
       :address              => "smtp.zoho.com", 
       :port                 => 465,                 
       :user_name            => 'info@elitepersonalworld.com',
-      :password             => '12345678',         
+      :password             => 'artem123',         
       :authentication       => :login,
       :ssl                  => true,
       :tls                  => true,
