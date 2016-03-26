@@ -41,7 +41,7 @@ class InterviewsController < ApplicationController
 
 	    account_sid = "AC0e699ed43b732b395508551daf6f2ec6"
 	    auth_token = "8ce3b032459789f885e95f207602b04d"
-	    twilio_phone_number = "4695186374"
+	    
 
 	    @twilio_client = Twilio::REST::Client.new account_sid, auth_token
 
