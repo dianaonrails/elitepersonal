@@ -155,9 +155,9 @@
 	  	.col-md-12.align-field 
 	  	  =label_tag 'First select what category you are applying:'	, nil , class:'subtitle'
 	  	  br
-	  	  =f.collection_select(:category_id,Category.all,:id,:title, {prompt: true},{onchange: "ShowQuestions(this);"})
-	  	
+	  	  =f.collection_select(:category_id,Category.all,:id,:title, {prompt: true},{onchange: "CategoryQuestions(this);"})
 	  	  br
+	  	  div id="questions"
 	  	.col-md-12.align-field id="category-questions"
 	  		#nanny style="display:none;"
 	  			= f.fields_for :nanny_question do |builder|

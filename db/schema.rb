@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160322111503) do
+ActiveRecord::Schema.define(version: 20160326123230) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -178,12 +178,21 @@ ActiveRecord::Schema.define(version: 20160322111503) do
     t.string   "ru"
   end
 
+  create_table "category_question_candidates", force: :cascade do |t|
+    t.integer  "category_question_id"
+    t.integer  "candidate_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
   create_table "category_questions", force: :cascade do |t|
     t.integer  "category_id"
     t.string   "question"
     t.boolean  "value"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "questions_ru"
+    t.string   "question_en"
   end
 
   create_table "ckeditor_assets", force: :cascade do |t|
@@ -340,6 +349,9 @@ ActiveRecord::Schema.define(version: 20160322111503) do
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.string   "hour"
+    t.string   "phone_number"
+    t.integer  "client_id"
+    t.string   "status"
   end
 
   create_table "languages", force: :cascade do |t|

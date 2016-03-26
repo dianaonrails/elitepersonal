@@ -13,6 +13,7 @@
 	          li = message 
 	    =f.hidden_field :candidate_id, value: params[:candidate].to_i
 	    =f.hidden_field :client_request_id, value: params[:client].to_i
+	    =f.hidden_field :client_id, value: params[:client].to_i
 		.col-md-12.align-field
 			.col-md-2
 				=f.label 'Address *'

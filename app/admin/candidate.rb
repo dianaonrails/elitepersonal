@@ -7,6 +7,7 @@ permit_params :photo,:cv,:category_id,:first_name,:last_name,:country,:city,:add
         :gender,:height,:weight,:passport,:foreign_passport,:marital_status,:children,:sign,:nationality, :years_experience, :salary,
         :smoker, :car,:driving_licence,:level_education_id,candidate_languages_attributes: [:id,:candidate_id,:language_id],education_info_attributes: [:id,:history],
         :work_info_attributes => [:sectors_experience,:current_job,:last_employer,:key_skills],
+        :category_question_ids => [],
         :availability_ids => [],:available_work_ids =>[],:legal_work_ids =>[],
         nanny_question_attributes:[:cooking,:walking,:cleaning,:birth_to_one,:one_to_three,:three_to_six,:regime,
           :education,:trips,:work_several,:household_help],
@@ -42,6 +43,7 @@ permit_params :photo,:cv,:category_id,:first_name,:last_name,:country,:city,:add
 	index do
 		#download_links: [:pdf]
 		selectable_column
+		column :id
 		column :first_name
 		column :last_name
 		column :mobile
@@ -72,8 +74,10 @@ permit_params :photo,:cv,:category_id,:first_name,:last_name,:country,:city,:add
 			
 			f.input :photo,:as => :file, :hint => image_tag(f.object.photo.url(:thumb))
 			f.input :cv,:as => :file
-			input :category_id, as: :select, collection: Category.all.map{|u| ["#{u.title}", u.id]},:input_html => {:onclick => "ShowQuestions(this);"}
-			
+			input :category_id, as: :select, collection: Category.all.map{|u| ["#{u.title}", u.id]},:input_html => {:onchange => "CategoryQuestions(this.value);"}
+			panel "Category Questions", id:"questions" do
+				
+			end	
 			panel "Nanny Questions", id:"nanny" ,style:"display:none" do
 				f.inputs for: [:nanny_question, f.object.nanny_question || NannyQuestion.new] do |builder|
 		  			render "layouts/nanny_questions", :f => builder
@@ -188,7 +192,13 @@ permit_params :photo,:cv,:category_id,:first_name,:last_name,:country,:city,:add
 						end	
 						row 'Category' do
 							Category.find(candidate.category_id).title
-						end	
+
+						end
+						attributes_table_for candidate.category_questions do
+							row 'Category Questions' do |n|
+							  	n.question
+							end
+						end		
 						row :first_name
 						row :last_name
 						row :gender

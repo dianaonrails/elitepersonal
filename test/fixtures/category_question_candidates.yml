@@ -1,0 +1,20 @@
+# == Schema Information
+#
+# Table name: category_question_candidates
+#
+#  id                   :integer          not null, primary key
+#  category_question_id :integer
+#  candidate_id         :integer
+#  created_at           :datetime         not null
+#  updated_at           :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  category_question_id: 1
+  candidate_id: 1
+
+two:
+  category_question_id: 1
+  candidate_id: 1

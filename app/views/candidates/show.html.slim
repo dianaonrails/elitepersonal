@@ -152,9 +152,9 @@
 					  	  br
 					  	  =Category.find(@candidate.category_id).title
 					  	.col-md-12
-					  		//-if Category.find(@candidate.category_id).title == "Babysitter"
-					  			
-					  		//	= render "layouts/nanny_questions", :f => @candidate.nanny_question
+					  		-@candidate.category_questions.each do |q|
+					  			=q.question
+					  			br
 					  	.col-md-12.align-field
 					  		=label_tag 'Sectors / Functions you have experience in: '
 					  		br

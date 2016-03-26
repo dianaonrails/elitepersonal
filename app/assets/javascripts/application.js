@@ -71,6 +71,29 @@ function ShowQuestions(sel){
 };
 
 
+function CategoryQuestions(id){
+	$( "#questions" ).empty();
+	$.ajax({
+      type: "GET",
+      dataType: 'html',
+      url:'/category_questions/get_questions',
+      data: {'category_id': id},
+      success: function(data) {
+  		if(data){
+  			$('#questions').append(data);
+  		}
+  		else{
+  			$('#questions').append('<h3>No records </h3>');
+  		}
+      },
+      error: function(data){
+	    	$('#questions').append('<h3>No records </h3>');
+      }
+    });
+}
+
+
+
 function exportPDF(){
 	var doc = new jsPDF();
     doc.fromHTML($('#panels').html(), 15, 15, {
@@ -106,7 +129,7 @@ $(document).ready(function () {
 	
      
 
-
+    CategoryQuestions($('#candidate_category_id').val());
     
 	jQuery('.flyers .flyer-links a').on('click', function(e)  {
         var currentAttrValue = jQuery(this).attr('href');
