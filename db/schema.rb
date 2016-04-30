@@ -212,13 +212,6 @@ ActiveRecord::Schema.define(version: 20160425111312) do
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable"
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
 
-  create_table "client_languages", force: :cascade do |t|
-    t.integer  "client_id"
-    t.integer  "language_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
   create_table "client_requests", force: :cascade do |t|
     t.string   "full_name"
     t.string   "email"
@@ -298,7 +291,6 @@ ActiveRecord::Schema.define(version: 20160425111312) do
     t.boolean  "care_house"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
-    t.integer  "client_request_id"
   end
 
   create_table "education_infos", force: :cascade do |t|
