@@ -1,2 +1,11 @@
-=collection_check_boxes(:candidate, :category_question_ids, @category_questions,:id,:question)
+-if session[:locale] == :en
+	=collection_check_boxes(:candidate, :category_question_ids, @category_questions, :id, :question_en) do |q|
+		=q.label(:"data-value" => q.value) { q.check_box + q.text }
+		br
+-else
+	=collection_check_boxes(:candidate, :category_question_ids, @category_questions, :id, :questions_ru) do |q|
+		=q.label(:"data-value" => q.value) { q.check_box + q.text }
+		br		
+  
+
 //=input :category_question_candidates, :as => :check_boxes, collection: @category_questions, label: "Questions:",member_label: :question

@@ -295,14 +295,25 @@ p{
 	width:5%;
 }
 
-.flags{
-	
-	position: relative;
+.contacts-flags{
+	width:50%;
 	float:right;
-	width:5%;
-	img{
-		width: 30%;
-		margin-right: 20%;
+	display:inline;
+	.phone-contacts{
+		float:right;
+		display:inline-block;
+		margin-right:10%;
+	}
+
+	.flags{
+		display:inline-block;
+		position: relative;
+		float:right;
+		width:15%;
+		img{
+			width: 30%;
+			margin-right: 20%;
+		}
 	}
 }
 
@@ -313,18 +324,18 @@ p{
     width: 100%;
     height: auto;
 }
-.container > .navbar-header, .container > .navbar-collapse, .container-fluid > .navbar-header, .container-fluid > .navbar-collapse{
-	margin-left: 3%;
-}
+
 .navbar-header{
-	height: 65px;
-	
+	width:20%;
 }
-.top-title a{
-	color:#105264;
-	font-family: 'Josefin Sans', sans-serif;
-	font-size: 2em;
-	text-decoration: none;
+
+.logo {
+	display:inline-block;
+	width:100%;
+	img{
+		width: 100%;
+		height: auto;
+	}
 }
 
 .dropdown-menu > li > a{
@@ -332,11 +343,14 @@ p{
 	font-weight: 300;
 }
 
+
 .navbar-nav{
-	width: 70%;
-	float: right;
-	margin-top: 1%;
+	float:right;
+	margin-top:2%;
+	display:table;
+	width:70%;
 }
+
 .navbar-default{
 	background-color: #F9F9F9;
 	padding: 10px;
@@ -359,17 +373,17 @@ p{
 	color: #555;
 }
 
-.navbar-nav > li:hover ul{
-	display: block;
-}
+
+
 .nav >li{
-	margin-left: 2%;
-	margin-right: 2%;
-	margin-top: 2%;
-	margin-bottom: 1%;
-
+	display: table-cell;
+	text-align: center;
+	font-size:1.5rem;
+	width:14%;
 }
-
+.nav > li:last-child{
+	margin-right:0;
+}
 
 
 .nav > li > a{
@@ -391,28 +405,6 @@ p{
 
 .navbar-default .navbar-nav > .style-bold > a{
 	font-weight:bold;
-
-}
-
-
-.motto{
-	border-top:1px solid #AAAAAA;
-	text-align: center;
-	margin-top: 2px;
-	span{
-		font-size: 1em;
-		text-align: center;
-		color:#828485;
-		margin-left: 2px;
-		font-family: 'Fira Sans', sans-serif;
-		font-weight: 400;
-		line-height:0;
-   		padding:0.1em 1em;
-   		position: relative; 
-   		top: -0.5em;
-		background-color: #F9F9F9; 
-		margin: 0;
-	}
 
 }
 

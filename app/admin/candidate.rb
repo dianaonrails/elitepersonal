@@ -3,21 +3,12 @@ ActiveAdmin.register Candidate do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-permit_params :photo,:cv,:category_id,:first_name,:last_name,:country,:city,:address,:password,:mobile,:email,:citizenship,:birth_date,
+permit_params :photo,:cv,:category_id,:first_name,:last_name,:country,:city,:address,:password,:confirmation_password,:mobile,:email,:citizenship,:birth_date,
         :gender,:height,:weight,:passport,:foreign_passport,:marital_status,:children,:sign,:nationality, :years_experience, :salary,
         :smoker, :car,:driving_licence,:level_education_id,candidate_languages_attributes: [:id,:candidate_id,:language_id],education_info_attributes: [:id,:history],
         :work_info_attributes => [:sectors_experience,:current_job,:last_employer,:key_skills],
         :category_question_ids => [],
-        :availability_ids => [],:available_work_ids =>[],:legal_work_ids =>[],
-        nanny_question_attributes:[:cooking,:walking,:cleaning,:birth_to_one,:one_to_three,:three_to_six,:regime,
-          :education,:trips,:work_several,:household_help],
-        driver_question_attributes:[:id,:personal_driver,:family_driver,:children,:washing,:luxury_car,:weapons_bodyguard,:trips,:care_house],
-        housekeeper_question_attributes:[:id,:dry_wet,:washing,:vip,:furniture,:cooking,:plants_animals,:appliances,:large_areas],
-        governess_question_attributes:[:five_to_seven,:seven_to_ten,:cooking,:school,:assistant,:foreign_languages,:several_children],
-        nurse_question_attributes:[:older_people,:ambulant_patients,:immobile_patients,:measurements,:intramuscular_injection,:intravenous_injection,
-          :procedures,:cleaning_cooking],
-        cooker_question_attributes:[:family,:restaurants,:purchase,:menu,:banquets,:during_banquet,:kids,:diets,:knowledge_kitchen],
-        assistance_question_attributes:[:dry_wet,:washing_ironing,:vip,:cooking,:systems,:driving,:pool,:small_repairs,:cares,:garden,:plants,:pet_grooming]
+        :availability_ids => [],:available_work_ids =>[],:legal_work_ids =>[]
 # or
 #
 # permit_params do
@@ -74,46 +65,11 @@ permit_params :photo,:cv,:category_id,:first_name,:last_name,:country,:city,:add
 			
 			f.input :photo,:as => :file, :hint => image_tag(f.object.photo.url(:thumb))
 			f.input :cv,:as => :file
-			input :category_id, as: :select, collection: Category.all.map{|u| ["#{u.title}", u.id]},:input_html => {:onchange => "CategoryQuestions(this.value);"}
+			input :category_id, as: :select, collection: Category.all.map{|u| ["#{u.title}", u.id]}
 			panel "Category Questions", id:"questions" do
 				
 			end	
-			panel "Nanny Questions", id:"nanny" ,style:"display:none" do
-				f.inputs for: [:nanny_question, f.object.nanny_question || NannyQuestion.new] do |builder|
-		  			render "layouts/nanny_questions", :f => builder
-		  		end	
-		  	end	
-		  	panel "Driver Questions", id:"driver" , style:"display:none" do
-				f.inputs for: [:driver_question, f.object.driver_question || DriverQuestion.new] do |builder|
-		  			render "layouts/driver_questions", :f => builder
-		  		end	
-		  	end
-		  	panel "Housekeeper Questions", id:"housekeeper" ,style:"display:none" do
-				f.inputs for: [:housekeeper_question, f.object.housekeeper_question || HousekeeperQuestion.new] do |builder|
-		  			render "layouts/housekeeper_questions", :f => builder
-		  		end	
-		  	end	
-		  	panel "Cooker Questions", id:"cooker" ,style:"display:none" do
-				f.inputs for: [:cooker_question, f.object.cooker_question || CookerQuestion.new] do |builder|
-		  			render "layouts/cooker_questions", :f => builder
-		  		end	
-		  	end	
-		  	panel "governess Questions", id:"governess" ,style:"display:none" do
-				f.inputs for: [:governess_question, f.object.governess_question || GovernessQuestion.new] do |builder|
-		  			render "layouts/governess_questions", :f => builder
-		  		end	
-		  	end	
-		  	panel "Nurse Questions", id:"nurse" ,style:"display:none" do
-				f.inputs for: [:nurse_question, f.object.nurse_question || NurseQuestion.new] do |builder|
-		  			render "layouts/nurse_questions", :f => builder
-		  		end	
-		  	end	
-		  	panel "Couple Questions", id:"assistance" ,style:"display:none" do
-				f.inputs for: [:assistance_question, f.object.assistance_question || AssistanceQuestion.new] do |builder|
-		  			render "layouts/assistance_questions", :f => builder
-		  		end	
-		  	end	
-
+			
 			input :first_name
 			input :last_name
 			input :mobile

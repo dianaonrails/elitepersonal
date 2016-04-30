@@ -82,7 +82,7 @@ class Candidate < ActiveRecord::Base
 
   
   
-  validates :first_name,:last_name,:gender,:address,:mobile,:birth_date,:nationality,:citizenship,:category_id, presence:true
+  validates :first_name,:last_name,:gender,:address,:mobile,:birth_date,:nationality,:citizenship,:category_id, :password,presence:true
   validates :email, uniqueness: true
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
 
@@ -91,18 +91,10 @@ class Candidate < ActiveRecord::Base
   validates :legal_works, presence: true
 
   #has_one :level_education
-  has_one :nanny_question
   has_one :education_info
   has_one :work_info
   has_one :category
  
-  has_one :governess_question
-  has_one :cooker_question
-  has_one :driver_question
-  has_one :housekeeper_question
-  has_one :assistance_question
-  has_one :nurse_question
-
 
   has_many :interviews
   has_many :availabilities
@@ -123,11 +115,5 @@ class Candidate < ActiveRecord::Base
   #accepts_nested_attributes_for :category_questions,allow_destroy: true
   accepts_nested_attributes_for :education_info, allow_destroy: true
   accepts_nested_attributes_for :work_info, allow_destroy: true
-  accepts_nested_attributes_for :nanny_question
-  accepts_nested_attributes_for :governess_question, allow_destroy: true
-  accepts_nested_attributes_for :cooker_question,allow_destroy: true
-  accepts_nested_attributes_for :driver_question,allow_destroy: true
-  accepts_nested_attributes_for :housekeeper_question,allow_destroy: true
-  accepts_nested_attributes_for :assistance_question,allow_destroy: true
-  accepts_nested_attributes_for :nurse_question,allow_destroy: true
+  
 end

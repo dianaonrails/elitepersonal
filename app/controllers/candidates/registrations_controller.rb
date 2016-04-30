@@ -1,18 +1,11 @@
 class Candidates::RegistrationsController < Devise::RegistrationsController
 	def new
     @candidate = Candidate.new
-     @candidate.build_nanny_question
+    
 
     @candidate.build_education_info
     @candidate.build_work_info
     #@candidate.category_questions.build
-    
-    @candidate.build_governess_question
-    @candidate.build_cooker_question
-    @candidate.build_driver_question
-    @candidate.build_housekeeper_question
-    @candidate.build_assistance_question
-    @candidate.build_nurse_question
     @candidate.candidate_languages.build
   end
 

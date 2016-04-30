@@ -19,6 +19,5 @@
 #
 
 class CookerQuestion < ActiveRecord::Base
-	belongs_to :candidate
-	belongs_to :client_request
+	
 end
