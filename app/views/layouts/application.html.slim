@@ -19,20 +19,21 @@ html
 
 	body id="home"
 		
-		nav class="navbar navbar-default"
-			
-			.flags				
-				= link_to image_tag('RU.png'), change_locale_path(:ru)
-				= link_to image_tag('EN.png'), change_locale_path(:en)
+		nav class="navbar navbar-default"				
 				
 			div class="container"
+
 				div class="navbar-header"
 					button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false" Menu
 				
-					div.top-title =link_to 'Elite Personal World','/'
+					div.logo =link_to image_tag("EliteV2.png") ,'/'
+				div class="contacts-flags"
+					.flags				
+						= link_to image_tag('RU.png'), change_locale_path(:ru)
+						= link_to image_tag('EN.png'), change_locale_path(:en)
+					.phone-contacts
+						span +7 (916) 922-28-17
 					
-					.motto
-						span since 2004
 					
 				div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"
 					ul class="nav navbar-nav"

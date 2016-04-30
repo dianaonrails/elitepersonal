@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160326123230) do
+ActiveRecord::Schema.define(version: 20160425111312) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -164,6 +164,7 @@ ActiveRecord::Schema.define(version: 20160326123230) do
     t.string   "salary"
     t.string   "country"
     t.string   "city"
+    t.string   "password"
   end
 
   add_index "candidates", ["email"], name: "index_candidates_on_email", unique: true

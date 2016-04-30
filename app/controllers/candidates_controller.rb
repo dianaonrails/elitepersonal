@@ -86,18 +86,9 @@ class CandidatesController < ApplicationController
   # GET /candidates/new
   def new
     @candidate = Candidate.new
-    @candidate.build_nanny_question
-
     @candidate.build_education_info
     @candidate.build_work_info
-    #@candidate.category_questions.build
-    
-    @candidate.build_governess_question
-    @candidate.build_cooker_question
-    @candidate.build_driver_question
-    @candidate.build_housekeeper_question
-    @candidate.build_assistance_question
-    @candidate.build_nurse_question
+    #@candidate.category_questions.build  
     @candidate.candidate_languages.build
   end
 
@@ -160,15 +151,7 @@ class CandidatesController < ApplicationController
         :gender,:height,:weight,:passport,:foreign_passport,:marital_status,:children,:sign,:nationality, :years_experience, :salary,
         :smoker, :car,:driving_licence,:level_education_id,candidate_languages_attributes: [:id,:candidate_id,:language_id],education_info_attributes: [:id,:history],
         :work_info_attributes => [:sectors_experience,:current_job,:last_employer,:key_skills],
-        :availability_ids => [],:available_work_ids =>[],:legal_work_ids =>[], :category_question_ids => [],
-        nanny_question_attributes:[:id,:cooking,:walking,:cleaning,:birth_to_one,:one_to_three,:three_to_six,:regime,
-          :education,:trips,:work_several,:household_help],
-        driver_question_attributes:[:id,:personal_driver,:family_driver,:children,:washing,:luxury_car,:weapons_bodyguard,:trips,:care_house],
-        housekeeper_question_attributes:[:id,:dry_wet,:washing,:vip,:furniture,:cooking,:plants_animals,:appliances,:large_areas],
-        governess_question_attributes:[:five_to_seven,:seven_to_ten,:cooking,:school,:assistant,:foreign_languages,:several_children],
-        nurse_question_attributes:[:older_people,:ambulant_patients,:immobile_patients,:measurements,:intramuscular_injection,:intravenous_injection,
-          :procedures,:cleaning_cooking],
-        cooker_question_attributes:[:family,:restaurants,:purchase,:menu,:banquets,:during_banquet,:kids,:diets,:knowledge_kitchen],
-        assistance_question_attributes:[:dry_wet,:washing_ironing,:vip,:cooking,:systems,:driving,:pool,:small_repairs,:cares,:garden,:plants,:pet_grooming])
+        :availability_ids => [],:available_work_ids =>[],:legal_work_ids =>[], :category_question_ids => []
+        )
     end
 end

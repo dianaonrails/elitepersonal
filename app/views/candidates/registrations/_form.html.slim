@@ -100,12 +100,12 @@
 			   .col-md-3.no-padding	
 			   	 =raw(general_translation("NATIONALITY")) +' *'
 			   .col-md-9
-			   	 =f.text_field :nationality,class:'length-input'
+			   	 =f.country_select(:nationality, priority_countries: ["RU"])
 			.col-md-12.align-field
 			   .col-md-3.no-padding
 			   	 =raw(general_translation("CITIZENSHIP")) + ' *'   	 
 			   .col-md-9
-			   	 =f.text_field :citizenship,class:'length-input'
+			   	 =f.country_select(:citizenship, priority_countries: ["RU"])
 			.col-md-12.align-field   	 
 			   .col-md-3.no-padding	
 			   	 =raw(general_translation("SMOKER"))
@@ -169,35 +169,14 @@
 	  	  =raw(general_translation("TXT_SELECT_CATEGORY"))
 	  	  br
 	  	  -if session[:locale] == :en
-	  	  	=f.collection_select(:category_id,Category.all,:id,:en, {prompt: true},{onchange: "CategoryQuestions(this);"})
+	  	  	=f.collection_select(:category_id,Category.all,:id,:en, {prompt: true})
 	  	  -else
-	  	  	=f.collection_select(:category_id,Category.all,:id,:ru, {prompt: true},{onchange: "CategoryQuestions(this);"})	
+	  	  	=f.collection_select(:category_id,Category.all,:id,:ru, {prompt: true})	
 	  	
 	  	  br
 	  	  div id="questions"
-	  	.col-md-12.align-field id="category-questions"
-	  		#nanny style="display:none;"
-	  			= f.fields_for :nanny_question do |builder|
-	  				//=builder.hidden_field :category_id, value: 
-	  				= render "layouts/nanny_questions", :f => builder
-	  		#driver style="display:none;"
-	  			= f.fields_for :driver_questions do |builder|
-	  				= render "layouts/driver_questions", :f => builder
-	  		#housekeeper style="display:none;"
-	  			= f.fields_for :housekeeper_questions do |builder|
-	  				= render "layouts/housekeeper_questions", :f => builder
-	  		#cooker style="display:none;"
-	  			= f.fields_for :cooker_questions do |builder|
-	  				= render "layouts/cooker_questions", :f => builder
-	  		#governess style="display:none;"
-	  			= f.fields_for :governess_questions do |builder|
-	  				= render "layouts/governess_questions", :f => builder
-	  		#nurse style="display:none;"
-	  			= f.fields_for :nurse_questions do |builder|
-	  				= render "layouts/nurse_questions", :f => builder
-	  		#assistance style="display:none;"
-	  			= f.fields_for :assistance_questions do |builder|
-	  				= render "layouts/assistance_questions", :f => builder	
+	  	.col-md-12.align-field
+	  		
 		  	.col-md-12.align-field
 		  		=raw(general_translation("DESCRIBE_YOURSELF"))
 		  		br
@@ -211,6 +190,8 @@
 				=raw(general_translation("YEARS_EXPERIENCE"))
 				'&nbsp;
 				=f.select(:years_experience, options_for_select(["0","1","2","+3"]))
+			.col-md-12
+				hr	
 			.col-md-12.align-field
 				=raw(general_translation("LAST_JOBS"))
 				.col-md-12.no-padding.margin-job

@@ -20,6 +20,5 @@
 #
 
 class DriverQuestion < ActiveRecord::Base
-	belongs_to :client_request
-	belongs_to :candidate
+	
 end

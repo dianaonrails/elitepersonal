@@ -37,21 +37,7 @@ class ClientRequest < ActiveRecord::Base
 
 	has_many :availabilities
 	has_many :available_works
-	has_many :nanny_questions
-	has_many :driver_questions
-	has_many :housekeeper_questions
-	has_many :cooker_questions
-	has_many :governess_questions
-	has_many :nurse_questions
-	has_many :assistance_questions
-
-
-  	accepts_nested_attributes_for :nanny_questions,allow_destroy: true
-  	accepts_nested_attributes_for :driver_questions,allow_destroy: true
-  	accepts_nested_attributes_for :housekeeper_questions, allow_destroy: true
-  	accepts_nested_attributes_for :cooker_questions, allow_destroy: true
-  	accepts_nested_attributes_for :governess_questions, allow_destroy: true
-  	accepts_nested_attributes_for :nurse_questions, allow_destroy: true
-  	accepts_nested_attributes_for :assistance_questions, allow_destroy: true
+	
+  	
 	accepts_nested_attributes_for :client_resquest_languages
 end

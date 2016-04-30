@@ -19,9 +19,9 @@ require "net/http"
 require 'mechanize'
 class InterviewsController < ApplicationController
 	set_tab :interviews
-	skip_before_filter  :verify_authenticity_token, only: [:connect_guest_to_host_sms]
-	before_action :set_twilio_params, only: [:connect_guest_to_host_sms]
-	skip_before_filter :verify_authenticity_token
+	#skip_before_filter  :verify_authenticity_token, only: [:connect_guest_to_host_sms]
+	#before_action :set_twilio_params, only: [:connect_guest_to_host_sms]
+	skip_before_action :verify_authenticity_token if :send_sms?
 
 
 	def interviews_candidate
@@ -36,20 +36,27 @@ class InterviewsController < ApplicationController
 		@candidate = Candidate.find(params[:candidate])
 	end
 
+	def send_sms
+		agent = Mechanize.new
+
+		puts "*******"
+	    agent.post("http://rest.innovativetxt.com/smsapi/index.php",{"to"=>"+351912247759","from"=>"+351912247759","text"=>"bla","api_key"=>"zb2ztwc6","api_secret"=>"k3ee9khd"})
+	end
+
 	def send_text_message(candidate,date,address, from)
 	    number_to_send_to = candidate.mobile
 
-	    account_sid = "AC0e699ed43b732b395508551daf6f2ec6"
-	    auth_token = "8ce3b032459789f885e95f207602b04d"
-	    twilio_phone_number = "4695186374"
+	    #account_sid = "AC0e699ed43b732b395508551daf6f2ec6"
+	    #auth_token = "8ce3b032459789f885e95f207602b04d"
+	    
 
-	    @twilio_client = Twilio::REST::Client.new account_sid, auth_token
+	    #@twilio_client = Twilio::REST::Client.new account_sid, auth_token
 
-	    @twilio_client.account.sms.messages.create(
-	      :from => from,
-	      :to => number_to_send_to,
-	      :body => "You have and interview date:#{date}, answer with yes / no / busy."
-	    )
+	    #@twilio_client.account.sms.messages.create(
+	    #  :from => from,
+	    #  :to => number_to_send_to,
+	    #  :body => "You have and interview date:#{date}, answer with yes / no / busy."
+	    #)
   	end
 
 
@@ -65,25 +72,24 @@ class InterviewsController < ApplicationController
 		#number = '+351912247759'
 		#message = 'Hello World!'
 		
-		agent = Mechanize.new
+		
 
 		@interview.status = "pending"
-		@interview.provision_phone_number
+		#@interview.provision_phone_number
 	    respond_to do |format|
 	      if @interview.save
 	      	
 	      	
 
-	      	send_text_message(candidate,date,address, @interview.phone_number)
+	      	#send_text_message(candidate,date,address, @interview.phone_number)
 	        #sms_fu.deliver("351912247759","at&t","message")
 	        #params = {'email'=>'d.r.carvalho89@gmail.com','password'=>'3j1B12Nw5d','device'=>'14417','number' => '+351912247759',
 			#'message'=>'ola'}
 			#x = Net::HTTP.post_form(URI.parse('http://smsgateway.me/api/v3/messages/send/'), params)
 	        #puts x.body
-	        #page = agent.post("http://smsgateway.me/api/v3/messages/send",{'email'=>'d.r.carvalho89@gmail.com','password'=>'3j1B12Nw5d','device'=>'15024','number' => candidate.mobile,
-			#'message'=>'Hello, it´s from ElitePersonalWorld, we are contacting you for an interview, the date:' + @interview.interview_date.strftime("%d/%m/%Y") + ' at ' + @interview.hour + '. Answer with yes / no(because already found a job) / reschedule(another day and hour)'})
+	        send_sms
 	        format.html { redirect_to @interview, notice: 'The interview was schedule we will confirm with you.' }
-	        format.json { render :show, status: :created, location: @interview }
+	        #format.json { render :show, status: :created, location: @interview }
 
 	      else
 	        format.html { render :new }

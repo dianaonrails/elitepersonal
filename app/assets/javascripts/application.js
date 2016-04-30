@@ -15,7 +15,6 @@
 //= require bootstrap-sprockets
 //= require jquery_nested_form
 //= require underscore
-//= require gmaps/google
 //= require owl.carousel
 //= require react
 //= require react_ujs
@@ -33,63 +32,35 @@
 //= require_directory .
 
 
+function CategoryQuestions(){
+	
+		$('#candidate_category_id').change(function(){
+			$( "#questions" ).empty();
+			if($(this).val()){
+				$.ajax({
+			      type: "GET",
+			      dataType: 'html',
+			      url:'/category_questions/get_questions',
+			      data: {'category_id': $(this).val()},
+			      success: function(data) {
+			  		if(data){
+			  			$('#questions').append(data);
+			  		}
+			  		else{
+			  			$('#questions').append('<h4>No records.</h4>');
+			  		}
+			      },
+			      error: function(data){
+				    	$('#questions').append('<h4>error</h4>');
+			      }
+			    });
+			}
+			else{
+				$('#questions').append('<h4></h4>');
+			}
+		});
 
-function ShowQuestions(sel){
-	//e.preventDefault();
-	alert(sel.options[sel.selectedIndex].text);
-	$('#nanny').css("display", "none");
-	$('#governess').css("display", "none");
-	$('#cooker').css("display", "none");
-	$('#driver').css("display", "none");
-	$('#housekeeper').css("display", "none");
-	$('#assistance').css("display", "none");
-	$('#nurse').css("display", "none");
-	var category = sel.value;
-	var name = sel.options[sel.selectedIndex].text;
-	if(name == "Chauffeur / Driver"){
-		$('#driver').css("display", "block");
-	}
-	if(name == 'Babysitter / Nanny') {
-		$('#nanny').css("display", "block");
-	}
-	if(name == 'Housekeeper / Cleaning'){
-		$('#housekeeper').css("display", "block");
-	}
-	if(name == 'Tutors / Governesses'){
-		$('#governess').css("display", "block");
-	}
-	if(name == 'Chef / Cook'){
-		$('#cooker').css("display", "block");
-	}
-	if(name == 'Domestic Couple / Gardner'){
-		$('#assistance').css("display", "block");
-	}
-	if(name == 'Nurse'){
-		$('#nurse').css("display", "block");
-	}
-
-};
-
-
-function CategoryQuestions(id){
-	$( "#questions" ).empty();
-	$.ajax({
-      type: "GET",
-      dataType: 'html',
-      url:'/category_questions/get_questions',
-      data: {'category_id': id},
-      success: function(data) {
-  		if(data){
-  			$('#questions').append(data);
-  		}
-  		else{
-  			$('#questions').append('<h3>No records </h3>');
-  		}
-      },
-      error: function(data){
-	    	$('#questions').append('<h3>No records </h3>');
-      }
-    });
+	
 }
 
 
@@ -103,6 +74,7 @@ function exportPDF(){
 };
 
 $(document).ready(function () {
+
 	$('.carousel').carousel();
 	$('.datepicker').datepicker();
 	
@@ -129,7 +101,7 @@ $(document).ready(function () {
 	
      
 
-    CategoryQuestions($('#candidate_category_id').val());
+    CategoryQuestions();
     
 	jQuery('.flyers .flyer-links a').on('click', function(e)  {
         var currentAttrValue = jQuery(this).attr('href');
