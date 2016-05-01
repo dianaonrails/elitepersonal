@@ -4,7 +4,8 @@ ActiveAdmin.register Candidate do
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
 permit_params :photo,:cv,:category_id,:first_name,:last_name,:country,:city,:address,:password,:confirmation_password,:mobile,:email,:citizenship,:birth_date,
-        :gender,:height,:weight,:passport,:foreign_passport,:marital_status,:children,:sign,:nationality, :years_experience, :salary,
+        :gender,:height,:weight,:passport,:foreign_passport,:marital_status,:children,:sign,:nationality, :years_experience, :salary, :date_start1, :date_end1, 
+        :employer1, :functions1, :date_start2, :date_end2, :employer2, :functions2,
         :smoker, :car,:driving_licence,:level_education_id,candidate_languages_attributes: [:id,:candidate_id,:language_id],education_info_attributes: [:id,:history],
         :work_info_attributes => [:sectors_experience,:current_job,:last_employer,:key_skills],
         :category_question_ids => [],
@@ -17,7 +18,7 @@ permit_params :photo,:cv,:category_id,:first_name,:last_name,:country,:city,:add
 #   permitted
 # end
 	action_item only: [:show] do
-	  button_tag 'Download File', id:"exportPDF", class:"word-export"
+	  button_tag 'Print File', id:"exportPDF", class:"word-export"
 	end
 
 	member_action :download do
@@ -61,8 +62,7 @@ permit_params :photo,:cv,:category_id,:first_name,:last_name,:country,:city,:add
 	form(:html => { :multipart => true }) do |f|
 
 		inputs 'Candidate' do
-			
-			
+		
 			f.input :photo,:as => :file, :hint => image_tag(f.object.photo.url(:thumb))
 			f.input :cv,:as => :file
 			input :category_id, as: :select, collection: Category.all.map{|u| ["#{u.title}", u.id]}
@@ -111,6 +111,16 @@ permit_params :photo,:cv,:category_id,:first_name,:last_name,:country,:city,:add
 					
 				end	
 			end
+			panel 'Last Two Jobs:' do				
+				f.inputs :date_start1
+				f.inputs :date_end1
+				f.inputs :employer1
+				f.inputs :functions1
+				f.inputs :date_start2
+				f.inputs :date_end2
+				f.inputs :employer2
+				f.inputs :functions2
+			end	
 			f.inputs 'Work Info' do
 				
 				input :description, as: :text,cols:'60',rows:'5'
@@ -122,6 +132,7 @@ permit_params :photo,:cv,:category_id,:first_name,:last_name,:country,:city,:add
 				end	
 				f.input :salary
 			end
+
 			f.input :availabilities, :as => :check_boxes, collection: Availability.all, label: "Availability:",member_label: :description
 			f.input :available_works, :as =>:check_boxes, collection: AvailableWork.all, label: "Available to work:" ,member_label: :description
 			f.input :legal_works,:as => :check_boxes, collection: LegalWork.all,label: "Legal to work:", member_label: :description
@@ -134,11 +145,6 @@ permit_params :photo,:cv,:category_id,:first_name,:last_name,:country,:city,:add
 			column do
 				panel 'Personal Info' do
 					attributes_table_for candidate do
-						
-						row "print" do
-							#link_to 'Export PDF',controller: candidate, action: show_pdf, candidate_id: candidate.id
-							#button_to_function "Export to PDF",exportPDF() ,id:"info", class:"btn btn-info" 
-						end	
 						row :photo do
 							#candidate.input :photo, :as => :file, :hint => image_tag(candidate.photo.url) 
 							image_tag(candidate.photo.url(:thumb))
@@ -148,7 +154,7 @@ permit_params :photo,:cv,:category_id,:first_name,:last_name,:country,:city,:add
 						end	
 						row 'Category' do
 							Category.find(candidate.category_id).title
-
+					
 						end
 						attributes_table_for candidate.category_questions do
 							row 'Category Questions' do |n|
@@ -192,9 +198,24 @@ permit_params :photo,:cv,:category_id,:first_name,:last_name,:country,:city,:add
 					
 					attributes_table_for candidate.work_info do
 						row :sectors_experience
+						
 					end
-					
+					panel 'Last Two Jobs:' do
+						attributes_table_for candidate do					
+							row :date_start1
+							row :date_end1
+							row :employer1
+							row :functions1
+							row :date_start2
+							row :date_end2
+							row :employer2
+							row :functions2
+						end	
+					end	
+				
 				end
+			end	
+			column do
 				panel 'Education Info' do
 					attributes_table_for candidate.education_info do
 						row :level
@@ -202,6 +223,8 @@ permit_params :photo,:cv,:category_id,:first_name,:last_name,:country,:city,:add
 						row :languages
 					end	
 				end
+				
+				
 
 				panel 'Availability' do
 					attributes_table_for candidate.availabilities do 

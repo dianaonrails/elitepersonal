@@ -41,27 +41,9 @@
 				=image_tag("babysitter-photo.png")
 				button type="button" class="btt-category" 
 					=link_to t(:find_a) + category_translation('NANNY'),'/services#babysitter'
-			div class="item"
-				=image_tag("template-cooker.png")	
-				button type="button" class="btt-category" 
-					=link_to t(:find_a) + category_translation('COOKER'),'/services#cooker'
-			div class="item"
-				=image_tag("template-driver.png")
-				button type="button" class="btt-category" 
-					=link_to t(:find_a) + category_translation('DRIVER'),'/services#driver'
-			div class="item"
-				=image_tag("template-housekeeper.png")
-				button type="button" class="btt-category" 
-					=link_to t(:find_a) + category_translation('HOUSEKEEPER'),'/services#housekeeper'
-			//div class="item"
-			//	=image_tag("template-nurse.png")
-			//	button type="button" class="btt-category" 
-			//		=link_to t(:find_a) + t(:nurse),'/services#nurse'
+			
 	hr.hr-blue
 	.col-md-12.flyers.no-padding
-		//.col-md-12.start-container
-		//	h1.start-title.center.space-top 
-		//		=t(:lets_start)
 		ul.flyer-links
 			li.active 
 				a href="#tab1" 
@@ -122,8 +104,5 @@
 								=image_tag("time51.png")
 							h3.tab-title 
 								=raw(general_translation("CANDIDATE_STEP4"))
-//.background-middle
-	//.container.background-white			
-
 
 =render "layouts/footer"

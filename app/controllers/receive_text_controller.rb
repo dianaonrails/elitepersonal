@@ -1,4 +1,4 @@
-class ReceiveTextController < ActionController
+class ReceiveTextController < ApplicationController
   def send_sms 
     # let's pretend that we've mapped this action to 
     # http://localhost:3000/sms in the routes.rb file

@@ -12,6 +12,9 @@
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
 #  hour              :string
+#  phone_number      :string
+#  client_id         :integer
+#  status            :string
 #
 
 class Interview < ActiveRecord::Base

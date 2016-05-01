@@ -157,17 +157,14 @@ $(document).ready(function () {
   	});
 
 	$('#exportPDF').click(function () {
- 		//$("#main_content").wordExport();
- 		var content = document.getElementById('main_content');
+ 		window.print();
+ 		return false;
+ 		
+ 		//var content = document.getElementById('main_content');
 
- 		var converted = htmlDocx.asBlob(content.innerHTML, {orientation: 'landscape', margins: {top: 100}});
-		saveAs(converted, 'candidate.docx');
- 		//$("#main_content").wordExport();
-        //var doc = new jsPDF();
-        //doc.fromHTML($('#main_content').html(), 15, 15, {
-        //    'width': 170,'elementHandlers': specialElementHandlers
-        //});
-        //doc.save('sample-file.pdf');
+ 		//var converted = htmlDocx.asBlob(content.innerHTML, {orientation: 'landscape', margins: {top: 100}});
+		//saveAs(converted, 'candidate.docx');
+ 		
     });
 
 });

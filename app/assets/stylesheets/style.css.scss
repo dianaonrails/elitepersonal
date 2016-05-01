@@ -87,6 +87,7 @@ body{
 	font-family: 'Fira Sans', sans-serif;
 	background-image:url("fabric_of_squares_gray.png");
 	background-repeat:yes;
+	min-height:100%;
 }
 
 a{
@@ -494,11 +495,11 @@ p{
 	background-image:url('low_contrast_linen.png');
 	background-repeat:repeat-x;
 	background-color:#49717B;
-	padding: 0;
-	position: relative;
-	bottom:0;
-	
-	width: 100%;
+	margin-top: 3%;
+	clear: both;
+    position: relative;
+    z-index: 10;
+    height: 10em;
 }
 .start-container{
 	background-color: rgba(247,249,254,0.7);

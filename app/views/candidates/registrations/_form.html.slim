@@ -199,39 +199,40 @@
 					.col-md-6.no-padding.align-item
 						=raw(general_translation("DATE_START"))
 						'&nbsp;
-						input type="text" data-provide='datepicker' size="15"	
+						=f.text_field :date_start1, class:"datepicker"
+						
 
 					.col-md-6.align-item
 						=raw(general_translation("DATE_END"))
 						'&nbsp;
-						input type="text" data-provide='datepicker' size="15"
+						=f.text_field :date_end1, class:"datepicker"
 					.col-md-12.no-padding.align-item
 						=raw(general_translation("EMPLOYER"))
 						'&nbsp;
-						=text_field_tag :employer1,nil,size:'55%'
+						=f.text_field :employer1,size:'55%'
 					.col-md-12.no-padding
 						=raw(general_translation("DESCRIPTION"))
 						br
-						=text_area_tag :description, nil,cols:'50',rows:'4'
+						=f.text_area :functions1, cols:'50',rows:'4'
 									
 				.col-md-12.no-padding
 
 					.col-md-6.no-padding.align-item
 						=raw(general_translation("DATE_START"))
 						'&nbsp;
-						input type="text" data-provide='datepicker' size="15"		
+						=f.text_field :date_start2, class:"datepicker"		
 					.col-md-6.align-item
 						=raw(general_translation("DATE_END"))
 						'&nbsp;
-						input type="text" data-provide='datepicker' size="15"
+						=f.text_field :date_end2, class:"datepicker"
 					.col-md-12.no-padding.align-item
 						=raw(general_translation("EMPLOYER"))
 						'&nbsp;
-						=text_field_tag :employer2,nil,size:'55%'		
+						=f.text_field :employer2,size:'55%'		
 					.col-md-12.no-padding
 						=raw(general_translation("DESCRIPTION"))
 						br
-						=text_area_tag :description, nil,cols:'50',rows:'4'	
+						=f.text_area :functions2,cols:'50',rows:'4'	
 				hr				
 				//.col-md-12.align-field  
 			  	//  =label_tag ' Current/most recent job title'

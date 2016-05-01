@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160425111312) do
+ActiveRecord::Schema.define(version: 20160501111456) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -165,6 +165,14 @@ ActiveRecord::Schema.define(version: 20160425111312) do
     t.string   "country"
     t.string   "city"
     t.string   "password"
+    t.date     "date_start1"
+    t.date     "date_end1"
+    t.string   "employer1"
+    t.text     "functions1"
+    t.date     "date_start2"
+    t.date     "date_end2"
+    t.string   "employer2"
+    t.text     "functions2"
   end
 
   add_index "candidates", ["email"], name: "index_candidates_on_email", unique: true
@@ -211,6 +219,13 @@ ActiveRecord::Schema.define(version: 20160425111312) do
 
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable"
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
+
+  create_table "client_languages", force: :cascade do |t|
+    t.integer  "client_id"
+    t.integer  "language_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "client_requests", force: :cascade do |t|
     t.string   "full_name"
@@ -291,6 +306,7 @@ ActiveRecord::Schema.define(version: 20160425111312) do
     t.boolean  "care_house"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.integer  "client_request_id"
   end
 
   create_table "education_infos", force: :cascade do |t|

@@ -45,6 +45,15 @@
 #  salary                 :string
 #  country                :string
 #  city                   :string
+#  password               :string
+#  date_start1            :date
+#  date_end1              :date
+#  employer1              :string
+#  functions1             :text
+#  date_start2            :date
+#  date_end2              :date
+#  employer2              :string
+#  functions2             :text
 #
 
 class Candidate < ActiveRecord::Base
