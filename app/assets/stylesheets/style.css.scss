@@ -64,6 +64,7 @@ $darkblue:#1c434c;
     .navbar-default .navbar-nav > li > a{
     	font-size: 2em;
     	text-align: center;
+
     }
    
     
@@ -189,7 +190,7 @@ p{
 		li{
 			margin-top: 10%;
 			img{
-				width: 8%;
+				width: 12%;
 			}
 		}
 		.list-title{
@@ -347,9 +348,9 @@ p{
 
 .navbar-nav{
 	float:right;
-	margin-top:2%;
+	margin-top:1%;
 	display:table;
-	width:70%;
+	width:75%;
 }
 
 .navbar-default{
@@ -370,11 +371,14 @@ p{
 }
 
 .navbar-nav > li:hover{
-	background-color: #e7e7e7;
+	background-color: none;
 	color: #555;
+	
 }
 
-
+.navbar-nav > li > a:hover{
+	font-weight:700;
+}
 
 .nav >li{
 	display: table-cell;
@@ -552,7 +556,7 @@ p{
 				float: left;
 				text-align: center;
 				background-color:white;
-				padding:10px;
+				padding:15px;
 				color:$darkblue;
 			}
 			a:hover{
