@@ -36,9 +36,9 @@
 						=raw(general_translation("JOB_CATEGORY"))
 					.col-md-8
 						-if session[:locale] == :en
-							=collection_select(:client_request,:category_id,Category.all,:id,:en,required:true)	
+							=collection_select(:client,:category_id,Category.all,:id,:en,required:true)	
 						-else
-							=collection_select(:client_request,:category_id,Category.all,:id,:ru,required:true)		
+							=collection_select(:client,:category_id,Category.all,:id,:ru,required:true)		
 				
 				.col-md-12.align-field.no-padding
 					.col-md-4.no-padding
