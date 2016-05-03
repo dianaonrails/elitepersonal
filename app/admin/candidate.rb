@@ -154,7 +154,6 @@ permit_params :photo,:cv,:category_id,:first_name,:last_name,:country,:city,:add
 						end	
 						row 'Category' do
 							Category.find(candidate.category_id).title
-					
 						end
 						attributes_table_for candidate.category_questions do
 							row 'Category Questions' do |n|

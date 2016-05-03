@@ -4,7 +4,6 @@ ActiveAdmin.setup do |config|
   # Set the title that is displayed on the main layout
   # for each of the active admin pages.
   #
-  config.download_links = [:pdf]
   config.site_title = "Elitepersonal"
 
   # Set the link url for the title. For example, to take

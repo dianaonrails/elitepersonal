@@ -12,6 +12,8 @@ permit_params :state, :candidate_id, :vacancy_id
 #   permitted << :other if resource.something?
 #   permitted
 # end
+
+
 	form do |f|
 		inputs 'Application' do
 			f.input :state
