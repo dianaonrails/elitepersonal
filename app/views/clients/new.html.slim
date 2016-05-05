@@ -3,7 +3,8 @@
 		.col-md-6.align-content
 			h1 
 				=raw(general_translation("TITLE_CLIENT"))
-			=raw(general_translation("CONTENT_CLIENT"))
+			.text-style.paragraph-margin
+				=raw(general_translation("CONTENT_CLIENT"))
 		.col-md-6.form-content
 			-if flash[:notice]
 				div class="alert alert-success" role="alert"

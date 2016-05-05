@@ -21,11 +21,12 @@
 							br
 							= f.check_box :remember_me
 							= raw(general_translation("REMEMBER"))
-							br
+							
 							= button_tag(type: 'submit', class: "btn btn-primary all-width") do
 								=raw(general_translation("BTT_SIGNIN"))
 							//= link_to "Forgot your password?", new_password_path(:user)
-						h4
-							=raw(general_translation("TXT_ACCOUNT"))
-						=link_to raw(general_translation("LINK_SIGNUP")),new_candidate_registration_path
+						.sign-in__register
+							h4
+								=raw(general_translation("TXT_ACCOUNT"))
+							=link_to raw(general_translation("LINK_SIGNUP")),new_candidate_registration_path
 =render "layouts/footer"
