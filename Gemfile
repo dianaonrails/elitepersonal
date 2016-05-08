@@ -99,6 +99,8 @@ gem 'fullcalendar-rails'
 gem 'react-rails', '~> 1.4.0'
 gem 'ckeditor'
 
+gem "fog-aws"
+
 #gem 'mysql2', '~> 0.3.18'
 
 group :development, :test do
