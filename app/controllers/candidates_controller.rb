@@ -160,7 +160,6 @@ class CandidatesController < ApplicationController
         :gender,:height,:weight,:passport,:foreign_passport,:marital_status,:children,:sign,:nationality, :years_experience, :salary,
         :smoker, :car,:driving_licence,:level_education_id,candidate_languages_attributes: [:id,:candidate_id,:language_id],education_info_attributes: [:id,:history],
         :work_info_attributes => [:sectors_experience,:current_job,:last_employer,:key_skills],
-        :availability_ids => [],:available_work_ids =>[],:legal_work_ids =>[], :category_question_ids => [],
-        :date_end1,:employer1, :functions1,:date_start2,:date_end2,:employer2,:functions2)
+        :availability_ids => [],:available_work_ids =>[],:legal_work_ids =>[], :category_question_ids => [])
     end
 end

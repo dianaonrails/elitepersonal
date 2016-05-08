@@ -5,19 +5,17 @@
 					- @client_request.errors.full_messages.each do |message|
   					li = message
   				
-	.col-md-6.border-right.top-space.bottom-space
+	.col-md-6.top-space.bottom-space
 		=f.hidden_field :client_id, value: @client
 		h4.blue Questions about the candidate that you are looking for: 
 		.field
 			label.label-bold Gender:
-			.
-			=label_tag 'Feminine', nil
-		    '&nbsp;
-		    =f.radio_button(:gender, 'f')
-
-		    =label_tag 'Masculine',nil
-		    '&nbsp;
-		    =f.radio_button(:gender, 'm')
+			.gender
+				=label_tag 'Feminine', nil
+			    =f.radio_button(:gender, 'f')
+			.gender
+			    =label_tag 'Masculine',nil
+			    =f.radio_button(:gender, 'm')
 		.field
 			label.label-bold Height:
 			=f.text_field :height, size:"10%"
@@ -38,16 +36,16 @@
 		   	=f.select(:marital_status,options_for_select(["Single","Married",'Divorced','Separated','Widowed','In a relationship','Civil Partnership','Rather not say']),:include_blank => true)
 		.field
 			label.label-bold Nationality:
-			=f.text_field :nationality
+			=f.country_select(:nationality, priority_countries: ["RU"], include_blank: true)
 		.field
 			label.label-bold Citizenship:
-			=f.text_field :citizenship
+			=f.country_select(:citizenship, priority_countries: ["RU"], include_blank: true)
 		.field
 			label.label-bold Can be a smoker?
 			=f.select(:smoker,options_for_select([["yes", true],["no",false]]),:include_blank => true)
 		.field
 			label.label-bold Zodiac sign?
-			=f.select(:zodiac_sign,options_for_select(["Aquarius", "Piscis", "Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio","Sagittarius", "Capricorn"]))
+			=f.select(:zodiac_sign,options_for_select(["Aquarius", "Piscis", "Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio","Sagittarius", "Capricorn"]),include_blank: true)
 		.field
 			label.label-bold Driving license?
 			=f.select(:driving_license,options_for_select([["yes", true],["no",false]]),:include_blank => true)
@@ -58,30 +56,13 @@
 		h4.blue Questions about education and experience of the candidate:
 		.field
 			label.label-bold Category
-			=f.collection_select(:category_id,Category.all,:id,:title, {prompt: true},{onchange: "ShowQuestions(this);"})
-		.col-md-12.align-field id="category-questions"
-	  		#nanny style="display:none;"
-	  			= f.fields_for :nanny_questions do |builder|
-	  				= render "layouts/nanny_questions", :f => builder
-	  		#driver style="display:none;"
-	  			= f.fields_for :driver_questions do |builder|
-	  				= render "layouts/driver_questions", :f => builder
-	  		#housekeeper style="display:none;"
-	  			= f.fields_for :housekeeper_questions do |builder|
-	  				= render "layouts/housekeeper_questions", :f => builder
-	  		#cooker style="display:none;"
-	  			= f.fields_for :cooker_questions do |builder|
-	  				= render "layouts/cooker_questions", :f => builder
-	  		#governess style="display:none;"
-	  			= f.fields_for :governess_questions do |builder|
-	  				= render "layouts/governess_questions", :f => builder
-	  		#nurse style="display:none;"
-	  			= f.fields_for :nurse_questions do |builder|
-	  				= render "layouts/nurse_questions", :f => builder
-	  		#assistance style="display:none;"
-	  			= f.fields_for :assistance_questions do |builder|
-	  				= render "layouts/assistance_questions", :f => builder														
-	  			//=render partial: "nanny_questions",:locals => {:event => @client_request}
+			-if session[:locale] == :en
+	  	  		=f.collection_select(:category_id,Category.all,:id,:en, {prompt: true})
+	  	  	-else
+	  	  		=f.collection_select(:category_id,Category.all,:id,:ru, {prompt: true})
+			br
+			div id="questions"											
+	  		
 	  			
 		.field
 			label.label-bold Highest level of education?

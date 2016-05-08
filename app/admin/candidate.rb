@@ -76,15 +76,15 @@ permit_params :photo,:cv,:category_id,:first_name,:last_name,:country,:city,:add
 			input :country
 			input :city
 			input :address
-			input :gender
+			input :gender, as: :select, collection:['f', 'm']
 			input :email
 			input :password
 			#input :confirmation_password
 			input :height
 			input :weight
 			input :birth_date ,order: [:day, :month, :year],start_year:1950
-			input :citizenship
-			input :nationality
+			input :citizenship, as: :country, priority_countries: ['RU']
+			input :nationality, as: :country, priority_countries: ['RU']
 			input :passport
 			input :foreign_passport
 			input :marital_status, as: :select, collection: ['Single','Married','Divorced','Separated','Widowed','In a relationship','Civil Partnership','Rather not say']

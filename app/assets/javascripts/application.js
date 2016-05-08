@@ -34,7 +34,7 @@
 
 function CategoryQuestions(){
 	
-		$('#candidate_category_id').change(function(){
+		$('#candidate_category_id, #client_request_category_id').change(function(){
 			$( "#questions" ).empty();
 			if($(this).val()){
 				$.ajax({

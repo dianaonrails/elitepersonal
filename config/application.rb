@@ -21,6 +21,7 @@ module Elitepersonal
     # config.i18n.default_locale = :de
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
+    config.action_mailer.asset_host = 'http://elitepersonal.com'
     config.active_record.raise_in_transactional_callbacks = true
     #config.action_mailer.default_url_options = { :host => "localhost:3000"}
     config.i18n.fallbacks = true
