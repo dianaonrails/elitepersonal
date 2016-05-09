@@ -3,7 +3,7 @@ CarrierWave.configure do |config|
     provider:              'AWS',                        # required
     aws_access_key_id:     'AKIAJQYSAMG67OT35KFA',                        # required
     aws_secret_access_key: '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',                        # required
-    region:                'us-west-2'                  # optional, defaults to 'us-east-1'
+    region:                'us-west-2',                  # optional, defaults to 'us-east-1'
     host:                  's3-website-us-west-2.amazonaws.com',             # optional, defaults to nil
     endpoint:              'elitepersonalworld.s3-website-us-west-2.amazonaws.com' # optional, defaults to nil
   }
