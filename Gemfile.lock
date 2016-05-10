@@ -536,7 +536,7 @@ DEPENDENCIES
   polish (>= 0.1.0)
   prawn-rails
   premailer-rails
-  rails (= 4.2.0)
+  rails
   rails-i18n
   rails_12factor
   react-rails (~> 1.4.0)

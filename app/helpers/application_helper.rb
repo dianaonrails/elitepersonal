@@ -18,13 +18,15 @@ module ApplicationHelper
 	end
 
 	def general_translation(label)
-	    
+	    @result = ""
 	    if session[:locale] == :en
 	      puts "english"
+	      
 	      @result = GeneralTranslation.find_by_label(label).en if !GeneralTranslation.find_by_label(label).nil?
 	    else 
 	      
 	      puts "russian"
+
 	      @result = GeneralTranslation.find_by_label(label).ru if !GeneralTranslation.find_by_label(label).nil?
 	    end  
 

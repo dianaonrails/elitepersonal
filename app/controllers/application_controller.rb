@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
   helper_method :category_translation
  
   def category_translation(label)
+    @result = ""
     if session[:locale] == :en
         puts "english"
         @result = Category.find_by_title(label).en if !Category.find_by_title(label).nil?
