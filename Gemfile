@@ -103,12 +103,6 @@ gem "fog"
 
 #gem 'mysql2', '~> 0.3.18'
 
-gem 'capistrano'
-gem 'capistrano3-puma'
-gem 'capistrano-rails', require: false
-gem 'capistrano-bundler', require: false
-gem 'capistrano-rvm'
-
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
