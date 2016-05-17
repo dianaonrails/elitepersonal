@@ -67,7 +67,7 @@ gem 'roadie', '~> 3.1.1'
 
 gem 'intl-tel-input-rails'
 
-#gem 'cancancan', '~> 1.10'
+gem 'cancancan', '~> 1.10'
 
 gem 'rails-i18n'
 gem "i18n-js", ">= 3.0.0.rc11"
