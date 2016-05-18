@@ -6,6 +6,7 @@
 #  level      :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  ru         :string
 #
 
 require 'test_helper'

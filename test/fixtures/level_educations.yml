@@ -6,6 +6,7 @@
 #  level      :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  ru         :string
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
