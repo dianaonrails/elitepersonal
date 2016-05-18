@@ -16,7 +16,6 @@
 #  care_house        :boolean
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
-#  client_request_id :integer
 #
 
 require 'test_helper'
