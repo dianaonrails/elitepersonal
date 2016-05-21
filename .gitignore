@@ -5,7 +5,7 @@
 #   git config --global core.excludesfile '~/.gitignore_global'
 
 # Ignore S3
-/config/initializers/S3.rb
+#/config/initializers/S3.rb
 
 
 Gemfile.lock
