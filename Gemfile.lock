@@ -72,6 +72,10 @@ GEM
     arel (6.0.3)
     autoprefixer-rails (6.3.6)
       execjs
+    aws-s3 (0.6.3)
+      builder
+      mime-types
+      xml-simple
     babel-source (5.8.35)
     babel-transpiler (0.7.0)
       babel-source (>= 4.0, < 6)
@@ -504,6 +508,7 @@ PLATFORMS
 DEPENDENCIES
   activeadmin!
   annotate
+  aws-s3
   bootstrap-datepicker-rails!
   bootstrap-sass (~> 3.3.5)
   bootstrap3-datetimepicker-rails (~> 4.14.30)
