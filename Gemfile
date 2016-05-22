@@ -98,7 +98,7 @@ gem 'fullcalendar-rails'
 # gem 'capistrano-rails', group: :development
 gem 'react-rails', '~> 1.4.0'
 gem 'ckeditor'
-gem "fog"
+#gem "fog"
 gem 'carrierwave-aws'
 
 gem "figaro"
