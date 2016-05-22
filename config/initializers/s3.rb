@@ -9,4 +9,6 @@ CarrierWave.configure do |config|
 
   }
   config.fog_directory  = "elitepersonalworldapp"
+  config.fog_public = 'false'
+  config.fog_attributes = {'Cache-Control' => "max-age=#{365.to_i}" }
 end
