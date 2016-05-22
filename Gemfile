@@ -23,7 +23,7 @@ gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails',
                               :git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'
 
 # upload images
-gem 'carrierwave'
+gem 'carrierwave', github:'carrierwaveuploader/carrierwave'
 
 #gem 'active_admin_editor', github: 'ejholmes/active_admin_editor'
 
@@ -99,7 +99,7 @@ gem 'fullcalendar-rails'
 gem 'react-rails', '~> 1.4.0'
 gem 'ckeditor'
 gem "fog"
-gem 'carrierwave-aws'
+
 
 gem "figaro"
 
