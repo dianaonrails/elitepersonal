@@ -5,11 +5,9 @@
 #   git config --global core.excludesfile '~/.gitignore_global'
 
 # Ignore S3
-#/config/initializers/S3.rb
 
 /config/secrets.yml
 
-Gemfile.lock
 
 # Ignore bundler config.
 /.bundle
@@ -22,3 +20,6 @@ Gemfile.lock
 /log/*
 !/log/.keep
 /tmp
+
+# Ignore application configuration
+/config/application.yml

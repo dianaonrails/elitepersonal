@@ -101,6 +101,8 @@ gem 'ckeditor'
 
 gem "fog"
 
+gem "figaro"
+
 #gem 'mysql2', '~> 0.3.18'
 
 group :development, :test do
