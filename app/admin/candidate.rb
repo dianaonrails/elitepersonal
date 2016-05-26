@@ -62,8 +62,8 @@ permit_params :photo,:cv,:category_id,:first_name,:last_name,:country,:city,:add
 	form(:html => { :multipart => true }) do |f|
 
 		inputs 'Candidate' do
-			f.file_field :photo
-			#f.input :photo,:as => :file, :hint => image_tag(f.object.photo.url(:thumb))
+			#f.file_field :photo
+			f.input :photo,:as => :file, :hint => image_tag(f.object.photo.url(:thumb))
 			f.input :cv,:as => :file
 			input :category_id, as: :select, collection: Category.all.map{|u| ["#{u.title}", u.id]}
 			panel "Category Questions", id:"questions" do

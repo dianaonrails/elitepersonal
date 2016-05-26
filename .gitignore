@@ -8,6 +8,8 @@
 
 /config/secrets.yml
 
+# Ignore files which contain AWS keys
+.env
 
 Gemfile.lock
 
