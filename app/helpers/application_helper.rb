@@ -5,12 +5,7 @@ module ApplicationHelper
 	  now.year - birthday.year - (birthday.to_date.change(:year => now.year) > now ? 1 : 0)
 	end
 	
-	def country_name(countrycode)
-	    country = ISO3166::Country[countrycode]
-	    country.translations[I18n.locale.to_s] || country.name
-
-	    return country
-  	end
+	
 	def controller?(*controller)
 	    controller.include?(params[:controller])
 	end

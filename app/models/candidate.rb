@@ -70,6 +70,11 @@ class Candidate < ActiveRecord::Base
     
   end
 
+  def country_name
+    country = self.country
+    ISO3166::Country[country]
+   end
+
   scope :gender_feminine, -> {where(gender: 'f')}
   scope :gender_masculine, -> {where(gender: 'm')}
   scope :gender, -> (gender) {where(gender: gender) if gender.present?}
