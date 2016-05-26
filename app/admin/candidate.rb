@@ -60,7 +60,7 @@ permit_params :photo,:cv,:category_id,:first_name,:last_name,:country,:city,:add
 
 
 	form(:html => { :multipart => true }) do |f|
-
+		f.semantic_errors *f.object.errors.keys
 		inputs 'Candidate' do
 			#f.file_field :photo
 			f.input :photo,:as => :file, :hint => image_tag(f.object.photo.url(:thumb))
