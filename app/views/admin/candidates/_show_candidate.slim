@@ -43,10 +43,15 @@
 			br
 			-if !@candidate.level_education_id.blank?
 				span.active-admin__text =LevelEducation.find(@candidate.level_education_id).level
+			-else
+				span.active-admin__text no record	
 		.active-admin__field
 			span.active-admin__title Education History:
 			br
-			=@candidate.education_info.history
+			-if !@candidate.education_info.blank?
+				=@candidate.education_info.history
+			-else
+				span no record	
 	.active-admin__col-12
 		hr
 		.active-admin__field
