@@ -22,14 +22,13 @@ test:
 
 production:
   adapter: mysql2
-  database: elitepersonalworld_production
+  database: elitepersonalworldapp
   username: admin
-  host: elitepersonalapp.c088kradxrzu.us-west-2.rds.amazonaws.com
-  password: 12345678
+  host: elitepersonalworldapp.c088kradxrzu.us-west-2.rds.amazonaws.com
+  password: ENV['PASSWORD']
   port: 3306
   pool: 5
   timeout: 5000
   #<<: *default
   #database: db/production.sqlite3
-  
 

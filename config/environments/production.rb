@@ -4,13 +4,13 @@ Rails.application.configure do
   # Code is not reloaded between requests.
   config.cache_classes = true
 
-  config.action_mailer.default_url_options = { :host => 'ec2-54-149-80-140.us-west-2.compute.amazonaws.com' }
+  config.action_mailer.default_url_options = { :host => 'ec2-52-38-164-86.us-west-2.compute.amazonaws.com' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
       :address              => "smtp.zoho.com", 
       :port                 => 465,                 
       :user_name            => 'info@elitepersonalworld.com',
-      :password             => 'artem123',         
+      :password             => ENV['PASSWORD'],         
       :authentication       => :login,
       :ssl                  => true,
       :tls                  => true,
