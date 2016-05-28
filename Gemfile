@@ -96,7 +96,7 @@ gem 'react-rails', '~> 1.4.0'
 gem 'ckeditor'
 gem "fog"
 
-
+gem 'mysql2', '~> 0.4.2'
 gem "figaro"
 
 #gem 'mysql2', '~> 0.3.18'
@@ -116,7 +116,7 @@ end
 group :production do
 	gem 'rails_12factor'
 	#gem 'pg'
-  gem 'mysql2'
+  #gem 'mysql2'
 end	
 
 
