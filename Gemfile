@@ -46,7 +46,7 @@ gem 'gmaps4rails'
 
 gem 'activeadmin', github: 'activeadmin'
 
-
+gem 'countries_and_languages', :require => 'countries_and_languages/rails'
 gem 'country_select'
 gem 'mail_form'
 gem 'mechanize'
@@ -74,10 +74,6 @@ gem "i18n-js", ">= 3.0.0.rc11"
 gem 'russian'
 
 gem "polish", ">= 0.1.0"
-
-gem 'countries_and_languages', :require => 'countries_and_languages/rails'
-
-gem 'country_select'
 
 gem 'jspdf-rails'
 #gem 'wicked_pdf'
@@ -120,7 +116,7 @@ end
 group :production do
 	gem 'rails_12factor'
 	#gem 'pg'
-  
+  gem 'mysql2'
 end	
 
 
