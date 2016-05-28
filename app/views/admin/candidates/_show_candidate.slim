@@ -59,10 +59,10 @@
 		.active-admin__field
 			span.active-admin__title Sectors / Functions you have experience in:
 			br
-			-if @candidate.work_info.sectors_experience.blank?
-	  			span.active-admin__text no record
+			-if !@candidate.work_info.blank? && !@candidate.work_info.sectors_experience.blank?
+	  			span.active-admin__text =@candidate.work_info.sectors_experience
 	  		-else
-	  			span.active-admin__text =@candidate.work_info.sectors_experience	
+	  			span.active-admin__text no record	
 		.active-admin__field
 			span.active-admin__title Years of Experience:
 			'&nbsp;
