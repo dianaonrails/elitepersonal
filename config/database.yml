@@ -25,7 +25,7 @@ production:
   database: elitepersonalworldapp
   username: admin
   host: elitepersonalworldapp.c088kradxrzu.us-west-2.rds.amazonaws.com
-  password: ENV['PASSWORD']
+  password: artem123
   port: 3306
   pool: 5
   timeout: 5000
