@@ -37,10 +37,23 @@
 .col-md-12.carousel-container
 	div class="carousel slide carousel-fade" id="myCarousel" data-ride="carousel"
 		div class="carousel-inner"
+			-@images = Image.all
+			-n = 2
 			div class="item active"
-				=image_tag("babysitter-photo.jpg")
-				button type="button" class="btt-category" 
-					=link_to t(:find_a) + category_translation('NANNY'),'/services#babysitter'
+				=image_tag(get_image("HOMEPAGE_SLIDER_1"))
+				
+				span.image-text =get_text("HOMEPAGE_SLIDER_1")
+				
+			
+			-while n <= @images.size
+			
+				div class="item"
+					-tag = ("HOMEPAGE_SLIDER_" + n.to_s)
+					=image_tag(get_image(tag))
+				
+					span.image-text =get_text(tag)
+				-n += 1			
+					
 			
 	hr.hr-blue
 	.col-md-12.flyers.no-padding

@@ -31,8 +31,4 @@ ActiveAdmin.register GeneralTranslation do
 		end	
 		f.actions
 	end	
-
-
-
-
 end

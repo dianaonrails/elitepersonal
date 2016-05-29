@@ -1,10 +1,13 @@
 .container
 	.row.background-white
+		.col-md-4
+			=image_tag(get_image("IMG_CONDITIONS"))		
 		.col-md-8.conditions-content
 			h1 
 				=raw(general_translation("TITLE_CONDITIONS"))
 			hr
 			.text-style.paragraph-margin
 				=raw(general_translation("CONTENT_CONDITIONS"))
+		
 
 =render "layouts/footer"

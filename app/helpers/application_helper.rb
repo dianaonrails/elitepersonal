@@ -29,5 +29,19 @@ module ApplicationHelper
 
 	    return @result
 	end 
+
+	def get_image(label)
+		@result =""
+		@result = Image.find_by_label(label).image.url if !Image.find_by_label(label).blank?
+
+		return @result
+	end	
+
+	def get_text(label)
+		@result =""
+		@result = Image.find_by_label(label).text if !Image.find_by_label(label).blank?
+
+		return @result
+	end	
 	
 end

@@ -102,6 +102,17 @@ p{
 	margin:0;
 }
 
+.image-text{
+	position: absolute;
+	top:40%;
+	right:10%;
+	font-size: 3em;
+    color: white;
+    background-color: rgba(61,162,173,0.5);
+    padding: 0px 15px;
+}
+
+
 .ckeditor textarea {
 	display: block !important
 }

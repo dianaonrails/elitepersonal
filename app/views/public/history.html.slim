@@ -1,12 +1,13 @@
 .container
 	.row.background-white
+		.col-md-4
+			=image_tag(get_image("IMG_HISTORY"))
 		.col-md-8.history-content
 			h1
 				=raw(general_translation("TITLE_HISTORY"))
 			hr
 			.text-style.paragraph-margin
 				=raw(general_translation("CONTENT_HISTORY"))
-		.col-md-4 style="margin-top:5%"
-			=image_tag("business53.svg")		
+		
 
 =render "layouts/footer"
