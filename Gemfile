@@ -98,6 +98,7 @@ gem "fog"
 
 gem 'mysql2', '~> 0.4.2'
 gem "figaro"
+gem 'sqlite3'
 
 #gem 'mysql2', '~> 0.3.18'
 
