@@ -44,15 +44,15 @@
 				
 				span.image-text =get_text("HOMEPAGE_SLIDER_1")
 				
-			-if @images.size > 0
-				-while n <= @images.size
+			
+			-while n <= @images.size
+			
+				div class="item"
+					-tag = ("HOMEPAGE_SLIDER_" + n.to_s)
+					=image_tag(get_image(tag))
 				
-					div class="item"
-						-tag = ("HOMEPAGE_SLIDER_" + n.to_s)
-						=image_tag(get_image(tag))
-					
-						span.image-text =get_text(tag)
-					-n += 1			
+					span.image-text =get_text(tag)
+				-n += 1			
 					
 			
 	hr.hr-blue
