@@ -41,6 +41,7 @@ production:
   port: 3306
   pool: 5
   timeout: 5000
+  socket: /opt/bitnami/mysql/tmp/mysql.sock
   #<<: *default
   #database: db/production.sqlite3
 
