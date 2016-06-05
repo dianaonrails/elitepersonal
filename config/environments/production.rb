@@ -74,7 +74,7 @@ Rails.application.configure do
 
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
-  
+
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   config.action_controller.asset_host = 'https://s3-eu-west-1.amazonaws.com/elitepersonalworld'
 
@@ -95,6 +95,6 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
   config.assets.precompile += %w(*.svg *.eot *.woff *.ttf *.gif *.png *.ico)
-  config.assets.precompile << /\A(?!active_admin).*\.(js|css)\z/
+  config.assets.precompile << /\A(?!active_admin).*\.(js|scss)\z/
   config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
 end
