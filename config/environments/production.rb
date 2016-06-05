@@ -96,8 +96,5 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   config.assets.precompile += %w(*.svg *.eot *.woff *.ttf *.gif *.png *.ico)
   config.assets.precompile << /\A(?!active_admin).*\.(js|css)\z/
-  config.assets.paths << "#{Rails.root}/assets/fonts"
-  config.assets.paths << "#{Rails.root}/assets/images"
-  config.assets.precompile += %w( .svg .eot .woff .ttf )
-  config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
+  
 end
