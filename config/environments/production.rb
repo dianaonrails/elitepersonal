@@ -40,13 +40,18 @@ Rails.application.configure do
   # Apache or NGINX already handles this.
   config.serve_static_files = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
+  config.assets.precompile += ['*.js', '*.css', '*.css.erb', '*.css.scss']
+
   config.serve_static_assets = false
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
-
+  config.assets.paths << "#{Rails.root}/assets/fonts"
+  config.assets.paths << "#{Rails.root}/assets/images"
+  config.assets.precompile += %w( .svg .eot .woff .ttf )
+  config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = true
+  config.assets.compile = false
   # Asset digests allow you to set far-future HTTP expiration dates on all assets,
   # yet still be able to expire them through the digest params.
   config.assets.digest = true
@@ -92,5 +97,5 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-  config.assets.precompile += ['active_admin.scss','*.js', '*.css', '*.css.erb', '*.css.scss']
+  
 end
