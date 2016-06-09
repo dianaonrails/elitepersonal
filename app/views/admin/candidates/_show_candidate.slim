@@ -16,7 +16,7 @@
 			span.active-admin__title =@candidate.marital_status
 			',
 			span.active-admin__title 
-				-if @candidate.children > 0
+				-if !@candidate.children.blank?
 					=@candidate.children
 					'&nbsp;
 					' children
