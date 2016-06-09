@@ -10,15 +10,18 @@
 			'&nbsp;
 			span.active-admin__title =@candidate.last_name
 			',
-			span.active-admin__title =age(@candidate.birth_date)
+			span.active-admin__title =@candidate.birth_date
 		
 		.active-admin__field
 			span.active-admin__title =@candidate.marital_status
 			',
 			span.active-admin__title 
-				=@candidate.children
-				'&nbsp;
-				' children
+				-if @candidate.children > 0
+					=@candidate.children
+					'&nbsp;
+					' children
+				-else
+					'no children	
 		.active-admin__field
 			span.active-admin__title Citizenship:
 			'&nbsp;
