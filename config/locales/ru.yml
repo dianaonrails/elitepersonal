@@ -23,7 +23,16 @@ ru:
   required_fields: "Поля , отмеченные * обязательны для заполнения."
   
   active_admin:
-
+    models:
+      candidate:
+        one: "кандидат" 
+        other: "кандидаты"
+    attributes:
+        candidate:
+          address: ""
+          mobile: ""
+          citizenship: ""
+          start: ""
     dashboard: "Панель управления"
     dashboard_welcome:
       welcome: "Добро пожаловать в Active Admin. Это стандартная страница управления сайтом."
