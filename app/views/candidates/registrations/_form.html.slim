@@ -85,7 +85,10 @@
 			   .col-md-3.no-padding
 			   	=raw(general_translation("MARITAL_STATUS"))
 			   .col-md-9
-			   	=f.select(:marital_status,options_for_select(["Single","Married",'Divorced','Separated','Widowed','In a relationship','Civil Partnership','Rather not say']))
+			   	-if session[:locale] == :en
+			   		=f.select(:marital_status,options_from_collection_for_select(MaritalStatus.all,:id,:title),prompt: raw(general_translation("SELECT_MARITAL_STATUS")))
+			   	-else
+			   		=f.select(:marital_status,options_from_collection_for_select(MaritalStatus.all,:id,:ru),prompt: raw(general_translation("SELECT_MARITAL_STATUS")))	
 			.col-md-12.align-field   	
 			   .col-md-3.no-padding
 			   	 =raw(general_translation("PASSPORT"))
@@ -120,7 +123,7 @@
 				.col-md-3.no-padding
 					=raw(general_translation("OWN_CHILDREN")) + ' *'
 				.col-md-9
-					=f.select(:children,options_for_select(["no children","1","2","3","4","5","6","7","8","9","10+"]), class:'width_select')		   	 	   	     	 
+					=f.select(:children,options_for_select(["0","1","2","3","4","5","6","7","8","9","10+"]), class:'width_select')		   	 	   	     	 
 			.col-md-12.align-field   	 
 			   .col-md-3.no-padding
 			   	=raw(general_translation("DRIVING_LICENCE"))
@@ -263,18 +266,25 @@
 		  	  br
 			  =f.label nil,raw(general_translation("AVAILABILITY")) +' *', class:"indent-field subtitle"
 			  br
-			  =f.collection_check_boxes(:availability_ids,Availability.all,:id,:description) 
-			  
+			  -if session[:locale] == :en
+			  	=f.collection_check_boxes(:availability_ids,Availability.all,:id,:description) 
+			  -else
+			  	=f.collection_check_boxes(:availability_ids,Availability.all,:id,:ru)
 			  br
 			  =label_tag nil,raw(general_translation("AVAILABILITY_WORK")) + ' *',class:'subtitle'
 			  br
-			  =f.collection_check_boxes(:available_work_ids,AvailableWork.all,:id,:description)
-			  
+			  -if session[:locale] == :en
+			  	=f.collection_check_boxes(:available_work_ids,AvailableWork.all,:id,:description)
+			  -else
+			  	=f.collection_check_boxes(:available_work_ids,AvailableWork.all,:id,:ru)
 			  br
 			  =label_tag nil, raw(general_translation("LEGAL_WORK")) + ' *',class:'subtitle'
 			  br
 			  .indent-textbox
-			  	=f.collection_check_boxes(:legal_work_ids,LegalWork.all,:id,:description)
+			  	-if session[:locale] == :en
+			  		=f.collection_check_boxes(:legal_work_ids,LegalWork.all,:id,:description)
+			  	-else
+			  		=f.collection_check_boxes(:legal_work_ids,LegalWork.all,:id,:ru)	
 				
 			  
 			  br
