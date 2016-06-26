@@ -70,10 +70,18 @@ class Candidate < ActiveRecord::Base
     
   end
 
+  def current_age
+    now = Time.now.utc.to_date
+    now.year - birth_date.year - (birth_date.to_date.change(:year => now.year) > now ? 1 : 0)
+  end
+
+
   def country_name
     country = self.country
     ISO3166::Country[country]
-   end
+  end
+
+
 
   scope :gender_feminine, -> {where(gender: 'f')}
   scope :gender_masculine, -> {where(gender: 'm')}

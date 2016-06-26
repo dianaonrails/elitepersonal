@@ -46,12 +46,11 @@ permit_params :photo,:cv,:category_id,:first_name,:last_name,:country,:city,:add
 
 	filter :first_name
 	filter :last_name
-	filter :mobile
+	filter :candidate_languages, as: :select, collection: Language.all.map(&:language)
 	filter :email
 	filter :nationality
 	filter :citizenship
-	filter :address
-	filter :birth_date
+	
 
 	#filter :marital_status, as: :select, collection: ['Single','Married','Divorced','Separated','Widowed','In a relationship','Civil Partnership','Rather not say']
 	#filter :smoker

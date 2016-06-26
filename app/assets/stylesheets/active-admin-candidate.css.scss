@@ -22,6 +22,11 @@
 		}
 	}
 
+	&__field-top{
+		position: absolute;
+		top:40%;
+	}
+
 	&__photo{
 		img{
 			width: 100%;

@@ -2,7 +2,7 @@
 	.active-admin__col-4
 		.active-admin__photo
 			=image_tag @candidate.photo
-	.active-admin__col-8
+	.active-admin__col-6
 		.active-admin__field
 			span.active-admin__title =Category.find(@candidate.category_id).title
 		.active-admin__field
@@ -30,6 +30,10 @@
 			span.active-admin__title Nationality:
 			'&nbsp;
 			span.active-admin__text =@candidate.country_name
+	.active-admin__col-4
+		.active-admin__field-top
+			-if !@candidate.cv.blank?
+				div.active-admin__text =link_to 'Download CV' , @candidate.cv.url	
 	.active-admin__col-12
 		hr
 		.active-admin__field
