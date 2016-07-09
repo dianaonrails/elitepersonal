@@ -17,6 +17,18 @@ permit_params :photo,:cv,:category_id,:first_name,:last_name,:country,:city,:add
 #   permitted << :other if resource.something?
 #   permitted
 # end
+
+	controller do
+	    def index
+	      index! do |format|
+	        format.xls {
+	          spreadsheet = CandidatesSpreadsheet.new @candidates
+	          send_data spreadsheet.generate_xls, filename: "candidates.xls"
+	        }
+	      end
+	    end
+	end
+	
 	action_item only: [:show] do
 	  button_tag 'Print File', id:"exportPDF", class:"word-export"
 	end
@@ -32,8 +44,11 @@ permit_params :photo,:cv,:category_id,:first_name,:last_name,:country,:city,:add
        #redirect_to :back
 
 	end
+
+
+
+
 	index do
-		#download_links: [:pdf]
 		selectable_column
 		column :id
 		column :first_name
@@ -46,10 +61,10 @@ permit_params :photo,:cv,:category_id,:first_name,:last_name,:country,:city,:add
 
 	filter :first_name
 	filter :last_name
-	filter :candidate_languages, as: :select, collection: Language.all.map(&:language)
 	filter :email
 	filter :nationality
 	filter :citizenship
+	#filter :by_language_in, as: :select, collection: Language.all.map(&:language)
 	
 
 	#filter :marital_status, as: :select, collection: ['Single','Married','Divorced','Separated','Widowed','In a relationship','Civil Partnership','Rather not say']

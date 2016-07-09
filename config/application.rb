@@ -29,6 +29,7 @@ module Elitepersonal
     Rails.application.config.i18n.locale = :en
     config.i18n.available_locales = [:en, :ru]
     config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
+    config.autoload_paths += %W(#{config.root}/app/spreadsheets)
     
     #config.middleware.use "PDFKit::Middleware", :print_media_type => true
     

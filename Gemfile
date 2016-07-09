@@ -48,6 +48,8 @@ gem 'gmaps4rails'
 
 gem 'activeadmin', github: 'activeadmin'
 
+gem 'spreadsheet'
+
 gem 'countries_and_languages', :require => 'countries_and_languages/rails'
 gem 'country_select'
 gem 'mail_form'
@@ -100,6 +102,7 @@ gem "fog"
 
 gem "figaro"
 
+gem 'activeadmin-axlsx'
 #gem 'mysql2', '~> 0.3.18'
 
 group :development, :test do

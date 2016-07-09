@@ -70,18 +70,33 @@ class Candidate < ActiveRecord::Base
     
   end
 
+  ransacker :by_language ,
+    formatter: proc { |selected_language|
+      results = Candidate.joins(:languages).where("languages.language IN (?)",selected_language)
+      results = results.present? ? results : nil
+    } do |candidate|
+      candidate.table[:id]
+  end
+
+  def self.has_language(language)
+    self.where("languages.id IN (?)",language).joins(:languages)
+  end
+
   def current_age
     now = Time.now.utc.to_date
     now.year - birth_date.year - (birth_date.to_date.change(:year => now.year) > now ? 1 : 0)
   end
 
 
-  def country_name
-    country = self.country
-    ISO3166::Country[country]
+  def nationality_name
+    country = ISO3166::Country[nationality]
+    country.translations[I18n.locale.to_s] || country.name
   end
 
-
+  def citizenship_name
+    country = ISO3166::Country[citizenship]
+    country.translations[I18n.locale.to_s] || country.name
+  end
 
   scope :gender_feminine, -> {where(gender: 'f')}
   scope :gender_masculine, -> {where(gender: 'm')}

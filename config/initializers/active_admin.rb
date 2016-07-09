@@ -221,7 +221,7 @@ ActiveAdmin.setup do |config|
   #       menu.add label: "My Great Website", url: "http://www.mygreatwebsite.com", html_options: { target: :blank }
   #     end
   #   end
-
+  config.download_links = [:csv, :xml, :xls, :pdf]
   # == Download Links
   #
   # You can disable download links on resource listing pages,
@@ -235,7 +235,8 @@ ActiveAdmin.setup do |config|
   #     admin.download_links = false
   #
   #     # Only show XML & PDF options
-  #     admin.download_links = [:xml, :pdf]
+        #admin.download_links = [:xml, :pdf,:xls]
+
   #
   #     # Enable/disable the links based on block
   #     #   (for example, with cancan)
