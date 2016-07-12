@@ -1,18 +1,17 @@
-.active-admin__table
-	.active-admin__col-4
-		.active-admin__photo
+table.active-admin__table id="candidate" data-tableName="Candidate"
+
+	tr
+		td.active-admin__photo
 			=image_tag @candidate.photo
-	.active-admin__col-6
-		.active-admin__field
-			span.active-admin__title =Category.find(@candidate.category_id).title
-		.active-admin__field
-			span.active-admin__title =@candidate.first_name	
-			'&nbsp;
-			span.active-admin__title =@candidate.last_name
-			',
-			span.active-admin__title =@candidate.birth_date
+	
+		td.active-admin__title =Category.find(@candidate.category_id).title
+		td.active-admin__text
+			=@candidate.first_name	
+			'&nbsp; 
+			=@candidate.last_name
+			=@candidate.birth_date
 		
-		.active-admin__field
+		td.active-admin__field
 			span.active-admin__title =@candidate.marital_status
 			',
 			span.active-admin__title 
@@ -22,112 +21,116 @@
 					' children
 				-else
 					'no children	
-		.active-admin__field
+		td.active-admin__field
 			span.active-admin__title Citizenship:
 			'&nbsp;
-			span.active-admin__text =@candidate.country_name
-		.active-admin__field
+			span.active-admin__text =@candidate.nationality_name
+		td.active-admin__field
 			span.active-admin__title Nationality:
 			'&nbsp;
-			span.active-admin__text =@candidate.country_name
-	.active-admin__col-4
-		.active-admin__field-top
-			-if !@candidate.cv.blank?
-				div.active-admin__text =link_to 'Download CV' , @candidate.cv.url	
-	.active-admin__col-12
-		hr
-		.active-admin__field
+			span.active-admin__text =@candidate.citizenship_name
+	
+		tr
+			td
+			td.active-admin__field-top
+				-if !@candidate.cv.blank?
+					div.active-admin__text =link_to 'Download CV' , @candidate.cv.url	
+	tr
+		td.active-admin__field
 			h3 Education
-		.active-admin__field
+		td.active-admin__field
 			span.active-admin__title Languages:
 			br
 			-@candidate.languages.each do |language|
 				
 				span.active-admin__text =language.language
 				'&nbsp;	
-		.active-admin__field
+		td.active-admin__field
 			span.active-admin__title Highest level of education	
 			br
 			-if !@candidate.level_education_id.blank?
 				span.active-admin__text =LevelEducation.find(@candidate.level_education_id).level
 			-else
 				span.active-admin__text no record	
-		.active-admin__field
+		td.active-admin__field
 			span.active-admin__title Education History:
 			br
 			-if !@candidate.education_info.blank?
 				=@candidate.education_info.history
 			-else
 				span no record	
-	.active-admin__col-12
+	tr
 		hr
-		.active-admin__field
+		td.active-admin__field
 			h3 Experience
-		.active-admin__field
+		td.active-admin__field
 			span.active-admin__title Sectors / Functions you have experience in:
 			br
 			-if !@candidate.work_info.blank? && !@candidate.work_info.sectors_experience.blank?
 	  			span.active-admin__text =@candidate.work_info.sectors_experience
 	  		-else
 	  			span.active-admin__text no record
-	  			
-		.active-admin__field
+	
+		td.active-admin__field
 			span.active-admin__title Years of Experience:
 			'&nbsp;
 			span.active-admin__text =@candidate.years_experience	
-		.active-admin__col-6
-			.active-admin__field
-				span.active-admin__title From:
+
+		tr	
+			tr
+				td.active-admin__field
+					span.active-admin__title From:
+					'&nbsp;
+					span.active-admin__text =@candidate.date_start1
+					
+					'&nbsp;
+					span.active-admin__title To:
+					'&nbsp;
+					span.active-admin__text =@candidate.date_end1
+				td.active-admin__field
+					span.active-admin__title Employer:
+					'&nbsp;
+					span.active-admin__text =@candidate.employer1
+				td.active-admin__field
+					span.active-admin__title Functions:
+					'&nbsp;
+					span.active-admin__text =@candidate.functions1	
+			tr
+				td.active-admin__field
+					span.active-admin__title From:
+					'&nbsp;
+					span.active-admin__text =@candidate.date_start2
+					
+					'&nbsp;
+					span.active-admin__title To:
+					'&nbsp;
+					span.active-admin__text =@candidate.date_end2
+				td.active-admin__field
+					span.active-admin__title Employer:
+					'&nbsp;
+					span.active-admin__text =@candidate.employer2
+				td.active-admin__field
+					span.active-admin__title Functions:
+					'&nbsp;
+					span.active-admin__text =@candidate.functions2
+		tr
+			td.active-admin__field
+				span.active-admin__title Availability:
 				'&nbsp;
-				span.active-admin__text =@candidate.date_start1
-				
-				'&nbsp;
-				span.active-admin__title To:
-				'&nbsp;
-				span.active-admin__text =@candidate.date_end1
-			.active-admin__field
-				span.active-admin__title Employer:
-				'&nbsp;
-				span.active-admin__text =@candidate.employer1
-			.active-admin__field
-				span.active-admin__title Functions:
-				'&nbsp;
-				span.active-admin__text =@candidate.functions1	
-		.active-admin__col-6
-			.active-admin__field
-				span.active-admin__title From:
-				'&nbsp;
-				span.active-admin__text =@candidate.date_start2
-				
-				'&nbsp;
-				span.active-admin__title To:
-				'&nbsp;
-				span.active-admin__text =@candidate.date_end2
-			.active-admin__field
-				span.active-admin__title Employer:
-				'&nbsp;
-				span.active-admin__text =@candidate.employer2
-			.active-admin__field
-				span.active-admin__title Functions:
-				'&nbsp;
-				span.active-admin__text =@candidate.functions2
-		.active-admin__field
-			span.active-admin__title Availability:
-			'&nbsp;
-			-@candidate.availabilities.each do |a|
-	  			span.availability-description
-	  				span.active-admin__text =a.description
-	  	.active-admin__field
-	  		span.active-admin__title Available to work:
-	  		'&nbsp;
-	  		-@candidate.available_works.each do |aw|
-	  			span.availability-description
-	  				span.active-admin__text =aw.description	
-	  	.active-admin__field
-	  		span.active-admin__title Legal to work:
-	  		'&nbsp;
-	  		-@candidate.legal_works.each do |aw|
-	  			span.availability-description
-	  				span.active-admin__text =aw.description	
+				-@candidate.availabilities.each do |a|
+		  			span.availability-description
+		  				span.active-admin__text =a.description
+		  	td.active-admin__field
+		  		span.active-admin__title Available to work:
+		  		'&nbsp;
+		  		-@candidate.available_works.each do |aw|
+		  			span.availability-description
+		  				span.active-admin__text =aw.description	
+		  	td.active-admin__field
+		  		span.active-admin__title Legal to work:
+		  		'&nbsp;
+		  		-@candidate.legal_works.each do |aw|
+		  			span.availability-description
+		  				span.active-admin__text =aw.description	
 								
 

@@ -31,6 +31,7 @@ permit_params :photo,:cv,:category_id,:first_name,:last_name,:country,:city,:add
 	
 	action_item only: [:show] do
 	  button_tag 'Print File', id:"exportPDF", class:"word-export"
+	  button_tag 'Export XLS', id:"exportXLS"
 	end
 
 	member_action :download do

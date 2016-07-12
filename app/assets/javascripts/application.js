@@ -79,6 +79,20 @@ $(document).ready(function () {
 	$('.datepicker').datepicker();
 	
 
+	$('#exportXLS').click(function(){
+		$("#candidate").table2excel({
+    		name: "Worksheet Candidate",
+    		filename: "Candidate",
+    		fileext: ".xls",
+    		exclude_links: true,
+			exclude_inputs: true
+  		});
+
+  		var htmltable= document.getElementById('#exportXLS');
+        var html = htmltable.outerHTML;
+        window.open('data:application/vnd.ms-excel,' + encodeURIComponent(html));
+	});
+
 	//$('#interview_interview_date').datepicker();
 
 	$("#candidate_mobile").intlTelInput({

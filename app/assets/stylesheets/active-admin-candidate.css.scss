@@ -1,8 +1,11 @@
 .active-admin{
-
 	&__table{
-		display: block;
+		td{
+			max-width: 30px;
+			//white-space: nowrap;
+		}
 	}
+	
 
 	&__title{
 		font-weight: bold;

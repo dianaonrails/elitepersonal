@@ -87,6 +87,8 @@ class Candidate < ActiveRecord::Base
     now.year - birth_date.year - (birth_date.to_date.change(:year => now.year) > now ? 1 : 0)
   end
 
+  
+  
 
   def nationality_name
     country = ISO3166::Country[nationality]
