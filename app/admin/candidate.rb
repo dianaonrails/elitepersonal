@@ -31,9 +31,12 @@ permit_params :photo,:cv,:category_id,:first_name,:last_name,:country,:city,:add
 	
 	action_item only: [:show] do
 	  button_tag 'Print File', id:"exportPDF", class:"word-export"
-	  button_tag 'Export XLS', id:"exportXLS"
 	end
 
+	active_item only: [:show] do
+		button_tag 'Export XLS', id:"exportXLS", class:"word-export"
+	end
+		
 	member_action :download do
 	   #candidate = Candidate.find(params[:id])
 	   #respond_to do |format|
