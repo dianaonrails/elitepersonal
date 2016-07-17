@@ -1,6 +1,9 @@
+-if !@candidate.cv.blank?
+	div =link_to 'Download CV' , @candidate.cv.url	
 table.active-admin__table id="candidate" data-tableName="Candidate"
 
 	tr
+		
 		td.active-admin__photo
 			=image_tag @candidate.photo
 	
@@ -9,8 +12,9 @@ table.active-admin__table id="candidate" data-tableName="Candidate"
 			=@candidate.first_name	
 			'&nbsp; 
 			=@candidate.last_name
+		td.active-admin__text	
 			=@candidate.birth_date
-		
+	tr
 		td.active-admin__field
 			span.active-admin__title =@candidate.marital_status
 			',
@@ -30,11 +34,7 @@ table.active-admin__table id="candidate" data-tableName="Candidate"
 			'&nbsp;
 			span.active-admin__text =@candidate.citizenship_name
 	
-		tr
-			td
-			td.active-admin__field-top
-				-if !@candidate.cv.blank?
-					div.active-admin__text =link_to 'Download CV' , @candidate.cv.url	
+		
 	tr
 		td.active-admin__field
 			h3 Education
