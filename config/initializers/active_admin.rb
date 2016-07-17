@@ -189,9 +189,9 @@ ActiveAdmin.setup do |config|
   config.register_stylesheet 'active-admin-candidate-print', media: :print
   #
   # To load a javascript file:
-     config.register_javascript 'application.js'
      config.register_javascript 'ckeditor/ckeditor.js' 
      config.register_javascript 'ckeditor/init.js'
+     config.register_javascript 'application.js'
 
   # == CSV options
   #

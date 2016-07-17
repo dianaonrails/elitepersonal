@@ -74,7 +74,7 @@ function exportPDF(){
 };
 (function($) {
 	$(document).ready(function () {
-
+		
 		$('.carousel').carousel();
 		$('.datepicker').datepicker();
 		
