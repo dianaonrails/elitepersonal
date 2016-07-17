@@ -33,7 +33,7 @@ permit_params :photo,:cv,:category_id,:first_name,:last_name,:country,:city,:add
 	  button_tag 'Print File', id:"exportPDF", class:"word-export"
 	end
 
-	active_item only: [:show] do
+	action_item only: [:show] do
 		button_tag 'Export XLS', id:"exportXLS", class:"word-export"
 	end
 		
